@@ -3,10 +3,10 @@ import { Button } from 'react-bootstrap';
 import "./Login.css";
 
 const Login = () => {
-    return (
-        <div>
-
-           <section className=' w-lg-50'>
+  return (
+    <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)' }}>
+      <div className='d-lg-flex body-reg   registration-div'>
+        <section className=' w-lg-50'>
           <img
             className=' w-100 h-100'
             src='https://i.ibb.co/Dg3F3FV/IMG-9325.jpg'
@@ -54,11 +54,10 @@ const Login = () => {
             <Button style={{width:'200px'}}  variant="success">Google Sign</Button>
           </div>
         </section>
-        
+      </div>
+    </div>
 
-
-        </div>
-    );
+  );
 };
 
 export default Login;
