@@ -76,3 +76,7 @@
       transform: translateY(-20px)
     }
 }
+
+.registration-div{
+    height: calc(100vh - 60px)
+ }
