@@ -10,7 +10,7 @@ const Head = () => {
                     <Nav>
                         <Navbar.Brand as={Link} to="/home">JomTapau</Navbar.Brand>
                         <Nav.Link className='text-white' as={Link} to="/menu">Menu</Nav.Link>
-                        <Nav.Link className='text-white' as={Link} to="/data">About</Nav.Link>
+                        <Nav.Link className='text-white' as={Link} to="/about">About</Nav.Link>
                     </Nav>
                     <Nav className=''>
                         <Nav.Link className='text-white' as={Link} to="/login">Login</Nav.Link>
