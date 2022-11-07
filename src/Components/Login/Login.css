@@ -1,0 +1,78 @@
+.login-container{
+    width: 300px;
+    padding: 20px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+}
+.did-floating-label-content { 
+    position:relative; 
+    margin-bottom:20px; 
+}
+.did-floating-label {
+    color:#1e4c82; 
+    font-size:15px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    border-radius: 10px;
+    left:15px;
+    top:11px;
+    padding:0 5px;
+    background:#fff;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+}
+.did-floating-input{
+    font-size:18px;
+    display:block;
+    width:110%;
+    height:40px;
+    padding: 0 20px;
+    /* background: #fff; */
+    color: #323840;
+    border: 1px solid #3D85D8;
+    border-radius: 10px;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    box-sizing: border-box;
+}
+.did-floating-input:focus ~.did-floating-label{
+    outline: none;
+    top:-8px;
+    font-size:13px;
+}
+.did-floating-input:not(:placeholder-shown) ~ .did-floating-label {
+    top:-8px;
+    font-size:13px;
+}
+.shadow-red{
+    text-shadow: 1px 1px 3px red;
+}
+.shadow-white{
+    text-shadow: 1px 1px 5px rgb(170, 162, 162);
+}
+.waviy {
+    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(249, 246, 246, 0.2));
+    font-size: 60px;
+  }
+  .waviy span {
+    font-family: 'Alfa Slab One', cursive;
+    position: relative;
+    display: inline-block;
+    color: rgb(243, 243, 243);
+    text-transform: uppercase;
+    animation: waviy 2s infinite linear;
+    animation-delay: calc(.3s * var(--i));
+    
+}
+
+@keyframes waviy {
+    0%,40%,100% {
+      transform: translateY(0)
+    }
+    20% {
+      transform: translateY(-20px)
+    }
+}
