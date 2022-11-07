@@ -1,7 +1,6 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import "./Login.css";
-
+import React from 'react'
+import { Button } from 'react-bootstrap'
+import './Login.css'
 const Login = () => {
   return (
     <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)' }}>
@@ -56,8 +55,6 @@ const Login = () => {
         </section>
       </div>
     </div>
-
-  );
-};
-
-export default Login;
+  )
+}
+export default Login
