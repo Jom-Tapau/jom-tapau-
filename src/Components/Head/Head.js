@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Head = () => {
     return (
         <div>
             <Navbar bg='danger' variant='dark' style={{height:"70px"}}>
@@ -21,4 +21,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Head;
