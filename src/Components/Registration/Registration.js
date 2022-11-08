@@ -4,6 +4,19 @@ import { Button } from 'react-bootstrap';
 const Registration = () => {
     return (
         <div>
+        
+        <section className='w-75 mx-auto px-lg-5'>
+          <h1
+            style={{ fontSize: '80px' }}
+            className='text-center mt-5 mb-2 fst-italic waviy'
+          >
+            <span style={{'--i':1}} className='animate shadow-red text-white'>J</span>
+            <span style={{'--i':2}} className='animate shadow-white text-danger'>om</span>
+            {/* <small></small> */}
+            <span style={{'--i':3}} className='animate shadow-red text-white'>Ta</span>
+            <span style={{'--i':4}} className='animate shadow-white text-danger'>pa</span>
+            <span style={{'--i':5}} className='animate shadow-red text-white'>u</span>
+          </h1>
 
         <div className='d-flex justify-content-center'>
             <div>
@@ -69,7 +82,7 @@ const Registration = () => {
             </div>
           </form>
 
-            
+         </section>   
         </div>
     );
 };
