@@ -165,7 +165,7 @@ const Registration = () => {
                   Sign up
                 </Button>
               </div>
-              <p>{errorMsg}</p>
+              <p className='text-danger'>{errorMsg}</p>
             </form>
            
             <small>Already have an Account? <Link to="/login">Please Login</Link></small>
