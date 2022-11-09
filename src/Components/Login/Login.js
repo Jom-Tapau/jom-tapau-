@@ -23,15 +23,13 @@ const [error,setError]= useState("");
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in 
         const user = userCredential.user;
         console.log(user);
        window.location='/home';
        setLoading(false);
-        // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
+  
         const errorMessage = error.message;
         setError(errorMessage);
         console.log(errorMessage);
