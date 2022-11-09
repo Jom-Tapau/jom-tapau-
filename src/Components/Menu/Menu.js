@@ -1,4 +1,5 @@
 import React from 'react';
+import Categories from '../Categories/Categories';
 import Item from '../Item/Item';
 import './Menu.css';
 
@@ -80,9 +81,14 @@ const foods = [
 const Menu = () => {
     return (
         <div className='menu'>
-            {
-                foods.map(food => <Item name={food.name} description={food.description} imgSrc={food.imgSrc} price={food.price}></Item>)
-            }
+            <div>
+                <Categories></Categories>
+            </div>
+            <div className='items'>
+                {
+                    foods.map(food => <Item name={food.name} description={food.description} imgSrc={food.imgSrc} price={food.price}></Item>)
+                }
+            </div>
         </div>
     );
 };
