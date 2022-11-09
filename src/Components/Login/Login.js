@@ -1,5 +1,6 @@
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import React, { useRef } from 'react'
+import { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import auth from '../../firebase.init'
@@ -12,27 +13,31 @@ const Login = () => {
 
   const emailRef = useRef();
   const passwordRef = useRef();
+  const [loading, setLoading]=useState(false);
 
 
   const handleLoginForm=(e)=>{
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
- 
+    setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
         console.log(user);
+       window.location='/home';
+       setLoading(false);
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorMessage)
+        console.log(errorMessage);
+        setLoading(false);
       });
 
-    
+  
    
   }
   return (
@@ -78,6 +83,12 @@ const Login = () => {
               
          
             </div>
+            {
+              loading?   <div class="spinner-border text-danger" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>:<div></div>
+            }
+          
             <small className='d-block text-danger'>Dont have an Account yet? <Link to="/registration">Please Register</Link></small>
           </form>
           <div className='d-flex justify-content-center '>
