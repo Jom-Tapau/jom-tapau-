@@ -2,3 +2,21 @@
     width: 300px;
     padding: 50px;
 }
+
+.flex-column {
+    color: black;
+    display: flex;
+    gap: 1em;
+}
+
+.link {
+    color: black;
+    transform: 0.1s;
+}
+
+.link:hover {
+    font-weight: 600;
+    color: orangered;
+    text-decoration: underline;
+    text-underline-offset: 0.5em;
+}
