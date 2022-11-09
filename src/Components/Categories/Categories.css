@@ -1,6 +1,8 @@
 .categories {
-    width: 300px;
+    width: 270px;
     padding: 50px;
+    position: sticky;
+    top: 0;
 }
 
 .flex-column {
