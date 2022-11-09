@@ -12,7 +12,7 @@ const Registration = () => {
 
   const handleLoginForm=(e)=>{
     e.preventDefault();
-    console.log("form working");
+   
   }
     return (
         <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2'}}>
