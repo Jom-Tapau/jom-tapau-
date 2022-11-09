@@ -2,7 +2,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../firebase.init";
 
 const handleGoogleSignIn=()=>{
-
+let errorCode;
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
   .then((result) => {
@@ -15,14 +15,13 @@ const handleGoogleSignIn=()=>{
     // ...
   }).catch((error) => {
     // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
+     errorCode = error.code;
+ 
+    
     // ...
   });
+return{errorCode}
+
   
 }
 export default handleGoogleSignIn;
