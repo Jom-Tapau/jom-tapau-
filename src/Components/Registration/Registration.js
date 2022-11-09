@@ -9,6 +9,7 @@ import { Button } from 'react-bootstrap';
 import auth from '../../firebase.init';
 import './Registration.css'
 import Loading from '../Loading/Loading';
+import handleGoogleSignIn from '../../hooks/googleAuth';
 
 const Registration = () => {
 
@@ -27,7 +28,11 @@ const Registration = () => {
   const password = useRef("");  
   const confirmPass = useRef("");  
   const phoneNumber = useRef(""); 
+  //google signin
+  const handleGoogleSignUp=()=>{
+    handleGoogleSignIn();
   
+  }
   // function of signup button to register an user
   const handleSignUp = async e =>{
       e.preventDefault();
@@ -151,7 +156,7 @@ const Registration = () => {
               <hr style={{ width: '200px', color: 'red' }} />
             </div>
             <div className='d-flex justify-content-center '>
-              <Button style={{ width: '200px' }}  variant="success">Google Sign</Button>
+              <Button onClick={handleGoogleSignUp} style={{ width: '200px' }}  variant="success">Google Sign</Button>
              
             </div>
        

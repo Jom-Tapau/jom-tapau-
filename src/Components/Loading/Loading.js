@@ -7,8 +7,6 @@ const Loading = () => {
       <Spinner animation='border'variant="danger" role='status'>
         <span className='visually-hidden'>Loading...</span>
       </Spinner>
-
-     
     </div>
   )
 }

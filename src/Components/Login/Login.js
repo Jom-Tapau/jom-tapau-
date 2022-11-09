@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import auth from '../../firebase.init'
+import handleGoogleSignIn from '../../hooks/googleAuth'
 import Loading from '../Loading/Loading'
 
 
@@ -18,6 +19,10 @@ const Login = () => {
 const [error,setError]= useState("");
 if(loading){
   return <Loading></Loading>
+}
+const handleGoogleSignUp=()=>{
+  handleGoogleSignIn();
+
 }
   const handleLoginForm=(e)=>{
     e.preventDefault();
@@ -97,7 +102,7 @@ if(loading){
             <hr style={{width:'200px',color:'red'}}/>
           </div>
           <div className='d-flex justify-content-center'>
-            <Button style={{width:'200px'}}  variant="success">Google Sign</Button>
+            <Button onClick={handleGoogleSignUp} style={{width:'200px'}}  variant="success">Google Sign</Button>
           </div>
         </section>
       </div>
