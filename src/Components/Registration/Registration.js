@@ -4,16 +4,7 @@ import { Link } from 'react-router-dom';
 import './Registration.css'
 
 const Registration = () => {
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const numberRef = useRef();
-  const confirmNumberRef = useRef();
-
-  const handleLoginForm=(e)=>{
-    e.preventDefault();
-   
-  }
+ 
     return (
         <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2'}}>
         <div className='d-lg-flex body-reg   registration-div'>
@@ -51,10 +42,10 @@ const Registration = () => {
                 />
               </div>
             </div>
-            <form className='w-100 ' onSubmit={handleLoginForm}>
+            <form className='w-100 ' >
               <div className='login-container'>
                 <div className='did-floating-label-content'>
-                  <input  ref={nameRef}
+                  <input  
                     className='did-floating-input'
                     type='text'
                     placeholder=' '
@@ -62,7 +53,7 @@ const Registration = () => {
                   <label className='did-floating-label'>Name</label>
                 </div>
                 <div className='did-floating-label-content'>
-                  <input ref={emailRef}
+                  <input 
                     className='did-floating-input'
                     type='email'
                     placeholder=' '
@@ -70,7 +61,7 @@ const Registration = () => {
                   <label className='did-floating-label'>Email</label>
                 </div>
                 <div className='did-floating-label-content'>
-                  <input ref={numberRef}
+                  <input 
                     className='did-floating-input'
                     type='text'
                     placeholder=' '
@@ -78,7 +69,7 @@ const Registration = () => {
                   <label className='did-floating-label'>Phone Number</label>
                 </div>
                 <div className='did-floating-label-content did-error-input'>
-                  <input ref={passwordRef}
+                  <input 
                     className='did-floating-input'
                     type='password'
                     placeholder=' '
@@ -86,7 +77,7 @@ const Registration = () => {
                   <label className='did-floating-label'>Password</label>
                 </div>
                 <div className='did-floating-label-content did-error-input'>
-                  <input ref={confirmNumberRef}
+                  <input 
                     className='did-floating-input'
                     type='password'
                     placeholder=' '

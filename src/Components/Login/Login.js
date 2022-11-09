@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './Login.css'
 const Login = () => {
 
-  
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const numberRef = useRef();
+  const confirmNumberRef = useRef();
+
+  const handleLoginForm=(e)=>{
+    e.preventDefault();
+   
+  }
   return (
     <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)' }}>
       <div className='d-lg-flex body-reg   login-div'>
