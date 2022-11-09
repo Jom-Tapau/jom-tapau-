@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import "./Item.css";
 
 const Item = (props) => {
     const {name, description, price, imgSrc} = props.food;
@@ -13,7 +14,7 @@ const Item = (props) => {
                         {description}
                     </Card.Text>
                     <Card.Subtitle style={{marginBottom: '1.5em'}}>RM {price}</Card.Subtitle>
-                    <Button variant="primary">Add to cart</Button>
+                    <Button className='button' variant="primary">Add to cart</Button>
                 </Card.Body>
             </Card>
 
