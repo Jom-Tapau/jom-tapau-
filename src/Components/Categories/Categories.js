@@ -4,8 +4,8 @@ import "./Categories.css";
 
 const Categories = () => {
     return (
-        <div className='categories'>
-            <Nav defaultActiveKey="#popular" className="flex-column">
+        <div >
+            <Nav defaultActiveKey="#popular" className="flex-column categories">
                 <Nav.Link className='link' href="#popular">Popular</Nav.Link>
                 <Nav.Link className='link' eventKey="link-1">Set Meals</Nav.Link>
                 <Nav.Link className='link' eventKey="link-2">A la Carte</Nav.Link>
