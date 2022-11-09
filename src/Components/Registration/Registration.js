@@ -4,11 +4,7 @@ import { Link } from 'react-router-dom';
 import './Registration.css'
 
 const Registration = () => {
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const numberRef = useRef();
-  const confirmNumberRef = useRef();
+
     return (
         <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2'}}>
         <div className='d-lg-flex body-reg   registration-div'>
