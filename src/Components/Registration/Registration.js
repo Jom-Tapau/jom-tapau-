@@ -1,16 +1,34 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
+  useUpdateProfile
+} from 'react-firebase-hooks/auth';
 import {React,useRef} from 'react';
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import auth from '../../firebase.init';
 import './Registration.css'
 
 const Registration = () => {
+
+  const [createUserWithEmailAndPassword,
+    user,
+    loading,
+    error] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, err] = useUpdateProfile(auth);
+    const [sendEmailVerification, sending, error1] = useSendEmailVerification(
+      auth
+    );
+
+  const navigate = useNavigate();
   const name = useRef("");  
   const email = useRef("");  
   const password = useRef("");  
   const confirmPass = useRef("");  
-  const phoneNumber = useRef("");  
-  const handleSignUp = e =>{
+  const phoneNumber = useRef(""); 
+  
+  // function of signup button to register an user
+  const handleSignUp = async e =>{
       e.preventDefault();
       const nameValue = name.current.value;
       const emailValue = email.current.value;
@@ -19,6 +37,15 @@ const Registration = () => {
       const confirmPassValue = confirmPass.current.value;
 
       console.log(nameValue, emailValue, passwordValue, phoneNumberValue);
+
+      await createUserWithEmailAndPassword(emailValue,passwordValue);
+      await updateProfile({ displayName: name });
+      await sendEmailVerification()
+
+    }
+    if(user){
+      navigate('/home');
+      console.log(user);
     }
 
     return (
