@@ -1,5 +1,7 @@
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import {React,useRef} from 'react';
 import { Button } from 'react-bootstrap';
+import auth from '../../firebase.init';
 import './Registration.css'
 
 const Registration = () => {
