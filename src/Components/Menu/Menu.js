@@ -81,9 +81,7 @@ const foods = [
 const Menu = () => {
     return (
         <div className='menu'>
-            <div>
-                <Categories></Categories>
-            </div>
+            <Categories></Categories>
             <div className='items'>
                 {
                     foods.map(food => <Item name={food.name} description={food.description} imgSrc={food.imgSrc} price={food.price}></Item>)
