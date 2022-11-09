@@ -1,17 +1,17 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 
-const Item = () => {
+const Item = (props) => {
     return (
         <div>
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img style={{height: '18rem'}} variant="top" src={props.imgSrc} />
                 <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
+                    <Card.Title>{props.name}</Card.Title>
                     <Card.Text>
-                        Food Description goes here. Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                        {props.description}
                     </Card.Text>
+                    <Card.Subtitle style={{marginBottom: '1.5em'}}>RM {props.price}</Card.Subtitle>
                     <Button variant="primary">Add to cart</Button>
                 </Card.Body>
             </Card>
