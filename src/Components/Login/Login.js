@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom'
 import './Login.css'
 const Login = () => {
 
-  const nameRef = useRef();
+
   const emailRef = useRef();
   const passwordRef = useRef();
-  const numberRef = useRef();
-  const confirmNumberRef = useRef();
+
 
   const handleLoginForm=(e)=>{
     e.preventDefault();
+
+    console.log(emailRef.current.value + " "+ passwordRef.current.value)
    
   }
   return (
@@ -39,14 +40,14 @@ const Login = () => {
             <hr style={{width:'400px',color:'green',border:'2px solid green'}}/>
             </div>
           </div>
-          <form className='w-100 '>
+          <form className='w-100 ' onSubmit={handleLoginForm}>
             <div className='login-container'>
               <div className='did-floating-label-content'>
-                <input className='did-floating-input' type='email' placeholder=' ' />
+                <input ref={emailRef} className='did-floating-input' type='email' placeholder=' ' />
                 <label className='did-floating-label'>Email</label>
               </div>
               <div className='did-floating-label-content did-error-input'>
-                <input className='did-floating-input' type='password' placeholder=' ' />
+                <input ref={passwordRef} className='did-floating-input' type='password' placeholder=' ' />
                 <label className='did-floating-label'>Password</label>
               </div>
             </div>
