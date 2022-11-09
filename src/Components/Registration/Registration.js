@@ -9,6 +9,11 @@ const Registration = () => {
   const passwordRef = useRef();
   const numberRef = useRef();
   const confirmNumberRef = useRef();
+
+  const handleLoginForm=(e)=>{
+    e.preventDefault();
+    console.log("form working");
+  }
     return (
         <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2'}}>
         <div className='d-lg-flex body-reg   registration-div'>
@@ -46,7 +51,7 @@ const Registration = () => {
                 />
               </div>
             </div>
-            <form className='w-100 '>
+            <form className='w-100 ' onSubmit={handleLoginForm}>
               <div className='login-container'>
                 <div className='did-floating-label-content'>
                   <input  ref={nameRef}
