@@ -14,7 +14,7 @@ const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [loading, setLoading]=useState(false);
-
+const [error,setError]= useState("");
 
   const handleLoginForm=(e)=>{
     e.preventDefault();
@@ -33,6 +33,7 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(errorMessage);
         console.log(errorMessage);
         setLoading(false);
       });
@@ -88,8 +89,8 @@ const Login = () => {
               <span class="visually-hidden">Loading...</span>
             </div>:<div></div>
             }
-          
-            <small className='d-block text-danger'>Dont have an Account yet? <Link to="/registration">Please Register</Link></small>
+           <p className="text-danger">{error}</p>
+            <small className='d-block text-danger'>Don't have an Account yet? <Link to="/registration">Please Register</Link></small>
           </form>
           <div className='d-flex justify-content-center '>
             <hr style={{width:'200px',color:'red'}}/>
