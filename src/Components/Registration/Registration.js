@@ -49,7 +49,7 @@ const Registration = () => {
             <form className='w-100 '>
               <div className='login-container'>
                 <div className='did-floating-label-content'>
-                  <input 
+                  <input  ref={nameRef}
                     className='did-floating-input'
                     type='text'
                     placeholder=' '
@@ -57,7 +57,7 @@ const Registration = () => {
                   <label className='did-floating-label'>Name</label>
                 </div>
                 <div className='did-floating-label-content'>
-                  <input
+                  <input ref={emailRef}
                     className='did-floating-input'
                     type='email'
                     placeholder=' '
@@ -65,7 +65,7 @@ const Registration = () => {
                   <label className='did-floating-label'>Email</label>
                 </div>
                 <div className='did-floating-label-content'>
-                  <input
+                  <input ref={numberRef}
                     className='did-floating-input'
                     type='text'
                     placeholder=' '
@@ -73,7 +73,7 @@ const Registration = () => {
                   <label className='did-floating-label'>Phone Number</label>
                 </div>
                 <div className='did-floating-label-content did-error-input'>
-                  <input
+                  <input ref={passwordRef}
                     className='did-floating-input'
                     type='password'
                     placeholder=' '
@@ -81,7 +81,7 @@ const Registration = () => {
                   <label className='did-floating-label'>Password</label>
                 </div>
                 <div className='did-floating-label-content did-error-input'>
-                  <input
+                  <input ref={confirmNumberRef}
                     className='did-floating-input'
                     type='password'
                     placeholder=' '
