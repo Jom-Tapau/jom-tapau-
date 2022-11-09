@@ -23,5 +23,6 @@ const handleGoogleSignIn=()=>{
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   });
+  
 }
 export default handleGoogleSignIn;
