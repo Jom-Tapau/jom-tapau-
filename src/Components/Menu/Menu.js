@@ -79,12 +79,10 @@ const foods = [
 
 const Menu = () => {
     return (
-        <div>
-            <div className='menu'>
-                {
-                    foods.map(food => <Item name={food.name} description={food.description} imgSrc={food.imgSrc} price={food.price}></Item>)
-                }
-            </div>
+        <div className='menu'>
+            {
+                foods.map(food => <Item name={food.name} description={food.description} imgSrc={food.imgSrc} price={food.price}></Item>)
+            }
         </div>
     );
 };
