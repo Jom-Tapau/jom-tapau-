@@ -139,15 +139,19 @@ const Registration = () => {
                 </Button>
               </div>
             </form>
+            <small>Already have an Account? <Link to="/login">Please Login</Link></small>
             <div className='d-flex justify-content-center '>
               <hr style={{ width: '200px', color: 'red' }} />
               <p className='px-3 pt-1'>or</p>
               <hr style={{ width: '200px', color: 'red' }} />
             </div>
-            <div className='d-flex justify-content-center'>
+            <div className='d-flex justify-content-center '>
               <Button style={{ width: '200px' }}  variant="success">Google Sign</Button>
+             
             </div>
+       
           </section>
+       
         </div>
       </div>
     );

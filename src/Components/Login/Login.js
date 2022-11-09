@@ -1,10 +1,13 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import './Login.css'
 const Login = () => {
+
+  
   return (
     <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)' }}>
-      <div className='d-lg-flex body-reg   registration-div'>
+      <div className='d-lg-flex body-reg   login-div'>
         <section className=' w-lg-50'>
           <img
             className=' w-100 h-100'
@@ -23,7 +26,7 @@ const Login = () => {
           </h1>
           <div style={{'--i':6}} className='d-flex justify-content-center'>
             <div>
-            <p className='text-center mt-5 fs-3'>Log In</p>
+            <p className='text-center mt-5 fs-3'>Fill out the Form to login</p>
             <hr style={{width:'400px',color:'green',border:'2px solid green'}}/>
             </div>
           </div>
@@ -40,9 +43,12 @@ const Login = () => {
             </div>
             <div className='d-flex  justify-content-center'>
               <Button className='mb-5' variant='danger' type='submit'>
-                Log In
+                Login
               </Button>
+              
+         
             </div>
+            <small className='d-block text-danger'>Dont have an Account yet? <Link to="/registration">Please Register</Link></small>
           </form>
           <div className='d-flex justify-content-center '>
             <hr style={{width:'200px',color:'red'}}/>
