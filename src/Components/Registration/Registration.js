@@ -85,7 +85,7 @@ const Registration = () => {
                 />
               </div>
             </div>
-            <form className='w-100 '>
+            <form className='w-100 ' >
               <div className='login-container'>
                 <div className='did-floating-label-content'>
                   <input

@@ -1,10 +1,46 @@
-import React from 'react'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import React, { useRef } from 'react'
+import { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import auth from '../../firebase.init'
+
+
+
 import './Login.css'
 const Login = () => {
 
+
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const [loading, setLoading]=useState(false);
+const [error,setError]= useState("");
+
+  const handleLoginForm=(e)=>{
+    e.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    setLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user);
+       window.location='/home';
+       setLoading(false);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setError(errorMessage);
+        console.log(errorMessage);
+        setLoading(false);
+      });
+
   
+   
+  }
   return (
     <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)' }}>
       <div className='d-lg-flex body-reg   login-div'>
@@ -30,14 +66,14 @@ const Login = () => {
             <hr style={{width:'400px',color:'green',border:'2px solid green'}}/>
             </div>
           </div>
-          <form className='w-100 '>
+          <form className='w-100 ' onSubmit={handleLoginForm}>
             <div className='login-container'>
               <div className='did-floating-label-content'>
-                <input className='did-floating-input' type='email' placeholder=' ' />
+                <input ref={emailRef} className='did-floating-input' type='email' placeholder=' ' />
                 <label className='did-floating-label'>Email</label>
               </div>
               <div className='did-floating-label-content did-error-input'>
-                <input className='did-floating-input' type='password' placeholder=' ' />
+                <input ref={passwordRef} className='did-floating-input' type='password' placeholder=' ' />
                 <label className='did-floating-label'>Password</label>
               </div>
             </div>
@@ -48,7 +84,13 @@ const Login = () => {
               
          
             </div>
-            <small className='d-block text-danger'>Dont have an Account yet? <Link to="/registration">Please Register</Link></small>
+            {
+              loading?   <div class="spinner-border text-danger" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>:<div></div>
+            }
+           <p className="text-danger">{error}</p>
+            <small className='d-block text-danger'>Don't have an Account yet? <Link to="/registration">Please Register</Link></small>
           </form>
           <div className='d-flex justify-content-center '>
             <hr style={{width:'200px',color:'red'}}/>
