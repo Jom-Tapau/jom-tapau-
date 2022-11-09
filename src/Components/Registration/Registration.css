@@ -6,5 +6,5 @@
     box-sizing: border-box;
 }  
  .registration-div{
-    height: calc(100vh - 57px)
+    height: calc(100vh + 100px)
  }

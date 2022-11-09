@@ -1,10 +1,11 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import './Login.css'
 const Login = () => {
   return (
     <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)' }}>
-      <div className='d-lg-flex body-reg   registration-div'>
+      <div className='d-lg-flex body-reg   login-div'>
         <section className=' w-lg-50'>
           <img
             className=' w-100 h-100'
@@ -42,7 +43,10 @@ const Login = () => {
               <Button className='mb-5' variant='danger' type='submit'>
                 Login
               </Button>
+              
+         
             </div>
+            <small className='d-block text-danger'>Dont have an Account yet? <Link to="/registration">Please Register</Link></small>
           </form>
           <div className='d-flex justify-content-center '>
             <hr style={{width:'200px',color:'red'}}/>
