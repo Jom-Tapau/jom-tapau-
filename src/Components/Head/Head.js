@@ -13,6 +13,7 @@ const Head = () => {
                         <Nav.Link className='text-white' as={Link} to="/about">About</Nav.Link>
                     </Nav>
                     <Nav className=''>
+                        <Nav.Link className='text-white' as={Link} to="/registration">Register</Nav.Link>
                         <Nav.Link className='text-white' as={Link} to="/login">Login</Nav.Link>
                     </Nav>
                 </Container>

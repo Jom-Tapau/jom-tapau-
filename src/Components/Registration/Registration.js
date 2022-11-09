@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Registration.css'
 
 const Registration = () => {
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const numberRef = useRef();
+  const confirmNumberRef = useRef();
     return (
         <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2'}}>
         <div className='d-lg-flex body-reg   registration-div'>
@@ -44,7 +49,7 @@ const Registration = () => {
             <form className='w-100 '>
               <div className='login-container'>
                 <div className='did-floating-label-content'>
-                  <input
+                  <input 
                     className='did-floating-input'
                     type='text'
                     placeholder=' '
