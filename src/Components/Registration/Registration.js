@@ -39,8 +39,8 @@ const Registration = () => {
       console.log(nameValue, emailValue, passwordValue, phoneNumberValue);
 
       await createUserWithEmailAndPassword(emailValue,passwordValue);
-      await updateProfile({ displayName: name });
-      await sendEmailVerification()
+      await updateProfile({ displayName: nameValue });
+      await sendEmailVerification();
 
     }
     if(user){
@@ -62,7 +62,7 @@ const Registration = () => {
           <section className='w-75 mx-auto px-lg-5'>
             <h1
               style={{ fontSize: '80px' }}
-              className='text-center mt-5 mb-2 fst-italic waviy'
+              className='text-center mt-4 mb-2 fst-italic waviy'
             >
               <span style={{'--i':1}} className='animate shadow-red text-white'>J</span>
               <span style={{'--i':2}} className='animate shadow-white text-danger'>om</span>
@@ -74,7 +74,7 @@ const Registration = () => {
             <div className='d-flex justify-content-center'>
               <div>
                 <p className='text-center mt-5 fs-3'>
-                  Fill out the Form to login
+                  Registration Form
                 </p>
                 <hr
                   style={{
@@ -134,7 +134,7 @@ const Registration = () => {
                 </div>
               </div>
               <div className='d-flex  justify-content-center'>
-                <Button onClick={handleSignUp} className='mb-5' variant='danger' type='submit'>
+                <Button onClick={handleSignUp} className='mb-3' variant='danger' type='submit'>
                   Sign up
                 </Button>
               </div>
