@@ -3,13 +3,14 @@ import {
   useSendEmailVerification,
   useUpdateProfile
 } from 'react-firebase-hooks/auth';
-import {React,useRef} from 'react';
+import {React,useRef, useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import auth from '../../firebase.init';
 import './Registration.css'
 import Loading from '../Loading/Loading';
 import handleGoogleSignIn from '../../hooks/googleAuth';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const Registration = () => {
 
@@ -21,7 +22,7 @@ const Registration = () => {
     const [sendEmailVerification, sending, error1] = useSendEmailVerification(
       auth
     );
-
+    const [errorMsg,setErrorMsg]= useState("");
   const navigate = useNavigate();
   const name = useRef("");  
   const email = useRef("");  
@@ -30,7 +31,24 @@ const Registration = () => {
   const phoneNumber = useRef(""); 
   //google signin
   const handleGoogleSignUp=()=>{
-    handleGoogleSignIn();
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    window.location='/home';
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+     const errorCode = error.code;
+     setErrorMsg(error.message);
+ 
+    
+    // ...
+  });
   
   }
   // function of signup button to register an user
@@ -147,8 +165,9 @@ const Registration = () => {
                   Sign up
                 </Button>
               </div>
+              <p>{errorMsg}</p>
             </form>
-            <p>error</p>
+           
             <small>Already have an Account? <Link to="/login">Please Login</Link></small>
             <div className='d-flex justify-content-center '>
               <hr style={{ width: '200px', color: 'red' }} />
