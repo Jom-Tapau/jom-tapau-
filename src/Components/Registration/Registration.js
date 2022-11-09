@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import auth from '../../firebase.init';
 import './Registration.css'
+import Loading from '../Loading/Loading';
 
 const Registration = () => {
 
@@ -46,6 +47,9 @@ const Registration = () => {
     if(user){
       navigate('/home');
       console.log(user);
+    }
+    if(loading||updating||sending){
+      return <Loading></Loading>
     }
 
     return (
@@ -139,6 +143,7 @@ const Registration = () => {
                 </Button>
               </div>
             </form>
+            <p>error</p>
             <small>Already have an Account? <Link to="/login">Please Login</Link></small>
             <div className='d-flex justify-content-center '>
               <hr style={{ width: '200px', color: 'red' }} />
