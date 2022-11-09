@@ -1,0 +1,19 @@
+.button {
+    background-color: orangered;
+    color: white;
+    border: none;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background-color: orangered;
+    color: white;
+    transform: scale(1.1);
+    font-weight: 600;
+}
+
+.button:active {
+    background-color: red;
+    color: white;
+    filter: brightness(90%);
+}
