@@ -16,7 +16,9 @@ const Login = () => {
   const passwordRef = useRef();
   const [loading, setLoading]=useState(false);
 const [error,setError]= useState("");
-
+if(loading){
+  return <Loading></Loading>
+}
   const handleLoginForm=(e)=>{
     e.preventDefault();
     const email = emailRef.current.value;
@@ -84,9 +86,7 @@ const [error,setError]= useState("");
          
             </div>
             {
-              loading?   <div class="spinner-border text-danger" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>:<div></div>
+              loading?   <Loading></Loading>:<div></div>
             }
            <p className="text-danger">{error}</p>
             <small className='d-block text-danger'>Don't have an Account yet? <Link to="/registration">Please Register</Link></small>
