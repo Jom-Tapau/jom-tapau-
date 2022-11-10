@@ -30,7 +30,7 @@ const handleGoogleSignUp=()=>{
   const token = credential.accessToken;
   // The signed-in user info.
   const user = result.user;
-  window.location='/home';
+  window.location='/menu';
   // ...
 }).catch((error) => {
   // Handle Errors here.
