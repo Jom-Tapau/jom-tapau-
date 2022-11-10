@@ -30,7 +30,7 @@ const Login = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        window.location = '/home';
+        window.location = '/menu';
         // ...
       }).catch((error) => {
         // Handle Errors here.
@@ -50,7 +50,7 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        window.location = '/home';
+        window.location = '/menu';
         setLoading(false);
       })
       .catch((error) => {
