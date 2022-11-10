@@ -1,9 +1,11 @@
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
 import React, { useRef } from 'react'
 import { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import auth from '../../firebase.init'
+import handleGoogleSignIn from '../../hooks/googleAuth'
+import Loading from '../Loading/Loading'
 
 
 
@@ -16,6 +18,29 @@ const Login = () => {
   const [loading, setLoading]=useState(false);
 const [error,setError]= useState("");
 
+if(loading){
+  return <Loading></Loading>
+}
+const handleGoogleSignUp=()=>{
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+.then((result) => {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  const credential = GoogleAuthProvider.credentialFromResult(result);
+  const token = credential.accessToken;
+  // The signed-in user info.
+  const user = result.user;
+  window.location='/home';
+  // ...
+}).catch((error) => {
+  // Handle Errors here.
+   const errorCode = error.code;
+setError(error.message);
+  
+  // ...
+});
+
+}
   const handleLoginForm=(e)=>{
     e.preventDefault();
     const email = emailRef.current.value;
@@ -23,15 +48,13 @@ const [error,setError]= useState("");
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in 
         const user = userCredential.user;
         console.log(user);
        window.location='/home';
        setLoading(false);
-        // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
+  
         const errorMessage = error.message;
         setError(errorMessage);
         console.log(errorMessage);
@@ -85,9 +108,7 @@ const [error,setError]= useState("");
          
             </div>
             {
-              loading?   <div class="spinner-border text-danger" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>:<div></div>
+              loading?   <Loading></Loading>:<div></div>
             }
            <p className="text-danger">{error}</p>
             <small className='d-block text-danger'>Don't have an Account yet? <Link to="/registration">Please Register</Link></small>
@@ -98,7 +119,7 @@ const [error,setError]= useState("");
             <hr style={{width:'200px',color:'red'}}/>
           </div>
           <div className='d-flex justify-content-center'>
-            <Button style={{width:'200px'}}  variant="success">Google Sign</Button>
+            <Button onClick={handleGoogleSignUp} style={{width:'200px'}}  variant="success">Google Sign</Button>
           </div>
         </section>
       </div>
