@@ -14,7 +14,7 @@ const Head = () => {
     }
     return (
         <div>
-            <Navbar bg='danger' variant='dark' style={{height:"60px"}}>
+            <Navbar bg='danger' variant='dark' className='nav-bar'>
                 <Container>
                     <Nav>
                         <Navbar.Brand as={Link} to="/home">JomTapau</Navbar.Brand>
