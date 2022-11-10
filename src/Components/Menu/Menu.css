@@ -1,0 +1,11 @@
+.menu {
+    display: flex;
+    margin-top: 70px;
+}
+
+.items {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}

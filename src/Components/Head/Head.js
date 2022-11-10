@@ -4,6 +4,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { signOut } from 'firebase/auth';
+import './Head.css';
 
 const Head = () => {
     const [user, loading, error] = useAuthState(auth); 
@@ -13,7 +14,7 @@ const Head = () => {
     }
     return (
         <div>
-            <Navbar bg='danger' variant='dark' style={{height:"60px"}}>
+            <Navbar bg='danger' variant='dark' className='nav-bar'>
                 <Container>
                     <Nav>
                         <Navbar.Brand as={Link} to="/home">JomTapau</Navbar.Brand>
