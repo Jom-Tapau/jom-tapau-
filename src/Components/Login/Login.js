@@ -6,9 +6,6 @@ import { Link } from 'react-router-dom'
 import auth from '../../firebase.init'
 import handleGoogleSignIn from '../../hooks/googleAuth'
 import Loading from '../Loading/Loading'
-
-
-
 import './Login.css'
 const Login = () => {
 
@@ -65,16 +62,16 @@ const Login = () => {
 
   }
   return (
-    <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)', marginTop: '70px'}}>
+    <div className='box' style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)', marginTop: '70px'}}>
       <div className='d-lg-flex body-reg   login-div'>
-        <section className=' w-lg-50'>
+        <div className=' w-lg-50'>
           <img
             className=' w-100 h-100'
             src='https://i.ibb.co/Dg3F3FV/IMG-9325.jpg'
             alt=''
           />
-        </section>
-        <section className='w-75 mx-auto px-lg-5'>
+        </div>
+        <div className='w-75 mx-auto px-lg-5'>
           <h1 style={{ fontSize: '80px' }} className='waviy text-center mt-5 mb-2 fst-italic'>
             <span style={{ '--i': 1 }} className='shadow-red text-white'>J</span>
             <span style={{ '--i': 2 }} className='shadow-white text-danger'>om</span>
@@ -121,7 +118,7 @@ const Login = () => {
           <div className='d-flex justify-content-center'>
             <Button onClick={handleGoogleSignUp} style={{ width: '200px' }} variant="success">Google Sign in</Button>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   )

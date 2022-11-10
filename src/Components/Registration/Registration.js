@@ -39,7 +39,7 @@ const Registration = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        window.location = '/home';
+        window.location = '/menu';
         // ...
       }).catch((error) => {
         // Handle Errors here.
@@ -68,7 +68,7 @@ const Registration = () => {
 
   }
   if (user) {
-    navigate('/home');
+    navigate('/menu');
     console.log(user);
   }
   if (loading || updating || sending) {
