@@ -104,9 +104,12 @@ const Login = () => {
 
 
             </div>
-            {
+
+          
+           {
               loading ? <Loading></Loading> : <div></div>
             }
+        
             <p className="text-danger">{error}</p>
             <small className='d-block text-danger'>Don't have an Account yet? <Link to="/registration">Register</Link></small>
           </form>
