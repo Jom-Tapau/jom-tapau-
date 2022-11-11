@@ -1,8 +1,13 @@
-.categories {
-    width: 240px;
-    padding: 50px;
+.categories-container {
+    /* max-width: 240px; */
+    padding: 10px;
     position: sticky;
     top: 70px;
+}
+
+.categories {
+    width: 240px;
+    margin-top: 25px;
 }
 
 .flex-column {

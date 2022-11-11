@@ -85,7 +85,7 @@ const Menu = () => {
             <div className='container'>
                 <div className='row'>
                     {
-                        foods.map(food => <div className='col-lg-4 col-md-6 col-sm-12'><Item food={food}></Item></div>)
+                        foods.map(food => <div className='col-lg-3 col-md-6 col-sm-12'><Item food={food}></Item></div>)
                     }
                 </div>
             </div>
