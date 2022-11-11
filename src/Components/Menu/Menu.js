@@ -82,10 +82,12 @@ const Menu = () => {
     return (
         <div className='menu'>
             <Categories></Categories>
-            <div className='items'>
-                {
-                    foods.map(food => <Item food={food}></Item>)
-                }
+            <div className='container'>
+                <div className='row'>
+                    {
+                        foods.map(food => <div className='col-lg-4 col-md-6 col-sm-12'><Item food={food}></Item></div>)
+                    }
+                </div>
             </div>
         </div>
     );
