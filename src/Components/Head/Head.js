@@ -22,8 +22,8 @@ const Head = () => {
       <Navbar bg='danger' expand='lg' className='nav-bar'>
         <Container>
         <Navbar.Brand className='text-white' as={Link} to="/home">Jom Tapau</Navbar.Brand>
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
-        <Navbar.Collapse id='basic-navbar-nav'>
+        <Navbar.Toggle style={{color:'white'}} aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse  id='basic-navbar-nav'>
           <Nav className='me-auto'>
             <Nav.Link className='text-white' as={Link} to="/menu">Menu</Nav.Link>
             <Nav.Link className='text-white' as={Link} to="/about">About</Nav.Link>
