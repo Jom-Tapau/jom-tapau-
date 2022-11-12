@@ -17,6 +17,11 @@ const Head = () => {
   const handleSignOut = () => {
     signOut(auth)
   }
+  const hehe = ({ isActive }) => {
+    return {
+      borderBottom: isActive ? "1px solid" : "",
+    };
+  }
   return (
     <div>
       <Navbar bg='danger' expand='lg' className='nav-bar'>
@@ -28,7 +33,7 @@ const Head = () => {
         <Navbar.Toggle style={{color:'white'}} aria-controls='basic-navbar-nav' />
         <Navbar.Collapse  id='basic-navbar-nav'>
           <Nav className='me-auto d-flex align-items-center'>
-            <NavLink className='text-white nav-link fs-5' as={Link} to="/menu">Menu</NavLink>
+            <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/menu">Menu</NavLink>
             <NavLink className='text-white nav-link fs-5' as={Link} to="/about">About</NavLink>
           </Nav>
           <Nav className='nav-container'>
