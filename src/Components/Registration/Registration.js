@@ -11,6 +11,7 @@ import './Registration.css'
 import Loading from '../Loading/Loading';
 import handleGoogleSignIn from '../../hooks/googleAuth';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import Helmet from 'react-helmet';
 
 const Registration = () => {
 
@@ -77,6 +78,10 @@ const Registration = () => {
 
   return (
     <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2', marginTop: '70px' }}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Registration-Jom Tapau</title>
+      </Helmet>
       <div className='d-lg-flex body-reg   registration-div'>
         <section className=' w-lg-50'>
           <img
