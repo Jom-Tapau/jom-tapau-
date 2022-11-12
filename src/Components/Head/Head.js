@@ -22,7 +22,7 @@ const Head = () => {
       <Navbar bg='danger' expand='lg' className='nav-bar'>
         <Container>
         <Nav>
-        <Nav.Link className='text-white nav-link fs-5' as={Link} to="/home">Jom Tapau</Nav.Link>
+        <Nav.Link className='text-white nav-link fs-5 me-5' as={Link} to="/home">Jom Tapau</Nav.Link>
         </Nav>
 
         <Navbar.Toggle style={{color:'white'}} aria-controls='basic-navbar-nav' />
