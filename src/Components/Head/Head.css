@@ -8,5 +8,11 @@
     margin-right: 40px;
 }
 .nav-link:hover{
+    margin-bottom: 0px;
     border-bottom: 1px solid white;
+}
+@media only screen and (min-width: 991px){
+    .nav-bar{
+        height: 60px;
+    }
 }

@@ -33,7 +33,7 @@ const Head = () => {
           </Nav>
           <Nav>
             {user ? (<Nav.Link onClick={handleSignOut} className='text-white nav-link fs-5' as={Link} to='/login'>Sign out</Nav.Link>) : 
-                (<Nav.Link className=' text-white nav-link fs-5' as={Link} to='/login'>Login</Nav.Link>)
+                (<Nav.Link className='text-white nav-link fs-5' as={Link} to='/login'>Login</Nav.Link>)
             }
           </Nav>
         </Navbar.Collapse>
