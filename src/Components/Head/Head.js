@@ -7,6 +7,7 @@ import { signOut } from 'firebase/auth';
 import './Head.css';
 import Loading from '../Loading/Loading';
 
+
 const Head = () => {
     const [user, loading, error] = useAuthState(auth); 
 
@@ -19,12 +20,16 @@ const Head = () => {
     }
     return (
         <div>
-            <Navbar bg='danger' variant='dark' className='nav-bar'>
+    
+            <Navbar style={{backgroundColor:'rgb(255,75,75)'}} variant='dark' className='nav-bar'>
+            <Nav><img style={{marginLeft:'100px'}} src='jomlogo.png' width='70' height='70'></img></Nav>
                 <Container>
-                    <Nav>
-                        <Navbar.Brand as={Link} to="/home">JomTapau</Navbar.Brand>
+                    <Nav className='d-flex align-items-center'>
+                        <Navbar.Brand as={Link} to="/home">
+                        </Navbar.Brand>
                         <Nav.Link className='text-white' as={Link} to="/menu">Menu</Nav.Link>
                         <Nav.Link className='text-white' as={Link} to="/about">About</Nav.Link>
+                        
                     </Nav>
                     <Nav className=''>
                         {
