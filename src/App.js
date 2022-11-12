@@ -1,10 +1,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
-import Home from './Components/Home/Home';
 import Menu from './Components/Menu/Menu';
 import Head from './Components/Head/Head';
 import Login from './Components/Login/Login';
+import Home from './Components/Home/Home';
 import Registration from './Components/Registration/Registration'
 
 function App() {
