@@ -6,10 +6,9 @@ import { Link } from 'react-router-dom'
 import auth from '../../firebase.init'
 import handleGoogleSignIn from '../../hooks/googleAuth'
 import Loading from '../Loading/Loading'
-import './Login.css'
+import './Login.css';
+import Helmet from 'react-helmet';
 const Login = () => {
-
-
   const emailRef = useRef();
   const passwordRef = useRef();
   const [loading, setLoading] = useState(false);
@@ -63,6 +62,10 @@ const Login = () => {
   }
   return (
     <div className='box' style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)', marginTop: '70px'}}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login-Jom Tapau</title>
+      </Helmet>
       <div className='d-lg-flex body-reg   login-div'>
         <div className=' w-lg-50'>
           <img
