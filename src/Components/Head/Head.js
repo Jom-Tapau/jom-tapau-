@@ -31,9 +31,9 @@ const Head = () => {
             <NavLink className='text-white nav-link fs-5' as={Link} to="/menu">Menu</NavLink>
             <NavLink className='text-white nav-link fs-5' as={Link} to="/about">About</NavLink>
           </Nav>
-          <Nav>
-            {user ? (<Nav.Link onClick={handleSignOut} className='text-white nav-link fs-5' as={Link} to='/login'>Sign out</Nav.Link>) : 
-                (<Nav.Link className='text-white nav-link fs-5' as={Link} to='/login'>Login</Nav.Link>)
+          <Nav className='nav-container'>
+            {user ? (<NavLink onClick={handleSignOut} className='text-white nav-link fs-5' as={Link} to='/login'>Sign out</NavLink>) : 
+                (<NavLink className='text-white nav-link fs-5' as={Link} to='/login'>Login</NavLink>)
             }
           </Nav>
         </Navbar.Collapse>
