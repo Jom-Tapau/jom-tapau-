@@ -4,7 +4,7 @@ import {
   useUpdateProfile
 } from 'react-firebase-hooks/auth';
 import { React, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 import auth from '../../firebase.init';
 import './Registration.css'
@@ -30,12 +30,14 @@ const Registration = () => {
   const password = useRef("");
   const confirmPass = useRef("");
   const phoneNumber = useRef("");
- 
+  const location=useLocation();
+  let from = location?.state?.from?.pathname||'/';
   //google signin
   const handleGoogleSignUp = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
+        navigate(from, {replace:true});
 
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
@@ -67,6 +69,7 @@ const Registration = () => {
     await createUserWithEmailAndPassword(emailValue, passwordValue);
     await updateProfile({ displayName: nameValue });
     await sendEmailVerification();
+    navigate(from, {replace:true});
     if(error)
     {
       console.log(error.message);

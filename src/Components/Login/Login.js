@@ -2,7 +2,7 @@ import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopu
 import React, { useRef } from 'react'
 import { useState } from 'react'
 import { Button } from 'react-bootstrap'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
 import handleGoogleSignIn from '../../hooks/googleAuth'
 import Loading from '../Loading/Loading'
@@ -13,8 +13,11 @@ const Login = () => {
   const passwordRef = useRef();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  let navigate =useNavigate();
   const location=useLocation();
+
   let from = location?.state?.from?.pathname||'/';
+  
   if (loading) {
     return <Loading></Loading>
   }
@@ -22,12 +25,13 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
+        navigate(from, {replace:true});
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        window.location = '/menu';
+   
         // ...
       }).catch((error) => {
         // Handle Errors here.
@@ -45,9 +49,9 @@ const Login = () => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        navigate(from, {replace:true});
         const user = userCredential.user;
         console.log(user);
-        window.location = '/menu';
         setLoading(false);
       })
       .catch((error) => {
