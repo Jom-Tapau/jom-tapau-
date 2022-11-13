@@ -2,7 +2,7 @@ import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopu
 import React, { useRef } from 'react'
 import { useState } from 'react'
 import { Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import auth from '../../firebase.init'
 import handleGoogleSignIn from '../../hooks/googleAuth'
 import Loading from '../Loading/Loading'
@@ -13,7 +13,8 @@ const Login = () => {
   const passwordRef = useRef();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const location=useLocation();
+  let from = location?.state?.from?.pathname||'/';
   if (loading) {
     return <Loading></Loading>
   }
