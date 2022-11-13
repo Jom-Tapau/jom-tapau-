@@ -111,14 +111,14 @@ const Registration = () => {
           </h1>
           <div className='d-flex justify-content-center'>
             <div>
-              <p className='text-center mt-5 fs-3'>
-                Registration Form
+              <p className='text-center text-danger mt-5 fs-3'>
+                Please Register
               </p>
               <hr
                 style={{
                   width: '400px',
                   color: 'green',
-                  border: '2px solid green'
+                  border: '2px solid red'
                 }}
               />
             </div>

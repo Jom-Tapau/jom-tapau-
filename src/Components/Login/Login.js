@@ -85,8 +85,8 @@ const Login = () => {
           </h1>
           <div style={{ '--i': 6 }} className='d-flex justify-content-center'>
             <div>
-              <p className='text-center mt-5 fs-3'>Fill out the Form to login</p>
-              <hr style={{ width: '400px', color: 'green', border: '2px solid green' }} />
+              <small className='text-center text-danger mt-5 fs-3'>Fill out the Form to login</small>
+              <hr style={{ width: '400px', color: 'green', border: '2px solid red' }} />
             </div>
           </div>
           <form className='w-100 ' onSubmit={handleLoginForm}>
