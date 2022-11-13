@@ -61,7 +61,7 @@ const Login = () => {
 
   }
   return (
-    <div className='box' style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)', marginTop: '70px'}}>
+    <div className='box vh-100' style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)'}}>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Login-Jom Tapau</title>
@@ -69,12 +69,12 @@ const Login = () => {
       <div className='d-lg-flex body-reg   login-div'>
         <div className=' w-lg-50'>
           <img
-            className=' w-100 h-100'
+            className=' w-100 vh-100'
             src='https://i.ibb.co/Dg3F3FV/IMG-9325.jpg'
             alt=''
           />
         </div>
-        <div className='w-75 mx-auto px-lg-5'>
+        <div className='w-75 mx-auto px-lg-5 mt-5'>
           <h1 style={{ fontSize: '80px' }} className='waviy text-center mt-5 mb-2 fst-italic'>
             <span style={{ '--i': 1 }} className='shadow-red text-white'>J</span>
             <span style={{ '--i': 2 }} className='shadow-white text-danger'>om</span>
