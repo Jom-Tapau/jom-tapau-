@@ -30,12 +30,13 @@ const Registration = () => {
   const password = useRef("");
   const confirmPass = useRef("");
   const phoneNumber = useRef("");
+ 
   //google signin
   const handleGoogleSignUp = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
+
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         // The signed-in user info.
@@ -44,7 +45,7 @@ const Registration = () => {
         // ...
       }).catch((error) => {
         // Handle Errors here.
-        const errorCode = error.code;
+        
         setErrorMsg(error.message);
 
 
@@ -61,11 +62,16 @@ const Registration = () => {
     const phoneNumberValue = phoneNumber.current.value;
     const confirmPassValue = confirmPass.current.value;
 
-    console.log(nameValue, emailValue, passwordValue, phoneNumberValue);
+    console.log(nameValue, emailValue, passwordValue, phoneNumberValue,confirmPassValue);
 
     await createUserWithEmailAndPassword(emailValue, passwordValue);
     await updateProfile({ displayName: nameValue });
     await sendEmailVerification();
+    if(error)
+    {
+      console.log(error.message);
+      setErrorMsg(error.message);
+    }
 
   }
   if (user) {
@@ -117,7 +123,7 @@ const Registration = () => {
               />
             </div>
           </div>
-          <form className='w-100 ' >
+          <form className='w-100 ' onSubmit={handleSignUp} >
             <div className='login-container  w-75'>
               <div className='did-floating-label-content'>
                 <input
@@ -180,6 +186,8 @@ const Registration = () => {
               </Button>
             </div>
             <p className='text-danger'>{errorMsg}</p>
+            
+          
           </form>
 
           <small>Already have an Account? <Link to="/login">Login</Link></small>

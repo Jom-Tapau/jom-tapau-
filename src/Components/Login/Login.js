@@ -91,8 +91,15 @@ const Login = () => {
           </div>
           <form className='w-100 ' onSubmit={handleLoginForm}>
             <div className='login-container'>
+         
               <div className='did-floating-label-content'>
-                <input ref={emailRef} className='did-floating-input' type='email' placeholder=' ' />
+                <input
+                  ref={emailRef}
+                  className='did-floating-input'
+                  type='email'
+                  placeholder=' '
+                  size={20}
+                />
                 <label className='did-floating-label'>Email</label>
               </div>
               <div className='did-floating-label-content did-error-input'>
