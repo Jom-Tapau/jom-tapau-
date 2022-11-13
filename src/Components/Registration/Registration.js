@@ -77,21 +77,21 @@ const Registration = () => {
   }
 
   return (
-    <div style={{ backgroundColor: 'rgba(117, 131, 136, 0.2', marginTop: '70px' }}>
+    <div className='vh-100' style={{ backgroundColor: 'rgba(117, 131, 136, 0.2' }}>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Registration-Jom Tapau</title>
       </Helmet>
-      <div className='d-lg-flex body-reg   registration-div'>
-        <section className=' w-lg-50'>
+      <div className='d-lg-flex body-reg   login-div'>
+      <div className=' w-lg-50'>
           <img
-            className=' w-100 h-100'
+            className=' w-100 vh-100'
             src='https://i.ibb.co/Dg3F3FV/IMG-9325.jpg'
             alt=''
           />
-        </section>
+        </div>
 
-        <section className='w-75 mx-auto px-lg-5'>
+        <div className='w-75 mx-auto px-lg-5 mt-5'>
           <h1
             style={{ fontSize: '80px' }}
             className='text-center mt-4 mb-2 fst-italic waviy'
@@ -118,22 +118,25 @@ const Registration = () => {
             </div>
           </div>
           <form className='w-100 ' >
-            <div className='login-container'>
+            <div className='login-container  w-75'>
               <div className='did-floating-label-content'>
                 <input
                   ref={name}
                   className='did-floating-input'
                   type='text'
                   placeholder=' '
+                  
                 />
                 <label className='did-floating-label'>Name</label>
               </div>
-              <div className='did-floating-label-content'>
+       <div  className='d-lg-flex justify-content-between  '>
+       <div className='did-floating-label-content'>
                 <input
                   ref={email}
                   className='did-floating-input'
                   type='email'
                   placeholder=' '
+                  size={20}
                 />
                 <label className='did-floating-label'>Email</label>
               </div>
@@ -143,15 +146,19 @@ const Registration = () => {
                   className='did-floating-input'
                   type='text'
                   placeholder=' '
+                  size={15}
                 />
                 <label className='did-floating-label'>Phone Number</label>
               </div>
-              <div className='did-floating-label-content did-error-input'>
+       </div>
+   <div className='d-lg-flex justify-content-between'>
+   <div className='did-floating-label-content did-error-input'>
                 <input
                   ref={password}
                   className='did-floating-input'
                   type='password'
                   placeholder=' '
+                  size={15}
                 />
                 <label className='did-floating-label'>Password</label>
               </div>
@@ -161,9 +168,11 @@ const Registration = () => {
                   className='did-floating-input'
                   type='password'
                   placeholder=' '
+                  size={20}
                 />
                 <label className='did-floating-label'>Confirm Password</label>
               </div>
+   </div>
             </div>
             <div className='d-flex  justify-content-center'>
               <Button onClick={handleSignUp} className='mb-3' variant='danger' type='submit'>
@@ -184,7 +193,7 @@ const Registration = () => {
 
           </div>
 
-        </section>
+        </div>
 
       </div>
     </div>
