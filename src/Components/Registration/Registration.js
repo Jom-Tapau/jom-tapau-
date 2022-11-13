@@ -111,9 +111,9 @@ const Registration = () => {
           </h1>
           <div className='d-flex justify-content-center'>
             <div>
-              <p className='text-center text-danger mt-5 fs-3'>
+              <small className='text-center text-danger mt-5 fs-3'>
                 Please Register
-              </p>
+              </small>
               <hr
                 style={{
                   width: '400px',
