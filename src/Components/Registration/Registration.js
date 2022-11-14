@@ -2,9 +2,9 @@ import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
   useUpdateProfile
-} from 'react-firebase-hooks/auth';
+} from 'react-firebase-hooks/auth'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap'
 //  from 'react-firebase-hooks/auth'
 import { React, useEffect, useRef, useState } from 'react'
 import auth from '../../firebase.init'
@@ -24,30 +24,31 @@ const Registration = () => {
   const [updateProfile, updating, err] = useUpdateProfile(auth)
   const [sendEmailVerification, sending, error1] = useSendEmailVerification(
     auth
-  );
-  const location=useLocation();
-  let from = location?.state?.from?.pathname||'/';
+  )
+  const location = useLocation()
+  let from = location?.state?.from?.pathname || '/'
   const [errorMsg, setErrorMsg] = useState('')
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   //useRef for input feild
   const name = useRef('')
   const email = useRef('')
   const phoneNumber = useRef('')
   const address = useRef('')
-  const matric = useRef('');
+  const matric = useRef('')
   const password = useRef('')
-  const role = useRef('Admin');
+  const role = useRef('Admin')
 
   //google signIn
   const handleGoogleSignUp = () => {
     const provider = new GoogleAuthProvider()
     signInWithPopup(auth, provider)
-      .then((result) => {
-        navigate(from, {replace:true});
+      .then(result => {
+        navigate(from, { replace: true })
 
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;})
+        const credential = GoogleAuthProvider.credentialFromResult(result)
+        const token = credential.accessToken
+      })
       .then(result => {
         const credential = GoogleAuthProvider.credentialFromResult(result)
         const token = credential.accessToken
@@ -64,44 +65,45 @@ const Registration = () => {
   }
   // function of signup button to register an user
   const handleSignUp = async e => {
-    e.preventDefault();
-    const nameValue = name.current.value;
-    const emailValue = email.current.value;
-    const passwordValue = password.current.value;
-    const phoneNumberValue = phoneNumber.current.value;
-    const matricValue = matric.current.value;
-    const addressValue = address.current.value;
-    const rolevalue = role.current;
+    e.preventDefault()
+    const nameValue = name.current.value
+    const emailValue = email.current.value
+    const passwordValue = password.current.value
+    const phoneNumberValue = phoneNumber.current.value
+    const matricValue = matric.current.value
+    const addressValue = address.current.value
+    const rolevalue = role.current
 
     const newUser = {
-      name:nameValue,
-      email:emailValue,
-      phone:phoneNumberValue,
-      matric:matricValue,
-      role:rolevalue,
-      address:addressValue,
+      name: nameValue,
+      email: emailValue,
+      phone: phoneNumberValue,
+      matric: matricValue,
+      role: rolevalue,
+      address: addressValue
     }
 
-    console.log(newUser);
-    console.log(nameValue, emailValue, passwordValue, phoneNumberValue, matricValue,rolevalue);
+    console.log(newUser)
 
-    fetch('http://localhost:5000/user',{
-      method:'POST',
-      headers:{
-        'content-type':'application/json',
-      },
-      body:JSON.stringify(newUser),
-    })
-    .then(res=>res.json())
-    .then(data=>console.log(data))
-    // await createUserWithEmailAndPassword(emailValue, passwordValue);
-    // await updateProfile({ displayName: nameValue });
-    // await sendEmailVerification();
-    // navigate(from, {replace:true});
+    await createUserWithEmailAndPassword(emailValue, passwordValue)
+    await updateProfile({ displayName: nameValue })
+    await sendEmailVerification()
+    navigate(from, { replace: true })
+
+    if (!error) {
+      fetch('http://localhost:5000/user', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(newUser)
+      })
+        .then(res => res.json())
+        .then(data => console.log(data))
+    }
   }
   if (user) {
     navigate('/menu')
-    console.log(user)
   }
   if (loading || updating || sending) {
     return <Loading></Loading>
@@ -190,59 +192,59 @@ const Registration = () => {
                 <label className='did-floating-label'>Name</label>
               </div>
               {/* <div className='d-lg-flex justify-content-between  '> */}
-                <div className='did-floating-label-content'>
-                  <input
-                    ref={email}
-                    className='did-floating-input'
-                    type='email'
-                    placeholder=' '
-                    size={20}
-                  />
-                  <label className='did-floating-label'>Email</label>
-                </div>
-                <div className='did-floating-label-content'>
-                  <input
-                    ref={phoneNumber}
-                    className='did-floating-input'
-                    type='text'
-                    placeholder=' '
-                    size={15}
-                  />
-                  <label className='did-floating-label'>Phone Number</label>
-                </div>
+              <div className='did-floating-label-content'>
+                <input
+                  ref={email}
+                  className='did-floating-input'
+                  type='email'
+                  placeholder=' '
+                  size={20}
+                />
+                <label className='did-floating-label'>Email</label>
+              </div>
+              <div className='did-floating-label-content'>
+                <input
+                  ref={phoneNumber}
+                  className='did-floating-input'
+                  type='text'
+                  placeholder=' '
+                  size={15}
+                />
+                <label className='did-floating-label'>Phone Number</label>
+              </div>
               {/* </div> */}
               {/* <div className='d-lg-flex justify-content-between'> */}
-                <div className='did-floating-label-content did-error-input'>
-                  <input
-                    ref={address}
-                    className='did-floating-input'
-                    type='text'
-                    placeholder=' '
-                    size={20}
-                  />
-                  <label className='did-floating-label'>Address</label>
-                </div>
-                <div className='did-floating-label-content did-error-input'>
-                  <input
-                    ref={matric}
-                    className='did-floating-input'
-                    type='text'
-                    placeholder=' '
-                    size={20}
-                  />
-                  <label className='did-floating-label'>Matric No</label>
-                </div>
-                <div className='did-floating-label-content did-error-input'>
-                  <input
+              <div className='did-floating-label-content did-error-input'>
+                <input
+                  ref={address}
+                  className='did-floating-input'
+                  type='text'
+                  placeholder=' '
+                  size={20}
+                />
+                <label className='did-floating-label'>Address</label>
+              </div>
+              <div className='did-floating-label-content did-error-input'>
+                <input
+                  ref={matric}
+                  className='did-floating-input'
+                  type='text'
+                  placeholder=' '
+                  size={20}
+                />
+                <label className='did-floating-label'>Matric No</label>
+              </div>
+              <div className='did-floating-label-content did-error-input'>
+                <input
                   width={50}
-                    ref={password}
-                    className='did-floating-input'
-                    type='password'
-                    placeholder=' '
-                    // size={15}
-                  />
-                  <label className='did-floating-label'>Password</label>
-                </div>
+                  ref={password}
+                  className='did-floating-input'
+                  type='password'
+                  placeholder=' '
+                  // size={15}
+                />
+                <label className='did-floating-label'>Password</label>
+              </div>
               {/* </div> */}
             </div>
             <div className='d-flex  justify-content-center'>
@@ -281,4 +283,4 @@ const Registration = () => {
   )
 }
 
-export default Registration;
+export default Registration
