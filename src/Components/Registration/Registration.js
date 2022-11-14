@@ -217,6 +217,26 @@ const Registration = () => {
               {/* <div className='d-lg-flex justify-content-between'> */}
                 <div className='did-floating-label-content did-error-input'>
                   <input
+                    ref={confirmPass}
+                    className='did-floating-input'
+                    type='text'
+                    placeholder=' '
+                    size={20}
+                  />
+                  <label className='did-floating-label'>Address</label>
+                </div>
+                <div className='did-floating-label-content did-error-input'>
+                  <input
+                    ref={confirmPass}
+                    className='did-floating-input'
+                    type='text'
+                    placeholder=' '
+                    size={20}
+                  />
+                  <label className='did-floating-label'>Matric No</label>
+                </div>
+                <div className='did-floating-label-content did-error-input'>
+                  <input
                   width={50}
                     ref={password}
                     className='did-floating-input'
@@ -225,16 +245,6 @@ const Registration = () => {
                     // size={15}
                   />
                   <label className='did-floating-label'>Password</label>
-                </div>
-                <div className='did-floating-label-content did-error-input'>
-                  <input
-                    ref={confirmPass}
-                    className='did-floating-input'
-                    type='password'
-                    placeholder=' '
-                    size={20}
-                  />
-                  <label className='did-floating-label'>Confirm Password</label>
                 </div>
               {/* </div> */}
             </div>
