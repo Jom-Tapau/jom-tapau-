@@ -6,7 +6,7 @@ import {
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
 //  from 'react-firebase-hooks/auth'
-import { React, useRef, useState } from 'react'
+import { React, useEffect, useRef, useState } from 'react'
 import auth from '../../firebase.init'
 import './Registration.css'
 import Loading from '../Loading/Loading'
@@ -72,7 +72,7 @@ const Registration = () => {
     const matricValue = matric.current.value;
     const addressValue = address.current.value;
     const rolevalue = role.current;
-    
+
     const newUser = {
       name:nameValue,
       email:emailValue,
@@ -84,6 +84,16 @@ const Registration = () => {
 
     console.log(newUser);
     console.log(nameValue, emailValue, passwordValue, phoneNumberValue, matricValue,rolevalue);
+
+    fetch('http://localhost:5000/user',{
+      method:'POST',
+      headers:{
+        'content-type':'application/json',
+      },
+      body:JSON.stringify(newUser),
+    })
+    .then(res=>res.json())
+    .then(data=>console.log(data))
     // await createUserWithEmailAndPassword(emailValue, passwordValue);
     // await updateProfile({ displayName: nameValue });
     // await sendEmailVerification();
