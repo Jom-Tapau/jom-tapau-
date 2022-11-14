@@ -19,9 +19,9 @@ function App() {
       <Routes>
      
 
-        <Route path="/menu" element={  <RequireAuth><Menu></Menu></RequireAuth>}></Route>
-        <Route path="/homepage" element={  <RequireAuth><Homepage></Homepage></RequireAuth>}></Route>
-        <Route path="/" element={<RequireAuth><Homepage></Homepage></RequireAuth>}></Route>
+        <Route path="/menu" element={  <Menu></Menu>}></Route>
+        {/* <Route path="/homepage" element={  <RequireAuth><Homepage></Homepage></RequireAuth>}></Route> */}
+        <Route path="/" element={<Homepage></Homepage>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registration" element={<Registration></Registration>}></Route>
         <Route path="/admin" element={<Admin></Admin>}></Route>
