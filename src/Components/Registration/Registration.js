@@ -28,14 +28,18 @@ const Registration = () => {
   const location=useLocation();
   let from = location?.state?.from?.pathname||'/';
   const [errorMsg, setErrorMsg] = useState('')
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  //useRef for input feild
   const name = useRef('')
   const email = useRef('')
-  const password = useRef('')
-  const confirmPass = useRef('')
   const phoneNumber = useRef('')
+  const address = useRef('')
+  const matric = useRef('');
+  const password = useRef('')
+  const role = useRef('Admin');
 
-  //google signin
+  //google signIn
   const handleGoogleSignUp = () => {
     const provider = new GoogleAuthProvider()
     signInWithPopup(auth, provider)
@@ -54,9 +58,7 @@ const Registration = () => {
       })
       .catch(error => {
         // Handle Errors here.
-
         setErrorMsg(error.message)
-
         // ...
       })
   }
@@ -67,40 +69,13 @@ const Registration = () => {
     const emailValue = email.current.value;
     const passwordValue = password.current.value;
     const phoneNumberValue = phoneNumber.current.value;
-    const confirmPassValue = confirmPass.current.value;
-
-    console.log(nameValue, emailValue, passwordValue, phoneNumberValue,confirmPassValue);
+    const matricValue = matric.current.value;
+    const addressValue = address.current.value;
 
     await createUserWithEmailAndPassword(emailValue, passwordValue);
     await updateProfile({ displayName: nameValue });
     await sendEmailVerification();
     navigate(from, {replace:true});
-    if(error)
-    {
-      console.log(error.message);
-      setErrorMsg(error.message);
-    e.preventDefault()
-    const nameValue = name.current.value
-    const emailValue = email.current.value
-    const passwordValue = password.current.value
-    const phoneNumberValue = phoneNumber.current.value
-    const confirmPassValue = confirmPass.current.value
-
-    console.log(
-      nameValue,
-      emailValue,
-      passwordValue,
-      phoneNumberValue,
-      confirmPassValue
-    )
-
-    await createUserWithEmailAndPassword(emailValue, passwordValue)
-    await updateProfile({ displayName: nameValue })
-    await sendEmailVerification()
-    if (error) {
-      console.log(error.message)
-      setErrorMsg(error.message)
-    }
   }
   if (user) {
     navigate('/menu')
@@ -109,7 +84,7 @@ const Registration = () => {
   if (loading || updating || sending) {
     return <Loading></Loading>
   }
-  }
+
   return (
     <div
       className='box vh-100'
@@ -217,7 +192,7 @@ const Registration = () => {
               {/* <div className='d-lg-flex justify-content-between'> */}
                 <div className='did-floating-label-content did-error-input'>
                   <input
-                    ref={confirmPass}
+                    ref={address}
                     className='did-floating-input'
                     type='text'
                     placeholder=' '
@@ -227,7 +202,7 @@ const Registration = () => {
                 </div>
                 <div className='did-floating-label-content did-error-input'>
                   <input
-                    ref={confirmPass}
+                    ref={matric}
                     className='did-floating-input'
                     type='text'
                     placeholder=' '
