@@ -2,19 +2,12 @@ import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
   useUpdateProfile
-<<<<<<< HEAD
 } from 'react-firebase-hooks/auth';
-import { React, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
-import auth from '../../firebase.init';
-=======
-} from 'react-firebase-hooks/auth'
+//  from 'react-firebase-hooks/auth'
 import { React, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
 import auth from '../../firebase.init'
->>>>>>> e3cbc38494ad22aa6319754f002f1efc649980db
 import './Registration.css'
 import Loading from '../Loading/Loading'
 import handleGoogleSignIn from '../../hooks/googleAuth'
@@ -31,19 +24,9 @@ const Registration = () => {
   const [updateProfile, updating, err] = useUpdateProfile(auth)
   const [sendEmailVerification, sending, error1] = useSendEmailVerification(
     auth
-<<<<<<< HEAD
   );
-  const [errorMsg, setErrorMsg] = useState("");
-  const navigate = useNavigate();
-  const name = useRef("");
-  const email = useRef("");
-  const password = useRef("");
-  const confirmPass = useRef("");
-  const phoneNumber = useRef("");
   const location=useLocation();
   let from = location?.state?.from?.pathname||'/';
-=======
-  )
   const [errorMsg, setErrorMsg] = useState('')
   const navigate = useNavigate()
   const name = useRef('')
@@ -52,22 +35,18 @@ const Registration = () => {
   const confirmPass = useRef('')
   const phoneNumber = useRef('')
 
->>>>>>> e3cbc38494ad22aa6319754f002f1efc649980db
   //google signin
   const handleGoogleSignUp = () => {
     const provider = new GoogleAuthProvider()
     signInWithPopup(auth, provider)
-<<<<<<< HEAD
       .then((result) => {
         navigate(from, {replace:true});
 
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-=======
+        const token = credential.accessToken;})
       .then(result => {
         const credential = GoogleAuthProvider.credentialFromResult(result)
         const token = credential.accessToken
->>>>>>> e3cbc38494ad22aa6319754f002f1efc649980db
         // The signed-in user info.
         const user = result.user
         window.location = '/menu'
@@ -83,7 +62,6 @@ const Registration = () => {
   }
   // function of signup button to register an user
   const handleSignUp = async e => {
-<<<<<<< HEAD
     e.preventDefault();
     const nameValue = name.current.value;
     const emailValue = email.current.value;
@@ -101,7 +79,6 @@ const Registration = () => {
     {
       console.log(error.message);
       setErrorMsg(error.message);
-=======
     e.preventDefault()
     const nameValue = name.current.value
     const emailValue = email.current.value
@@ -123,7 +100,6 @@ const Registration = () => {
     if (error) {
       console.log(error.message)
       setErrorMsg(error.message)
->>>>>>> e3cbc38494ad22aa6319754f002f1efc649980db
     }
   }
   if (user) {
@@ -133,7 +109,7 @@ const Registration = () => {
   if (loading || updating || sending) {
     return <Loading></Loading>
   }
-
+  }
   return (
     <div
       className='box vh-100'
@@ -298,4 +274,4 @@ const Registration = () => {
   )
 }
 
-export default Registration
+export default Registration;
