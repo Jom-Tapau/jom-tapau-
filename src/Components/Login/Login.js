@@ -74,7 +74,7 @@ const Login = () => {
             alt=''
           />
         </div>
-        <div className='w-75 mx-auto px-lg-5 mt-5'>
+        <div className='w-75 mx-auto px-lg-5 mt-4'>
           <h1 style={{ fontSize: '80px' }} className='waviy text-center mt-5 mb-2 fst-italic'>
             <span style={{ '--i': 1 }} className='shadow-red text-white'>J</span>
             <span style={{ '--i': 2 }} className='shadow-white text-danger'>om</span>
