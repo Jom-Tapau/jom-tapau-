@@ -35,6 +35,8 @@ const Head = () => {
           <Nav className='me-auto d-flex align-items-center'>
             <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/menu">Menu</NavLink>
             <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/about">About</NavLink>
+            <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/admin">Admin</NavLink>
+            <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/rider">Rider</NavLink>
           </Nav>
           <Nav className='nav-container'>
             {user ? (<NavLink style={hehe} onClick={handleSignOut} className='text-white nav-link fs-5' as={Link} to='/login'>Sign out</NavLink>) : 

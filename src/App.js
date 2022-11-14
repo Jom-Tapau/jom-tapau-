@@ -9,6 +9,7 @@ import Registration from './Components/Registration/Registration'
 import Homepage from './Components/Homepage/Homepage';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import Admin from './Components/Admin/Admin';
+import Rider from './Components/Rider/Rider';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registration" element={<Registration></Registration>}></Route>
         <Route path="/admin" element={<Admin></Admin>}></Route>
+        <Route path="/rider" element={<Rider></Rider>}></Route>
   
 
       </Routes>
