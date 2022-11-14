@@ -1,7 +1,18 @@
 .nav-bar {
-    height: 70px;
     width: 100%;
     position: fixed;
     top: 0;
     z-index: 1;
+}
+.nav-link{
+    height: 40px;
+}
+.nav-link:hover{
+    border-bottom: 1px solid white;
+}
+@media only screen and (max-width: 990px){
+    .nav-container{
+        width:52px;
+        margin:0px auto;
+    }
 }

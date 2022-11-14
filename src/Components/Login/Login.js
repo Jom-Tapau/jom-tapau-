@@ -2,19 +2,22 @@ import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopu
 import React, { useRef } from 'react'
 import { useState } from 'react'
 import { Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
 import handleGoogleSignIn from '../../hooks/googleAuth'
 import Loading from '../Loading/Loading'
-import './Login.css'
+import './Login.css';
+import Helmet from 'react-helmet';
 const Login = () => {
-
-
   const emailRef = useRef();
   const passwordRef = useRef();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  let navigate =useNavigate();
+  const location=useLocation();
 
+  let from = location?.state?.from?.pathname||'/';
+  
   if (loading) {
     return <Loading></Loading>
   }
@@ -22,12 +25,13 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
+        navigate(from, {replace:true});
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        window.location = '/menu';
+   
         // ...
       }).catch((error) => {
         // Handle Errors here.
@@ -45,9 +49,9 @@ const Login = () => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        navigate(from, {replace:true});
         const user = userCredential.user;
         console.log(user);
-        window.location = '/menu';
         setLoading(false);
       })
       .catch((error) => {
@@ -62,16 +66,20 @@ const Login = () => {
 
   }
   return (
-    <div className='box' style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)', marginTop: '70px'}}>
+    <div className='box vh-100' style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)'}}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login-Jom Tapau</title>
+      </Helmet>
       <div className='d-lg-flex body-reg   login-div'>
         <div className=' w-lg-50'>
           <img
-            className=' w-100 h-100'
+            className=' w-100 vh-100'
             src='https://i.ibb.co/Dg3F3FV/IMG-9325.jpg'
             alt=''
           />
         </div>
-        <div className='w-75 mx-auto px-lg-5'>
+        <div className='w-75 mx-auto px-lg-5 mt-4'>
           <h1 style={{ fontSize: '80px' }} className='waviy text-center mt-5 mb-2 fst-italic'>
             <span style={{ '--i': 1 }} className='shadow-red text-white'>J</span>
             <span style={{ '--i': 2 }} className='shadow-white text-danger'>om</span>
@@ -82,14 +90,21 @@ const Login = () => {
           </h1>
           <div style={{ '--i': 6 }} className='d-flex justify-content-center'>
             <div>
-              <p className='text-center mt-5 fs-3'>Fill out the Form to login</p>
-              <hr style={{ width: '400px', color: 'green', border: '2px solid green' }} />
+              <small className='text-center text-danger mt-5 fs-3'>Fill out the Form to login</small>
+              <hr style={{ width: '400px', color: 'green', border: '2px solid red' }} />
             </div>
           </div>
           <form className='w-100 ' onSubmit={handleLoginForm}>
             <div className='login-container'>
+         
               <div className='did-floating-label-content'>
-                <input ref={emailRef} className='did-floating-input' type='email' placeholder=' ' />
+                <input
+                  ref={emailRef}
+                  className='did-floating-input'
+                  type='email'
+                  placeholder=' '
+                  size={20}
+                />
                 <label className='did-floating-label'>Email</label>
               </div>
               <div className='did-floating-label-content did-error-input'>
