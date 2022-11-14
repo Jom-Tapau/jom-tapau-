@@ -10,6 +10,7 @@ import Homepage from './Components/Homepage/Homepage';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import Admin from './Components/Admin/Admin';
 import Rider from './Components/Rider/Rider';
+import AddFood from './Components/Admin/AddFood';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/registration" element={<Registration></Registration>}></Route>
         <Route path="/admin" element={<Admin></Admin>}></Route>
         <Route path="/rider" element={<Rider></Rider>}></Route>
+        <Route path="/addfood" element={<AddFood></AddFood>}></Route>
   
 
       </Routes>

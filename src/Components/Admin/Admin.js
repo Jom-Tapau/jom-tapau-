@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Admin = () => {
     return (
@@ -13,7 +14,7 @@ const Admin = () => {
       <Card.Body>
         
       
-        <Button variant="danger">Add a Food Item</Button>
+        <Button as={Link} to="/addfood" variant="danger">Add a Food Item</Button>
       </Card.Body>
     </Card>
     </div>
