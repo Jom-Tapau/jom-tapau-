@@ -71,11 +71,23 @@ const Registration = () => {
     const phoneNumberValue = phoneNumber.current.value;
     const matricValue = matric.current.value;
     const addressValue = address.current.value;
+    const rolevalue = role.current;
+    
+    const newUser = {
+      name:nameValue,
+      email:emailValue,
+      phone:phoneNumberValue,
+      matric:matricValue,
+      role:rolevalue,
+      address:addressValue,
+    }
 
-    await createUserWithEmailAndPassword(emailValue, passwordValue);
-    await updateProfile({ displayName: nameValue });
-    await sendEmailVerification();
-    navigate(from, {replace:true});
+    console.log(newUser);
+    console.log(nameValue, emailValue, passwordValue, phoneNumberValue, matricValue,rolevalue);
+    // await createUserWithEmailAndPassword(emailValue, passwordValue);
+    // await updateProfile({ displayName: nameValue });
+    // await sendEmailVerification();
+    // navigate(from, {replace:true});
   }
   if (user) {
     navigate('/menu')
