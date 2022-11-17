@@ -19,7 +19,7 @@ const EditUser = () => {
       <Card.Body>
         
       
-        <Button as={Link} to="/editUser" variant="danger">Edit User</Button>
+        <Button as={Link} to="/editCustomer" variant="danger">Edit Customer</Button>
       </Card.Body>
     </Card>
         </div>
