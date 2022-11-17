@@ -34,7 +34,7 @@ const Admin = () => {
       <Card.Body>
         
       
-        <Button variant="danger">Edit User</Button>
+        <Button as={Link} to='/EditUser' variant="danger">Edit User</Button>
       </Card.Body>
     </Card>
     </div>
