@@ -1,13 +1,33 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import {React,PureComponent} from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { faBowlFood, faCoffee, faMotorcycle, faUserPen } from '@fortawesome/free-solid-svg-icons'
-const Admin = () => {
-    return (
-<div className='vh-100 '>
 
-<div className='d-flex flex-column bg-danger w-25 ' style={{marginTop:"60px"}}>
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+
+import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+
+const Admin = () => {
+  const data = [{name: 'Sunday', uv: 23, pv: 100, amt: 2400},
+  {name: 'Monday', uv: 40, pv: 100, amt: 2400},{name: 'Tuesday', uv: 11, pv: 100, amt: 2400},{name: 'Wednesday', uv: 66, pv: 100, amt: 2400},
+  {name: 'Thursday', uv: 55, pv: 100, amt: 2400},{name: 'Friday', uv: 66, pv: 100, amt: 2400}
+  ,{name: 'Saturday', uv: 41, pv: 100, amt: 2400}
+];
+const data01 = [
+  { name: 'KDSE', value: 20 },
+  { name: 'KRP', value: 30 },
+  { name: 'KDOJ', value: 11 },
+  { name: 'K9', value: 55 },
+  { name: 'KLG', value: 70 },
+  { name: 'KTF', value: 32 },
+];
+
+
+    return (
+<div className=' d-flex '>
+
+<div className='d-flex flex-column bg-danger w-25 ' style={{marginTop:"55px"}}>
 
   <div className=' bg-danger p-2  text-white   ' >
 <div className='p-2'>
@@ -19,7 +39,7 @@ const Admin = () => {
 <small>System Admin</small>
 
   </div>
-  <div className='p-2' style={{backgroundColor:'grey'}}>
+  <div className='p-2 vh-100' style={{backgroundColor:'grey'}}>
 
 <div>
 <Link  to='/addfood' href="" className='text-decoration-none'>
@@ -54,6 +74,40 @@ const Admin = () => {
 
 </div>
 
+</div>
+
+<div className='w-75 ' style={{marginTop:'100px', marginLeft:'50px'}}>
+  <h2 style={{textAlign:"start"}} className=' text-danger'>Jom-Tapau Analytics</h2>
+<div className=''>
+<div className='mt-3 '  >
+<h5 className='text-danger text-start'>Weekly Sales</h5>
+<LineChart className='w-100' width={600} height={300} data={data}>
+    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+    <CartesianGrid stroke="#ccc" />
+    <XAxis dataKey="name" />
+    <YAxis />
+  </LineChart>
+</div>
+<div  >
+
+<h5 style={{textAlign:"start"}} className="text-danger">Orders by College</h5>
+      <PieChart className='w-100 mt-5' width={600} height={400}>
+          <Pie
+            dataKey="value"
+            isAnimationActive={false}
+            data={data01}
+            cx="50%"
+            cy="50%"
+            outerRadius={150}
+            fill="red"
+            label
+          />
+          <Pie />
+          <Tooltip />
+        </PieChart>
+      
+</div>
+</div>
 </div>
 </div>
     );
