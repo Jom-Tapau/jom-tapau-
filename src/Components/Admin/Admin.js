@@ -24,7 +24,7 @@ const Admin = () => {
       <Card.Body>
         
       
-        <Button variant="danger">Add a Rider</Button>
+        <Button as={Link} to='/rider' variant="danger">Add a Rider</Button>
       </Card.Body>
     </Card>
     </div>
