@@ -6,7 +6,7 @@ import Head from './Components/Head/Head';
 import Login from './Components/Login/Login';
 
 import Registration from './Components/Registration/Registration'
-import Homepage from './Components/Homepage/Homepage';
+import Home from './Components/Home/Home';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import Admin from './Components/Admin/Admin';
 import Rider from './Components/Rider/Rider';
@@ -19,9 +19,10 @@ function App() {
       <Routes>
      
 
-        <Route path="/menu" element={  <RequireAuth><Menu></Menu></RequireAuth>}></Route>
-        <Route path="/homepage" element={  <RequireAuth><Homepage></Homepage></RequireAuth>}></Route>
-        <Route path="/" element={       <RequireAuth><Homepage></Homepage></RequireAuth>}></Route>
+        <Route path="/menu" element={  <Menu></Menu>}></Route>
+        {/* <Route path="/homepage" element={  <RequireAuth><Homepage></Homepage></RequireAuth>}></Route> */}
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/registration" element={<Registration></Registration>}></Route>
         <Route path="/admin" element={<Admin></Admin>}></Route>
