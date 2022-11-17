@@ -82,7 +82,7 @@ const data01 = [
 <div className='mt-3 '  >
 <h5 className='text-danger text-start'>Weekly Sales</h5>
 <LineChart className='w-100' width={600} height={300} data={data}>
-    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+    <Line type="monotone" dataKey="uv" stroke="red" />
     <CartesianGrid stroke="#ccc" />
     <XAxis dataKey="name" />
     <YAxis />
@@ -99,7 +99,7 @@ const data01 = [
             cx="50%"
             cy="50%"
             outerRadius={150}
-            fill="red"
+            fill="tomato"
             label
           />
           <Pie />
