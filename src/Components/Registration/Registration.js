@@ -1,7 +1,10 @@
 import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
-  useUpdateProfile
+  useSignInWithGoogle,
+  useUpdateProfile,
+  signInWithFacebook,
+  useSignInWithFacebook
 } from 'react-firebase-hooks/auth'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
@@ -15,11 +18,15 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import Helmet from 'react-helmet'
 
 const Registration = () => {
+  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+
+  const [signInWithFacebook, user, loading, error] = useSignInWithFacebook(auth);
+
   const [
     createUserWithEmailAndPassword,
-    user,
-    loading,
-    error
+    fbUser,
+    fbLoading,
+    fbError
   ] = useCreateUserWithEmailAndPassword(auth)
   const [updateProfile, updating, err] = useUpdateProfile(auth)
   const [sendEmailVerification, sending, error1] = useSendEmailVerification(
@@ -40,29 +47,29 @@ const Registration = () => {
   const role = useRef('Admin')
 
   //google signIn
-  const handleGoogleSignUp = () => {
-    const provider = new GoogleAuthProvider()
-    signInWithPopup(auth, provider)
-      .then(result => {
-        navigate(from, { replace: true })
+  // const handleGoogleSignUp = () => {
+  //   const provider = new GoogleAuthProvider()
+  //   signInWithPopup(auth, provider)
+  //     .then(result => {
+  //       navigate(from, { replace: true })
 
-        const credential = GoogleAuthProvider.credentialFromResult(result)
-        const token = credential.accessToken
-      })
-      .then(result => {
-        const credential = GoogleAuthProvider.credentialFromResult(result)
-        const token = credential.accessToken
-        // The signed-in user info.
-        const user = result.user
-        window.location = '/menu'
-        // ...
-      })
-      .catch(error => {
-        // Handle Errors here.
-        setErrorMsg(error.message)
-        // ...
-      })
-  }
+  //       const credential = GoogleAuthProvider.credentialFromResult(result)
+  //       const token = credential.accessToken
+  //     })
+  //     .then(result => {
+  //       const credential = GoogleAuthProvider.credentialFromResult(result)
+  //       const token = credential.accessToken
+  //       // The signed-in user info.
+  //       const user = result.user
+  //       window.location = '/menu'
+  //       // ...
+  //     })
+  //     .catch(error => {
+  //       // Handle Errors here.
+  //       setErrorMsg(error.message)
+  //       // ...
+  //     })
+  // }
   // function of signup button to register an user
   const handleSignUp = async e => {
     e.preventDefault()
@@ -99,11 +106,15 @@ const Registration = () => {
         body: JSON.stringify(newUser)
       })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+          if(data.errorMessage){
+            setErrorMsg(data.errorMessage)
+          }
+          else{
+            console.log(data.insertedId);
+          }
+        })
     }
-  }
-  if (user) {
-    navigate('/menu')
   }
   if (loading || updating || sending) {
     return <Loading></Loading>
@@ -270,7 +281,7 @@ const Registration = () => {
           </div>
           <div className='d-flex justify-content-center '>
             <Button
-              onClick={handleGoogleSignUp}
+              onClick={()=>signInWithGoogle()}
               style={{ width: '200px' }}
               variant='success'
             >
