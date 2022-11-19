@@ -82,6 +82,17 @@ const Registration = () => {
   if (loading || updating || sending || fbLoading) {
     return <Loading></Loading>
   }
+  if(fbUser){
+    const createUser = {
+      name: fbUser.user.displayName,
+      email: fbUser.user.email,
+      phone: '',
+      matric: '',
+      role: 'Admin',
+      address: ''
+    }
+    console.log(createUser);
+  }
   if (fbError) {
     console.log(fbError.message.split('/')[1].split(')')[0])
   }

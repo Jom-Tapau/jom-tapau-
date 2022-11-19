@@ -1,5 +1,4 @@
-const addToDb = (newUser,setErrorMsg)=>{
-
+const addToDb = (newUser)=>{
     fetch('http://localhost:5000/user', {
         method: 'POST',
         headers: {
@@ -10,7 +9,7 @@ const addToDb = (newUser,setErrorMsg)=>{
         .then(res => res.json())
         .then(data => {
           if(data.errorMessage){
-            setErrorMsg(data.errorMessage)
+            console.log(data.errorMessage)
           }
           else{
             console.log(data.insertedId);
