@@ -82,22 +82,27 @@ const Registration = () => {
   if (loading || updating || sending || fbLoading) {
     return <Loading></Loading>
   }
+  if (fbError) {
+    setErrorMsg(fbError.message.split('/')[1].split(')')[0])
+  }
+  if (error) {
+    setErrorMsg(error.message.split('/')[1].split(')')[0])
+  }
   if(fbUser){
     const createUser = {
       name: fbUser.user.displayName,
       email: fbUser.user.email,
       phone: '',
       matric: '',
-      role: 'Admin',
+      role: 'user',
       address: ''
     }
-    console.log(createUser);
+    console.log('1');
+    addToDb(createUser)//add date of fb loggedin user to database
   }
-  if (fbError) {
-    console.log(fbError.message.split('/')[1].split(')')[0])
-  }
-  if (error) {
-    console.log(error.message.split('/')[1].split(')')[0])
+  if(user){
+    console.log('2')
+    addToDb(newUser)//add data of user to database
   }
   return (
     <div
