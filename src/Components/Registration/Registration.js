@@ -14,6 +14,7 @@ import auth from '../../firebase.init'
 import './Registration.css'
 import Loading from '../Loading/Loading'
 import Helmet from 'react-helmet'
+import addToDb from '../../hooks/AddToDb'
 
 const Registration = () => {
 
@@ -42,7 +43,7 @@ const Registration = () => {
   const matric = useRef('')
   const password = useRef('')
   const role = useRef('Admin');
-
+    let newUser={};
   // function of signup button to register an user
   const handleSignUp = async e => {
     e.preventDefault()
@@ -62,48 +63,29 @@ const Registration = () => {
       role: rolevalue,
       address: addressValue
     }
-
     console.log(newUser)
-
     await createUserWithEmailAndPassword(emailValue, passwordValue)
-    if(error){
-      console.log(error.message);
-      return;
-    }
     await updateProfile({ displayName: nameValue })
     await sendEmailVerification();
     // navigate(from, { replace: true })
-
-    if (!error) {
-      fetch('http://localhost:5000/user', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(newUser)
-      })
-        .then(res => res.json())
-        .then(data => {
-          if(data.errorMessage){
-            setErrorMsg(data.errorMessage)
-          }
-          else{
-            console.log(data.insertedId);
-          }
-        })
-    }
   }
-  if (loading || updating || sending) {
+  
+  const handleFbSignup = () =>{
+    signInWithFacebook()
+      if(fbUser){
+        console.log(fbUser);
+      }
+  }
+
+  if (loading || updating || sending || fbLoading) {
     return <Loading></Loading>
   }
-  if(fbUser){
-    console.log(fbUser);
-  }
-    
   if(fbError){
-    console.log(fbError);
+    console.log(fbError.message.split('/')[1].split(')')[0]);
   }
-
+  if (error) {
+    console.log(error.message.split('/')[1].split(')')[0])
+  }
   return (
     <div
       className='box vh-100'
@@ -265,7 +247,7 @@ const Registration = () => {
           </div>
           <div className='d-flex justify-content-center '>
             <Button
-              onClick={()=>signInWithFacebook()}
+              onClick={handleFbSignup}
               style={{ width: '200px' }}
               variant='success'
             >
