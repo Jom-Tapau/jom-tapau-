@@ -13,20 +13,17 @@ import { React, useEffect, useRef, useState } from 'react'
 import auth from '../../firebase.init'
 import './Registration.css'
 import Loading from '../Loading/Loading'
-import handleGoogleSignIn from '../../hooks/googleAuth'
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import Helmet from 'react-helmet'
 
 const Registration = () => {
-  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
-  const [signInWithFacebook, user, loading, error] = useSignInWithFacebook(auth);
+  const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
 
   const [
     createUserWithEmailAndPassword,
-    fbUser,
-    fbLoading,
-    fbError
+    user,
+    loading,
+    error
   ] = useCreateUserWithEmailAndPassword(auth)
   const [updateProfile, updating, err] = useUpdateProfile(auth)
   const [sendEmailVerification, sending, error1] = useSendEmailVerification(
@@ -44,32 +41,8 @@ const Registration = () => {
   const address = useRef('')
   const matric = useRef('')
   const password = useRef('')
-  const role = useRef('Admin')
+  const role = useRef('Admin');
 
-  //google signIn
-  // const handleGoogleSignUp = () => {
-  //   const provider = new GoogleAuthProvider()
-  //   signInWithPopup(auth, provider)
-  //     .then(result => {
-  //       navigate(from, { replace: true })
-
-  //       const credential = GoogleAuthProvider.credentialFromResult(result)
-  //       const token = credential.accessToken
-  //     })
-  //     .then(result => {
-  //       const credential = GoogleAuthProvider.credentialFromResult(result)
-  //       const token = credential.accessToken
-  //       // The signed-in user info.
-  //       const user = result.user
-  //       window.location = '/menu'
-  //       // ...
-  //     })
-  //     .catch(error => {
-  //       // Handle Errors here.
-  //       setErrorMsg(error.message)
-  //       // ...
-  //     })
-  // }
   // function of signup button to register an user
   const handleSignUp = async e => {
     e.preventDefault()
@@ -93,9 +66,13 @@ const Registration = () => {
     console.log(newUser)
 
     await createUserWithEmailAndPassword(emailValue, passwordValue)
+    if(error){
+      console.log(error.message);
+      return;
+    }
     await updateProfile({ displayName: nameValue })
-    await sendEmailVerification()
-    navigate(from, { replace: true })
+    await sendEmailVerification();
+    // navigate(from, { replace: true })
 
     if (!error) {
       fetch('http://localhost:5000/user', {
@@ -118,6 +95,13 @@ const Registration = () => {
   }
   if (loading || updating || sending) {
     return <Loading></Loading>
+  }
+  if(fbUser){
+    console.log(fbUser);
+  }
+    
+  if(fbError){
+    console.log(fbError);
   }
 
   return (
@@ -281,11 +265,11 @@ const Registration = () => {
           </div>
           <div className='d-flex justify-content-center '>
             <Button
-              onClick={()=>signInWithGoogle()}
+              onClick={()=>signInWithFacebook()}
               style={{ width: '200px' }}
               variant='success'
             >
-              Google Sign
+              Facebook Login
             </Button>
           </div>
         </div>
