@@ -17,8 +17,12 @@ import Helmet from 'react-helmet'
 import addToDb from '../../hooks/AddToDb'
 
 const Registration = () => {
-
-  const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
+  const [
+    signInWithFacebook,
+    fbUser,
+    fbLoading,
+    fbError
+  ] = useSignInWithFacebook(auth)
 
   const [
     createUserWithEmailAndPassword,
@@ -33,6 +37,7 @@ const Registration = () => {
   const location = useLocation()
   let from = location?.state?.from?.pathname || '/'
   const [errorMsg, setErrorMsg] = useState('')
+  const [newUser,setNewUser]= useState({});
   const navigate = useNavigate()
 
   //useRef for input feild
@@ -43,7 +48,6 @@ const Registration = () => {
   const matric = useRef('')
   const password = useRef('')
   const role = useRef('Admin');
-    let newUser={};
   // function of signup button to register an user
   const handleSignUp = async e => {
     e.preventDefault()
@@ -55,7 +59,7 @@ const Registration = () => {
     const addressValue = address.current.value
     const rolevalue = role.current
 
-    const newUser = {
+    const createUser = {
       name: nameValue,
       email: emailValue,
       phone: phoneNumberValue,
@@ -63,25 +67,23 @@ const Registration = () => {
       role: rolevalue,
       address: addressValue
     }
-    console.log(newUser)
+    console.log(createUser)
+    setNewUser(createUser);
     await createUserWithEmailAndPassword(emailValue, passwordValue)
     await updateProfile({ displayName: nameValue })
     await sendEmailVerification();
     // navigate(from, { replace: true })
   }
-  
-  const handleFbSignup = () =>{
+
+  const handleFbSignup = () => {
     signInWithFacebook()
-      if(fbUser){
-        console.log(fbUser);
-      }
   }
 
   if (loading || updating || sending || fbLoading) {
     return <Loading></Loading>
   }
-  if(fbError){
-    console.log(fbError.message.split('/')[1].split(')')[0]);
+  if (fbError) {
+    console.log(fbError.message.split('/')[1].split(')')[0])
   }
   if (error) {
     console.log(error.message.split('/')[1].split(')')[0])
