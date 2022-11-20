@@ -3,7 +3,6 @@ import {
   useSendEmailVerification,
   useSignInWithGoogle,
   useUpdateProfile,
-  signInWithFacebook,
   useSignInWithFacebook
 } from 'react-firebase-hooks/auth'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
@@ -14,7 +13,7 @@ import auth from '../../firebase.init'
 import './Registration.css'
 import Loading from '../Loading/Loading'
 import Helmet from 'react-helmet'
-import addToDb from '../../hooks/AddToDb'
+import AddToDb from '../../hooks/AddToDb';
 
 const Registration = () => {
   const [
@@ -48,6 +47,7 @@ const Registration = () => {
   const matric = useRef('')
   const password = useRef('')
   const role = useRef('Admin');
+
   // function of signup button to register an user
   const handleSignUp = async e => {
     e.preventDefault()
@@ -70,25 +70,24 @@ const Registration = () => {
     console.log(createUser)
     setNewUser(createUser);
     await createUserWithEmailAndPassword(emailValue, passwordValue)
-    await updateProfile({ displayName: nameValue })
-    await sendEmailVerification();
+    // await updateProfile({ displayName: nameValue })
+    // await sendEmailVerification();
     // navigate(from, { replace: true })
+
+  } //end of handleSignUp button
+
+  const handleFbSignup = async () => {
+    await signInWithFacebook();
+    console.log('facebook login')
   }
 
-  const handleFbSignup = () => {
-    signInWithFacebook()
-  }
-
-  if (loading || updating || sending || fbLoading) {
+  if (loading || updating || sending ) {
     return <Loading></Loading>
   }
-  if (fbError) {
-    setErrorMsg(fbError.message.split('/')[1].split(')')[0])
+  if (fbError || error) {
+    setErrorMsg(fbError?.message.split('/')[1].split(')')[0]||error?.message.split('/')[1].split(')')[0])
   }
-  if (error) {
-    setErrorMsg(error.message.split('/')[1].split(')')[0])
-  }
-  if(fbUser){
+  /* if(fbUser){
     const createUser = {
       name: fbUser.user.displayName,
       email: fbUser.user.email,
@@ -98,11 +97,13 @@ const Registration = () => {
       address: ''
     }
     console.log('1');
-    addToDb(createUser)//add date of fb loggedin user to database
-  }
+    // setNewUser(createUser)
+    console.log(fbUser)
+    // AddToDb(newUser)//add date of fb loggedin user to database
+  } */
   if(user){
     console.log('2')
-    addToDb(newUser)//add data of user to database
+    AddToDb(newUser)//add data of user to database
   }
   return (
     <div
