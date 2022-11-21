@@ -11,7 +11,7 @@ import auth from '../../firebase.init';
 import './Registration.css';
 import Loading from '../Loading/Loading';
 import Helmet from 'react-helmet';
-import AddToDb from '../Shared/AddToDb';
+import useAddUserDb from '../../hooks/useAddUserDb';
 
 const Registration = () => {
   const [
@@ -20,18 +20,18 @@ const Registration = () => {
     loading,
     error
   ] = useCreateUserWithEmailAndPassword(auth) //create user with email and password
-
+  
   const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
-
+  
   const [updateProfile, updating, err] = useUpdateProfile(auth)
-
+  
   const [sendEmailVerification, sending, error1] = useSendEmailVerification(auth);
-
+  
   const location=useLocation();
   let from = location?.state?.from?.pathname||'/';
-
+  
   //use Sate 
-  const [newUser,setUser] = useState({});
+  const [newUser,setUser] = useState();
   const [errorMsg, setErrorMsg] = useState('');
 
   const navigate = useNavigate()
@@ -41,6 +41,8 @@ const Registration = () => {
   const matric = useRef('')
   const phoneNumber = useRef('')
   const address = useRef('')
+  
+  useAddUserDb(newUser||fbUser?.user); //send registred user data to database
   // function of signup button to register an user
   const handleSignUp = async e => {
     e.preventDefault();
@@ -59,10 +61,9 @@ const Registration = () => {
       address:addressValue
     }
     setUser(createUser)
-    AddToDb(newUser);
-    // await createUserWithEmailAndPassword(emailValue, passwordValue);
-    // await updateProfile({ displayName: nameValue });
-    // await sendEmailVerification();
+    await createUserWithEmailAndPassword(emailValue, passwordValue);
+    await updateProfile({ displayName: nameValue });
+    await sendEmailVerification();
     // navigate(from, {replace:true});
   }
 
@@ -76,16 +77,14 @@ const Registration = () => {
         matricValue:'',
         address:''
       }
-      console.log(createUser);
     }
   }
-  if (user||fbUser) {
-    // navigate('/menu')
-    console.log(user || fbUser)
-  }
+
   if (loading || updating || sending ||fbLoading) {
     return <Loading></Loading>
   }
+
+  //add user data to the database
   return (
     <div
       className='box vh-100'
