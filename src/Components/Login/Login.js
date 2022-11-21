@@ -8,6 +8,7 @@ import Loading from '../Loading/Loading'
 import './Login.css';
 import Helmet from 'react-helmet';
 import { useSignInWithFacebook } from 'react-firebase-hooks/auth'
+import useAddUserDb from '../../hooks/useAddUserDb'
 
 
 const Login = () => {
@@ -19,6 +20,8 @@ const Login = () => {
   const location=useLocation();
 
   const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
+
+  useAddUserDb(fbUser?.user); //send registred user data to database
 
   let from = location?.state?.from?.pathname||'/';
   
@@ -50,6 +53,7 @@ const Login = () => {
   const handleFacebookSignUp = async () =>{
     await signInWithFacebook();
   }
+
   return (
     <div className='box vh-100' style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)'}}>
       <Helmet>
@@ -111,7 +115,7 @@ const Login = () => {
             }
         
             <p className="text-danger">{error || fbError&&fbError.message.split('/')[1].split(')')[0] }</p>
-            <small className='d-block text-danger'>Don't have an Account yet? <Link to="/registration">Register</Link></small>
+            <small className='d-block text-dark'>Don't have an Account yet? <Link to="/registration">Register</Link></small>
           </form>
           <div className='d-flex justify-content-center '>
             <hr style={{ width: '200px', color: 'red' }} />
@@ -119,7 +123,7 @@ const Login = () => {
             <hr style={{ width: '200px', color: 'red' }} />
           </div>
           <div className='d-flex justify-content-center'>
-            <Button onClick={handleFacebookSignUp} style={{ width: '200px' }} variant="success">Google Sign in</Button>
+            <Button onClick={handleFacebookSignUp} style={{ width: '200px' }} variant="primary">Facebook</Button>
           </div>
         </div>
       </div>
