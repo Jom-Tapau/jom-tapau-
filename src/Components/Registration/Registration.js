@@ -1,28 +1,18 @@
 import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
-  useSignInWithGoogle,
-  useUpdateProfile,
-  useSignInWithFacebook
-} from 'react-firebase-hooks/auth'
+  useUpdateProfile
+} from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap';
 //  from 'react-firebase-hooks/auth'
-import { React, useEffect, useRef, useState } from 'react'
+import { React, useRef, useState } from 'react'
 import auth from '../../firebase.init'
 import './Registration.css'
 import Loading from '../Loading/Loading'
 import Helmet from 'react-helmet'
-import AddToDb from '../../hooks/AddToDb';
 
 const Registration = () => {
-  const [
-    signInWithFacebook,
-    fbUser,
-    fbLoading,
-    fbError
-  ] = useSignInWithFacebook(auth)
-
   const [
     createUserWithEmailAndPassword,
     user,
@@ -30,80 +20,45 @@ const Registration = () => {
     error
   ] = useCreateUserWithEmailAndPassword(auth)
   const [updateProfile, updating, err] = useUpdateProfile(auth)
-  const [sendEmailVerification, sending, error1] = useSendEmailVerification(
-    auth
-  )
-  const location = useLocation()
-  let from = location?.state?.from?.pathname || '/'
-  const [errorMsg, setErrorMsg] = useState('')
-  const [newUser,setNewUser]= useState({});
-  const navigate = useNavigate()
 
-  //useRef for input feild
+  const [sendEmailVerification, sending, error1] = useSendEmailVerification(auth);
+
+  const location=useLocation();
+  let from = location?.state?.from?.pathname||'/';
+  const [errorMsg, setErrorMsg] = useState('')
+  const navigate = useNavigate()
   const name = useRef('')
   const email = useRef('')
-  const phoneNumber = useRef('')
-  const address = useRef('')
-  const matric = useRef('')
   const password = useRef('')
-  const role = useRef('Admin');
+  const confirmPass = useRef('')
+  const phoneNumber = useRef('')
 
   // function of signup button to register an user
   const handleSignUp = async e => {
-    e.preventDefault()
-    const nameValue = name.current.value
-    const emailValue = email.current.value
-    const passwordValue = password.current.value
-    const phoneNumberValue = phoneNumber.current.value
-    const matricValue = matric.current.value
-    const addressValue = address.current.value
-    const rolevalue = role.current
+    e.preventDefault();
+    const nameValue = name.current.value;
+    const emailValue = email.current.value;
+    const passwordValue = password.current.value;
+    const phoneNumberValue = phoneNumber.current.value;
+    const confirmPassValue = confirmPass.current.value;
 
-    const createUser = {
-      name: nameValue,
-      email: emailValue,
-      phone: phoneNumberValue,
-      matric: matricValue,
-      role: rolevalue,
-      address: addressValue
-    }
-    console.log(createUser)
-    setNewUser(createUser);
-    await createUserWithEmailAndPassword(emailValue, passwordValue)
-    // await updateProfile({ displayName: nameValue })
-    // await sendEmailVerification();
-    // navigate(from, { replace: true })
+    console.log(nameValue, emailValue, passwordValue, phoneNumberValue,confirmPassValue);
 
-  } //end of handleSignUp button
-
-  const handleFbSignup = async () => {
-    await signInWithFacebook();
-    console.log('facebook login')
+    await createUserWithEmailAndPassword(emailValue, passwordValue);
+    await updateProfile({ displayName: nameValue });
+    await sendEmailVerification();
+    // navigate(from, {replace:true});
+    
   }
-
-  if (loading || updating || sending ) {
+  if (user) {
+    navigate('/menu')
+    console.log(user)
+  }
+  if (loading || updating || sending) {
     return <Loading></Loading>
   }
-  if (fbError || error) {
-    setErrorMsg(fbError?.message.split('/')[1].split(')')[0]||error?.message.split('/')[1].split(')')[0])
-  }
-  /* if(fbUser){
-    const createUser = {
-      name: fbUser.user.displayName,
-      email: fbUser.user.email,
-      phone: '',
-      matric: '',
-      role: 'user',
-      address: ''
-    }
-    console.log('1');
-    // setNewUser(createUser)
-    console.log(fbUser)
-    // AddToDb(newUser)//add date of fb loggedin user to database
-  } */
-  if(user){
-    console.log('2')
-    AddToDb(newUser)//add data of user to database
+  if(error){
+    console.log(error)
   }
   return (
     <div
@@ -188,59 +143,50 @@ const Registration = () => {
                 <label className='did-floating-label'>Name</label>
               </div>
               {/* <div className='d-lg-flex justify-content-between  '> */}
-              <div className='did-floating-label-content'>
-                <input
-                  ref={email}
-                  className='did-floating-input'
-                  type='email'
-                  placeholder=' '
-                  size={20}
-                />
-                <label className='did-floating-label'>Email</label>
-              </div>
-              <div className='did-floating-label-content'>
-                <input
-                  ref={phoneNumber}
-                  className='did-floating-input'
-                  type='text'
-                  placeholder=' '
-                  size={15}
-                />
-                <label className='did-floating-label'>Phone Number</label>
-              </div>
+                <div className='did-floating-label-content'>
+                  <input
+                    ref={email}
+                    className='did-floating-input'
+                    type='email'
+                    placeholder=' '
+                    size={20}
+                  />
+                  <label className='did-floating-label'>Email</label>
+                </div>
+                <div className='did-floating-label-content'>
+                  <input
+                    ref={phoneNumber}
+                    className='did-floating-input'
+                    type='text'
+                    placeholder=' '
+                    size={15}
+                  />
+                  <label className='did-floating-label'>Phone Number</label>
+                </div>
               {/* </div> */}
               {/* <div className='d-lg-flex justify-content-between'> */}
-              <div className='did-floating-label-content did-error-input'>
-                <input
-                  ref={address}
-                  className='did-floating-input'
-                  type='text'
-                  placeholder=' '
-                  size={20}
-                />
-                <label className='did-floating-label'>Address</label>
-              </div>
-              <div className='did-floating-label-content did-error-input'>
-                <input
-                  ref={matric}
-                  className='did-floating-input'
-                  type='text'
-                  placeholder=' '
-                  size={20}
-                />
-                <label className='did-floating-label'>Matric No</label>
-              </div>
-              <div className='did-floating-label-content did-error-input'>
-                <input
+                <div className='did-floating-label-content did-error-input'>
+                  <input
                   width={50}
-                  ref={password}
-                  className='did-floating-input'
-                  type='password'
-                  placeholder=' '
-                  // size={15}
-                />
-                <label className='did-floating-label'>Password</label>
-              </div>
+                    ref={password}
+                    className='did-floating-input'
+                    type='text'
+                    placeholder=' '
+                    // size={15}
+                  />
+                  <label className='did-floating-label'>Matric</label>
+                </div>
+                <div className='did-floating-label-content did-error-input'>
+                  <input
+                  width={50}
+                    ref={password}
+                    className='did-floating-input'
+                    type='password'
+                    placeholder=' '
+                    // size={15}
+                  />
+                  <label className='did-floating-label'>Password</label>
+                </div>
               {/* </div> */}
             </div>
             <div className='d-flex  justify-content-center'>
@@ -253,7 +199,7 @@ const Registration = () => {
                 Sign up
               </Button>
             </div>
-            <p className='text-danger'>{errorMsg}</p>
+            <p className='text-danger'>{error&&error.message.split('/')[1].split(')')[0] || errorMsg&&errorMsg}</p>
           </form>
 
           <small>
@@ -266,11 +212,10 @@ const Registration = () => {
           </div>
           <div className='d-flex justify-content-center '>
             <Button
-              onClick={handleFbSignup}
               style={{ width: '200px' }}
               variant='success'
             >
-              Facebook Login
+              Google Sign
             </Button>
           </div>
         </div>
@@ -279,4 +224,4 @@ const Registration = () => {
   )
 }
 
-export default Registration
+export default Registration;
