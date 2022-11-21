@@ -12,6 +12,9 @@ import useAddUserDb from '../../hooks/useAddUserDb'
 
 
 const Login = () => {
+
+  const [user,setUser] = useState();
+
   const emailRef = useRef();
   const passwordRef = useRef();
   const [loading, setLoading] = useState(false);
@@ -25,6 +28,10 @@ const Login = () => {
 
   let from = location?.state?.from?.pathname||'/';
   
+  if(user||fbUser){
+    navigate(from, {replace:true});
+  }
+
   if (loading || fbLoading) {
     return <Loading></Loading>
   }
@@ -36,9 +43,8 @@ const Login = () => {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigate(from, {replace:true});
         const user = userCredential.user;
-        console.log(user);
+        setUser(user);
         setLoading(false);
       })
       .catch((error) => {
