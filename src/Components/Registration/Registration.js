@@ -1,16 +1,16 @@
 import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
-  useUpdateProfile
+  useUpdateProfile,
+  useSignInWithFacebook
 } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Button } from 'react-bootstrap';
-//  from 'react-firebase-hooks/auth'
-import { React, useRef, useState } from 'react'
-import auth from '../../firebase.init'
-import './Registration.css'
-import Loading from '../Loading/Loading'
-import Helmet from 'react-helmet'
+import { React, useRef, useState } from 'react';
+import auth from '../../firebase.init';
+import './Registration.css';
+import Loading from '../Loading/Loading';
+import Helmet from 'react-helmet';
 
 const Registration = () => {
   const [
@@ -18,7 +18,10 @@ const Registration = () => {
     user,
     loading,
     error
-  ] = useCreateUserWithEmailAndPassword(auth)
+  ] = useCreateUserWithEmailAndPassword(auth) //create user with email and password
+
+  const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
+
   const [updateProfile, updating, err] = useUpdateProfile(auth)
 
   const [sendEmailVerification, sending, error1] = useSendEmailVerification(auth);
@@ -45,21 +48,22 @@ const Registration = () => {
 
     console.log(nameValue, emailValue, passwordValue, phoneNumberValue,matricValue,addressValue);
 
-    // await createUserWithEmailAndPassword(emailValue, passwordValue);
-    // await updateProfile({ displayName: nameValue });
-    // await sendEmailVerification();
+    await createUserWithEmailAndPassword(emailValue, passwordValue);
+    await updateProfile({ displayName: nameValue });
+    await sendEmailVerification();
     // navigate(from, {replace:true});
-    
   }
-  if (user) {
-    navigate('/menu')
-    console.log(user)
+
+  const handleFacebookSignUp = async() =>{
+    await signInWithFacebook();
   }
-  if (loading || updating || sending) {
+
+  if (user||fbUser) {
+    // navigate('/menu')
+    console.log(user || fbUser)
+  }
+  if (loading || updating || sending ||fbLoading) {
     return <Loading></Loading>
-  }
-  if(error){
-    console.log(error)
   }
   return (
     <div
@@ -211,7 +215,7 @@ const Registration = () => {
                 Sign up
               </Button>
             </div>
-            <p className='text-danger'>{error&&error.message.split('/')[1].split(')')[0] || errorMsg&&errorMsg}</p>
+            <p className='text-danger'>{error&&error.message.split('/')[1].split(')')[0] ||fbError&&fbError.message.split('/')[1].split(')')[0] ||errorMsg&&errorMsg}</p>
           </form>
 
           <small>
@@ -224,10 +228,11 @@ const Registration = () => {
           </div>
           <div className='d-flex justify-content-center '>
             <Button
+            onClick={handleFacebookSignUp}
               style={{ width: '200px' }}
-              variant='success'
+              variant='primary'
             >
-              Google Sign
+              FaceBook
             </Button>
           </div>
         </div>
