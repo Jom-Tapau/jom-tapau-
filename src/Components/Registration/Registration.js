@@ -30,9 +30,9 @@ const Registration = () => {
   const name = useRef('')
   const email = useRef('')
   const password = useRef('')
-  const confirmPass = useRef('')
+  const matric = useRef('')
   const phoneNumber = useRef('')
-
+  const address = useRef('')
   // function of signup button to register an user
   const handleSignUp = async e => {
     e.preventDefault();
@@ -40,13 +40,14 @@ const Registration = () => {
     const emailValue = email.current.value;
     const passwordValue = password.current.value;
     const phoneNumberValue = phoneNumber.current.value;
-    const confirmPassValue = confirmPass.current.value;
+    const matricValue = matric.current.value;
+    const addressValue = address.current.value; 
 
-    console.log(nameValue, emailValue, passwordValue, phoneNumberValue,confirmPassValue);
+    console.log(nameValue, emailValue, passwordValue, phoneNumberValue,matricValue,addressValue);
 
-    await createUserWithEmailAndPassword(emailValue, passwordValue);
-    await updateProfile({ displayName: nameValue });
-    await sendEmailVerification();
+    // await createUserWithEmailAndPassword(emailValue, passwordValue);
+    // await updateProfile({ displayName: nameValue });
+    // await sendEmailVerification();
     // navigate(from, {replace:true});
     
   }
@@ -168,13 +169,24 @@ const Registration = () => {
                 <div className='did-floating-label-content did-error-input'>
                   <input
                   width={50}
-                    ref={password}
+                    ref={matric}
                     className='did-floating-input'
                     type='text'
                     placeholder=' '
                     // size={15}
                   />
                   <label className='did-floating-label'>Matric</label>
+                </div>
+                <div className='did-floating-label-content did-error-input'>
+                  <input
+                  width={50}
+                    ref={address}
+                    className='did-floating-input'
+                    type='text'
+                    placeholder=' '
+                    // size={15}
+                  />
+                  <label className='did-floating-label'>Address</label>
                 </div>
                 <div className='did-floating-label-content did-error-input'>
                   <input
