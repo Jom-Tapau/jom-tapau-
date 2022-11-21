@@ -11,7 +11,7 @@ import auth from '../../firebase.init';
 import './Registration.css';
 import Loading from '../Loading/Loading';
 import Helmet from 'react-helmet';
-import AddToDb from '../../hooks/AddToDb';
+import AddToDb from '../Shared/AddToDb';
 
 const Registration = () => {
   const [
