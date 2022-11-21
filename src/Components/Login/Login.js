@@ -1,13 +1,15 @@
-import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
+import {  signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
 import React, { useRef } from 'react'
 import { useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
-import handleGoogleSignIn from '../../hooks/googleAuth'
 import Loading from '../Loading/Loading'
 import './Login.css';
 import Helmet from 'react-helmet';
+import { useSignInWithFacebook } from 'react-firebase-hooks/auth'
+
+
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -16,32 +18,14 @@ const Login = () => {
   let navigate =useNavigate();
   const location=useLocation();
 
+  const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
+
   let from = location?.state?.from?.pathname||'/';
   
-  if (loading) {
+  if (loading || fbLoading) {
     return <Loading></Loading>
   }
-  const handleGoogleSignUp = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        navigate(from, {replace:true});
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log(user);
-        // ...
-      }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        setError(error.message);
-
-        // ...
-      });
-
-  }
+  
   const handleLoginForm = (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
@@ -61,9 +45,10 @@ const Login = () => {
         console.log(errorMessage);
         setLoading(false);
       });
+  }
 
-
-
+  const handleFacebookSignUp = async () =>{
+    await signInWithFacebook();
   }
   return (
     <div className='box vh-100' style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)'}}>
@@ -125,7 +110,7 @@ const Login = () => {
               loading ? <Loading></Loading> : <div></div>
             }
         
-            <p className="text-danger">{error}</p>
+            <p className="text-danger">{error || fbError&&fbError.message.split('/')[1].split(')')[0] }</p>
             <small className='d-block text-danger'>Don't have an Account yet? <Link to="/registration">Register</Link></small>
           </form>
           <div className='d-flex justify-content-center '>
@@ -134,7 +119,7 @@ const Login = () => {
             <hr style={{ width: '200px', color: 'red' }} />
           </div>
           <div className='d-flex justify-content-center'>
-            <Button onClick={handleGoogleSignUp} style={{ width: '200px' }} variant="success">Google Sign in</Button>
+            <Button onClick={handleFacebookSignUp} style={{ width: '200px' }} variant="success">Google Sign in</Button>
           </div>
         </div>
       </div>
