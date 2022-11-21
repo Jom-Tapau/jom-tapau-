@@ -11,6 +11,7 @@ import auth from '../../firebase.init';
 import './Registration.css';
 import Loading from '../Loading/Loading';
 import Helmet from 'react-helmet';
+import AddToDb from '../../hooks/AddToDb';
 
 const Registration = () => {
   const [
@@ -28,7 +29,11 @@ const Registration = () => {
 
   const location=useLocation();
   let from = location?.state?.from?.pathname||'/';
-  const [errorMsg, setErrorMsg] = useState('')
+
+  //use Sate 
+  const [newUser,setUser] = useState({});
+  const [errorMsg, setErrorMsg] = useState('');
+
   const navigate = useNavigate()
   const name = useRef('')
   const email = useRef('')
@@ -46,18 +51,34 @@ const Registration = () => {
     const matricValue = matric.current.value;
     const addressValue = address.current.value; 
 
-    console.log(nameValue, emailValue, passwordValue, phoneNumberValue,matricValue,addressValue);
-
-    await createUserWithEmailAndPassword(emailValue, passwordValue);
-    await updateProfile({ displayName: nameValue });
-    await sendEmailVerification();
+    const createUser = {
+      name:nameValue,
+      email:emailValue,
+      phoneNumber:phoneNumberValue,
+      matricValue:matricValue,
+      address:addressValue
+    }
+    setUser(createUser)
+    AddToDb(newUser);
+    // await createUserWithEmailAndPassword(emailValue, passwordValue);
+    // await updateProfile({ displayName: nameValue });
+    // await sendEmailVerification();
     // navigate(from, {replace:true});
   }
 
   const handleFacebookSignUp = async() =>{
     await signInWithFacebook();
+    if(fbUser){
+      const createUser = {
+        name:fbUser.user.displayName,
+        email:fbUser.user.email,
+        phoneNumber:'',
+        matricValue:'',
+        address:''
+      }
+      console.log(createUser);
+    }
   }
-
   if (user||fbUser) {
     // navigate('/menu')
     console.log(user || fbUser)
