@@ -60,6 +60,16 @@ const Login = () => {
     await signInWithFacebook();
   }
 
+  const handleForgotPassword = async () =>{
+    const email = emailRef.current.value;
+    if(email==''){
+      console.log("email empty");
+    }
+    else{
+      console.log("email ache");
+    }
+  }
+
   return (
     <div className='box vh-100' style={{ backgroundColor: 'rgba(117, 131, 136, 0.2)'}}>
       <Helmet>
@@ -121,6 +131,7 @@ const Login = () => {
             }
         
             <p className="text-danger">{error || fbError&&fbError.message.split('/')[1].split(')')[0] }</p>
+            <small onClick={handleForgotPassword}>Forgot Password</small>
             <small className='d-block text-dark'>Don't have an Account yet? <Link to="/registration">Register</Link></small>
           </form>
           <div className='d-flex justify-content-center '>
