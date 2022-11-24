@@ -99,7 +99,7 @@ const data01 = [
             cx="50%"
             cy="50%"
             outerRadius={150}
-            fill="tomato"
+            fill="red"
             label
           />
           <Pie />
