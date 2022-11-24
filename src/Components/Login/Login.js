@@ -7,7 +7,7 @@ import auth from '../../firebase.init'
 import Loading from '../Loading/Loading'
 import './Login.css';
 import Helmet from 'react-helmet';
-import { useSignInWithFacebook } from 'react-firebase-hooks/auth'
+import { useSignInWithFacebook ,useSendPasswordResetEmail} from 'react-firebase-hooks/auth'
 import useAddUserDb from '../../hooks/useAddUserDb'
 
 
@@ -22,7 +22,11 @@ const Login = () => {
   let navigate =useNavigate();
   const location=useLocation();
 
+  //firebase react hooks 
   const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
+  const [sendPasswordResetEmail, sending, PassswordResetError] = useSendPasswordResetEmail(
+    auth
+  );
 
   useAddUserDb(fbUser?.user); //send registred user data to database
 
@@ -66,6 +70,7 @@ const Login = () => {
       console.log("email empty");
     }
     else{
+      await sendPasswordResetEmail(email)
       console.log("email ache");
     }
   }
