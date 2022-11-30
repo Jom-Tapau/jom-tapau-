@@ -1,3 +1,4 @@
+import alertify from 'alertifyjs';
 import React from 'react';
 import { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
@@ -23,7 +24,11 @@ const handleAddFood=(event)=>{
     body:JSON.stringify(user),
   }).then(
     res=>res.json()
-  ).then(data=>console.log("success",data));
+  ).then(data=>{console.log("success",data);
+alertify.success("Food Item Added Successfully");
+  
+
+});
   nameRef.current.value= "";
   priceRef.current.value= "";
   imgRef.current.value= "";
