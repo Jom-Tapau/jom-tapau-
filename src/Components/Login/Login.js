@@ -67,11 +67,11 @@ const Login = () => {
   const handleForgotPassword = async () =>{
     const email = emailRef.current.value;
     if(email==''){
-      console.log("email empty");
+      setError("email empty");
     }
     else{
-      await sendPasswordResetEmail(email)
-      console.log("email ache");
+      const success =  await sendPasswordResetEmail(email)
+      console.log(success);
     }
   }
 
