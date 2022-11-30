@@ -24,7 +24,10 @@ const handleAddFood=(event)=>{
   }).then(
     res=>res.json()
   ).then(data=>console.log("success",data));
- event.target.reset();
+  nameRef.current.value= "";
+  priceRef.current.value= "";
+  imgRef.current.value= "";
+  catRef.current.value= "";
   
 }
 
@@ -32,25 +35,26 @@ const handleAddFood=(event)=>{
         <div  style={{marginTop:"100px"}}>
                      <h1 className='text-danger '>Please Add a New Food Item</h1>
                      <br />
-               <Form className='w-50 mx-auto '>
+               <form onSubmit={handleAddFood} className='w-50 mx-auto '>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
    
-        <Form.Control ref={nameRef} type="text" placeholder="Enter Food Name" />
+        <Form.Control required ref={nameRef} type="text" placeholder="Enter Food Name" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     
-        <Form.Control ref={priceRef}  type="text" placeholder="Enter Food Price" />
+        <Form.Control required ref={priceRef}  type="text" placeholder="Enter Food Price" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     
-        <Form.Control ref={imgRef}  type="text" placeholder="Paste the Food Image URL" />
+        <Form.Control required ref={imgRef}  type="text" placeholder="Paste the Food Image URL" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     
-    <Form.Control ref={catRef}  type="text" placeholder="Enter Food Category" />
+    <Form.Control required ref={catRef}  type="text" placeholder="Enter Food Category" />
   </Form.Group>
-  <Button onClick={handleAddFood} className='btn btn-danger'>Submit</Button>
-    </Form>
+
+  <input className='btn btn-danger' type="submit" name="" id="" />
+    </form>
         </div>
     );
 };
