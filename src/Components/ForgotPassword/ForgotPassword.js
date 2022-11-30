@@ -13,7 +13,7 @@ sendPasswordResetEmail(auth, email)
   .then(() => {
     // Password reset email sent!
     console.log('sent');
-    setEmailSent("The Email has been Sent, Please Check Your Email");
+    setEmailSent("The Password Reset Email has been Sent, Please Check Your Email");
     // ..
   })
   .catch((error) => {
@@ -35,7 +35,7 @@ sendPasswordResetEmail(auth, email)
 <button onClick={handleForgotPassword} class="btn btn-danger" type="submit">Submit</button>
 <br />
 
-<p  className={emailSent=="The Email has been Sent, Please Check Your Email"? "text-success": "text-danger"}>{emailSent}</p>
+<p  className={emailSent=="The Password Reset Email has been Sent, Please Check Your Email"? "text-success": "text-danger"}>{emailSent}</p>
       </div>
         </div>
     );
