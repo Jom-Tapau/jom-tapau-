@@ -108,13 +108,16 @@ const Login = () => {
               </div>
             </div>
             <div className='d-flex  justify-content-center'>
-              <Button className='mb-5' variant='danger' type='submit'>
+              <Button className='mb-1' variant='danger' type='submit'>
                 Login
               </Button>
+           
+
+           
 
 
             </div>
-
+            <Link><small>Forgot Password?</small></Link>
           
            {
               loading ? <Loading></Loading> : <div></div>
