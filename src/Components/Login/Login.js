@@ -1,4 +1,4 @@
-import {  signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
+import {  sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, updatePassword } from 'firebase/auth'
 import React, { useRef } from 'react'
 import { useState } from 'react'
 import { Button } from 'react-bootstrap'
@@ -55,7 +55,19 @@ const Login = () => {
         setLoading(false);
       });
   }
-
+const handleForgotPassword=()=>{
+  console.log("handle forgot password");
+  sendPasswordResetEmail(auth)
+  .then(() => {
+    // Password reset email sent!
+    // ..
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+}
   const handleFacebookSignUp = async () =>{
     await signInWithFacebook();
   }
@@ -117,7 +129,7 @@ const Login = () => {
 
 
             </div>
-            <Link><small>Forgot Password?</small></Link>
+            <Link to="/forgotPassword"><small>Forgot Password?</small></Link>
           
            {
               loading ? <Loading></Loading> : <div></div>
