@@ -24,6 +24,8 @@ const handleAddFood=(event)=>{
   }).then(
     res=>res.json()
   ).then(data=>console.log("success",data));
+ event.target.reset();
+  
 }
 
     return (
