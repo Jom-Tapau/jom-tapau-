@@ -7,6 +7,7 @@ import { faBowlFood, faCoffee, faMotorcycle, faUserPen } from '@fortawesome/free
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+import { Helmet } from 'react-helmet';
 
 const Admin = () => {
   const data = [{name: 'Sunday', uv: 23, pv: 100, amt: 2400},
@@ -26,6 +27,10 @@ const data01 = [
 
     return (
 <div className=' d-flex '>
+<Helmet>
+        <meta charSet="utf-8" />
+        <title>Admin</title>
+      </Helmet>
 
 <div className='d-flex flex-column bg-danger w-25 ' style={{marginTop:"55px"}}>
 
