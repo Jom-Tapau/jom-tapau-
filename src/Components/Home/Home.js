@@ -10,7 +10,7 @@ const Home = () => {
   const [menu, setMenu]=useState(0);
   useEffect(() => {
     
-      setcustomerNum(1000);
+      setcustomerNum(1570);
       setExperience(2);
       setMenu(23);
   }, []);
