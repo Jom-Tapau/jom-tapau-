@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 const Rider = () => {
     const [users,setUser] = useState([]);
@@ -16,6 +17,9 @@ const Rider = () => {
     
     return (
         <div>
+            <Helmet>
+                <title>Rider</title>
+            </Helmet>
             {
                 users.map(user=>console.log(user))
             }
