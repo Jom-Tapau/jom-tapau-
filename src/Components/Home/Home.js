@@ -6,10 +6,13 @@ import HomeCarousel from './HomeCarousel'
 const Home = () => {
 
   const [customerNum, setcustomerNum]=useState(0);
+  const [experience, setExperience]=useState(0);
+  const [menu, setMenu]=useState(0);
   useEffect(() => {
-    if(customerNum==1000){}
-    else 
-      setcustomerNum(customerNum+1000)
+    
+      setcustomerNum(1000);
+      setExperience(2);
+      setMenu(23);
   }, []);
   return (
     <div className='mt-5'>
@@ -18,17 +21,51 @@ const Home = () => {
         <title>Jom Tapau</title>
       </Helmet>
       <HomeCarousel></HomeCarousel>
-      <AnimatedNumber component="text" value={customerNum}
+<div className='d-flex justify-content-around' style={{color:"grey"}}>
+
+<div className=''>
+  <AnimatedNumber component="text" value={experience}
             style={{
-                fontSize: 200
+                fontSize: 60
             }}
             frameStyle={perc => (
                {opacity:perc/100}
             )}
             duration={10000}
             formatValue={n => n.toFixed(0)}/>
-      <h1>Hello from home</h1>
+           <p><small>Years of Experience</small></p>
+  </div>
+    <div>
+    <AnimatedNumber component="text" value={menu}
+            style={{
+                fontSize: 60
+            }}
+            frameStyle={perc => (
+               {opacity:perc/100}
+            )}
+            duration={10000}
+            formatValue={n => n.toFixed(0)}/>
+                <p><small>Menus</small></p>
+ 
+    </div>
+    <div>
+    <AnimatedNumber component="text" value={customerNum}
+            style={{
+                fontSize: 60
+            }}
+            frameStyle={perc => (
+               {opacity:perc/100}
+            )}
+            duration={10000}
+            formatValue={n => n.toFixed(0)}/>
+                <p><small>Satisfied Customers</small></p>
+ 
+    </div>
+</div>
   
+<section>
+  <div><img className='w-100' src="https://i.ibb.co/xfKv5cX/IMG-9318.jpg" alt="" /></div>
+</section>
     </div>
   )
 }
