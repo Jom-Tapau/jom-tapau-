@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./AddRider.css";
 
 const AddRider = (props) => {
-  const riders = props.rider;
+  const riders = props.notRider;
   console.log("props: ", riders);
   const handleAddRider = (id) => {
     console.log(id)
@@ -17,7 +17,8 @@ const AddRider = (props) => {
   };
   return (
     <div>
-      <p className="mt-5">Add Riders</p>
+      {/* TODO: add some good text here and some fancy design */}
+      <p className="mt-5">Add Riders</p> 
       <section className="cart-container">
         <div>
           <div className="cart">

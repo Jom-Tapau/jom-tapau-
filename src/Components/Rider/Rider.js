@@ -4,11 +4,12 @@ import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import AddRider from './AddRider';
 import AllRider from './AllRider';
+import ApplicantRider from './ApplicantRider';
 
 const Rider = () => {
     const [users,setUser] = useState([]);
     const [applicants,setApplicants] = useState([]);
-    const  [notRider,setNotRider] = useState([]);
+    const [notRider,setNotRider] = useState([]);
     const [allRiders,setRiders] = useState([]);
     const [addRider,setAddRider] = useState(false)
     const [appBtn,setAppBtn] = useState(false)
@@ -65,7 +66,10 @@ const Rider = () => {
                 !addRider&&!appBtn?<AllRider rider={allRiders} ></AllRider>:""
             }
             {
-                addRider&&<AddRider rider={users}></AddRider>
+                addRider&&<AddRider notRider={notRider}></AddRider>
+            }
+            {
+                applicants&&<ApplicantRider applicants={applicants}></ApplicantRider>
             }
         </div>
     );
