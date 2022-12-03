@@ -10,6 +10,8 @@ const ApplicantRider = (props) => {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(id)
     })
+    .then(res=>res.json())
+    .then(data=>console.log(data))
   };
   const handleApproveRider = (id) => {
     console.log(id);
