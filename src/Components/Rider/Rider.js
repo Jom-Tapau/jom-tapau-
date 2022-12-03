@@ -8,6 +8,7 @@ import AllRider from './AllRider';
 const Rider = () => {
     const [users,setUser] = useState([]);
     const [applicants,setApplicants] = useState([]);
+    const  [notRider,setNotRider] = useState([]);
     const [allRiders,setRiders] = useState([]);
     const [addRider,setAddRider] = useState(false)
     const [appBtn,setAppBtn] = useState(false)
@@ -25,12 +26,16 @@ const Rider = () => {
 
             // filter the rider from the user data
             let riderUser=[]
+            let remainning=[]
             data.map(user=>{
                 if(user.rider===true){
                     riderUser.push(user);
                 }
+                else
+                remainning.push(user);
             })
             setRiders(riderUser)
+            setNotRider(remainning)
 
             console.log(applicants)
         })

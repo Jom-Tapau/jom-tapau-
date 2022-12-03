@@ -5,10 +5,11 @@ const AddRider = (props) => {
   const riders = props.rider;
   console.log("props: ", riders);
   const handleAddRider = (id) => {
-    fetch('',{
-      method:'POST',
+    console.log(id)
+    fetch(`http://localhost:5000/addRider`,{
+      method:'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body:JSON.stringify(id)
+      body:JSON.stringify({id:id})
     })
     .then(res=>res.json())
     .then(data=>console.log(data))
