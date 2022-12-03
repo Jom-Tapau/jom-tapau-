@@ -19,12 +19,18 @@ const Rider = () => {
         fetch('http://localhost:5000/user')
         .then(res=>res.json())
         .then(data=>{
-            setUser(data)
+            setUser(data);
 
-            //filter the user who applied for rider
-            const filterUser = users.filter(user=>user.hasOwnProperty("rider"));
-            setApplicants(filterUser)//set filtered data to setApplicatants
-
+            //filter the user who applied for ride
+            let applicantRider=[]
+            users.map(user=>{
+                console.log('users',users)
+                if(user.rider!=true){
+                    applicantRider.push(user)
+                }                
+            })
+            setApplicants(applicantRider)
+            
             // filter the rider from the user data
             let riderUser=[]
             let remainning=[]
@@ -37,8 +43,7 @@ const Rider = () => {
             })
             setRiders(riderUser)
             setNotRider(remainning)
-
-            console.log(applicants)
+            
         })
     },[])
 
@@ -55,9 +60,6 @@ const Rider = () => {
             <Helmet>
                 <title>Rider</title>
             </Helmet>
-            {
-                users.map(user=>console.log(user))
-            }
             <div style={{marginTop:"80px"}}>
             <Button onClick={handleAddRider} className="me-4" variant={addRider?'danger':'outline-danger'}>Add Rider</Button>
             <Button onClick={handleApplicants}variant={appBtn?'danger':'outline-danger'}>Applicants</Button>
