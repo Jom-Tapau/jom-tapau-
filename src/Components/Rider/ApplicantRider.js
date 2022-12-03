@@ -6,6 +6,9 @@ const ApplicantRider = (props) => {
     const handleRejectRider = id =>{
         console.log(id)
     }
+    const handleApproveRider = id =>{
+        console.log(id)
+    }
     return (
     <div>
       <section className="cart-container">
@@ -46,13 +49,22 @@ const ApplicantRider = (props) => {
                         <p className="user-link">{rider.email}</p>
                       </td>
                       <td style={{ width: "20%" }}>
-                        <span className="fa-stack table-link text-info">
+                        <span className="fa-stack table-link text-info me-3">
                           <button
                             type="button"
                             className="btn btn-info"
+                            onClick={() => handleApproveRider(rider._id)}
+                          >
+                            Approve
+                          </button>
+                        </span>
+                        <span className="fa-stack table-link text-info">
+                          <button
+                            type="button"
+                            className="btn btn-danger"
                             onClick={() => handleRejectRider(rider._id)}
                           >
-                            Add
+                            Delete
                           </button>
                         </span>
                       </td>
