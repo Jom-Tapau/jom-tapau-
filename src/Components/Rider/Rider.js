@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
+import { useNavigate } from 'react-router-dom';
+import AddRider from './AddRider';
 import AllRider from './AllRider';
 
 const Rider = () => {
@@ -9,6 +11,8 @@ const Rider = () => {
     const [allRiders,setRiders] = useState([]);
     const [addRider,setAddRider] = useState(false)
     const [appBtn,setAppBtn] = useState(false)
+
+    const navigate = useNavigate()
     useEffect(()=>{
         fetch('http://localhost:5000/user')
         .then(res=>res.json())
@@ -34,13 +38,12 @@ const Rider = () => {
 
     const handleAddRider = () =>{
         setAddRider(!addRider);
-        setAppBtn(false)
+        setAppBtn(false);
     }
     const handleApplicants=()=>{
         setAppBtn(!appBtn);
         setAddRider(false)
     }
-    
     return (
         <div>
             <Helmet>
@@ -54,7 +57,10 @@ const Rider = () => {
             <Button onClick={handleApplicants}variant={appBtn?'danger':'outline-danger'}>Applicants</Button>
             </div>
             {
-                // addRider&&appBtn?:""
+                !addRider&&!appBtn?<AllRider rider={allRiders} ></AllRider>:""
+            }
+            {
+                addRider&&<AddRider rider={users}></AddRider>
             }
         </div>
     );

@@ -15,6 +15,7 @@ import EditUser from './Components/EditUser/EditUser';
 import EditCustomer from './Components/EditUser/EditCustomer';
 import EditRIder from './Components/EditUser/EditRIder';
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
+import AddRider from './Components/Rider/AddRider';
 
 function App() {
   return (
