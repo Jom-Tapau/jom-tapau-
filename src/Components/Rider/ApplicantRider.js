@@ -5,7 +5,8 @@ const ApplicantRider = (props) => {
   console.log(props.applicants);
   const handleRejectRider = (id) => {
     console.log(id);
-    fetch('http://localhost:5000/deleteRider',{
+    //reject the rider 
+    fetch('http://localhost:5000/rejectRider',{
       method:'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(id)
