@@ -1,77 +1,63 @@
-body {
-  font-family: 'lato', sans-serif;
+.body-container{
+  background-color: rgb(233, 232, 232);
 }
-.container {
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 10px;
-  padding-right: 10px;
+.cart-container{
+  margin-top: 100px;
+  display:flex;
+  justify-content: center;
+  /* margin-top: 100px; */
+}
+.cart{
+  background-color: white;
+  width: 1200px;
+  box-shadow: 1px 2px 2px black;
+}
+.table a.table-link.danger {
+  color: #e74c3c;
+}
+.label {
+  border-radius: 3px;
+  font-size: 0.875em;
+  font-weight: 600;
+}
+.user-list tbody td .user-subhead {
+  font-size: 0.875em;
+  font-style: italic;
+}
+.user-list tbody td .user-link {
+  display: block;
+  font-size: 1.25em;
+  padding-top: 3px;
+  /* margin-left: 60px; */
+}
+a {
+  color: #3498db;
+  outline: none!important;
+}
+.user-list tbody td>img {
+  position: relative;
+  max-width: 50px;
+  float: left;
+  margin-right: 15px;
 }
 
-h2 {
-  font-size: 26px;
-  margin: 20px 0;
-  text-align: center;
+.table thead tr th {
+  text-transform: uppercase;
+  font-size: 0.875em;
 }
-h2>small {
-  font-size: 0.5em;
+.table thead tr th {
+  border-bottom: 2px solid #e7ebee;
 }
-  li {
-    border-radius: 3px;
-    padding: 25px 30px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
-  }
-  .table-header {
-    background-color: #95A5A6;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-  .table-row {
-    background-color: #ffffff;
-    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
-  }
-  .col-1 {
-    flex-basis: 10%;
-  }
-  .col-2 {
-    flex-basis: 40%;
-  }
-  .col-3 {
-    flex-basis: 25%;
-  }
-  .col-4 {
-    flex-basis: 25%;
-  }
-  
-
-@media all and (max-width: 767px) {
-  .table-header {
-    display: none;
-  }
-  .table-row{
-    
-  }
-  li {
-    display: block;
-  }
-  .col {
-    
-    flex-basis: 100%;
-    
-  }
-  .col {
-    display: flex;
-    padding: 10px 0;
-  }
-  col::before {
-    color: #6C7A89;
-    padding-right: 10px;
-    content: attr(data-label);
-    flex-basis: 50%;
-    text-align: right;
-  }
+.table tbody tr td:first-child {
+  font-size: 1.125em;
+  font-weight: 300;
+}
+.table tbody tr td {
+  font-size: 0.875em;
+  vertical-align: middle;
+  border-top: 1px solid #e7ebee;
+  padding: 12px 8px;
+}
+a:hover{
+text-decoration:none;
 }

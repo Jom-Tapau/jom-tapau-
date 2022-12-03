@@ -4,77 +4,70 @@ const AddRider = (props) => {
   const riders = props.rider;
   return (
     <div>
-      {riders.length}
+      
 
-      <div className="container">
-        <h2>
-          Responsive Tables Using LI <small>Triggers on 767px</small>
-        </h2>
-        <ul className="responsive-table">
-          <li className="table-header">
-            <div className="col col-1">Job Id</div>
-            <div className="col col-2">Customer Name</div>
-            <div className="col col-3">Amount Due</div>
-            <div className="col col-4">Payment Status</div>
-          </li>
-          <li className="table-row">
-            <div className="col col-1" data-label="Job Id">
-              42235
-            </div>
-            <div className="col col-2" data-label="Customer Name">
-              John Doe
-            </div>
-            <div className="col col-3" data-label="Amount">
-              $350
-            </div>
-            <div className="col col-4" data-label="Payment Status">
-              Pending
-            </div>
-          </li>
-          <li className="table-row">
-            <div className="col col-1" data-label="Job Id">
-              42442
-            </div>
-            <div className="col col-2" data-label="Customer Name">
-              Jennifer Smith
-            </div>
-            <div className="col col-3" data-label="Amount">
-              $220
-            </div>
-            <div className="col col-4" data-label="Payment Status">
-              Pending
-            </div>
-          </li>
-          <li className="table-row">
-            <div className="col col-1" data-label="Job Id">
-              42257
-            </div>
-            <div className="col col-2" data-label="Customer Name">
-              John Smith
-            </div>
-            <div className="col col-3" data-label="Amount">
-              $341
-            </div>
-            <div className="col col-4" data-label="Payment Status">
-              Pending
-            </div>
-          </li>
-          <li className="table-row">
-            <div className="col col-1" data-label="Job Id">
-              42311
-            </div>
-            <div className="col col-2" data-label="Customer Name">
-              John Carpenter
-            </div>
-            <div className="col col-3" data-label="Amount">
-              $115
-            </div>
-            <div className="col col-4" data-label="Payment Status">
-              Pending
-            </div>
-          </li>
-        </ul>
+      <section className="cart-container">
+      <div>
+        <div className="cart">
+          <div className="info-container">
+            <table className="table user-list">
+              <thead>
+                <tr>
+                  <th>
+                    <span>User</span>
+                  </th>
+                  <th>
+                    <span className="text-center">Phone Number</span>
+                  </th>
+                  <th>
+                    <span>Email</span>
+                  </th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img
+                      src="https://bootdey.com/img/Content/user_1.jpg"
+                      alt=""
+                    />
+                    <p className="user-link">
+                      G M Shaheen Shah Shimon
+                    </p>
+                  </td>
+                  <td><p className="user-link">
+                      +60187827582
+                    </p></td>
+                  <td>
+                  <p className="user-link">
+                      simon.rosedale99@gmail.com
+                    </p>
+                  </td>
+                  <td style={{ width: "20%" }}>
+                    <a
+                      href="#"
+                      className="table-link
+                                                text-info"
+                    >
+                      <span className="fa-stack">
+                        <p>asd</p>
+                      </span>
+                    </a>
+                    <a
+                      href="#"
+                      className="table-link
+                                                danger"
+                    >
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
+      </section>
     </div>
   );
 };
