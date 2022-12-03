@@ -28,6 +28,9 @@ const Rider = () => {
                 if(user.rider==true){
                     riderUser.push(user);
                 }
+                else if(user.rider=="rejected"){
+                    
+                }
                 else{
                 remainning.push(user);}
 

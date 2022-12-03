@@ -1,15 +1,28 @@
 import React from "react";
 
 const ApplicantRider = (props) => {
-    const applicants=props.applicants;
-    console.log(props.applicants);
-    const handleRejectRider = id =>{
-        console.log(id)
-    }
-    const handleApproveRider = id =>{
-        console.log(id)
-    }
-    return (
+  const applicants = props.applicants;
+  console.log(props.applicants);
+  const handleRejectRider = (id) => {
+    console.log(id);
+    fetch('http://localhost:5000/deleteRider',{
+      method:'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(id)
+    })
+  };
+  const handleApproveRider = (id) => {
+    console.log(id);
+    //update the rider 
+    fetch(`http://localhost:5000/addRider`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: id }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+  return (
     <div>
       <section className="cart-container">
         <div>
