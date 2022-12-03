@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import AnimatedNumber from 'react-animated-number/build/AnimatedNumber'
 import Helmet from 'react-helmet'
+import Footer from '../Footer/Footer'
 import HomeCarousel from './HomeCarousel'
+
 const Home = () => {
 
   const [customerNum, setcustomerNum]=useState(0);
@@ -29,8 +31,13 @@ const Home = () => {
             formatValue={n => n.toFixed(0)}/>
       <h1>Hello from home</h1>
   
+      <Footer></Footer>
+
     </div>
+
+    
   )
+  
 }
 
 export default Home
