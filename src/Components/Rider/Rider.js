@@ -20,29 +20,24 @@ const Rider = () => {
         .then(res=>res.json())
         .then(data=>{
             setUser(data);
-
-            //filter the user who applied for ride
-            let applicantRider=[]
-            users.map(user=>{
-                console.log('users',users)
-                if(user.rider!=true){
-                    applicantRider.push(user)
-                }                
-            })
-            setApplicants(applicantRider)
-            
+            let applicantRider=[];
             // filter the rider from the user data
             let riderUser=[]
             let remainning=[]
             data.map(user=>{
-                if(user.rider===true){
+                if(user.rider==true){
                     riderUser.push(user);
                 }
-                else
-                remainning.push(user);
+                else{
+                remainning.push(user);}
+
+                if(user.rider!=true){
+                    applicantRider.push(user)
+                }
             })
             setRiders(riderUser)
             setNotRider(remainning)
+            setApplicants(applicantRider)
             
         })
     },[])
@@ -71,7 +66,7 @@ const Rider = () => {
                 addRider&&<AddRider notRider={notRider}></AddRider>
             }
             {
-                applicants&&<ApplicantRider applicants={applicants}></ApplicantRider>
+                appBtn&&<ApplicantRider applicants={applicants}></ApplicantRider>
             }
         </div>
     );

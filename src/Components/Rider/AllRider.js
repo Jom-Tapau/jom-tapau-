@@ -6,7 +6,7 @@ const AllRider = (props) => {
         <div>
             {
                 props.rider.length?<div className='mt-5'>
-                    hehehe
+                    {props.rider.length}
                 </div>:
                 <div className="mt-5">
                     <h4>Zero Result Found</h4>
