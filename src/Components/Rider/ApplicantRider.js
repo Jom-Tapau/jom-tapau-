@@ -11,7 +11,7 @@ const ApplicantRider = (props) => {
     fetch('http://localhost:5000/rejectRider',{
       method:'PUT',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(id)
+      body: JSON.stringify({ id: id })
     })
     .then(res=>res.json())
     .then(data=>console.log(data))
