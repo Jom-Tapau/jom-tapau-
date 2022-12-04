@@ -25,7 +25,7 @@ const useRiders = () =>{
                 else{
                 remainning.push(user);}
 
-                if(user.rider!=true){
+                if(user.rider!=true && user.hasOwnProperty("rider")){
                     applicantRider.push(user)
                 }
             })

@@ -1,7 +1,9 @@
 import React from "react";
+import useRiders from "../../hooks/useRiders";
 
 const ApplicantRider = (props) => {
-  const applicants = props.applicants;
+  const {applicants} = useRiders();
+  // const applicants = props.applicants;
   console.log(props.applicants);
   const handleRejectRider = (id) => {
     console.log(id);
@@ -27,7 +29,8 @@ const ApplicantRider = (props) => {
   };
   return (
     <div>
-      <section className="cart-container">
+      {
+        applicants.length===0?<h2 className="mt-5">Zero Applicants</h2>:<section className="cart-container">
         <div>
           <div className="cart">
             <div className="info-container">
@@ -92,6 +95,7 @@ const ApplicantRider = (props) => {
           </div>
         </div>
       </section>
+      }
     </div>
   );
 };
