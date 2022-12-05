@@ -105,23 +105,23 @@ const foods = [
 
 const Menu = () => {
   return (
-    <div className='menu'>
+    <div className="menu">
       <Helmet>
-        <meta charSet='utf-8' />
+        <meta charSet="utf-8" />
         <title>Menu-Jom Tapau</title>
       </Helmet>
       <Categories></Categories>
-      <div className='container'>
-        <div className='row'>
-          {foods.map(food => (
-            <div className='col-lg-4 col-md-6 col-sm-12'>
+      <div className="container">
+        <div className="row">
+          {foods.map((food) => (
+            <div className="col-lg-4 col-md-6 col-sm-12">
               <Item food={food}></Item>
             </div>
           ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Menu
