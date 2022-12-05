@@ -1,4 +1,3 @@
-import { faCoffee, faEnvelope, faHouse, faUserPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram,faSnapchat ,faTwitter} from "@fortawesome/free-brands-svg-icons"
 import React from "react";
@@ -11,18 +10,18 @@ const Footer = () => {
         <div class="footer-basic">
           <footer>
             <div class="social">
-              <a href="#">
-                <i class="ion-social-instagram">  
+              <a href="https://www.facebook.com/Jomtapau.official?mibextid=LQQJ4d">
+                <i class="ion-social-facebook">  
                 <FontAwesomeIcon className="fs-1" icon={faFacebook} /></i>
               </a>
-              <a href="#">
-                <i class="icon ion-social-snapchat">   </i>
+              <a href="">
+                <i class="icon ion-social-instagram">  </i>
               </a>
               <a href="#">
                 <i class="icon ion-social-twitter">   </i>
               </a>
               <a href="#">
-                <i class="icon ion-social-facebook"> </i>
+                <i class="icon ion-social-snapchat"> </i>
               </a>
             </div>
             <ul class="list-inline">
