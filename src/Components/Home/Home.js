@@ -21,7 +21,7 @@ const Home = () => {
         <title>Jom Tapau</title>
       </Helmet>
       <HomeCarousel></HomeCarousel>
-<div className='d-flex justify-content-around' style={{color:"grey"}}>
+<div className='mt-5 d-flex justify-content-around' style={{color:"grey"}}>
 
 <div className=''>
   <AnimatedNumber component="text" value={experience}
@@ -63,7 +63,7 @@ const Home = () => {
     </div>
 </div>
   
-<section className='d-flex justify-content-around'>
+<section className='d-flex justify-content-around mt-5' >
   <div className='w-50 '><img className='w-100 border  rounded' src="https://i.ibb.co/xfKv5cX/IMG-9318.jpg" alt="" /></div>
   <div className='w-50'>
     <p className='text-danger' style={{fontFamily:"'Ma Shan Zheng', cursive",opacity:"0.5",textAlign:"start",marginLeft:"50px", fontSize:"100px"}}><i>About</i></p>
@@ -79,6 +79,10 @@ to afford
 </p>
 <i className='fs-3'><p style={{color:"grey"}}>Sunday to Thursday <b className='text-danger'>10am-5pm </b></p></i>
   </div>
+</section>
+
+<section>
+  
 </section>
     </div>
   )
