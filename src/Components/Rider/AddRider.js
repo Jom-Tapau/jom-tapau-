@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
+import useRiders from "../../hooks/useRiders";
 import "./AddRider.css";
 
 const AddRider = (props) => {
-  const riders = props.notRider;
-  console.log("props: ", riders);
+  const {notRider} = useRiders();
   const handleAddRider = (id) => {
     console.log(id)
     fetch(`http://localhost:5000/addRider`,{
@@ -19,7 +19,8 @@ const AddRider = (props) => {
     <div>
       {/* TODO: add some good text here and some fancy design */}
       <p className="mt-5">Add Riders</p> 
-      <section className="cart-container">
+      {
+        notRider.length===0?<h2>Zero Result found</h2>:<section className="cart-container">
         <div>
           <div className="cart">
             <div className="info-container">
@@ -39,7 +40,7 @@ const AddRider = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {riders.map(rider => <tr key={rider._id}>
+                  {notRider.map(rider => <tr key={rider._id}>
                       <td>
                         <img
                           src="https://i.pinimg.com/474x/76/4d/59/764d59d32f61f0f91dec8c442ab052c5.jpg"
@@ -72,6 +73,7 @@ const AddRider = (props) => {
           </div>
         </div>
       </section>
+      }
     </div>
   );
 };

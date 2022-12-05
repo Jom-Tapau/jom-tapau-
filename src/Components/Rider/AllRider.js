@@ -1,12 +1,13 @@
 import React from 'react';
+import useRiders from '../../hooks/useRiders';
 
-const AllRider = (props) => {
-    const{_id,name,email,phoneNUmber} = props.rider;
+const AllRider = () => {
+    const {allRiders} = useRiders();
     return (
         <div>
             {
-                props.rider.length?<div className='mt-5'>
-                    {props.rider.length}
+                allRiders.length?<div className='mt-5'>
+                    {allRiders.length}
                 </div>:
                 <div className="mt-5">
                     <h4>Zero Result Found</h4>
