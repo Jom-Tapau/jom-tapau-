@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import { Helmet } from "react-helmet";
 import auth from "../../firebase.init";
-
+import alertify from 'alertifyjs';
 const ForgotPassword = () => {
   const emailRef = useRef();
   const [emailSent, setEmailSent] = useState("");
@@ -14,15 +14,17 @@ const ForgotPassword = () => {
       .then(() => {
         // Password reset email sent!
         console.log("sent");
-        setEmailSent(
-          "The Password Reset Email has been Sent, Please Check Your Email"
-        );
+        // setEmailSent(
+        //   "The Password Reset Email has been Sent, Please Check Your Email"
+        // );
+        alertify.success("The Password Reset Email has been Sent, Please Check Your Email");
         // ..
       })
       .catch((error) => {
         const errorMessage = error.message.substr(9, 38);
         console.log(errorMessage);
-        setEmailSent(errorMessage);
+        // setEmailSent(errorMessage);
+        alertify.error(errorMessage);
         // ..
       });
   };
