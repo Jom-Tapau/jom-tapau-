@@ -73,7 +73,7 @@ const HomeCarousel = () => {
   
     </Carousel>
     <div style={{color:"white", position: "absolute",
-  top: "50%",
+  top: "30%",
   left: "50%",
   transform: "translate(-50%, -50%)"}}>
    <h1 className='mb-2' style={{fontSize:"50px",}} >Jom Tapau</h1>

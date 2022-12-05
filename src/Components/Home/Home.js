@@ -84,11 +84,7 @@ to afford
 
 <section>
   
-<<<<<<< HEAD
-
-=======
 </section>
->>>>>>> homepageDesign
     </div>
 
     
