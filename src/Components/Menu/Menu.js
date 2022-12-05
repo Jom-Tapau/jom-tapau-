@@ -111,7 +111,7 @@ const Menu = () => {
         <title>Menu-Jom Tapau</title>
       </Helmet>
       <Categories></Categories>
-      <div className='container'>
+      <div className='items'>
         <div className='row'>
           {foods.map(food => (
             <div className='col-lg-4 col-md-6 col-sm-12'>
