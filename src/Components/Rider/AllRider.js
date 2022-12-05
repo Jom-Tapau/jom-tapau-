@@ -8,16 +8,20 @@ const AllRider = () => {
 
   const handleDeleteRider = (id) => {
     console.log(id);
-    var notification = alertify.notify('sample', 'success', 2, function(){  console.log('Deleted')});
+    
+    var notification = alertify.notify('Deleted successful', 'success', 2, function(){  console.log('Deleted')});
     //reject the rider
-    /* fetch("http://localhost:5000/rejectRider", {
+     fetch("http://localhost:5000/rejectRider", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: id }),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data)); */
-  };
+      .then((data) =>{
+        console.log(data)
+        
+      })  
+    };
   return (
     <div>
       {allRiders.length ? (
