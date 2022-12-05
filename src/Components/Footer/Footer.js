@@ -14,8 +14,8 @@ const Footer = () => {
                 <i class="ion-social-facebook">  
                 <FontAwesomeIcon className="fs-1" icon={faFacebook} /></i>
               </a>
-              <a href="">
-                <i class="icon ion-social-instagram">  </i>
+              <a href="https://www.instagram.com/jomtapau.official/">
+                <i class="icon ion-social-instagram"> <FontAwesomeIcon className="fs-1" icon={faInstagram} /> </i>
               </a>
               <a href="#">
                 <i class="icon ion-social-twitter">   </i>
