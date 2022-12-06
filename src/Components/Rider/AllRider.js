@@ -24,6 +24,7 @@ const AllRider = () => {
     };
   return (
     <div>
+      <h3 className="title">Riders</h3>
       {allRiders.length ? (
         <section className="cart-container">
           <div>
