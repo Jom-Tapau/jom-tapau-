@@ -29,6 +29,7 @@ const ApplicantRider = (props) => {
   };
   return (
     <div>
+      <h3 className="title">Applicants</h3>
       {applicants.length === 0 ? (
         <div className="not-found">
           <span className="">No applicants found!</span>
