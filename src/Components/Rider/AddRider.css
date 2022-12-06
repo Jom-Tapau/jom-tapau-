@@ -61,3 +61,8 @@ a {
 a:hover{
 text-decoration:none;
 }
+
+.not-found {
+  margin: 5%;
+  font-size: large;
+}
