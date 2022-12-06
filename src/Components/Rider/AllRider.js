@@ -82,8 +82,8 @@ const AllRider = () => {
           </div>
         </section>
       ) : (
-        <div className="mt-5">
-          <h4>Zero Result Found</h4>
+        <div className="not-found">
+          <span className="">No riders available!</span>
         </div>
       )}
     </div>
