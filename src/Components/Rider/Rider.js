@@ -5,6 +5,7 @@ import { UNSAFE_DataRouterContext, useNavigate } from "react-router-dom";
 import AddRider from "./AddRider";
 import AllRider from "./AllRider";
 import ApplicantRider from "./ApplicantRider";
+import "./Rider.css";
 
 const Rider = () => {
   const [users, setUser] = useState([]);
@@ -55,21 +56,26 @@ const Rider = () => {
       <Helmet>
         <title>Rider</title>
       </Helmet>
-      <div style={{ marginTop: "80px" }}>
+
+      <div className="btn-container">
         <Button
           onClick={handleAddRider}
           className="me-4"
           variant={addRider ? "danger" : "outline-danger"}
+          size={"sm"}
         >
           Add Rider
         </Button>
+
         <Button
           onClick={handleApplicants}
           variant={appBtn ? "danger" : "outline-danger"}
+          size={"sm"}
         >
           Applicants
         </Button>
       </div>
+
       {!addRider && !appBtn ? <AllRider rider={allRiders}></AllRider> : ""}
       {addRider && <AddRider notRider={notRider}></AddRider>}
       {appBtn && <ApplicantRider applicants={applicants}></ApplicantRider>}
