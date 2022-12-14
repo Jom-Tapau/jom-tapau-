@@ -3,11 +3,12 @@ import { Button, Card } from "react-bootstrap";
 import "./Item.css";
 
 const Item = (props) => {
-  const { name, description, price, imgSrc } = props.food;
+  const { name, description, price, imgURL } = props.food;
   return (
       <div>
           <Card style={{ width: '18rem', margin: '1.5rem'}}>
-              <Card.Img style={{height: '18rem'}} variant="top" src={imgSrc} />
+              <Card.Img style={{height: '18rem'}} variant="top" src={imgURL} />
+   
               <Card.Body>
                   <Card.Title>{name}</Card.Title>
                   <Card.Text>
