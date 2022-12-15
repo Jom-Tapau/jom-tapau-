@@ -136,6 +136,13 @@ setFood(Drinks);
 
     }
 
+    const  clickAll= ()=>{
+      setFood(foodBackup);
+      const All = foodBackup.map(food=>food);
+      setFood(All);
+  
+      }
+
   return (
     <div className="menu">
       <Helmet>
@@ -146,7 +153,7 @@ setFood(Drinks);
       <div >
             <Nav defaultActiveKey="#popular" className="flex-column categories">
                 <Nav.Link className='link' href="#popular">Popular</Nav.Link>
-                <Nav.Link  className='link' eventKey="link-1">All Items</Nav.Link>
+                <Nav.Link onClick={clickAll} className='link' eventKey="link-1">All Items</Nav.Link>
                 <Nav.Link className='link' eventKey="link-2">BreakFast</Nav.Link>
                 <Nav.Link onClick={clickLunch} className='link' eventKey="disabled">Lunch</Nav.Link>
                 <Nav.Link onClick={clickDrinks} className='link'>Drinks</Nav.Link>
