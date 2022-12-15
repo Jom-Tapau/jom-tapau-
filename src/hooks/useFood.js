@@ -3,7 +3,7 @@ import { useEffect } from "react"
 
 const useFood = () =>{
 
-    const [food,setFood] = useState({});
+    const [foods,setFood] = useState({});
     const [error,setError] = useState(false)
     useEffect(()=>{
         fetch('http://localhost:5000/food')
@@ -16,7 +16,7 @@ const useFood = () =>{
         })
     },[])
 
-    return {food,error};
+    return {foods,error};
 }
 
 export default useFood;

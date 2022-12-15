@@ -1,13 +1,17 @@
 import React, { useRef } from "react";
 import { useState } from "react";
+import useFood from "../../hooks/useFood";
 import "./EditFood.css";
 const EditFood = () => {
 
     const [inputValue,setInputValue] = useState('');
     const inputField = useRef('');
     
+
+    const {foods} = useFood();
     const handleSearchFood = () =>{
         setInputValue(inputField.current.value)
+        console.log(foods);
     }
 
   return (
@@ -28,8 +32,7 @@ const EditFood = () => {
           </div>
         </div>
       </div>
-      {/* end of search bar code  */}
-
+      {/* end of search bar code  */}  
     </section>
   );
 };
