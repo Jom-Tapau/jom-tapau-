@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 import useFood from "../../hooks/useFood";
+import SingleFood from './SingleFood';
 import "./EditFood.css";
 const EditFood = () => {
 
@@ -33,6 +34,12 @@ const EditFood = () => {
         </div>
       </div>
       {/* end of search bar code  */}  
+      {
+        foods.map(food=> <SingleFood
+            key={food._id}
+            food={food}
+        ></SingleFood>)
+      }
     </section>
   );
 };
