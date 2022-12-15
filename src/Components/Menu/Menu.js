@@ -5,6 +5,7 @@ import './Menu.css'
 import Helmet from 'react-helmet';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Nav } from 'react-bootstrap';
 
 // const foods = [
 //   {
@@ -110,13 +111,27 @@ const Menu = () => {
 useEffect(()=>{
   fetch('https://jom-tapau-backend.onrender.com/food').then(res=>res.json()).then(data=>setFood(data))
 },[])
+const clickDrinks=()=>{
+
+const Drinks = foods.filter(food=>food.category=="Drinks");
+setFood(Drinks);
+}
   return (
     <div className="menu">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Menu-Jom Tapau</title>
       </Helmet>
-      <Categories></Categories>
+   
+      <div >
+            <Nav defaultActiveKey="#popular" className="flex-column categories">
+                <Nav.Link className='link' href="#popular">Popular</Nav.Link>
+                <Nav.Link className='link' eventKey="link-1">Set Meals</Nav.Link>
+                <Nav.Link className='link' eventKey="link-2">BreakFast</Nav.Link>
+                <Nav.Link className='link' eventKey="disabled">Lunch</Nav.Link>
+                <Nav.Link onClick={clickDrinks} className='link'>Drinks</Nav.Link>
+            </Nav>
+        </div>
       <div className='items'>
         <div className='row'>
           {foods.map(food => (
