@@ -34,12 +34,13 @@ const EditFood = () => {
         </div>
       </div>
       {/* end of search bar code  */}  
-      {
+      {/* {
         foods.map(food=> <SingleFood
             key={food._id}
             food={food}
         ></SingleFood>)
-      }
+      } */}
+      <SingleFood></SingleFood>
     </section>
   );
 };

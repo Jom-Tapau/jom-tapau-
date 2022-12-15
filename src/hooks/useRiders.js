@@ -20,7 +20,7 @@ const useRiders = () =>{
                     riderUser.push(user);
                 }
                 else if(user.rider=="rejected"){
-                    
+                    remainning.push(user)
                 }
                 else{
                 remainning.push(user);}
