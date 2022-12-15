@@ -16,6 +16,7 @@ import EditCustomer from './Components/EditUser/EditCustomer';
 import EditRIder from './Components/EditUser/EditRIder';
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 import Footer from './Components/Footer/Footer';
+import About from './Components/About/About';
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
         <Route path="/forgotPassword" element={<ForgotPassword></ForgotPassword>}></Route>
         <Route path="/editCustomer" element={<EditCustomer></EditCustomer>}></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
+        <Route path="/about" element={<About></About>}/>
+
         
   
 
