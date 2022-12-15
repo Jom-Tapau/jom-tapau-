@@ -15,7 +15,7 @@ const Item = (props) => {
                       {description}
                   </Card.Text>
                   <Card.Subtitle style={{marginBottom: '1.5em'}}>RM {price}</Card.Subtitle>
-                  <Button className='button' variant="primary">Add to cart</Button>
+                  <Button className='button' variant="danger">Add to cart</Button>
               </Card.Body>
           </Card>
 
