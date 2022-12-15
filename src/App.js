@@ -17,6 +17,7 @@ import EditRIder from './Components/EditUser/EditRIder';
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 import Footer from './Components/Footer/Footer';
 import AddRider from './Components/Rider/AddRider';
+import EditFood from './Components/EditFood/EditFood';
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
         <Route path="/admin" element={<Admin></Admin>}></Route>
         <Route path="/rider" element={<Rider></Rider>}></Route>
         <Route path="/addfood" element={<AddFood></AddFood>}></Route>
-        <Route path="/addfood" element={<AddFood></AddFood>}></Route>
+        <Route path="//EditUser" element={<EditFood></EditFood>}/>
         <Route path="/forgotPassword" element={<ForgotPassword></ForgotPassword>}></Route>
         <Route path="/editCustomer" element={<EditCustomer></EditCustomer>}></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
@@ -43,7 +44,7 @@ function App() {
 
       </Routes>
 
-      <Footer></Footer>
+      {/* <Footer></Footer> */}
 
     </div>
   );
