@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import Categories from '../Categories/Categories'
 import Item from '../Item/Item'
 import './Menu.css'
@@ -108,19 +108,26 @@ import { Nav } from 'react-bootstrap';
 
 const Menu = () => {
   const [foods,setFood]= useState([]);
+  const [isLoading,setLoading]= useState(true);
+  const [isLoading2,setLoading2]= useState(true);
+
 useEffect(()=>{
   fetch('https://jom-tapau-backend.onrender.com/food').then(res=>res.json()).then(data=>setFood(data))
+},[isLoading])
+useEffect(()=>{
+  setLoading2(false);
 },[])
 const clickDrinks=()=>{
-
+  setLoading(!isLoading);
 const Drinks = foods.filter(food=>food.category=="Drinks");
 setFood(Drinks);
 }
 
-  const  clickLunch= async()=>{
-    window.location.reload();
-    const Lunch =await foods.filter(food=>food.category=="Lunch");
-    await  setFood(Lunch);
+  const  clickLunch= ()=>{
+setLoading(!isLoading);
+      const Lunch = foods.filter(food=>food.category=="Lunch");
+      setFood(Lunch);
+    
   
   
     }
