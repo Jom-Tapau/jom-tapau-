@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFacebook, faInstagram,faTelegram} from "@fortawesome/free-brands-svg-icons"
+import { faFacebook, faInstagram,faTelegram, faTiktok} from "@fortawesome/free-brands-svg-icons"
 import React from "react";
 import "./Footer.css";
 
@@ -19,6 +19,9 @@ const Footer = () => {
               </a>
               <a href="https://www.instagram.com/jomtapau.official/">
                 <i class="icon ion-social-Telegram"> <FontAwesomeIcon className="fs-3" icon={faTelegram} />  </i>
+              </a>
+              <a href="https://www.tiktok.com/@jomtapau.official">
+                <i class="icon ion-social-Telegram"> <FontAwesomeIcon className="fs-3" icon={faTiktok} />  </i>
               </a>
             </div>
             <ul class="list-inline">
