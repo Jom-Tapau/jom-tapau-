@@ -16,7 +16,11 @@ import EditCustomer from './Components/EditUser/EditCustomer';
 import EditRIder from './Components/EditUser/EditRIder';
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 import Footer from './Components/Footer/Footer';
+<<<<<<< HEAD
 import About from './Components/About/About';
+=======
+import AddRider from './Components/Rider/AddRider';
+>>>>>>> 3ae8313bb3d29b772f2bf63f8ebfe73f88587a41
 
 function App() {
   return (
