@@ -18,6 +18,7 @@ import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 import Footer from './Components/Footer/Footer';
 import About from './Components/About/About';
 import AddRider from './Components/Rider/AddRider';
+import Cart from './Components/Cart/Cart';
 
 function App() {
   return (
@@ -39,8 +40,8 @@ function App() {
         <Route path="/forgotPassword" element={<ForgotPassword></ForgotPassword>}></Route>
         <Route path="/editCustomer" element={<EditCustomer></EditCustomer>}></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
-        <Route path="/about" element={<About></About>}/>
-
+        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/cart" element={<Cart></Cart>}></Route>
         
   
 
