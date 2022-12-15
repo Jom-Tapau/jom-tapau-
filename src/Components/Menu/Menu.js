@@ -109,25 +109,33 @@ import { Nav } from 'react-bootstrap';
 const Menu = () => {
   const [foods,setFood]= useState([]);
   const [isLoading,setLoading]= useState(true);
-  const [isLoading2,setLoading2]= useState(true);
+
 
 useEffect(()=>{
-  fetch('https://jom-tapau-backend.onrender.com/food').then(res=>res.json()).then(data=>setFood(data))
+  setLoading(true);
+  fetch('https://jom-tapau-backend.onrender.com/food').then(res=>res.json()).then(data=>setFood(data));
+  setLoading(false);
+
 },[isLoading])
-useEffect(()=>{
-  setLoading2(false);
-},[])
+
 const clickDrinks=()=>{
-  setLoading(!isLoading);
-const Drinks = foods.filter(food=>food.category=="Drinks");
+
+
+  var drink = "Drinks";
+const Drinks = foods.filter(food=>food.category==drink);
 setFood(Drinks);
+
 }
 
   const  clickLunch= ()=>{
-setLoading(!isLoading);
-      const Lunch = foods.filter(food=>food.category=="Lunch");
-      setFood(Lunch);
-    
+
+  
+
+  var lunch ="Lunch";
+  const Lunch = foods.filter(food=>food.category==lunch);
+  setFood(Lunch);
+
+
   
   
     }
