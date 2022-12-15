@@ -1,17 +1,9 @@
-<<<<<<< HEAD
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import AnimatedNumber from 'react-animated-number/build/AnimatedNumber'
 import Helmet from 'react-helmet'
 import Description from '../About/Description'
 import HomeCarousel from './HomeCarousel'
-=======
-import React, { useEffect } from "react";
-import { useState } from "react";
-import AnimatedNumber from "react-animated-number/build/AnimatedNumber";
-import Helmet from "react-helmet";
-import HomeCarousel from "./HomeCarousel";
->>>>>>> 3ae8313bb3d29b772f2bf63f8ebfe73f88587a41
 
 const Home = () => {
   const [customerNum, setcustomerNum] = useState(0);
@@ -125,14 +117,11 @@ const Home = () => {
       </section>
 
       <section></section>
+      <Description></Description>
     </div>
-<<<<<<< HEAD
-</div>
 
-<Description></Description>
-=======
+
   );
 };
->>>>>>> 3ae8313bb3d29b772f2bf63f8ebfe73f88587a41
 
 export default Home;
