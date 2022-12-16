@@ -14,3 +14,14 @@
     width: 4em;
     height: 4em;
 }
+
+.quantity {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.quantity input {
+    width: 2em;
+    text-align: center; 
+}
