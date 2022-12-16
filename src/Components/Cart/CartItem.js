@@ -10,7 +10,11 @@ const CartItem = (props) => {
         <img src={imgSrc} />
         <h4>{name}</h4>
       </div>
-      
+      <div className="quantity">
+        <button>-</button>
+        <input type='number' value={0}/>
+        <button>+</button>
+      </div>
     </div>
   );
 };
