@@ -25,9 +25,10 @@
     align-items: center;
 }
 
-.quantity input {
-    width: 2em;
-    text-align: center; 
+.quantity button {
+    border: none;
+    background: transparent;
+    color: crimson;
 }
 
 .quantity input::-webkit-outer-spin-button,
