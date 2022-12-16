@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CartItem.css";
 
 const CartItem = (props) => {
   const { name, description, price, imgSrc } = props.food;
+  const [count, setCount] = useState(1);
 
   return (
     <div className="cart-item">
@@ -10,11 +11,13 @@ const CartItem = (props) => {
         <img src={imgSrc} />
         <h4>{name}</h4>
       </div>
+
       <div className="quantity">
         <button>-</button>
-        <input type='number' value={0}/>
+        <span>{count}</span>
         <button>+</button>
       </div>
+
     </div>
   );
 };
