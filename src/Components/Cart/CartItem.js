@@ -18,6 +18,9 @@ const CartItem = (props) => {
         <button>+</button>
       </div>
 
+      <div className="price">
+        <strong>RM {price}</strong>
+      </div>
     </div>
   );
 };
