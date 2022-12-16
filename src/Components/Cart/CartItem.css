@@ -9,3 +9,8 @@
     gap: 1em;
     align-items: center;
 }
+
+.cart-item img {
+    width: 4em;
+    height: 4em;
+}
