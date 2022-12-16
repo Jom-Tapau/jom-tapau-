@@ -1,0 +1,11 @@
+.cart-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item-name {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
