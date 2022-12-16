@@ -17,7 +17,7 @@
 
 .quantity {
     display: flex;
-    gap: 1em;
+    gap: 0.5em;
     align-items: center;
 }
 
@@ -30,4 +30,8 @@
 .quantity input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.price {
+    font-size: large;
 }
