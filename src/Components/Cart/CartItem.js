@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./CartItem.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const CartItem = (props) => {
   const { name, description, price, imgSrc } = props.food;
@@ -13,13 +15,13 @@ const CartItem = (props) => {
       </div>
 
       <div className="quantity">
-        <button>-</button>
+        <button><FontAwesomeIcon icon={faMinus} /></button>
         <span>{count}</span>
-        <button>+</button>
+        <button><FontAwesomeIcon icon={faPlus} /></button>
       </div>
 
       <div className="price">
-        <strong>RM {price}</strong>
+        <strong>RM 13.5{/*{price}*/}</strong>
       </div>
     </div>
   );
