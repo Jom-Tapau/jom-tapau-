@@ -20,9 +20,15 @@
 }
 
 .quantity {
+    padding: 2px 7px;
     display: flex;
     gap: 0.5em;
     align-items: center;
+    transition: 0.5s;
+}
+
+.quantity:hover {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .quantity button {
