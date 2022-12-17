@@ -22,10 +22,10 @@ const singleFood = () => {
               Breakfast
             </p>
             </div>
-          <span class="material-symbols-sharp">
+          <span class="material-symbols-sharp me-5 edit-btn">
             edit
           </span>
-          <span class="material-symbols-sharp">
+          <span class="material-symbols-sharp delete-btn">
             delete
           </span>
         </div>

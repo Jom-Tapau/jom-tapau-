@@ -10,6 +10,7 @@
 }
 
 .food-card{
+    height: 220px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
@@ -19,4 +20,22 @@
   'wght' 400,
   'GRAD' 0,
   'opsz' 48
+}
+.delete-btn{
+    padding: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50%;
+}
+.edit-btn{
+    padding: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50%;
+}
+.delete-btn:hover{
+    background-color: red;
+    color: aliceblue;
+}
+.edit-btn:hover{
+    background-color: blue;
+    color: aliceblue;
 }
