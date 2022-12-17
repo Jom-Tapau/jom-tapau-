@@ -6,7 +6,6 @@ import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 const CartItem = (props) => {
   const { name, description, price, imgSrc } = props.food;
   const newPrice = parseFloat(price);
-  console.log(price);
   const [count, setCount] = useState(1);
   const [totalPrice, setTotalPrice] = useState(newPrice);
 
