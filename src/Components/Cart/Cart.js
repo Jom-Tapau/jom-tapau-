@@ -28,6 +28,8 @@ const Cart = () => {
         <CartItem food={foods[0]}></CartItem>
         <CartItem food={foods[1]}></CartItem>
       </div>
+
+      <hr className="line"/>
     </div>
   );
 };
