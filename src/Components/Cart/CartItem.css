@@ -9,6 +9,7 @@
 }
 
 .item-name {
+    width: 12em;
     display: flex;
     gap: 1em;
     align-items: center;
