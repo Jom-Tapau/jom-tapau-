@@ -1,7 +1,7 @@
 .cart-item {
     width: 40em;
     padding: 10px 20px;
-    border: 2px solid crimson;
+    border: 1px solid crimson;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
