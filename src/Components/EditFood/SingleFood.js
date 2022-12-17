@@ -9,10 +9,9 @@ const singleFood = () => {
         <img src="https://i.ibb.co/SRJYQQv/IMG-9330.jpg" className="card-img-top food-img" alt="..." />
         </div>
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          <h5 className="card-title">Nasi Goreng Ayam</h5>
+          <p className="card-text fst-italic">
+            Breakfast set meal
           </p>
           <a href="#" className="btn btn-primary">
             Go somewhere

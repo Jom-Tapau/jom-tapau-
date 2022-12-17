@@ -16,9 +16,9 @@ const EditFood = () => {
     }
 
   return (
-    <section>
-      <div style={{ marginTop: "80px" }}>
-        <h2 className="mb-3">Food Item</h2>
+    <section className="bg-light">
+      <div style={{ paddingTop: "80px" }}>
+        <h2 className="mb-3">Search Food Item</h2>
         <div className="wrap">
           <div className="search">
             <input
