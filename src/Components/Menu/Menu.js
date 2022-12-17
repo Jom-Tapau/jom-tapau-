@@ -5,21 +5,25 @@ import './Menu.css'
 import Helmet from 'react-helmet';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Nav } from 'react-bootstrap';
+import { Nav, Spinner } from 'react-bootstrap';
 
 
 
 const Menu = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [foods,setFood]= useState([]);
   const [foodBackup,setFoodBackup]= useState([]);
 
 
 useEffect(()=>{
-  
+ setIsLoading(true);
   fetch('https://jom-tapau-backend.onrender.com/food').then(res=>res.json()).then(data=>{
     setFood(data);
     setFoodBackup(data);
+    setIsLoading(false);
   });
+
+  
   
 
 },[])
@@ -57,7 +61,7 @@ const  clickBreakFast= ()=>{
         <meta charSet="utf-8" />
         <title>Menu-Jom Tapau</title>
       </Helmet>
-   
+
       <div >
             <Nav defaultActiveKey="#popular" className="flex-column categories">
                 <Nav.Link   className='link' href="#popular">Popular</Nav.Link>
@@ -67,6 +71,14 @@ const  clickBreakFast= ()=>{
                 <Nav.Link onClick={clickDrinks} className='link'>Drinks</Nav.Link>
             </Nav>
         </div>
+        {
+      isLoading? 
+     <div className='w-100'>
+     <div class="spinner-grow text-danger" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+     </div>:<></>
+  }
       <div className='items'>
         <div className='row'>
           {foods.map(food => (
