@@ -14,20 +14,14 @@ const singleFood = () => {
         </div>
         <div className="card-body">
           <h5 className="card-title">Nasi Goreng Ayam</h5>
-          <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center mb-3">
             <p 
               style={{ width: "120px" }}
-              className="card-text fst-italic border border-3 border-light rounded-pill"
+              className="category-font card-text fst-italic border border-3 border-light rounded-pill"
             >
               Breakfast
             </p>
-            <p
-              style={{ width: "110px" }}
-              className="card-text fst-italic border border-3 border-light rounded-pill"
-            >
-              Breakfast
-            </p>
-          </div>
+            </div>
           <a href="#" className="btn btn-primary">
             Go somewhere
           </a>

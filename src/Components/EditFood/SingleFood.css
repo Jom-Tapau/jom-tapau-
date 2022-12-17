@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@1,100&family=Roboto:wght@300&display=swap');
 .food-img{
     width:120px;
     height: 120px;
     border-radius: 60px;
     margin-top: -50px;
+}
+.category-font{
+    font-family: 'Chivo Mono', monospace;
 }
