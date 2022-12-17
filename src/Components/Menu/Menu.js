@@ -75,9 +75,26 @@ const  clickBreakFast= ()=>{
       isLoading? 
      <div className='w-100'>
   
-<div class="spinner-border text-danger"  role="status">
+
+<div class="spinner-grow text-danger" role="status">
   <span class="sr-only">Loading...</span>
 </div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+
      </div>:<></>
   }
       <div className='items'>
