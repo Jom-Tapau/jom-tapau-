@@ -22,9 +22,12 @@ const singleFood = () => {
               Breakfast
             </p>
             </div>
-          <a href="#" className="btn btn-primary">
-            Go somewhere
-          </a>
+          <span class="material-symbols-sharp">
+            edit
+          </span>
+          <span class="material-symbols-sharp">
+            delete
+          </span>
         </div>
       </div>
     </div>
