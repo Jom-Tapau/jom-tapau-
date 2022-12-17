@@ -102,8 +102,9 @@ const  clickBreakFast= ()=>{
 
      </div>:<></>
   }
+ 
       <div className='items'>
-        <h1 className='text-danger'>{heading}</h1>
+        <h1 style={{ fontFamily: "'Ma Shan Zheng', cursive"}} className='text-danger'>{heading}</h1>
         <div className='row'>
           {foods.map(food => (
             <div className='col-lg-4 col-md-6 col-sm-12'>
