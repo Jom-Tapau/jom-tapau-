@@ -3,8 +3,8 @@ import "./SingleFood.css";
 const singleFood = () => {
   // console.log(props.food)
   return (
-    <div className="mt-5">
-      <div className="card" style={{ width: "18rem" }}>
+    <div className="mt-5 col-4">
+      <div className="card food-card mt-5" style={{ width: "18rem" }}>
         <div className="d-flex justify-content-center">
           <img
             src="https://i.ibb.co/SRJYQQv/IMG-9330.jpg"

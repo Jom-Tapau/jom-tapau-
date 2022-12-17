@@ -40,7 +40,16 @@ const EditFood = () => {
             food={food}
         ></SingleFood>)
       } */}
+      <div className="container">
+      <section className="row justify-content-center">
       <SingleFood></SingleFood>
+      <SingleFood></SingleFood>
+      <SingleFood></SingleFood>
+      <SingleFood></SingleFood>
+      <SingleFood></SingleFood>
+      <SingleFood></SingleFood>
+      </section>
+      </div>
     </section>
   );
 };
