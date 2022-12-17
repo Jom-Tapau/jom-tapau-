@@ -3,6 +3,7 @@ import { useState } from "react";
 import useFood from "../../hooks/useFood";
 import SingleFood from './SingleFood';
 import "./EditFood.css";
+import { Helmet } from "react-helmet";
 const EditFood = () => {
 
     const [inputValue,setInputValue] = useState('');
@@ -17,6 +18,10 @@ const EditFood = () => {
 
   return (
     <section className="bg-light">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Edit Food</title>
+      </Helmet>
       <div style={{ paddingTop: "80px" }}>
         <h2 className="mb-5">Search Food Item</h2>
         <div className="wrap ">
