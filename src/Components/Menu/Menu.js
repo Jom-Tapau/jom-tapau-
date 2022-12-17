@@ -7,104 +7,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Nav } from 'react-bootstrap';
 
-// const foods = [
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   },
-//   {
-//     name: 'Food',
-//     description:
-//       'Arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum',
-//     price: '15.5',
-//     imgSrc:
-//       'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'
-//   }
-// ]
+
 
 const Menu = () => {
   const [foods,setFood]= useState([]);
@@ -128,7 +31,12 @@ setFood(Drinks);
 
 }
 
+const  clickBreakFast= ()=>{
+  setFood(foodBackup);
+  const BreakFast = foodBackup.filter(food=>food.category=="BreakFast");
+  setFood(BreakFast);
 
+  }
   const  clickLunch= ()=>{
     setFood(foodBackup);
     const Lunch = foodBackup.filter(food=>food.category=="Lunch");
@@ -152,9 +60,9 @@ setFood(Drinks);
    
       <div >
             <Nav defaultActiveKey="#popular" className="flex-column categories">
-                <Nav.Link className='link' href="#popular">Popular</Nav.Link>
+                <Nav.Link   className='link' href="#popular">Popular</Nav.Link>
                 <Nav.Link onClick={clickAll} className='link' eventKey="link-1">All Items</Nav.Link>
-                <Nav.Link className='link' eventKey="link-2">BreakFast</Nav.Link>
+                <Nav.Link onClick={clickBreakFast} className='link' eventKey="link-2">BreakFast</Nav.Link>
                 <Nav.Link onClick={clickLunch} className='link' eventKey="disabled">Lunch</Nav.Link>
                 <Nav.Link onClick={clickDrinks} className='link'>Drinks</Nav.Link>
             </Nav>
