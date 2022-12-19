@@ -13,7 +13,7 @@ const Menu = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [foods,setFood]= useState([]);
   const [foodBackup,setFoodBackup]= useState([]);
-  const [heading,setHeading]= useState("");
+ 
 
 
 useEffect(()=>{
@@ -33,7 +33,7 @@ const clickDrinks= ()=>{
   setFood(foodBackup);
 const Drinks =  foodBackup.filter(food=>food.category=="Drinks");
 setFood(Drinks);
-setHeading("Our Drinks")
+
 
 }
 
@@ -41,14 +41,14 @@ const  clickBreakFast= ()=>{
   setFood(foodBackup);
   const BreakFast = foodBackup.filter(food=>food.category=="BreakFast");
   setFood(BreakFast);
-  setHeading("Our BreakFast Items")
+  
 
   }
   const  clickLunch= ()=>{
     setFood(foodBackup);
     const Lunch = foodBackup.filter(food=>food.category=="Lunch");
     setFood(Lunch);
-    setHeading("Our Lunch Items")
+    
 
     }
 
@@ -56,7 +56,7 @@ const  clickBreakFast= ()=>{
       setFood(foodBackup);
       const All = foodBackup.map(food=>food);
       setFood(All);
-      setHeading("Our Items")
+      
   
       }
 
