@@ -52,20 +52,13 @@ const EditFood = () => {
         </div>
       </div>
       {/* end of search bar code  */}  
-      {/* {
-        foods.map(food=> <SingleFood
-            key={food._id}
-            food={food}
-        ></SingleFood>)
-      } */}
+      
+      {/* send single food to singleFood component */}
       <div className="container">
       <section className="row justify-content-center">
-      <SingleFood></SingleFood>
-      <SingleFood></SingleFood>
-      <SingleFood></SingleFood>
-      <SingleFood></SingleFood>
-      <SingleFood></SingleFood>
-      <SingleFood></SingleFood>
+      {
+        foods.map(food=><SingleFood key={food._id} food={food}></SingleFood>)
+      }
       </section>
       </div>
     </section>
