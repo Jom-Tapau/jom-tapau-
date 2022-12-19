@@ -1,6 +1,7 @@
 import React from "react";
 import CartItem from "./CartItem";
 import "./Cart.css";
+import { Button } from "bootstrap";
 
 const foods = [
   {
@@ -41,6 +42,7 @@ const Cart = () => {
           <div className="total-row grand-total">
             <span>Total:</span> <span>RM 19.00</span>
           </div>
+          <button className="checkout">Proceed to payment</button>
       </div>
     </div>
   );
