@@ -7,6 +7,9 @@ const singleFood = (props) => {
   const handleFoodEdit = id =>{
     console.log(id)
   }
+  const handleFoodDelete = id =>{
+    console.log(id)
+  }
   return (
     <div className="mt-5 col-4">
       <div className="card food-card mt-5" style={{ width: "18rem" }}>
@@ -30,7 +33,7 @@ const singleFood = (props) => {
           <span onClick={()=>handleFoodEdit(_id)} class="material-symbols-sharp me-5 edit-btn">
             edit
           </span>
-          <span class="material-symbols-sharp delete-btn">
+          <span onClick={()=>handleFoodDelete(_id)} class="material-symbols-sharp delete-btn">
             delete
           </span>
         </div>
