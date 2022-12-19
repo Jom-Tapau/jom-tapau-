@@ -16,7 +16,7 @@ const useFood = () =>{
         })
     },[])
 
-    return {foods,error};
+    return {foods,error,setFood};
 }
 
 export default useFood;

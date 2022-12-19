@@ -10,10 +10,23 @@ const EditFood = () => {
     const inputField = useRef('');
     
 
-    const {foods} = useFood();
+    const {foods,setFood} = useFood();
     const handleSearchFood = () =>{
         setInputValue(inputField.current.value)
         console.log(foods);
+
+        fetch('',{
+          method:'POST',
+          headers:{
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(inputValue)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          if(data.length>0)
+          setFood(data)
+        })
     }
 
   return (
