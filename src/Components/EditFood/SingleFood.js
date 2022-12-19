@@ -3,6 +3,10 @@ import "./SingleFood.css";
 const singleFood = (props) => {
   const {_id,name,price,imgURL,category} = props.food;
   // console.log(props.food)
+
+  const handleFoodEdit = id =>{
+    console.log(id)
+  }
   return (
     <div className="mt-5 col-4">
       <div className="card food-card mt-5" style={{ width: "18rem" }}>
@@ -23,7 +27,7 @@ const singleFood = (props) => {
               Breakfast
             </p>
             </div>
-          <span class="material-symbols-sharp me-5 edit-btn">
+          <span onClick={()=>handleFoodEdit(_id)} class="material-symbols-sharp me-5 edit-btn">
             edit
           </span>
           <span class="material-symbols-sharp delete-btn">
