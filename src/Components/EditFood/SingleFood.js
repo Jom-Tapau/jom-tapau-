@@ -1,6 +1,7 @@
 import React from "react";
 import "./SingleFood.css";
-const singleFood = () => {
+const singleFood = (props) => {
+  const {_id,name,price,imgURL,category} = props.food;
   // console.log(props.food)
   return (
     <div className="mt-5 col-4">
