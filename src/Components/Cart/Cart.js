@@ -1,6 +1,6 @@
 import React from "react";
 import CartItem from "./CartItem";
-import './Cart.css'
+import './Cart.css';
 
 const foods = [
   {
