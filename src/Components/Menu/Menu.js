@@ -56,7 +56,7 @@ const  clickBreakFast= ()=>{
       setFood(foodBackup);
       const All = foodBackup.map(food=>food);
       setFood(All);
-      
+     
   
       }
 
@@ -104,7 +104,7 @@ const  clickBreakFast= ()=>{
   }
  
       <div className='items'>
-        <h1 style={{ fontFamily: "'Ma Shan Zheng', cursive"}} className='text-danger'>{heading}</h1>
+      
         <div className='row'>
           {foods.map(food => (
             <div className='col-lg-4 col-md-6 col-sm-12'>
