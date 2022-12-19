@@ -9,7 +9,7 @@
 }
 
 .item-name {
-    width: 12em;
+    width: 10em;
     display: flex;
     gap: 1em;
     align-items: center;
@@ -22,7 +22,7 @@
 }
 
 .quantity {
-    padding: 2px 7px;
+    padding: 4px 7px;
     display: flex;
     gap: 0.5em;
     align-items: center;
