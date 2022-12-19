@@ -1,6 +1,6 @@
 import React from "react";
 import CartItem from "./CartItem";
-import './Cart.css';
+import "./Cart.css";
 
 const foods = [
   {
@@ -29,7 +29,19 @@ const Cart = () => {
         <CartItem food={foods[1]}></CartItem>
       </div>
 
-      <hr className="line"/>
+      <hr className="line" />
+
+      <div className="total">
+          <div className="total-row">
+            <span>Subtotal:</span> <span>RM 18.00</span>
+          </div>
+          <div className="total-row">
+            <span>Delivery:</span> <span>RM 1.00</span>
+          </div>
+          <div className="total-row">
+            <span>Total:</span> <span>RM 19.00</span>
+          </div>
+      </div>
     </div>
   );
 };
