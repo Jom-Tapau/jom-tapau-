@@ -27,3 +27,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.grand-total {
+    font-weight: 700;
+}

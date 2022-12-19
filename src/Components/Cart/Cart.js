@@ -38,7 +38,7 @@ const Cart = () => {
           <div className="total-row">
             <span>Delivery:</span> <span>RM 1.00</span>
           </div>
-          <div className="total-row">
+          <div className="total-row grand-total">
             <span>Total:</span> <span>RM 19.00</span>
           </div>
       </div>
