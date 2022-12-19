@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import { useState } from "react";
 import useFood from "../../hooks/useFood";
-import SingleFood from './SingleFood';
 import "./EditFood.css";
+import SingleFood from './SingleFood'
 import { Helmet } from "react-helmet";
 const EditFood = () => {
 
@@ -11,6 +11,7 @@ const EditFood = () => {
     
 
     const {foods,setFood} = useFood();
+    console.log(foods)
     const handleSearchFood = () =>{
         setInputValue(inputField.current.value)
         console.log(foods);

@@ -1,7 +1,7 @@
 import React from "react";
 import "./SingleFood.css";
-const singleFood = (props) => {
-  const {_id,name,price,imgURL,category} = props.food;
+const singleFood = () => {
+  // const {_id,name,price,imgURL,category} = props.food;
   // console.log(props.food)
 
   const handleFoodEdit = id =>{
@@ -30,10 +30,10 @@ const singleFood = (props) => {
               Breakfast
             </p>
             </div>
-          <span onClick={()=>handleFoodEdit(_id)} class="material-symbols-sharp me-5 edit-btn">
+          <span onClick={()=>handleFoodEdit(1)} class="material-symbols-sharp me-5 edit-btn">
             edit
           </span>
-          <span onClick={()=>handleFoodDelete(_id)} class="material-symbols-sharp delete-btn">
+          <span onClick={()=>handleFoodDelete(2)} class="material-symbols-sharp delete-btn">
             delete
           </span>
         </div>
