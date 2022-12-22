@@ -1,5 +1,6 @@
 import React from "react";
 import "./SingleFood.css";
+import { Link } from "react-router-dom";
 const singleFood = (props) => {
   const {_id,name,price,imgURL,category} = props.food;
   const handleFoodDelete = props.handleFoodDelete;
@@ -29,10 +30,12 @@ const singleFood = (props) => {
               {category}
             </p>
             </div>
-          <span onClick={()=>handleFoodEdit(_id)} class="material-symbols-sharp me-5 edit-btn">
+          <Link to={`/EditFood/${_id}`}>
+          <span  className="material-symbols-sharp me-5 edit-btn">
             edit
           </span>
-          <span onClick={()=>handleFoodDelete(_id)} class="material-symbols-sharp delete-btn">
+          </Link>
+          <span onClick={()=>handleFoodDelete(_id)} className="material-symbols-sharp delete-btn">
             delete
           </span>
         </div>
