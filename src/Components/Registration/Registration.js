@@ -145,16 +145,10 @@ const Registration = () => {
           </h1>
           <div className='d-flex justify-content-center'>
             <div>
-              <small className='text-center text-danger mt-5 fs-3'>
+              <small className='text-center text-danger  fs-3'>
                 Please Register
               </small>
-              <hr
-                style={{
-                  width: '400px',
-                  color: 'green',
-                  border: '2px solid red'
-                }}
-              />
+          
             </div>
           </div>
           <form className='w-100 ' onSubmit={handleSignUp}>
