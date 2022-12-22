@@ -29,13 +29,15 @@ const EditFood = () => {
   //delete food
   const handleFoodDelete = id =>{
     console.log(id)
-    /* fetch(`http://localhost:5000/foodDelete/${id}`)
+     fetch(`http://localhost:5000/foodDelete/${id}`)
     .then(res=>res.json())
     .then(data=>{
-      const remainingFood = foods.map({
-
-      })
-    }) */
+      console.log(data.acknowledged)
+      if(data.acknowledged){
+        const remainingFood = foods.filter(food=>food.id!==id)
+        setFood(remainingFood);
+      }
+    }) 
   }
   return (
     <section className="bg-light">

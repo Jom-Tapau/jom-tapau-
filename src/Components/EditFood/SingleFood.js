@@ -3,7 +3,7 @@ import "./SingleFood.css";
 const singleFood = (props) => {
   const {_id,name,price,imgURL,category} = props.food;
   const handleFoodDelete = props.handleFoodDelete;
-  console.log(handleFoodDelete);
+  
   // console.log(props.food)
 
   const handleFoodEdit = id =>{
@@ -33,7 +33,7 @@ const singleFood = (props) => {
           <span onClick={()=>handleFoodEdit(_id)} class="material-symbols-sharp me-5 edit-btn">
             edit
           </span>
-          <span  class="material-symbols-sharp delete-btn">
+          <span onClick={()=>handleFoodDelete(_id)} class="material-symbols-sharp delete-btn">
             delete
           </span>
         </div>
