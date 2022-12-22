@@ -18,6 +18,7 @@ import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
 import Footer from './Components/Footer/Footer';
 import AddRider from './Components/Rider/AddRider';
 import EditFood from './Components/EditFood/EditFood';
+import UpdateFood from './Components/EditFood/UpdateFood';
 
 function App() {
   return (
@@ -35,7 +36,9 @@ function App() {
         <Route path="/admin" element={<Admin></Admin>}></Route>
         <Route path="/rider" element={<Rider></Rider>}></Route>
         <Route path="/addfood" element={<AddFood></AddFood>}></Route>
-        <Route path="/EditFood" element={<EditFood></EditFood>}/>
+        <Route path="/EditFood" element={<EditFood></EditFood>}>
+          <Route path=":foodID" element={<UpdateFood></UpdateFood>}/>
+        </Route>
         <Route path="/forgotPassword" element={<ForgotPassword></ForgotPassword>}></Route>
         <Route path="/editCustomer" element={<EditCustomer></EditCustomer>}></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
