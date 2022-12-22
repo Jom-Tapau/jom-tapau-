@@ -224,22 +224,14 @@ const Registration = () => {
             <div className='d-flex  justify-content-center'>
               <Button
                 onClick={handleSignUp}
-                className='mb-3'
+                className='mb-1'
                 variant='danger'
                 type='submit'
               >
                 Sign up
               </Button>
             </div>
-            <div className='d-flex justify-content-center '>
-            <Button
-            onClick={handleFacebookSignUp}
-              style={{ width: '200px' }}
-              variant='primary'
-            >
-              FaceBook
-            </Button>
-          </div>
+          
             <p className='text-danger'>{error&&error.message.split('/')[1].split(')')[0] ||fbError&&fbError.message.split('/')[1].split(')')[0] ||errorMsg&&errorMsg}</p>
           </form>
 
@@ -251,7 +243,15 @@ const Registration = () => {
             <p className='px-3 pt-1'>or</p>
             <hr style={{ width: '200px', color: 'red' }} />
           </div>
-      
+          <div className='d-flex justify-content-center '>
+            <Button
+            onClick={handleFacebookSignUp}
+              style={{ width: '200px' }}
+              variant='primary'
+            >
+              FaceBook
+            </Button>
+          </div>
         </div>
       </div>
     </div>

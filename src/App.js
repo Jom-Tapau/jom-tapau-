@@ -46,7 +46,7 @@ function App() {
   
 
       </Routes>
-      {location.pathname !== '/registration' && <Footer /> }
+      {(location.pathname !== '/registration'&&location.pathname !== '/login') && <Footer /> }
 
     
 
