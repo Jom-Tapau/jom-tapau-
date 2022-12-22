@@ -26,6 +26,17 @@ const EditFood = () => {
       });
   };
 
+  //delete food
+  const handleFoodDelete = id =>{
+    console.log(id)
+    /* fetch(`http://localhost:5000/foodDelete/${id}`)
+    .then(res=>res.json())
+    .then(data=>{
+      const remainingFood = foods.map({
+
+      })
+    }) */
+  }
   return (
     <section className="bg-light">
       <Helmet>
@@ -58,7 +69,7 @@ const EditFood = () => {
         <div className="container">
           <section className="row">
             {foods.map((food) => (
-              <SingleFood key={food._id} food={food}></SingleFood>
+              <SingleFood key={food._id} food={food} handleFoodDelete={handleFoodDelete}></SingleFood>
             ))}
           </section>
         </div>
