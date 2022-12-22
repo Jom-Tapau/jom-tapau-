@@ -39,10 +39,6 @@ const EditFood = () => {
       }
     })
 
-    // edit a food item
-    const handleFoodEdit = id =>{
-      console.log(id)
-    }
   }
   return (
     <section className="bg-light">
@@ -76,7 +72,7 @@ const EditFood = () => {
         <div className="container">
           <section className="row">
             {foods.map((food) => (
-              <SingleFood key={food._id} food={food} handleFoodDelete={handleFoodDelete} handleFoodEdit={handleFoodEdit}></SingleFood>
+              <SingleFood key={food._id} food={food} handleFoodDelete={handleFoodDelete}></SingleFood>
             ))}
           </section>
         </div>
