@@ -203,15 +203,14 @@ const Registration = () => {
                   />
                   <label className='did-floating-label'>Matric</label>
                 </div>
-              <div className='d-flex'>
-              <div className='did-floating-label-content did-error-input'>
+                <div className='did-floating-label-content did-error-input'>
                   <input
                   width={50}
                     ref={address}
                     className='did-floating-input'
                     type='text'
                     placeholder=' '
-                     size={15}
+                    // size={15}
                   />
                   <label className='did-floating-label'>Address</label>
                 </div>
@@ -222,11 +221,10 @@ const Registration = () => {
                     className='did-floating-input'
                     type='password'
                     placeholder=' '
-                     size={15}
+                    // size={15}
                   />
                   <label className='did-floating-label'>Password</label>
                 </div>
-              </div>
               {/* </div> */}
             </div>
             <div className='d-flex  justify-content-center'>
@@ -239,6 +237,15 @@ const Registration = () => {
                 Sign up
               </Button>
             </div>
+            <div className='d-flex justify-content-center '>
+            <Button
+            onClick={handleFacebookSignUp}
+              style={{ width: '200px' }}
+              variant='primary'
+            >
+              FaceBook
+            </Button>
+          </div>
             <p className='text-danger'>{error&&error.message.split('/')[1].split(')')[0] ||fbError&&fbError.message.split('/')[1].split(')')[0] ||errorMsg&&errorMsg}</p>
           </form>
 
@@ -250,15 +257,7 @@ const Registration = () => {
             <p className='px-3 pt-1'>or</p>
             <hr style={{ width: '200px', color: 'red' }} />
           </div>
-          <div className='d-flex justify-content-center '>
-            <Button
-            onClick={handleFacebookSignUp}
-              style={{ width: '200px' }}
-              variant='primary'
-            >
-              FaceBook
-            </Button>
-          </div>
+      
         </div>
       </div>
     </div>
