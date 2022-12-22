@@ -4,6 +4,7 @@ import useFood from "../../hooks/useFood";
 import SingleFood from "./SingleFood";
 import "./EditFood.css";
 import { Helmet } from "react-helmet";
+import { Outlet } from "react-router-dom";
 const EditFood = () => {
   const [inputValue, setInputValue] = useState("");
   const inputField = useRef("");
@@ -59,7 +60,7 @@ const EditFood = () => {
             <button
               onClick={handleSearchFood}
               type="submit"
-              class="searchButton"
+              className="searchButton"
             >
               <i className="fa fa-search"></i>
             </button>

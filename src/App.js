@@ -37,8 +37,8 @@ function App() {
         <Route path="/rider" element={<Rider></Rider>}></Route>
         <Route path="/addfood" element={<AddFood></AddFood>}></Route>
         <Route path="/EditFood" element={<EditFood></EditFood>}>
-          <Route path=":foodID" element={<UpdateFood></UpdateFood>}/>
         </Route>
+        <Route path="/EditFood/:foodID" element={<UpdateFood></UpdateFood>}/>
         <Route path="/forgotPassword" element={<ForgotPassword></ForgotPassword>}></Route>
         <Route path="/editCustomer" element={<EditCustomer></EditCustomer>}></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>

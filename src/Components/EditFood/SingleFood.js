@@ -1,6 +1,6 @@
 import React from "react";
 import "./SingleFood.css";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 const singleFood = (props) => {
   const {_id,name,price,imgURL,category} = props.food;
   const handleFoodDelete = props.handleFoodDelete;
@@ -40,6 +40,7 @@ const singleFood = (props) => {
           </span>
         </div>
       </div>
+          <Outlet />
     </div>
   );
 };
