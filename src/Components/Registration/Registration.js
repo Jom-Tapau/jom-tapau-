@@ -123,7 +123,7 @@ const Registration = () => {
             >
               om
             </span>
-            {/* <small></small> */}
+         
             <span
               style={{ '--i': 3 }}
               className='animate shadow-red text-white'
@@ -203,14 +203,15 @@ const Registration = () => {
                   />
                   <label className='did-floating-label'>Matric</label>
                 </div>
-                <div className='did-floating-label-content did-error-input'>
+              <div className='d-flex'>
+              <div className='did-floating-label-content did-error-input'>
                   <input
                   width={50}
                     ref={address}
                     className='did-floating-input'
                     type='text'
                     placeholder=' '
-                    // size={15}
+                     size={15}
                   />
                   <label className='did-floating-label'>Address</label>
                 </div>
@@ -221,10 +222,11 @@ const Registration = () => {
                     className='did-floating-input'
                     type='password'
                     placeholder=' '
-                    // size={15}
+                     size={15}
                   />
                   <label className='did-floating-label'>Password</label>
                 </div>
+              </div>
               {/* </div> */}
             </div>
             <div className='d-flex  justify-content-center'>

@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Menu from './Components/Menu/Menu';
 import Head from './Components/Head/Head';
 import Login from './Components/Login/Login';
@@ -20,6 +20,7 @@ import About from './Components/About/About';
 import AddRider from './Components/Rider/AddRider';
 
 function App() {
+  let location = useLocation();
   return (
     <div className="App ">
       <Head></Head>
@@ -45,7 +46,8 @@ function App() {
   
 
       </Routes>
-<footer>  <Footer></Footer></footer>
+      {location.pathname !== '/registration' && <Footer /> }
+
     
 
     </div>
