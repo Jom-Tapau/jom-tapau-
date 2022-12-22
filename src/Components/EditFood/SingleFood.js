@@ -3,13 +3,9 @@ import "./SingleFood.css";
 const singleFood = (props) => {
   const {_id,name,price,imgURL,category} = props.food;
   const handleFoodDelete = props.handleFoodDelete;
-  
+  const handleFoodEdit = props.handleFoodEdit;
   // console.log(props.food)
 
-  const handleFoodEdit = id =>{
-    console.log(id)
-  }
-  
   return (
     <div className="mt-5 col-4">
       <div className="card food-card mt-5" style={{ width: "18rem" }}>
