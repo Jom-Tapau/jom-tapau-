@@ -222,7 +222,8 @@ const Registration = () => {
               {/* </div> */}
             </div>
             <div className='d-flex  justify-content-center'>
-              <Button
+             <div>
+             <Button
                 onClick={handleSignUp}
                 className='mb-1'
                 variant='danger'
@@ -230,20 +231,9 @@ const Registration = () => {
               >
                 Sign up
               </Button>
-            </div>
-          
-            <p className='text-danger'>{error&&error.message.split('/')[1].split(')')[0] ||fbError&&fbError.message.split('/')[1].split(')')[0] ||errorMsg&&errorMsg}</p>
-          </form>
-
-          <small>
-            Already have an Account? <Link to='/login'>Login</Link>
-          </small>
-          <div className='d-flex justify-content-center '>
-            <hr style={{ width: '200px', color: 'red' }} />
-            <p className='px-3 pt-1'>or</p>
-            <hr style={{ width: '200px', color: 'red' }} />
-          </div>
-          <div className='d-flex justify-content-center '>
+             </div>
+      -or-
+              <div className='d-flex justify-content-center '>
             <Button
             onClick={handleFacebookSignUp}
               style={{ width: '200px' }}
@@ -252,6 +242,16 @@ const Registration = () => {
               FaceBook
             </Button>
           </div>
+            </div>
+          
+            <p className='text-danger'>{error&&error.message.split('/')[1].split(')')[0] ||fbError&&fbError.message.split('/')[1].split(')')[0] ||errorMsg&&errorMsg}</p>
+          </form>
+
+          <small>
+            Already have an Account? <Link to='/login'>Login</Link>
+          </small>
+       
+       
         </div>
       </div>
     </div>
