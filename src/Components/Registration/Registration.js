@@ -232,11 +232,11 @@ const Registration = () => {
                 Sign up
               </Button>
              </div>
-      -or-
+      ---or---
               <div className='d-flex justify-content-center '>
             <Button
             onClick={handleFacebookSignUp}
-              style={{ width: '200px' }}
+             
               variant='primary'
             >
               FaceBook
