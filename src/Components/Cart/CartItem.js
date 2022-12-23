@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CartItem.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -8,20 +8,12 @@ const { cart,setCart, setCount, count}=props;
   const {_id, name, description, price, imgURL } = props.item;
   let {quantity} = props.item;
 
- const [quan, setQuan]=useState(quantity);
+ const [quan, setQuan]=useState(0);
+
  const [itemPrice, setItemPrice]= useState(price);
- const handleRemove=(item)=>{
-  let productArr=[];
-  const allProducts=cart.filter(product=> (product._id!==item._id)
-    
-    );
-
-  if(allProducts.indexOf(allProducts[0])==0)
-  allProducts[0].quantity=setQuan(allProducts[0].quantity);
-  allProducts[0].quantity=quan;
-
-setCart(allProducts)
-}
+useEffect(()=>{
+  setQuan(quantity);
+})
 const handleIncrement=(item)=>{
 item.quantity=parseInt(item.quantity)+1;
 
@@ -49,6 +41,21 @@ const handleDecrement=(foodItem)=>{
   }
 
 
+    const handleRemove=(item)=>{
+      let productArr=[];
+      const allProducts=cart.filter(product=> (product._id!==item._id  ));
+     
+      
+  
+
+
+      setCart(allProducts)
+  
+    }
+    const valChange=(product)=>{
+        
+     
+      }
   return (
     <div className="cart-item">
       <div className="item-name">
@@ -65,8 +72,7 @@ const handleDecrement=(foodItem)=>{
           handleIncrement(props.item)
         }}><FontAwesomeIcon icon={faPlus} /></button>
         <button onClick={()=>{handleRemove(props.item)
-
-        }
+        } 
         }>remove</button>
       </div>
 
