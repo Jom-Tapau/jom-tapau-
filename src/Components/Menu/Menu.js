@@ -111,9 +111,7 @@ const  clickBreakFast= ()=>{
           ))}
         </div>
       </div>
-      <div className='bg-danger' style={{width:"1000px"}}>
-        Cart
-      </div>
+     
     </div>
   );
 };
