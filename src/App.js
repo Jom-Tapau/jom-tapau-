@@ -19,16 +19,25 @@ import Footer from './Components/Footer/Footer';
 import About from './Components/About/About';
 import AddRider from './Components/Rider/AddRider';
 import Cart from './Components/Cart/Cart';
+import { useState } from 'react';
 
 function App() {
   let location = useLocation();
+  const [cart, setCart]=useState([]);
+  const handleAddtoCart =(item)=>{
+  
+  cart.push(item);
+  console.log(cart);
+  }
   return (
     <div className="App ">
+
+
       <Head></Head>
       <Routes>
      
 
-        <Route path="/menu" element={  <Menu></Menu>}></Route>
+        <Route path="/menu" element={  <Menu handleAddtoCart={handleAddtoCart}></Menu>}></Route>
         {/* <Route path="/homepage" element={  <RequireAuth><Homepage></Homepage></RequireAuth>}></Route> */}
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>

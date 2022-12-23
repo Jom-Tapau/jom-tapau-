@@ -9,14 +9,10 @@ import { Nav, Spinner } from 'react-bootstrap';
 
 
 
-const Menu = () => {
+const Menu = ({handleAddtoCart}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [foods,setFood]= useState([]);
   const [foodBackup,setFoodBackup]= useState([]);
- const [cart, setCart]=useState([]);
-const handleAddtoCart =(item)=>{
-console.log(item);
-}
 
 useEffect(()=>{
  setIsLoading(true);
