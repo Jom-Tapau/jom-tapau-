@@ -24,16 +24,20 @@ import { useState } from 'react';
 function App() {
   let location = useLocation();
   const [cart, setCart]=useState([]);
+  const [count, setCount]=useState(0);
   const handleAddtoCart =(item)=>{
-  
-  cart.push(item);
-  console.log(cart);
+    cart.push(item);
+setCart([...cart],item);
+
+setCount(count+1);
+console.log(cart);
+
   }
   return (
     <div className="App ">
 
 
-      <Head></Head>
+      <Head count={count}></Head>
       <Routes>
      
 

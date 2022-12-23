@@ -9,7 +9,7 @@ import Loading from '../Loading/Loading'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
-const Head = () => {
+const Head = ({count}) => {
   const [user, loading, error] = useAuthState(auth)
 
   if (loading) {
@@ -43,7 +43,7 @@ const Head = () => {
           <Nav className='nav-container'>
            
             <NavLink className='text-white nav-link fs-5' as={Link} to='/cart'>
-            <span className='badge badge-pill'>0</span>
+            <span className='badge badge-pill'>{count}</span>
               <FontAwesomeIcon icon={faShoppingCart} /></NavLink>
             {user ? (<NavLink style={hehe} onClick={handleSignOut} className='text-white nav-link fs-5' as={Link} to='/login'>Sign out</NavLink>) : 
                 (<NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to='/login'>Login</NavLink>)
