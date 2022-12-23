@@ -22,14 +22,14 @@ const foods = [
   },
 ];
 
-const Cart = ({cart}) => {
+const Cart = ({cart, incrementCount}) => {
   return (
     <div style={{ margin: "100px" }}>
       <div className="cart-items">
        Cart Length:{cart.length}
        {cart.map((item)=>(
         
-          <CartItem item={item}></CartItem>
+          <CartItem incrementCount={incrementCount} item={item}></CartItem>
          
        ))
 

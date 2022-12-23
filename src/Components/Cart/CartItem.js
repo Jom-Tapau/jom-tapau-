@@ -5,7 +5,7 @@ import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const CartItem = (props) => {
 
-  const { name, description, price, imgURL } = props.item;
+  const { name, description, price, imgURL,quantity } = props.item;
   const newPrice = parseFloat(price);
   const [count, setCount] = useState(1);
   const [totalPrice, setTotalPrice] = useState(newPrice);
@@ -19,7 +19,7 @@ const CartItem = (props) => {
 
       <div className="quantity">
         <button ><FontAwesomeIcon icon={faMinus} /></button>
-        <span>{count}</span>
+        <span>{quantity}</span>
         <button ><FontAwesomeIcon icon={faPlus} /></button>
       </div>
 

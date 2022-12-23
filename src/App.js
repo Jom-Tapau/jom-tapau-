@@ -25,11 +25,22 @@ function App() {
   let location = useLocation();
   const [cart, setCart]=useState([]);
   const [count, setCount]=useState(0);
-  const handleAddtoCart =(item)=>{
-    cart.push(item);
-setCart([...cart],item);
+  const [incrementCount , setIncrementCount]= useState(1);
 
-setCount(count+1);
+  const handleAddtoCart =(item)=>{
+    const itemFind =cart.find((cartitem)=>cartitem._id==item._id);
+if(itemFind)
+{
+  itemFind.quantity=parseInt(itemFind.quantity)+1;
+
+  
+}
+else{
+  cart.push(item);
+  setCart([...cart],item);
+  setCount(count+1);
+}
+
 console.log(cart);
 
   }
@@ -55,7 +66,7 @@ console.log(cart);
         <Route path="/editCustomer" element={<EditCustomer></EditCustomer>}></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path="/cart" element={<Cart cart={cart} ></Cart>}></Route>
+        <Route path="/cart" element={<Cart cart={cart} incrementCount={incrementCount} ></Cart>}></Route>
         
   
 
