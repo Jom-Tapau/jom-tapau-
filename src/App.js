@@ -38,9 +38,9 @@ if(itemFind)
 else{
   cart.push(item);
   setCart([...cart],item);
-  setCount(count+1);
-}
 
+}
+setCount(count+1);
 console.log(cart);
 
   }
