@@ -11,7 +11,7 @@ const singleFood = (props) => {
   }
 
   return (
-    <div className="mt-5 col-4">
+    <div className="mt-5 col-md-6 col-lg-4">
       <div className="card food-card mt-5" style={{ width: "18rem" }}>
         <div className="d-flex justify-content-center">
           <img
