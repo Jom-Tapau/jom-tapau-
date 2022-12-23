@@ -66,7 +66,7 @@ console.log(cart);
         <Route path="/editCustomer" element={<EditCustomer></EditCustomer>}></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path="/cart" element={<Cart count={count} setCart={setCart} setCount={setCount} cart={cart} incrementCount={incrementCount} ></Cart>}></Route>
+        <Route path="/cart" element={<Cart  count={count} setCart={setCart} setCount={setCount} cart={cart} incrementCount={incrementCount} ></Cart>}></Route>
         
   
 
