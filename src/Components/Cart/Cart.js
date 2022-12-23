@@ -22,10 +22,11 @@ const foods = [
   },
 ];
 
-const Cart = () => {
+const Cart = ({cart}) => {
   return (
     <div style={{ margin: "100px" }}>
       <div className="cart-items">
+       Cart Length:{cart.length}
         <CartItem food={foods[0]}></CartItem>
         <CartItem food={foods[1]}></CartItem>
       </div>

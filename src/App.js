@@ -51,7 +51,7 @@ function App() {
         <Route path="/editCustomer" element={<EditCustomer></EditCustomer>}></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path="/cart" element={<Cart></Cart>}></Route>
+        <Route path="/cart" element={<Cart cart={cart} ></Cart>}></Route>
         
   
 
