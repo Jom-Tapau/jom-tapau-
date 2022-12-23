@@ -12,9 +12,9 @@ const {incrementCount}=props;
   const [totalPrice, setTotalPrice] = useState(newPrice);
  const [quan, setQuan]=useState(quantity);
 const handleIncrement=(item)=>{
-item.quantity=item.quantity+1;
+item.quantity=parseInt(item.quantity)+1;
  setQuan(item.quantity);
- 
+
 }
   return (
     <div className="cart-item">
