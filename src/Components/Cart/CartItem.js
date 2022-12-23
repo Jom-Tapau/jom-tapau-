@@ -5,7 +5,7 @@ import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const CartItem = (props) => {
 
-  const { name, description, price, imgSrc } = props.item;
+  const { name, description, price, imgURL } = props.item;
   const newPrice = parseFloat(price);
   const [count, setCount] = useState(1);
   const [totalPrice, setTotalPrice] = useState(newPrice);
@@ -27,7 +27,7 @@ const CartItem = (props) => {
   return (
     <div className="cart-item">
       <div className="item-name">
-        <img src={imgSrc} />
+        <img src={imgURL} />
         <h4>{name}</h4>
       </div>
 
