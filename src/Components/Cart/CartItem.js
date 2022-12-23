@@ -52,12 +52,8 @@ const handleDecrement=(foodItem)=>{
     const handleRemove=(item)=>{
       let productArr=[];
       const allProducts=cart.filter(product=> (product._id!==item._id  ));
-     
-      
-  
-
-
-      setCart(allProducts)
+        setCart(allProducts);
+        setCount(count-item.quantity);
   
     }
     const valChange=(product)=>{
