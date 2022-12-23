@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const CartItem = (props) => {
-const {incrementCount}=props;
+const {incrementCount, cart,setCart}=props;
   const { name, description, price, imgURL } = props.item;
   let {quantity} = props.item;
   const newPrice = parseFloat(price);
@@ -16,6 +16,16 @@ item.quantity=parseInt(item.quantity)+1;
  setQuan(item.quantity);
 
 }
+const handleDecrement=(foodItem)=>{
+  foodItem.quantity=parseInt(foodItem.quantity)-1;
+   setQuan(foodItem.quantity);
+   if(foodItem.quantity==0)
+{
+  const newCart=  cart.filter((item)=>(item._id !=foodItem._id ));
+  
+setCart(newCart);
+}  
+  }
   return (
     <div className="cart-item">
       <div className="item-name">
@@ -24,7 +34,9 @@ item.quantity=parseInt(item.quantity)+1;
       </div>
 
       <div className="quantity">
-        <button ><FontAwesomeIcon icon={faMinus} /></button>
+        <button onClick={()=>{
+          handleDecrement(props.item)
+        }}><FontAwesomeIcon icon={faMinus} /></button>
         <span>{quan}</span>
         <button  onClick={()=>{
           handleIncrement(props.item)
