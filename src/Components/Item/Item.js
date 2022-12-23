@@ -4,6 +4,7 @@ import "./Item.css";
 
 const Item = (props) => {
   const { name, description, price, imgURL } = props.food;
+
   return (
       <div>
           <Card style={{ width: '18rem', margin: '1.5rem'}}>
@@ -15,7 +16,7 @@ const Item = (props) => {
                       {description}
                   </Card.Text>
                   <Card.Subtitle style={{marginBottom: '1.5em'}}>RM {price}</Card.Subtitle>
-                  <Button className='button' variant="danger">Add to cart</Button>
+                  <Button onClick={()=>props.handleAddtoCart(props.food)} className='button' variant="danger">Add to cart</Button>
               </Card.Body>
           </Card>
 

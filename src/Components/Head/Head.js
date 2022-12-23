@@ -41,7 +41,10 @@ const Head = () => {
             <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/rider">Rider</NavLink>
           </Nav>
           <Nav className='nav-container'>
-            <NavLink className='text-white nav-link fs-5' as={Link} to='/cart'><FontAwesomeIcon icon={faShoppingCart} /></NavLink>
+           
+            <NavLink className='text-white nav-link fs-5' as={Link} to='/cart'>
+            <span className='badge badge-pill'>0</span>
+              <FontAwesomeIcon icon={faShoppingCart} /></NavLink>
             {user ? (<NavLink style={hehe} onClick={handleSignOut} className='text-white nav-link fs-5' as={Link} to='/login'>Sign out</NavLink>) : 
                 (<NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to='/login'>Login</NavLink>)
             }

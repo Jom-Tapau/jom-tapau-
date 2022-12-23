@@ -13,8 +13,10 @@ const Menu = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [foods,setFood]= useState([]);
   const [foodBackup,setFoodBackup]= useState([]);
- 
-
+ const [cart, setCart]=useState([]);
+const handleAddtoCart =(item)=>{
+console.log(item);
+}
 
 useEffect(()=>{
  setIsLoading(true);
@@ -108,10 +110,13 @@ const  clickBreakFast= ()=>{
         <div className='row'>
           {foods.map(food => (
             <div className='col-lg-4 col-md-6 col-sm-12'>
-              <Item food={food}></Item>
+              <Item handleAddtoCart={handleAddtoCart} food={food}></Item>
             </div>
           ))}
         </div>
+      </div>
+      <div className='bg-danger' style={{width:"1000px"}}>
+        Cart
       </div>
     </div>
   );
