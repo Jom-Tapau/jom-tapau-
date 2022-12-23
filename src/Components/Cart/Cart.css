@@ -31,3 +31,14 @@
 .grand-total {
     font-weight: 700;
 }
+
+.checkout {
+    margin: 2.5em;
+    padding: .5em 1.5em;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(220,53,69);
+    color: white;
+    font-size: large;
+    transition: 0.2s;
+}
