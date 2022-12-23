@@ -11,10 +11,14 @@ const {incrementCount, cart,setCart, setCount, count}=props;
   
   const [totalPrice, setTotalPrice] = useState(newPrice);
  const [quan, setQuan]=useState(quantity);
+ const [itemPrice, setItemPrice]= useState(price);
 const handleIncrement=(item)=>{
 item.quantity=parseInt(item.quantity)+1;
+
+setItemPrice(item.quantity*price);
  setQuan(item.quantity);
  setCount(count+1);
+
 
 }
 const handleDecrement=(foodItem)=>{
@@ -26,7 +30,8 @@ const handleDecrement=(foodItem)=>{
   const newCart=  cart.filter((item)=>(item._id !=foodItem._id ));
   
 setCart(newCart);
-}  
+}
+setItemPrice(foodItem.quantity*price);  
   }
   return (
     <div className="cart-item">
@@ -46,7 +51,7 @@ setCart(newCart);
       </div>
 
       <div className="price">
-        <strong>RM {totalPrice}</strong>
+        <strong>RM {itemPrice}</strong>
       </div>
     </div>
   );
