@@ -10,14 +10,22 @@ const { cart,setCart, setCount, count}=props;
 
  const [quan, setQuan]=useState(0);
 
- const [itemPrice, setItemPrice]= useState(price);
+
 useEffect(()=>{
   setQuan(quantity);
+
+})
+const [itemPrice, setItemPrice]= useState(0);
+
+
+useEffect(()=>{
+  setItemPrice(price*quantity);
+
 })
 const handleIncrement=(item)=>{
 item.quantity=parseInt(item.quantity)+1;
 
-//setItemPrice(item.quantity*price);
+setItemPrice(item.quantity*price);
  setQuan(item.quantity);
  setCount(count+1);
 
