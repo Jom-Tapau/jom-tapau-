@@ -15,7 +15,8 @@ const handleAddFood=(event)=>{
   const price = priceRef.current.value;
   const imgURL = imgRef.current.value;
   const category = catRef.current.value;
- const  user={name, price,imgURL,category};
+  let quantity =1;
+ const  user={name, price,imgURL,category, quantity};
   fetch("http://localhost:5000/food",{
     method: 'POST',
     headers:{
