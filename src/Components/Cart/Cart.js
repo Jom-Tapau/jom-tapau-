@@ -5,14 +5,14 @@ import { Button } from "bootstrap";
 
 
 
-const Cart = ({cart, incrementCount, setCart}) => {
+const Cart = ({count,cart, incrementCount, setCart, setCount}) => {
   return (
     <div style={{ margin: "100px" }}>
       <div className="cart-items">
        Cart Length:{cart.length}
        {cart.map((item)=>(
         
-          <CartItem setCart={setCart} cart={cart} incrementCount={incrementCount} item={item}></CartItem>
+          <CartItem count={count} setCount={setCount} setCart={setCart} cart={cart} incrementCount={incrementCount} item={item}></CartItem>
          
        ))
 

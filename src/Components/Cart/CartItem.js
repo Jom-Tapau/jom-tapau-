@@ -4,21 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const CartItem = (props) => {
-const {incrementCount, cart,setCart}=props;
+const {incrementCount, cart,setCart, setCount, count}=props;
   const { name, description, price, imgURL } = props.item;
   let {quantity} = props.item;
   const newPrice = parseFloat(price);
-  const [count, setCount] = useState(1);
+  
   const [totalPrice, setTotalPrice] = useState(newPrice);
  const [quan, setQuan]=useState(quantity);
 const handleIncrement=(item)=>{
 item.quantity=parseInt(item.quantity)+1;
  setQuan(item.quantity);
+ setCount(count+1);
 
 }
 const handleDecrement=(foodItem)=>{
   foodItem.quantity=parseInt(foodItem.quantity)-1;
    setQuan(foodItem.quantity);
+   setCount(count-1);
    if(foodItem.quantity==0)
 {
   const newCart=  cart.filter((item)=>(item._id !=foodItem._id ));
