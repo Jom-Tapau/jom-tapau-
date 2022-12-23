@@ -6,6 +6,8 @@ import auth from '../../firebase.init'
 import { signOut } from 'firebase/auth'
 import './Head.css'
 import Loading from '../Loading/Loading'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 const Head = () => {
   const [user, loading, error] = useAuthState(auth)
@@ -39,6 +41,7 @@ const Head = () => {
             <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/rider">Rider</NavLink>
           </Nav>
           <Nav className='nav-container'>
+            <NavLink className='text-white nav-link fs-5' as={Link} to='/cart'><FontAwesomeIcon icon={faShoppingCart} /></NavLink>
             {user ? (<NavLink style={hehe} onClick={handleSignOut} className='text-white nav-link fs-5' as={Link} to='/login'>Sign out</NavLink>) : 
                 (<NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to='/login'>Login</NavLink>)
             }
