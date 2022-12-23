@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const CartItem = (props) => {
-  const { name, description, price, imgSrc } = props.food;
+
+  const { name, description, price, imgSrc } = props.item;
   const newPrice = parseFloat(price);
   const [count, setCount] = useState(1);
   const [totalPrice, setTotalPrice] = useState(newPrice);
