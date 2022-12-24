@@ -19,9 +19,7 @@ const EditFood = () => {
       body: JSON.stringify({text}),
     })
       .then((res) => res.json())
-      .then((data) => {
-        if (data.length > 0) setFood(data);
-      });
+      .then((data) => setFood(data));
   };
 
   //delete food
