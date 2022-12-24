@@ -104,6 +104,8 @@ const foods = [
 ]
 
 const Menu = () => {
+  foods.map(food=>{
+  })
   return (
     <div className="menu">
       <Helmet>

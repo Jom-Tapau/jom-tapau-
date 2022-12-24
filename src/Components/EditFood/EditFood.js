@@ -4,22 +4,19 @@ import useFood from "../../hooks/useFood";
 import SingleFood from "./SingleFood";
 import "./EditFood.css";
 import { Helmet } from "react-helmet";
-import { Outlet } from "react-router-dom";
 const EditFood = () => {
-  const [inputValue, setInputValue] = useState("");
   const inputField = useRef("");
 
   const { foods, setFood } = useFood();
+  // console.log(foods);
   const handleSearchFood = () => {
-    setInputValue(inputField.current.value);
-    console.log(foods);
-
-    fetch("", {
+    const text = inputField.current.value;
+    fetch("http://localhost:5000/searchFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(inputValue),
+      body: JSON.stringify({text}),
     })
       .then((res) => res.json())
       .then((data) => {
