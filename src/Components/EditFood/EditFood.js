@@ -10,7 +10,7 @@ const EditFood = () => {
   const { foods, setFood } = useFood();
   // console.log(foods);
   const handleSearchFood = () => {
-    const text = inputField.current.value;
+    const text = inputField.current.value.toLowerCase();
     fetch("http://localhost:5000/searchFood", {
       method: "POST",
       headers: {
