@@ -9,14 +9,11 @@ const { cart,setCart, setCount, count,total,setTotal}=props;
   let {quantity} = props.item;
 let totalQuantity=0;
  const [quan, setQuan]=useState(0);
-useEffect(()=>{
-  for(let item of cart)
-  {
-    totalQuantity=totalQuantity+ parseInt(item.quantity*item.price);
-    console.log("quantity"+totalQuantity);
-  }
-  setTotal(totalQuantity);
-},[])
+const handlePrice=()=>{
+  let totalPrice=0;
+  cart.map((item) => (totalPrice += item.quantity * item.price));
+  setTotal(totalPrice);
+}
 
 useEffect(()=>{
   setQuan(quantity);
@@ -66,10 +63,9 @@ setTotal(total-parseFloat(foodItem.price))
         setTotal(total- parseFloat(item.quantity*price))
   
     }
-    const valChange=(product)=>{
-        
-     
-      }
+ useEffect(()=>{
+  handlePrice();
+ },[]);
   return (
     <div className="cart-item">
       <div className="item-name">
