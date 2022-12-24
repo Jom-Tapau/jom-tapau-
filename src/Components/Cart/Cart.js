@@ -11,7 +11,8 @@ const [total, setTotal]= useState(0);
   return (
     <div style={{ margin: "100px" }}>
       <div className="cart-items">
-       Cart Length:{cart.length}
+   
+       {cart.length==0?<p className="text-danger">No Food Has Been Added</p>:<></>}
        {cart.map((item)=>(
         
           <CartItem total={total} setTotal={setTotal}  count={count}  setCount={setCount} setCart={setCart} cart={cart} incrementCount={incrementCount} item={item}></CartItem>
@@ -29,10 +30,10 @@ const [total, setTotal]= useState(0);
             <span>Subtotal:</span> <span>RM {total}</span>
           </div>
           <div className="total-row">
-            <span>Delivery:</span> <span>RM 1</span>
+            <span>Delivery:</span> <span> {total>0?<p>RM 1</p>: <p>RM 0</p>}</span>
           </div>
           <div className="total-row grand-total">
-            <span>Total:</span> <span>RM {total+1}</span>
+            <span>Total:</span> <span>{total>0?<p>RM {total+1}</p>: <p>RM 0</p>}</span>
           </div>
           <button className="checkout">Proceed to payment</button>
       </div>
