@@ -29,10 +29,10 @@ const [total, setTotal]= useState(0);
             <span>Subtotal:</span> <span>RM {total}</span>
           </div>
           <div className="total-row">
-            <span>Delivery:</span> <span>RM 1.00</span>
+            <span>Delivery:</span> <span>RM 1</span>
           </div>
           <div className="total-row grand-total">
-            <span>Total:</span> <span>RM 19.00</span>
+            <span>Total:</span> <span>RM {total+1}</span>
           </div>
           <button className="checkout">Proceed to payment</button>
       </div>
