@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CartItem from "./CartItem";
 import "./Cart.css";
 import { Button } from "bootstrap";
@@ -6,6 +6,7 @@ import { Button } from "bootstrap";
 
 
 const Cart = ({count,cart, incrementCount, setCart, setCount}) => {
+const [total, setTotal]= useState(0);
 
   return (
     <div style={{ margin: "100px" }}>
@@ -13,7 +14,7 @@ const Cart = ({count,cart, incrementCount, setCart, setCount}) => {
        Cart Length:{cart.length}
        {cart.map((item)=>(
         
-          <CartItem  count={count}  setCount={setCount} setCart={setCart} cart={cart} incrementCount={incrementCount} item={item}></CartItem>
+          <CartItem total={total} setTotal={setTotal}  count={count}  setCount={setCount} setCart={setCart} cart={cart} incrementCount={incrementCount} item={item}></CartItem>
          
        ))
 
@@ -25,7 +26,7 @@ const Cart = ({count,cart, incrementCount, setCart, setCount}) => {
 
       <div className="total">
           <div className="total-row">
-            <span>Subtotal:</span> <span>RM 18.00</span>
+            <span>Subtotal:</span> <span>RM {total}</span>
           </div>
           <div className="total-row">
             <span>Delivery:</span> <span>RM 1.00</span>

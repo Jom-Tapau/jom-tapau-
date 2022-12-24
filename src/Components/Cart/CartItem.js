@@ -4,12 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const CartItem = (props) => {
-const { cart,setCart, setCount, count}=props;
-  const {_id, name, description, price, imgURL } = props.item;
+const { cart,setCart, setCount, count,total,setTotal}=props;
+  const {_id, name, price, imgURL } = props.item;
   let {quantity} = props.item;
-
+let totalQuantity=0;
  const [quan, setQuan]=useState(0);
-
+useEffect(()=>{
+  for(let item of cart)
+  {
+    totalQuantity=totalQuantity+ parseInt(item.quantity*item.price);
+    console.log("quantity"+totalQuantity);
+  }
+  setTotal(totalQuantity);
+},[])
 
 useEffect(()=>{
   setQuan(quantity);
@@ -28,7 +35,7 @@ item.quantity=parseInt(item.quantity)+1;
 setItemPrice(item.quantity*price);
  setQuan(item.quantity);
  setCount(count+1);
-
+setTotal(total+parseFloat(item.price))
 
 }
 const handleDecrement=(foodItem)=>{
@@ -45,6 +52,8 @@ const handleDecrement=(foodItem)=>{
    setItemPrice(foodItem.quantity*price); 
    console.log(foodItem.quantity);
   
+setTotal(total-parseFloat(foodItem.price))
+
   
   }
 
@@ -54,6 +63,7 @@ const handleDecrement=(foodItem)=>{
       const allProducts=cart.filter(product=> (product._id!==item._id  ));
         setCart(allProducts);
         setCount(count-item.quantity);
+        setTotal(total- parseFloat(item.quantity*price))
   
     }
     const valChange=(product)=>{
