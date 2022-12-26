@@ -9,7 +9,10 @@ const UpdateFood = () => {
   const { foodID } = useParams();
 
   const foodName = useRef("");
+  const price = useRef("");
+  const category = useRef("");
 
+  //load the food
   useEffect(() => {
     fetch(`http://localhost:5000/food/${foodID}`)
       .then((res) => res.json())
@@ -22,6 +25,10 @@ const UpdateFood = () => {
         now using direct url of image to update the picture of the food
         later we will upload only the image to update the picture
     */
+  const handleImageUrl = e =>{
+    setImg(e.target.value)
+  }
+  
   // TODO: update the picture of the food
   const handleUpdateFood = (e) => {
     e.preventDefault();
@@ -34,7 +41,7 @@ const UpdateFood = () => {
         <div className="me-5">
           <img
             style={{ width: "300px", height: "300px", borderRadius: "150px" }}
-            src={imgurl}
+            src={imgurl||''}
             alt=""
           />
         </div>
@@ -57,7 +64,7 @@ const UpdateFood = () => {
                       type="text"
                       id="updateName"
                       name="updateName"
-                      value={food.name}
+                      defaultValue={food?.name}
                     />
                   </td>
                 </tr>
@@ -69,7 +76,7 @@ const UpdateFood = () => {
                       type="text"
                       id="updateFatherName"
                       name="updateFatherName"
-                      value={food.price}
+                      defaultValue={food?.price}
                     />
                   </td>
                 </tr>
@@ -80,9 +87,8 @@ const UpdateFood = () => {
                     <input
                       style={{ width: "110%" }}
                       type="text"
-                      id="updateMotherName"
-                      name="updateMotherName"
-                      value={food.imgURL}
+                      defaultValue={food?.imgURL}
+                      onChange={handleImageUrl}
                     />
                   </td>
                 </tr>
@@ -95,7 +101,7 @@ const UpdateFood = () => {
                       type="text"
                       id="updateEmail"
                       name="updateEmail"
-                      value={food.category}
+                      defaultValue={food.category}
                     />
                   </td>
                 </tr>
