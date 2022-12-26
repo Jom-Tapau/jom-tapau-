@@ -20,6 +20,8 @@ import About from './Components/About/About';
 import AddRider from './Components/Rider/AddRider';
 import Cart from './Components/Cart/Cart';
 import { useState } from 'react';
+import EditFood from './Components/EditFood/EditFood';
+import UpdateFood from './Components/EditFood/UpdateFood';
 
 function App() {
   let location = useLocation();
@@ -61,7 +63,9 @@ console.log(cart);
         <Route path="/admin" element={<Admin></Admin>}></Route>
         <Route path="/rider" element={<Rider></Rider>}></Route>
         <Route path="/addfood" element={<AddFood></AddFood>}></Route>
-        <Route path="/addfood" element={<AddFood></AddFood>}></Route>
+        <Route path="/EditFood" element={<EditFood></EditFood>}>
+        </Route>
+        <Route path="/EditFood/:foodID" element={<UpdateFood></UpdateFood>}/>
         <Route path="/forgotPassword" element={<ForgotPassword></ForgotPassword>}></Route>
         <Route path="/editCustomer" element={<EditCustomer></EditCustomer>}></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
@@ -74,6 +78,7 @@ console.log(cart);
       {(location.pathname !== '/registration'&&location.pathname !== '/login') && <Footer /> }
 
     
+      {/* <Footer></Footer> */}
 
     </div>
   );

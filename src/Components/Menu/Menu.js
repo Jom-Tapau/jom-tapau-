@@ -57,7 +57,8 @@ const  clickBreakFast= ()=>{
      
   
       }
-
+  foods.map(food=>{
+  })
   return (
     <div className="menu">
       <Helmet>
@@ -116,4 +117,4 @@ const  clickBreakFast= ()=>{
   );
 };
 
-export default Menu
+export default Menu;
