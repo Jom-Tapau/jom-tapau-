@@ -21,7 +21,7 @@ useEffect(()=>{
 })
 const [itemPrice, setItemPrice]= useState(0);
 
-
+ 
 useEffect(()=>{
   setItemPrice(price*quantity);
 
