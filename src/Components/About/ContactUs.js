@@ -4,18 +4,17 @@ const ContactUs = () => {
     return (
         <div>
             <section className='d-flex justify-content-around mt-5' >
+                <div className='w-50 '><img className='w-100 border  rounded' src="https://i.ibb.co/wcRm4kw/maps.jpg" alt="" /></div>
                 <div className='w-50'>
-                    <p className='text-danger' style={{ fontFamily: "'Ma Shan Zheng', cursive", opacity: "0.5", textAlign: "center", marginLeft: "50px", fontSize: "100px" }}><i>Our Location</i></p>
-                    <h1 style={{ color: 'grey' }}>Jom Tapau</h1>
+                    <p className='text-danger' style={{ fontFamily: "'Ma Shan Zheng', cursive", opacity: "0.5", textAlign: "center", marginLeft: "50px", fontSize: "100px" }}><i>Contact Us</i></p>
+                    <h1 style={{ color: 'grey' }}></h1>
                     <p style={{ textAlign: "center", marginRight: "50px", marginLeft: "50px", color: "grey" }}>
-                        JOM TaPAU App is a
-                        Pre-order food delivery platform.
-                        <br />
-                        It helps university students and working adults to afford
-                        <br />
-                        cheaper food delivery meals and services
+                    Pejabat Pos Universiti Teknologi Malaysia, LOT 9, L56, STUDENT MALL, 
+                    <br />
+                    81310 Skudai, Johor
+                    <br /> <br />
+                    Email : jomtapau.official@gmail.com
                     </p>
-                    <i className='fs-3'><p style={{ color: "grey" }}>Sunday to Thursday <b className='text-danger'>10am-5pm </b></p></i>
                 </div>
             </section>
         </div>
