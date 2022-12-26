@@ -42,6 +42,16 @@ const UpdateFood = () => {
       imgURL:imgurl
     }
     console.log(foodDetails);
+
+    fetch(`http://localhost:5000/food/${foodID}`,{
+      method: 'PUT',
+      headers:{
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(foodDetails)
+    })
+    .then(res=>res.json())
+    .then(data=>console.log(data))
   };
   return (
     <div style={{ paddingTop: "80px" }}>
