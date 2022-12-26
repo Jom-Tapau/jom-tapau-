@@ -14,6 +14,8 @@ const ContactUs = () => {
                     81310 Skudai, Johor
                     <br /> <br />
                     Email : jomtapau.official@gmail.com
+                    <br/>
+                    Phone : 01169500561
                     </p>
                 </div>
             </section>
