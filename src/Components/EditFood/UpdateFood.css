@@ -1,0 +1,38 @@
+.profile{
+    padding-right: 100px;
+    padding-bottom:20px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+}
+.edit-profile-container{
+    width:700px;
+    height:500px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-top:30px;
+    margin-left:20px;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+}
+.box>div>h2{
+    text-align: center;
+}
+#submit-btn{
+    text-align: center;
+    padding: 8px 15px;
+    border:none;
+    background-color: orange;
+    border-radius:5px;
+}
+#submit-btn:hover{
+    background-color:black;
+    color:white;
+    border-bottom: 2px solid orange;
+    transition: background 0.5s;
+}
+td {
+    text-align: left;
+}
+.box{
+    padding-top: 100px;
+}
