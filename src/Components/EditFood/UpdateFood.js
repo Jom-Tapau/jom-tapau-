@@ -32,7 +32,16 @@ const UpdateFood = () => {
   // TODO: update the picture of the food
   const handleUpdateFood = (e) => {
     e.preventDefault();
-    console.log(foodName.current.value);
+    const name = foodName.current.value;
+    const foodPirce = parseFloat(price.current.value);
+    const foodCategory = category.current.value;
+    const foodDetails = {
+      name: name,
+      category: foodCategory,
+      price:foodPirce,
+      imgURL:imgurl
+    }
+    console.log(foodDetails);
   };
   return (
     <div style={{ paddingTop: "80px" }}>
@@ -72,6 +81,7 @@ const UpdateFood = () => {
                   <td className="profile">Price:</td>
                   <td className="profile">
                     <input
+                    ref={price}
                       style={{ width: "110%" }}
                       type="text"
                       id="updateFatherName"
@@ -97,6 +107,7 @@ const UpdateFood = () => {
                   <td className="profile">
                     {" "}
                     <input
+                      ref={category}
                       style={{ width: "110%" }}
                       type="text"
                       id="updateEmail"
