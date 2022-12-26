@@ -36,7 +36,7 @@ const Footer = () => {
       
               </li>
               <li class="list-inline-item">
-                <a href="#">Contact Us</a>
+                <a href="/about">Contact Us</a>
               </li>
             </ul>
             <p class="copyright">Jom Tapau © 2022</p>
