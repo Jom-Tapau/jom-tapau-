@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import "./UpdateFood.css";
 import { useRef } from "react";
 const UpdateFood = () => {
@@ -8,10 +8,12 @@ const UpdateFood = () => {
   const [imgurl, setImg] = useState("");
   const { foodID } = useParams();
 
+  //use ref to take the inputs of the food details
   const foodName = useRef("");
   const price = useRef("");
   const category = useRef("");
 
+  const navigate = useNavigate();
   //load the food
   useEffect(() => {
     fetch(`http://localhost:5000/food/${foodID}`)
@@ -20,15 +22,15 @@ const UpdateFood = () => {
         singleFood(data);
         setImg(data.imgURL);
       });
-  },[]);
+  }, []);
   /* 
         now using direct url of image to update the picture of the food
         later we will upload only the image to update the picture
     */
-  const handleImageUrl = e =>{
-    setImg(e.target.value)
-  }
-  
+  const handleImageUrl = (e) => {
+    setImg(e.target.value);
+  };
+
   // TODO: update the picture of the food
   const handleUpdateFood = (e) => {
     e.preventDefault();
@@ -38,20 +40,23 @@ const UpdateFood = () => {
     const foodDetails = {
       name: name,
       category: foodCategory,
-      price:foodPirce,
-      imgURL:imgurl
-    }
+      price: foodPirce,
+      imgURL: imgurl,
+    };
     console.log(foodDetails);
-
-    fetch(`http://localhost:5000/food/${foodID}`,{
-      method: 'PUT',
-      headers:{
-        'content-type': 'application/json',
+    //update foodDetails
+    fetch(`http://localhost:5000/food/${foodID}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
       },
-      body: JSON.stringify(foodDetails)
+      body: JSON.stringify(foodDetails),
     })
-    .then(res=>res.json())
-    .then(data=>console.log(data))
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) navigate("/EditFood");
+      });
   };
   return (
     <div style={{ paddingTop: "80px" }}>
@@ -60,7 +65,7 @@ const UpdateFood = () => {
         <div className="me-5">
           <img
             style={{ width: "300px", height: "300px", borderRadius: "150px" }}
-            src={imgurl||''}
+            src={imgurl || ""}
             alt=""
           />
         </div>
@@ -73,59 +78,61 @@ const UpdateFood = () => {
             <hr />
             <form action="" method="" onSubmit={handleUpdateFood}>
               <table>
-                <tr>
-                  <td className="profile">Food Name:</td>
-                  <td className="profile">
-                    {" "}
-                    <input
-                      ref={foodName}
-                      style={{ width: "110%" }}
-                      type="text"
-                      id="updateName"
-                      name="updateName"
-                      defaultValue={food?.name}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="profile">Price:</td>
-                  <td className="profile">
-                    <input
-                    ref={price}
-                      style={{ width: "110%" }}
-                      type="text"
-                      id="updateFatherName"
-                      name="updateFatherName"
-                      defaultValue={food?.price}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="profile">URL:</td>
-                  <td className="profile">
-                    {" "}
-                    <input
-                      style={{ width: "110%" }}
-                      type="text"
-                      defaultValue={food?.imgURL}
-                      onChange={handleImageUrl}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td className="profile">Category:</td>
-                  <td className="profile">
-                    {" "}
-                    <input
-                      ref={category}
-                      style={{ width: "110%" }}
-                      type="text"
-                      id="updateEmail"
-                      name="updateEmail"
-                      defaultValue={food.category}
-                    />
-                  </td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <td className="profile">Food Name:</td>
+                    <td className="profile">
+                      {" "}
+                      <input
+                        ref={foodName}
+                        style={{ width: "110%" }}
+                        type="text"
+                        id="updateName"
+                        name="updateName"
+                        defaultValue={food?.name}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="profile">Price:</td>
+                    <td className="profile">
+                      <input
+                        ref={price}
+                        style={{ width: "110%" }}
+                        type="text"
+                        id="updateFatherName"
+                        name="updateFatherName"
+                        defaultValue={food?.price}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="profile">URL:</td>
+                    <td className="profile">
+                      {" "}
+                      <input
+                        style={{ width: "110%" }}
+                        type="text"
+                        defaultValue={food?.imgURL}
+                        onChange={handleImageUrl}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="profile">Category:</td>
+                    <td className="profile">
+                      {" "}
+                      <input
+                        ref={category}
+                        style={{ width: "110%" }}
+                        type="text"
+                        id="updateEmail"
+                        name="updateEmail"
+                        defaultValue={food.category}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
               </table>
               <div style={{ textAlign: "center" }}>
                 <button type="submit" id="submit-btn" name="update">
