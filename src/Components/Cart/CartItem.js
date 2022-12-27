@@ -33,7 +33,7 @@ const CartItem = (props) => {
   };
   const handleDecrement = (foodItem) => {
   
-
+    setItemPrice(foodItem.quantity * price);
 
   };
 
