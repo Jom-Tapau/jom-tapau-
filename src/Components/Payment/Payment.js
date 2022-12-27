@@ -31,7 +31,7 @@ const Payment = ({ cart }) => {
   monthNames[date.getMonth()]
   const nexttmr = date.getDate()+2+" "+day[date.getDay()+2]+" "+
   monthNames[date.getMonth()]
-  console.log(today,tomorrow,nexttmr)
+
   return (
     <div className="mt-5">
       <main>
@@ -39,16 +39,24 @@ const Payment = ({ cart }) => {
           <div>
             <p className="fs-1 fw-normal">Delivery Details</p>
             <div>
-              <p>Delivery time:</p>
-              
-              <select style={{width:"250px"}} className="form-select" aria-label="Default select example">
-                <option selected defaultValue={today}>{date.getDate()} {day[date.getDay()]},
-                {monthNames[date.getMonth()]}</option>
-                <option defaultValue={tomorrow}>{date.getDate() + 1} {day[date.getDay() + 1]},
-                {monthNames[date.getMonth()]}</option>
-                <option defaultValue={nexttmr}>{date.getDate() + 2} {day[date.getDay() + 2]},
-                {monthNames[date.getMonth()]}</option>
-              </select>
+              <p className="fs-4">Delivery time:</p>
+              <div className="d-flex">
+                {/* date section */}
+                <select style={{width:"250px"}} className="form-select me-5" aria-label="Default select example">
+                    <option defaultValue={today}>{date.getDate()} {day[date.getDay()]},
+                    {monthNames[date.getMonth()]}</option>
+                    <option defaultValue={tomorrow}>{date.getDate() + 1} {day[date.getDay() + 1]},
+                    {monthNames[date.getMonth()]}</option>
+                    <option defaultValue={nexttmr}>{date.getDate() + 2} {day[date.getDay() + 2]},
+                    {monthNames[date.getMonth()]}</option>
+                </select>
+                    {/* time section */}
+                <select style={{width:"250px"}} className="form-select"     aria-label="Default select example">
+                    <option defaultValue="ASAP">ASAP</option>
+                    <option defaultValue="">After 30min</option>
+                    <option defaultValue=" ">After 1hour</option>
+                </select>
+              </div>
             </div>
           </div>
         </section>
