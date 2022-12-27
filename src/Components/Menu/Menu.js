@@ -57,8 +57,6 @@ const  clickBreakFast= ()=>{
      
   
       }
-  foods.map(food=>{
-  })
   return (
     <div className="menu">
       <Helmet>
@@ -80,23 +78,23 @@ const  clickBreakFast= ()=>{
      <div className='w-100'>
   
 
-<div class="spinner-grow text-danger" role="status">
-  <span class="sr-only">Loading...</span>
+<div className="spinner-grow text-danger" role="status">
+  <span className="sr-only">Loading...</span>
 </div>
-<div class="spinner-grow text-danger" role="status">
-  <span class="sr-only">Loading...</span>
+<div className="spinner-grow text-danger" role="status">
+  <span className="sr-only">Loading...</span>
 </div>
-<div class="spinner-grow text-danger" role="status">
-  <span class="sr-only">Loading...</span>
+<div className="spinner-grow text-danger" role="status">
+  <span className="sr-only">Loading...</span>
 </div>
-<div class="spinner-grow text-danger" role="status">
-  <span class="sr-only">Loading...</span>
+<div className="spinner-grow text-danger" role="status">
+  <span className="sr-only">Loading...</span>
 </div>
-<div class="spinner-grow text-danger" role="status">
-  <span class="sr-only">Loading...</span>
+<div className="spinner-grow text-danger" role="status">
+  <span className="sr-only">Loading...</span>
 </div>
-<div class="spinner-grow text-danger" role="status">
-  <span class="sr-only">Loading...</span>
+<div className="spinner-grow text-danger" role="status">
+  <span className="sr-only">Loading...</span>
 </div>
 
      </div>:<></>
@@ -107,7 +105,7 @@ const  clickBreakFast= ()=>{
         <div className='row'>
           {foods.map(food => (
             <div className='col-lg-4 col-md-6 col-sm-12'>
-              <Item handleAddtoCart={handleAddtoCart} food={food}></Item>
+              <Item handleAddtoCart={handleAddtoCart} food={food} key={food._id}></Item>
             </div>
           ))}
         </div>

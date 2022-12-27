@@ -5,7 +5,6 @@ import { Button } from "bootstrap";
 
 const Cart = ({ count, cart, incrementCount, setCart, setCount }) => {
   const [total, setTotal] = useState(0);
-
   return (
     <div style={{ margin: "100px" }}>
       <div className="cart-items">
@@ -16,6 +15,7 @@ const Cart = ({ count, cart, incrementCount, setCart, setCount }) => {
         )}
         {cart.map((item) => (
           <CartItem
+          key={item._id}
             total={total}
             setTotal={setTotal}
             count={count}
