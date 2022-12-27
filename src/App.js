@@ -22,6 +22,7 @@ import Cart from "./Components/Cart/Cart";
 import { useState } from "react";
 import EditFood from "./Components/EditFood/EditFood";
 import UpdateFood from "./Components/EditFood/UpdateFood";
+import Payment from "./Components/Payment/Payment";
 
 function App() {
   let location = useLocation();
@@ -71,6 +72,7 @@ function App() {
         ></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
         <Route path="/about" element={<About></About>}></Route>
+        <Route path="/payment" element={<Payment></Payment>}></Route>
         <Route
           path="/cart"
           element={
