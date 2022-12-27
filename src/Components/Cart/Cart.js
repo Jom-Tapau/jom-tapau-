@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import CartItem from "./CartItem";
 import "./Cart.css";
 import { Button } from "bootstrap";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Cart = ({ count, cart, incrementCount, setCart, setCount }) => {
   const [total, setTotal] = useState(0);
+  const navigate = useNavigate()
+  const handleProceedPayment = () =>{
+    navigate('/payment')
+  }
   return (
     <div style={{ margin: "100px" }}>
       <div className="cart-items">
@@ -42,7 +47,7 @@ const Cart = ({ count, cart, incrementCount, setCart, setCount }) => {
           <span>Total:</span>{" "}
           <span>{total > 0 ? <p>RM {total + 1}</p> : <p>RM 0</p>}</span>
         </div>
-        <button className="checkout">Proceed to payment</button>
+        <button onClick={handleProceedPayment} className="checkout">Proceed to payment</button>
       </div>
     </div>
   );

@@ -42,7 +42,7 @@ function App() {
     console.log(cart);
   };
   return (
-    <div className="App ">
+    <div className="">
       <Head count={count}></Head>
       <Routes>
         <Route
@@ -72,7 +72,7 @@ function App() {
         ></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path="/payment" element={<Payment></Payment>}></Route>
+        <Route path="/payment" element={<Payment cart={cart}></Payment>}></Route>
         <Route
           path="/cart"
           element={
@@ -87,7 +87,7 @@ function App() {
         ></Route>
       </Routes>
       {location.pathname !== "/registration" &&
-        location.pathname !== "/login" && <Footer />}
+        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" &&<Footer />}
 
       {/* <Footer></Footer> */}
     </div>
