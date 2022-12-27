@@ -1,6 +1,7 @@
 import React from "react";
 
 const Payment = ({ cart }) => {
+    let size;
   const day = [
     "Sunday",
     "Monday",
@@ -40,6 +41,7 @@ const Payment = ({ cart }) => {
             <p className="fs-1 fw-normal">Delivery Details</p>
             <div>
               <p className="fs-4">Delivery time:</p>
+
               <div className="d-flex">
                 {/* date section */}
                 <select style={{width:"250px"}} className="form-select me-5" aria-label="Default select example">
@@ -57,6 +59,21 @@ const Payment = ({ cart }) => {
                     <option defaultValue=" ">After 1hour</option>
                 </select>
               </div>
+                <br/>
+
+                <p className="fs-4">Address Details:</p>
+                <div className="d-flex">
+                <select size={size} onClick={()=>size=5} style={{width:"250px"}} className="form-select me-5" aria-label="Default select example">
+                    <option defaultValue="KLG Block A">KLG Block A</option>
+                    <option defaultValue="KLG Block B">KLG Block B</option>
+                    <option defaultValue="KLG Block C">KLG Block C</option>
+                    <option defaultValue="KDOJ XB1">KDOJ XB1</option>
+                    <option defaultValue="KDOJ XB2">KDOJ XB2</option>
+                    <option defaultValue="KDOJ XC1">KDOJ XC1</option>
+                    <option defaultValue="KDOJ XC2">KDOJ XC2</option>
+                </select>
+                <input type="text" style={{width:"250px"}} className="form-control" id="exampleFormControlInput1" placeholder="Room Number"></input>
+                </div>
             </div>
           </div>
         </section>
