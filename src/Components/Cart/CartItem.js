@@ -39,6 +39,7 @@ const CartItem = (props) => {
     setCount(count - 1);
     setItemPrice(foodItem.quantity * price);
     console.log(foodItem.quantity);
+    setTotal(total - parseFloat(foodItem.price));
 
   };
 
