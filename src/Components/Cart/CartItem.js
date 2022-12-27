@@ -37,6 +37,8 @@ const CartItem = (props) => {
     foodItem.quantity = parseInt(foodItem.quantity) - 1;
     setQuan(foodItem.quantity);
     setCount(count - 1);
+    setItemPrice(foodItem.quantity * price);
+    console.log(foodItem.quantity);
 
   };
 
