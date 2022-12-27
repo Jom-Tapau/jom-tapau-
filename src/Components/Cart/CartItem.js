@@ -34,6 +34,9 @@ const CartItem = (props) => {
   const handleDecrement = (foodItem) => {
   
     setItemPrice(foodItem.quantity * price);
+    foodItem.quantity = parseInt(foodItem.quantity) - 1;
+    setQuan(foodItem.quantity);
+    setCount(count - 1);
 
   };
 
