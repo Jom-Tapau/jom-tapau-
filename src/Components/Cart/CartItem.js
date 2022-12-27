@@ -40,6 +40,12 @@ const CartItem = (props) => {
     setItemPrice(foodItem.quantity * price);
     console.log(foodItem.quantity);
     setTotal(total - parseFloat(foodItem.price));
+    if (foodItem.quantity == 0) {
+      const allProducts = cart.filter((product) => product._id !== foodItem._id);
+      setCart(allProducts);
+      setCount(count - foodItem.quantity);
+      setTotal(total - parseFloat(foodItem.quantity * price));
+     }
 
   };
 
