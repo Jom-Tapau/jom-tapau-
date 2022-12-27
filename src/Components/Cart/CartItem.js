@@ -25,11 +25,11 @@ const CartItem = (props) => {
   });
   const handleIncrement = (item) => {
     item.quantity = parseInt(item.quantity) + 1;
-
     setItemPrice(item.quantity * price);
     setQuan(item.quantity);
     setCount(count + 1);
     setTotal(total + parseFloat(item.price));
+    console.log(cart)
   };
   const handleDecrement = (foodItem) => {
     if (foodItem.quantity == 1) {
