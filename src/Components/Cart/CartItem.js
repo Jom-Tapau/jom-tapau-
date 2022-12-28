@@ -43,8 +43,8 @@ const CartItem = (props) => {
     if (foodItem.quantity == 0) {
       const allProducts = cart.filter((product) => product._id !== foodItem._id);
       setCart(allProducts);
-      setCount(count - 1);
-      setTotal(total - parseFloat(foodItem.quantity * price));
+      // setCount(count - 1);
+      // setTotal(total - parseFloat(foodItem.quantity * price));
      }
 
   };
