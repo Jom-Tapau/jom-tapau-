@@ -36,6 +36,7 @@ function App() {
     } else {
       cart.push(item);
       setCart([...cart], item);
+      // setCart([...cart], item);
     }
     setCount(count + 1);
     console.log(cart);
