@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import Order from "./Order";
 
 const RiderDash = () => {
     return (
-        <div>
-            
+        <div style={{marginTop:'100px'}}>
+            <Order></Order>
         </div>
     );
 };
