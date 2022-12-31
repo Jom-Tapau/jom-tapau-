@@ -1,5 +1,8 @@
 .order {
-
+    width: 70em;
+    padding: 10px 20px;
+    border: 1px solid crimson;
+    border-radius: 10px;
 }
 
 .name-user {
