@@ -12,12 +12,15 @@ const Order = () => {
                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
                     <h4>Name</h4>
                 </div>
-                <div className="address">
-                    KLG Campus Resicence, Taman Sri Pulai.
+                <div className="details">
+                    <div className="total">
+                        RM 29.50
+                    </div>
+                    <div className="address">
+                        KLG Campus Resicence, Taman Sri Pulai.
+                    </div>
                 </div>
-                <div className="total">
-                    RM 29.50
-                </div>
+                <button className="accept">Accept</button>
             </div>
 
             <div className="items" {...getCollapseProps()}></div>
