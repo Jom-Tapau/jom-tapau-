@@ -39,3 +39,21 @@
 .address {
     font-size: large;
 }
+
+.accept {
+    padding: .5em 1.5em;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(220,53,69);
+    color: white;
+    font-size: large;
+    transition: 0.2s;
+}
+
+.accept:hover {
+    transform: scale(1.1);
+}
+
+.accept:active {
+    filter: brightness(85%);
+}
