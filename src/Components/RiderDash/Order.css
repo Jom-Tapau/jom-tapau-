@@ -24,3 +24,9 @@
     height: 4em;
     border-radius: 50%;
 }
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
