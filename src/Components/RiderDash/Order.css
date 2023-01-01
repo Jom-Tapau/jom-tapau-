@@ -6,6 +6,12 @@
     border-radius: 10px;
 }
 
+.info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .name-user {
     width: 10em;
     display: flex;
