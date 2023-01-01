@@ -57,3 +57,10 @@
 .accept:active {
     filter: brightness(85%);
 }
+
+.expand {
+    margin-right: 4em;
+    width: 100%;
+    text-align: right;
+}
+

@@ -25,8 +25,10 @@ const Order = () => {
 
             <div className="items" {...getCollapseProps()}></div>
 
-            <div className="toggle" {...getToggleProps()}>
-                {isExpanded ? "See less" : "See more"}
+            <div className="expand">
+                <button className="toggle toggle-button" {...getToggleProps()}>
+                    {isExpanded ? "See less" : "See more"}
+                </button>
             </div>
         </div>
     );
