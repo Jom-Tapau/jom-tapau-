@@ -64,3 +64,9 @@
     text-align: right;
 }
 
+.toggle-button {
+    margin-right: 0.3em;
+    border: none;
+    background: none;
+    color: rgb(220,53,69);
+}
