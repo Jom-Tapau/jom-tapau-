@@ -58,7 +58,7 @@
     filter: brightness(85%);
 }
 
-.expand {
+.toggle-container {
     margin-right: 4em;
     width: 100%;
     text-align: right;
