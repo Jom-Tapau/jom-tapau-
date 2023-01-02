@@ -26,7 +26,10 @@ const Order = () => {
             </div>
 
             <div className="items" {...getCollapseProps()}>
-                abcksjcbv
+                <ul className="item-list">
+                    <li>Nasi goreng ayam</li>
+                    <li>Ice Lemon Tea</li>
+                </ul>
             </div>
 
             <div className="toggle-container">
