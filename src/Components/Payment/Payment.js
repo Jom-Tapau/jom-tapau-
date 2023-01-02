@@ -1,10 +1,26 @@
 import React, { useState } from "react";
 import auth from "../../firebase.init";
 import { useAuthState  } from 'react-firebase-hooks/auth';
+import { useEffect } from "react";
 
 const Payment = ({ cart }) => {
   const [user, loading, error] = useAuthState (auth);
   console.log(user?.email)
+  const email = user?.email
+
+  useEffect(()=>{
+    fetch('http://localhost:5000/findUser',{
+      method: 'POST',
+      headers:{
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({email})
+    })
+    .then(response => response.json())
+    .then(data=>console.log(data))
+  },[])
+
+
   let size;
   const day = [
     "Sunday",
