@@ -7,6 +7,7 @@
 }
 
 .info-container {
+    margin-bottom: 1em;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,6 +57,12 @@
 
 .accept:active {
     filter: brightness(85%);
+}
+
+.item-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .toggle-container {
