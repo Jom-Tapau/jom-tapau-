@@ -12,7 +12,7 @@ const Order = () => {
             <div className="info-container">
                 <div className="name-user">
                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
-                    <h4>Name</h4>
+                    <h4>GM Shaheen Shah</h4>
                 </div>
                 <div className="details">
                     <div className="total">
@@ -27,8 +27,8 @@ const Order = () => {
 
             <div className="items" {...getCollapseProps()}>
                 <ul className="item-list">
-                    <li>Nasi goreng ayam</li>
-                    <li>Ice Lemon Tea</li>
+                    <li>Nasi goreng ayam x<span>1</span></li>
+                    <li>Ice Lemon Tea x<span>1</span></li>
                 </ul>
             </div>
 
