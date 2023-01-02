@@ -1,3 +1,5 @@
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import useCollapse from "react-collapsed";
 import "./Order.css";
@@ -23,11 +25,13 @@ const Order = () => {
                 <button className="accept">Accept</button>
             </div>
 
-            <div className="items" {...getCollapseProps()}></div>
+            <div className="items" {...getCollapseProps()}>
+                abcksjcbv
+            </div>
 
             <div className="toggle-container">
                 <button className="toggle toggle-button" {...getToggleProps()}>
-                    {isExpanded ? "See less" : "See more"}
+                    {isExpanded ? <div>See less <FontAwesomeIcon icon={faChevronUp} /></div> : <div>See more <FontAwesomeIcon icon={faChevronDown} /></div>}
                 </button>
             </div>
         </div>
