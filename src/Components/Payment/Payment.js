@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import auth from "../../firebase.init";
+import { useAuthState  } from 'react-firebase-hooks/auth';
 
 const Payment = ({ cart }) => {
-    let size;
+  const [user, loading, error] = useAuthState (auth);
+  console.log(user?.email)
+  let size;
   const day = [
     "Sunday",
     "Monday",
