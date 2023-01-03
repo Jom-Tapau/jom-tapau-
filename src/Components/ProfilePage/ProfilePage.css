@@ -85,3 +85,10 @@ main{
     background-color: orange;
     border-radius:5px;
 }
+
+#submit-btn:hover{
+    background-color:black;
+    color:white;
+    border-bottom: 2px solid orange;
+    transition: background 0.5s;
+}
