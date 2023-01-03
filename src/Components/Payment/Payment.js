@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import './Payment.css';
 import Button from 'react-bootstrap/Button';
 import { Form } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Payment = ({ cart }) => {
   const [users, setUser] = useState({});
@@ -80,6 +81,10 @@ const Payment = ({ cart }) => {
 
   return (
     <div className="mt-5">
+      <Helmet>
+        <meta charSet='utf-8' />
+        <title>Payment</title>
+      </Helmet>
       <main className="d-flex justify-content-center pt-5 payment-box">
         <section>
           <div>
@@ -212,7 +217,9 @@ const Payment = ({ cart }) => {
           <Button variant="danger">Confirm</Button>
           </div>
         </section>
-        <section></section>
+        <section>
+
+        </section>
       </main>
     </div>
   );
