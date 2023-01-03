@@ -63,10 +63,10 @@ alertify.success("Food Item Added Successfully");
 
 </select>
 <select class="form-select" aria-label="Default select example">
-  <option selected>Open this select menu</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
+  <option selected>Choose Food Category</option>
+  <option value="BreakFast">BreakFast</option>
+  <option value="Lunch">Lunch</option>
+  <option value="Drinks">Drinks</option>
 </select>
     <Form.Control required ref={catRef}  type="text" placeholder="Enter Food Category" />
   </Form.Group>
