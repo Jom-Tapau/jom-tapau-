@@ -9,6 +9,7 @@ const AddFood = () => {
   const catRef= useRef();
   const imgRef= useRef();
   const [img, setImg]= useState('');
+  console.log(img);
 const handleAddFood=(event)=>{
   
   event.preventDefault();
@@ -57,7 +58,7 @@ alertify.success("Food Item Added Successfully");
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     
-    <Form.Control required onChange={(e)=>setImg(e.target.value)}  type="file" placeholder="Paste the Food Image URL" />
+    <Form.Control required onChange={(e)=>setImg(e.target.files[0])}  type="file" placeholder="Paste the Food Image URL" />
     
   </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
