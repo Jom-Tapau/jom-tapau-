@@ -19,10 +19,19 @@ const handleAddFood=(event)=>{
   const category = catRef.current.value;
   let quantity =1;
  const  user={name, price,imgURL,category, quantity,img};
- console.log(user, user.img[0]);
- const imgStorage_key ='1274eae5d94e36c76a4878fe3c916c01';
- const image = user.img[0];
- const url =`https://api.imgbb.com/1/upload?key=${imgStorage_key}`;
+
+  console.log(user, user.img[0]);
+  const imgStorage_key ='b2be4bbba48e721660728e1b0dec1ba3';
+  const image = user.img;
+  const formData = new FormData();
+  formData.append("image", image);
+  const url =`https://api.imgbb.com/1/upload?key=${imgStorage_key}`;
+fetch(url,{method:'POST',
+body:formData
+}).then(res=>res.json()).then(result=>{
+console.log("imgbb:",result);
+})
+
  
   fetch("http://localhost:5000/food",{
     method: 'POST',
