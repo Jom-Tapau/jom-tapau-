@@ -22,3 +22,8 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.logo{
+    position: absolute;
+    right:180px;
+}
