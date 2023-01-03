@@ -55,12 +55,18 @@ alertify.success("Food Item Added Successfully");
         <Form.Control required ref={imgRef}  type="text" placeholder="Paste the Food Image URL" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-    
-      <select name="category" id="category">
+    <label>Please choose a food Category</label>
+      <select  required ref={catRef} name="category" id="category">
   <option value="BreakFast">BreakFast</option>
   <option value="Lunch">Lunch</option>
   <option value="Drinks">Drinks</option>
 
+</select>
+<select class="form-select" aria-label="Default select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
 </select>
     <Form.Control required ref={catRef}  type="text" placeholder="Enter Food Category" />
   </Form.Group>
