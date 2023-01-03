@@ -1,7 +1,7 @@
 import alertify from 'alertifyjs';
 import React, { useState } from 'react';
 import { useRef } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import {   Form } from 'react-bootstrap';
 
 const AddFood = () => {
   const nameRef= useRef();
@@ -18,7 +18,12 @@ const handleAddFood=(event)=>{
   const imgURL = imgRef.current.value;
   const category = catRef.current.value;
   let quantity =1;
- const  user={name, price,imgURL,category, quantity};
+ const  user={name, price,imgURL,category, quantity,img};
+ console.log(user, user.img[0]);
+ const imgStorage_key ='1274eae5d94e36c76a4878fe3c916c01';
+ const image = user.img[0];
+ const url =`https://api.imgbb.com/1/upload?key=${imgStorage_key}`;
+ 
   fetch("http://localhost:5000/food",{
     method: 'POST',
     headers:{
@@ -28,6 +33,7 @@ const handleAddFood=(event)=>{
   }).then(
     res=>res.json()
   ).then(data=>{console.log("success",data);
+
 alertify.success("Food Item Added Successfully");
   
 
