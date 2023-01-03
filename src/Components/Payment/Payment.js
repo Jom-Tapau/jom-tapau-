@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
-
+import './Payment.css';
 const Payment = ({ cart }) => {
   const [users, setUser] = useState({});
   const [user, loading, error] = useAuthState(auth);
@@ -20,6 +20,8 @@ const Payment = ({ cart }) => {
       .then((response) => response.json())
       .then((data) => setUser(data));
   }, []);
+
+  console.log(users)
 
   let size;
   const day = [
@@ -72,8 +74,8 @@ const Payment = ({ cart }) => {
       <main className="d-flex justify-content-center">
         <section>
           <div>
-            <p className="fs-1 fw-normal">Delivery Details</p>
-            <div>
+            <div className="deliveryDetails">
+              <p className="fs-1 fw-normal mt-5">Delivery Details</p>
               <p className="fs-4">Delivery time:</p>
 
               <div className="d-flex">
@@ -135,40 +137,41 @@ const Payment = ({ cart }) => {
                 ></input>
               </div>
             </div>
-            <div>
+
+            <div className="mt-5">
               <p className="fs-1 fw-normal">Personal Details</p>
               <div className="">
                 <div className="d-flex">
                   <div className="me-5">
                     <label htmlFor="">Name</label>
                     <input
-                    type="text"
-                    style={{ width: "250px" }}
-                    className="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Name"
-                  ></input>
+                      type="text"
+                      style={{ width: "250px" }}
+                      className="form-control"
+                      id="exampleFormControlInput1"
+                      placeholder="Name"
+                    ></input>
                   </div>
                   <div>
                     <label htmlFor="">Email</label>
                     <input
-                    type="text"
-                    style={{ width: "250px" }}
-                    className="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Email"
-                  ></input>
+                      type="text"
+                      style={{ width: "250px" }}
+                      className="form-control"
+                      id="exampleFormControlInput1"
+                      placeholder="Email"
+                    ></input>
                   </div>
                 </div>
                 <div className="mt-2">
                   <label htmlFor="">Phone Number</label>
                   <input
-                  type="text"
-                  style={{ width: "250px" }}
-                  className="form-control"
-                  id="exampleFormControlInput1"
-                  placeholder="Phone Number"
-                ></input>
+                    type="text"
+                    style={{ width: "250px" }}
+                    className="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Phone Number"
+                  ></input>
                 </div>
               </div>
             </div>
