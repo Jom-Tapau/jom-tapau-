@@ -30,6 +30,9 @@ fetch(url,{method:'POST',
 body:formData
 }).then(res=>res.json()).then(result=>{
   if(result.success=="true")
+  {
+    const img = result.data.url;
+  }
 console.log("imgbb:",result);
 })
 
