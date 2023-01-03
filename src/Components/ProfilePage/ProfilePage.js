@@ -52,7 +52,7 @@ const ProfilePage = () => {
                         </tr>
                         <tr>
                             <td class="profile">
-                                date of Birth:
+                                Date of Birth:
                             </td>
                             <td class="profile">
                                 <span id="dob" class="data"></span>
