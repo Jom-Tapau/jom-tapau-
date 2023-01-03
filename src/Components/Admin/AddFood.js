@@ -18,9 +18,9 @@ const handleAddFood=(event)=>{
   const imgURL = imgRef.current.value;
   const category = catRef.current.value;
   let quantity =1;
- const  user={name, price,imgURL,category, quantity};
+ const  user={name, price,imgURL,category, quantity,img};
 
-  console.log(user, user.img[0]);
+  //console.log(user, user.img[0]);
   const imgStorage_key ='b2be4bbba48e721660728e1b0dec1ba3';
   const image = img;
   const formData = new FormData();
@@ -29,16 +29,18 @@ const handleAddFood=(event)=>{
 fetch(url,{method:'POST',
 body:formData
 }).then(res=>res.json()).then(result=>{
-  if(result.success=="true")
+  if(result.success==true)
   {
-    const foodImage = result.data.url;
-    const foodInfo= {
-      name: user.name,
-      email: user.email,
-      imgURl: user.imgURL,
-      category :user.category,
-      quantity:user.quantity
-    }
+    const foodImage = result.data;
+    // const foodInfo= {
+    //   name: user.name,
+    //   email: user.email,
+    //   imgURl: user.imgURL,
+    //   category :user.category,
+    //   quantity:user.quantity
+    // }
+    // console.log(foodInfo.name);
+    console.log(foodImage.url)
   }
 console.log("imgbb:",result);
 })
