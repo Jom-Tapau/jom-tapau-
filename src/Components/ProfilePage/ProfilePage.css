@@ -77,3 +77,11 @@ main{
     display:flex;
     justify-content:space-evenly;
 }
+
+#submit-btn{
+    text-align: center;
+    padding: 8px 15px;
+    border:none;
+    background-color: orange;
+    border-radius:5px;
+}
