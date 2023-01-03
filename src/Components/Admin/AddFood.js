@@ -29,6 +29,7 @@ const handleAddFood=(event)=>{
 fetch(url,{method:'POST',
 body:formData
 }).then(res=>res.json()).then(result=>{
+  if(result.success=="true")
 console.log("imgbb:",result);
 })
 
