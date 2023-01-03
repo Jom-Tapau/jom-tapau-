@@ -7,6 +7,18 @@
 }
 
 body{
-    
+
     margin:0;
+}
+
+.banner{
+    background-color: dodgerblue;
+    background-size: 100%;
+    width: 100%;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+    color: aliceblue;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
