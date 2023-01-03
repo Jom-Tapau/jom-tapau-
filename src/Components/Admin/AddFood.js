@@ -56,11 +56,11 @@ alertify.success("Food Item Added Successfully");
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     
-      <select name="cars" id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
+      <select name="category" id="category">
+  <option value="BreakFast">BreakFast</option>
+  <option value="Lunch">Lunch</option>
+  <option value="Drinks">Drinks</option>
+
 </select>
     <Form.Control required ref={catRef}  type="text" placeholder="Enter Food Category" />
   </Form.Group>
