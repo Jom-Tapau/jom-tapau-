@@ -80,7 +80,7 @@ const Payment = ({ cart }) => {
 
   return (
     <div className="mt-5">
-      <main className="d-flex justify-content-center pt-5 payment-container">
+      <main className="d-flex justify-content-center pt-5 payment-box">
         <section>
           <div>
             <div className="deliveryDetails">
@@ -184,6 +184,7 @@ const Payment = ({ cart }) => {
                 </div>
               </div>
             </div>
+            {/* payment method container */}
             <div className="payment-container mt-5">
               <p className="fs-1 fw-normal">Payment</p>
               <div onChange={handlePaymentMethod}>
@@ -194,13 +195,18 @@ const Payment = ({ cart }) => {
                 <input className="me-3" type="radio" id="card" name="age" value="Card"/>
                 <label for="card">
                   <span className="fw-semibold">Credit or Debit Card</span>
+                  {
+                    paymentMethod==="Card"&& <div>
+                      <p>Card</p>
+                    </div>
+                  }
                 </label><br/>  
                 <input className="me-3" type="radio" id="code" name="age" value="Qr Code"/>
                 <label for="code">
                   <span className="fw-semibold">Qr code</span>
                 </label>
               </div>
-            </div>
+            </div> {/* end of payment method container */}
           </div>
           <div className="d-flex justify-content-center mt-5">
           <Button variant="danger">Confirm</Button>
