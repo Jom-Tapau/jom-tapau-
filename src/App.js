@@ -35,6 +35,7 @@ function App() {
       itemFind.quantity = parseInt(itemFind.quantity) + 1;
     } else {
       cart.push(item);
+      setCart([...cart], item);
       // setCart([...cart], item);
     }
     setCount(count + 1);
