@@ -2,7 +2,8 @@
     margin: 1em 4em;
     width: 70em;
     padding: 10px 20px;
-    border: 1px solid crimson;
+    /* border: 1px solid crimson; */
+    border: none;
     border-radius: 10px;
 }
 
