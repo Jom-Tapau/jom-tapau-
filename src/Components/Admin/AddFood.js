@@ -1,5 +1,5 @@
 import alertify from 'alertifyjs';
-import React from 'react';
+import React, { useState } from 'react';
 import { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
@@ -8,7 +8,7 @@ const AddFood = () => {
   const priceRef= useRef();
   const catRef= useRef();
   const imgRef= useRef();
-
+  const [img, setImg]= useState('');
 const handleAddFood=(event)=>{
   
   event.preventDefault();
@@ -57,7 +57,7 @@ alertify.success("Food Item Added Successfully");
       </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     
-    <Form.Control required  type="file" placeholder="Paste the Food Image URL" />
+    <Form.Control required onChange={(e)=>setImg(e.target.value)}  type="file" placeholder="Paste the Food Image URL" />
     
   </Form.Group>
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
