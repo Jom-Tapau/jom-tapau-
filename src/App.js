@@ -22,6 +22,7 @@ import Cart from "./Components/Cart/Cart";
 import { useState } from "react";
 import EditFood from "./Components/EditFood/EditFood";
 import UpdateFood from "./Components/EditFood/UpdateFood";
+import RiderDash from "./Components/RiderDash/RiderDash";
 
 function App() {
   let location = useLocation();
@@ -72,6 +73,7 @@ function App() {
         ></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
         <Route path="/about" element={<About></About>}></Route>
+        <Route path="/riderDash" element={<RiderDash></RiderDash>}></Route>
         <Route
           path="/cart"
           element={
