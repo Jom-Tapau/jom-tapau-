@@ -72,3 +72,8 @@ body{
 .data{
     font-weight: 900;
 }
+
+main{
+    display:flex;
+    justify-content:space-evenly;
+}
