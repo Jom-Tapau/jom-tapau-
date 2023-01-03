@@ -8,6 +8,9 @@ const AddFood = () => {
   const priceRef= useRef();
   const catRef= useRef();
   const imgRef= useRef();
+  const dummyHandle=()=>{
+console.log(catRef.current.value);
+  }
 const handleAddFood=(event)=>{
   
   event.preventDefault();
@@ -72,6 +75,7 @@ alertify.success("Food Item Added Successfully");
 
   <input className='btn btn-danger' type="submit" name="" id="" />
     </form>
+    <button onClick={dummyHandle}>butoon</button>
         </div>
     );
 };
