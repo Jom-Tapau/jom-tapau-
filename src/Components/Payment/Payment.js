@@ -9,6 +9,8 @@ const Payment = ({ cart }) => {
   console.log(user?.email);
   const email = user?.email;
 
+
+  //fetch the user from the database
   useEffect(() => {
     fetch("http://localhost:5000/findUser", {
       method: "POST",
@@ -71,11 +73,11 @@ const Payment = ({ cart }) => {
 
   return (
     <div className="mt-5">
-      <main className="d-flex justify-content-center">
+      <main className="d-flex justify-content-center pt-5 payment-container">
         <section>
           <div>
             <div className="deliveryDetails">
-              <p className="fs-1 fw-normal mt-5">Delivery Details</p>
+              <p className="fs-1 fw-normal">Delivery Details</p>
               <p className="fs-4">Delivery time:</p>
 
               <div className="d-flex">
