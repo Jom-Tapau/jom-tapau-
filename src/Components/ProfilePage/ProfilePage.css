@@ -56,3 +56,9 @@ body{
     margin-left:20px;
     border-radius:10px;
 }
+
+.information-header{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+}
