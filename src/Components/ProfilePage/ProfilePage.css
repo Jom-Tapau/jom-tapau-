@@ -78,17 +78,3 @@ main{
     justify-content:space-evenly;
 }
 
-#submit-btn{
-    text-align: center;
-    padding: 8px 15px;
-    border:none;
-    background-color: orange;
-    border-radius:5px;
-}
-
-#submit-btn:hover{
-    background-color:black;
-    color:white;
-    border-bottom: 2px solid orange;
-    transition: background 0.5s;
-}
