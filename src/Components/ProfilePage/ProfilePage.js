@@ -84,7 +84,11 @@ const ProfilePage = () => {
                         </tr>
                     </table>
                 </div>
-
+                <form action="" method="post">
+                    <div style={{ textAlign: 'center', paddingBottom: '30px' }}>
+                        <button style={{ backgroundColor: '#0a0a23', color: '#fff', border: 'none', borderRadius: '10px', padding: '15px', minHeight: '30px', cursor: 'pointer' }} id="leave-application"> <i style={{ marginRight: '5px' }} class="fa-solid fa-arrow-right-from-bracket"></i>Leave Application</button>
+                    </div>
+                </form>
             </section >
         </div >
     );
