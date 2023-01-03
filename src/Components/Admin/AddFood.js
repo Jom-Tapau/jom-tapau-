@@ -18,11 +18,11 @@ const handleAddFood=(event)=>{
   const imgURL = imgRef.current.value;
   const category = catRef.current.value;
   let quantity =1;
- const  user={name, price,imgURL,category, quantity,img};
+ const  user={name, price,imgURL,category, quantity};
 
   console.log(user, user.img[0]);
   const imgStorage_key ='b2be4bbba48e721660728e1b0dec1ba3';
-  const image = user.img;
+  const image = img;
   const formData = new FormData();
   formData.append("image", image);
   const url =`https://api.imgbb.com/1/upload?key=${imgStorage_key}`;
@@ -31,7 +31,14 @@ body:formData
 }).then(res=>res.json()).then(result=>{
   if(result.success=="true")
   {
-    const img = result.data.url;
+    const foodImage = result.data.url;
+    const foodInfo= {
+      name: user.name,
+      email: user.email,
+      imgURl: user.imgURL,
+      category :user.category,
+      quantity:user.quantity
+    }
   }
 console.log("imgbb:",result);
 })
