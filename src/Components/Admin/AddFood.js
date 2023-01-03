@@ -32,17 +32,17 @@ body:formData
   if(result.success==true)
   {
     const foodImage = result.data;
-    // const foodInfo= {
-    //   name: user.name,
-    //   email: user.email,
-    //   imgURl: user.imgURL,
-    //   category :user.category,
-    //   quantity:user.quantity
-    // }
-    // console.log(foodInfo.name);
+    const foodInfo= {
+      name: user.name,
+      email: user.email,
+      imgURl: user.imgURL,
+      category :user.category,
+      quantity:user.quantity
+    }
+   
     console.log(foodImage.url)
   }
-console.log("imgbb:",result);
+//console.log("imgbb:",result);
 })
 
  
