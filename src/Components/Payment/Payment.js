@@ -3,10 +3,14 @@ import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useEffect } from "react";
 import './Payment.css';
+import Button from 'react-bootstrap/Button';
+import { Form } from "react-router-dom";
+
 const Payment = ({ cart }) => {
   const [users, setUser] = useState({});
   const [user, loading, error] = useAuthState(auth);
-  console.log(user?.email);
+  const [paymentMethod,setPaymentMethod] = useState('')
+
   const email = user?.email;
 
 
@@ -23,7 +27,10 @@ const Payment = ({ cart }) => {
       .then((data) => setUser(data));
   }, []);
 
-  console.log(users)
+  const handlePaymentMethod = e =>{
+    setPaymentMethod(e.target.value)
+  }
+  console.log(paymentMethod)
 
   let size;
   const day = [
@@ -140,7 +147,7 @@ const Payment = ({ cart }) => {
               </div>
             </div>
 
-            <div className="mt-5">
+            <div className="mt-5 personalDetails">
               <p className="fs-1 fw-normal">Personal Details</p>
               <div className="">
                 <div className="d-flex">
@@ -177,6 +184,26 @@ const Payment = ({ cart }) => {
                 </div>
               </div>
             </div>
+            <div className="payment-container mt-5">
+              <p className="fs-1 fw-normal">Payment</p>
+              <div onChange={handlePaymentMethod}>
+                <input className="me-3" type="radio" id="Cash on Delivery" name="age" value="Cash"/>
+                <label for="Cash on Delivery"> 
+                  <span className="fw-semibold">Cash on Delivery</span>
+                </label><br/>
+                <input className="me-3" type="radio" id="card" name="age" value="Card"/>
+                <label for="card">
+                  <span className="fw-semibold">Credit or Debit Card</span>
+                </label><br/>  
+                <input className="me-3" type="radio" id="code" name="age" value="Qr Code"/>
+                <label for="code">
+                  <span className="fw-semibold">Qr code</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="d-flex justify-content-center mt-5">
+          <Button variant="danger">Confirm</Button>
           </div>
         </section>
         <section></section>
