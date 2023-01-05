@@ -63,9 +63,7 @@ const AddFood = () => {
 
   return (
     <div style={{ marginTop: "100px" }}>
-         {
-        loading==true? <div>Loading</div>:<></>
-      }
+      
       <h1 className="text-danger ">Please Add a New Food Item</h1>
       <br />
       <form onSubmit={handleAddFood} className="w-50 mx-auto ">
@@ -109,7 +107,11 @@ const AddFood = () => {
 
         <input className="btn btn-danger" type="submit" name="" id="" />
       </form>
-   
+      {
+        loading==true? <div><div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div></div>:<></>
+      }
     </div>
   );
 };
