@@ -12,7 +12,7 @@ const ProfilePage = () => {
                 <hr></hr>
                 <div class="information">
                     <div>
-                        <img style={{ width: '200px' }} src="https://spesialis1.orthopaedi.fk.unair.ac.id/wp-content/uploads/2021/02/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg" alt="" />
+                        <img src="https://i.ibb.co/QQyzW1L/ezgif-com-gif-maker.jpg" alt="" style={{ width: '200px' }}  />
                     </div>
                 </div>
 

@@ -23,6 +23,7 @@ import { useState } from "react";
 import EditFood from "./Components/EditFood/EditFood";
 import UpdateFood from "./Components/EditFood/UpdateFood";
 import ProfilePage from "./Components/ProfilePage/ProfilePage";
+import EditProfilePage from "./Components/ProfilePage/EditProfilePage";
 
 function App() {
   let location = useLocation();
@@ -74,6 +75,7 @@ function App() {
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/profile" element={<ProfilePage></ProfilePage>}></Route>
+        <Route path="/editprofile" element={<EditProfilePage></EditProfilePage>}></Route>
         <Route
           path="/cart"
           element={
