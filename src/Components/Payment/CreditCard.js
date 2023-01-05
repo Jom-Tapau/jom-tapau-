@@ -25,6 +25,20 @@ const CreditCard = ({ setPaymentID, paymentID,total }) => {
       .then((response) => response.json())
       .then((data) => setUser(data));
   }, []);
+
+  //get the payment-intent
+  useEffect(()=>{
+    fetch('http://localhost:5000/create-payment-intent',{
+        method:'POST',
+        headers:{
+            'content-type':'application/json'
+        },
+        body:JSON.stringify({total})
+    })
+    .then(res=>res.json())
+    .then(data=>console.log(data))
+  },[])
+
   console.log(users)
   //form button function
   const handleSubmit = async (event) => {
