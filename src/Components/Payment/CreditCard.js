@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
-const CreditCard = ({ setPaymentID, paymentID }) => {
+const CreditCard = ({ setPaymentID, paymentID,total }) => {
   const [users, setUser] = useState({});
   const [user, loading, userError] = useAuthState(auth);
   const [clientSecret, setClientSecret] = useState("");
@@ -41,8 +41,10 @@ const CreditCard = ({ setPaymentID, paymentID }) => {
     })
     if(error)
         setError(error);
-    else
+    else{
+        setError('')
         console.log(paymentMethod)
+    }
   };
   return (
     <>
@@ -67,6 +69,10 @@ const CreditCard = ({ setPaymentID, paymentID }) => {
           Pay
         </button>
       </form>
+
+      {
+        error&& <p className="mt-2 mb-0 text-danger fw-semibold fs-4 text-center">{error}</p>
+      }
     </>
   );
 };

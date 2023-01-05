@@ -17,6 +17,17 @@ const Payment = ({ cart }) => {
   const [paymentMethod,setPaymentMethod] = useState('')
   const [paymentID,setPaymentID] = useState("");
   
+  //calculate the total price of the food
+  console.log(cart)
+  let total = 1.0;
+  cart.forEach(food => {
+    const price = parseFloat(food.price)
+    const quantity = parseInt(food.quantity)
+    const result = price*quantity;
+    total = total+result;
+  })
+  console.log(total)
+
   //set the payment method
   const handlePaymentMethod = e =>{
     setPaymentMethod(e.target.value)
@@ -194,7 +205,7 @@ const Payment = ({ cart }) => {
                   
                   {
                     paymentMethod==="Card" &&paymentID==="" && <div style={{marginBottom:'15px',marginTop:'10px',marginLeft:'10px',marginRight:'130px',boxShadow:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', padding:'10px',borderRadius:'10px'}}><Elements  stripe={stripePromise}>
-                        <CreditCard setPaymentID={setPaymentID} paymentID={paymentID}></CreditCard>
+                        <CreditCard setPaymentID={setPaymentID} paymentID={paymentID} total={total}></CreditCard>
                     </Elements></div>
                     
                   }
