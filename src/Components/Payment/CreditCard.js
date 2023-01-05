@@ -3,10 +3,25 @@ import React, { useState } from "react";
 
 const CreditCard = ({ setPaymentID, paymentID }) => {
   const [clientSecret, setClientSecret] = useState("");
+  const [error,setError] = useState("");
   const stripe = useStripe();
   const elements = useElements();
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if(!stripe||!elements)
+        return
+    const card = elements.getElement(CardElement);
+    if(card==null)
+        return;
+    
+    const{error,paymentMethod} = await stripe.createPaymentMethod({
+        type:'card',
+        card:card
+    })
+    if(error)
+        setError(error);
+    else
+        console.log(paymentMethod)
   };
   return (
     <>
