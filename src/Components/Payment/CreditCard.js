@@ -27,7 +27,7 @@ const CreditCard = ({ setPaymentID, paymentID }) => {
             },
           }}
         />
-        <button type="button" className="btn btn-success mt-3" disabled={!stripe || clientSecret}>
+        <button style={{width:'70px'}} type="button" className="btn btn-success mt-3" disabled={!stripe || clientSecret}>
           Pay
         </button>
       </form>
