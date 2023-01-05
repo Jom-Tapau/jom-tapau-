@@ -12,7 +12,7 @@ const Payment = ({ cart }) => {
   const [users, setUser] = useState({});
   const [user, loading, error] = useAuthState(auth);
   const [paymentMethod,setPaymentMethod] = useState('')
-  const [paymentID,setPaymentID] = useState("sadsda");
+  const [paymentID,setPaymentID] = useState("");
 
   const email = user?.email;
 
