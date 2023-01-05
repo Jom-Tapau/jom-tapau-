@@ -81,10 +81,7 @@ body:formData
     
         <Form.Control required ref={priceRef}  type="text" placeholder="Enter Food Price" />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-    
-        <Form.Control required ref={imgRef}  type="text" placeholder="Paste the Food Image URL" />
-      </Form.Group>
+   
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     
     <Form.Control required onChange={(e)=>setImg(e.target.files[0])}  type="file" placeholder="Paste the Food Image URL" />
