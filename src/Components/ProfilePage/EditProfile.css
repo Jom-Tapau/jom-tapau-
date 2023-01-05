@@ -6,3 +6,13 @@
     align-items: center;
 
 }
+
+.edit-container{
+
+    width: 50em;
+    padding: 3em;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-top:30px;
+    margin-left:20px;
+    border-radius:10px;
+}
