@@ -6,14 +6,15 @@ import './Payment.css';
 import Button from 'react-bootstrap/Button';
 import { Form } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import CreditCard from "./CreditCard";
 
 const Payment = ({ cart }) => {
   const [users, setUser] = useState({});
   const [user, loading, error] = useAuthState(auth);
   const [paymentMethod,setPaymentMethod] = useState('')
+  const [paymentID,setPaymentID] = useState("sadsda");
 
   const email = user?.email;
-
 
   //fetch the user from the database
   useEffect(() => {
@@ -28,6 +29,7 @@ const Payment = ({ cart }) => {
       .then((data) => setUser(data));
   }, []);
 
+  //set the payment method
   const handlePaymentMethod = e =>{
     setPaymentMethod(e.target.value)
   }
@@ -200,12 +202,10 @@ const Payment = ({ cart }) => {
                 <input className="me-3" type="radio" id="card" name="age" value="Card"/>
                 <label for="card">
                   <span className="fw-semibold">Credit or Debit Card</span>
-                  {
-                    paymentMethod==="Card"&& <div>
-                      <p>Card</p>
-                    </div>
-                  }
                 </label><br/>  
+                  {
+                    paymentMethod==="Card" &&paymentID==="" && <CreditCard setPaymentID={setPaymentID} paymentID={paymentID}></CreditCard>
+                  }
                 <input className="me-3" type="radio" id="code" name="age" value="Qr Code"/>
                 <label for="code">
                   <span className="fw-semibold">Qr code</span>
