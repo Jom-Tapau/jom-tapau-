@@ -14,40 +14,6 @@ const stripePromise = loadStripe(
   "pk_test_51MMoiTGFkQKcRUEsIWmYYZ7z8q87tqyLD4xHmTjn1dm53oHYoSdtjzbtVUwiHZdcFa0XMHCLFY94JNWg0RcVbbds00SPlFNy4f");
 
 const Payment = ({ cart }) => {
-  const [users, setUser] = useState({});
-  const [user, loading, userError] = useAuthState(auth);
-  const [paymentMethod,setPaymentMethod] = useState('')
-  const [paymentID,setPaymentID] = useState("pm_1MMsT6GFkQKcRUEsg3eVfYMw");
-  
-
-  const email = user?.email;
-  //fetch the user from the database
-  useEffect(() => {
-    fetch("http://localhost:5000/findUser", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    })
-      .then((response) => response.json())
-      .then((data) => setUser(data));
-  }, []);
-console.log(users)
-  //calculate the total price of the food
-  console.log(cart)
-  let total = 1.0;
-  cart.forEach(food => {
-    const price = parseFloat(food.price)
-    const quantity = parseInt(food.quantity)
-    const result = price*quantity;
-    total = total+result;
-  })
-
-  //set the payment method
-  const handlePaymentMethod = e =>{
-      setPaymentMethod(e.target.value)
-  }
 
   let size;
   const day = [
@@ -95,6 +61,58 @@ console.log(users)
     " " +
     monthNames[date.getMonth()];
 
+
+  const [deliveryDate,setDeliveryDate] = useState(today)
+  const [users, setUser] = useState({});
+  const [user, loading, userError] = useAuthState(auth);
+  const [paymentMethod,setPaymentMethod] = useState('')
+  const [paymentID,setPaymentID] = useState("pm_1MMsT6GFkQKcRUEsg3eVfYMw");
+  
+
+  const email = user?.email;
+  //fetch the user from the database
+  useEffect(() => {
+    fetch("http://localhost:5000/findUser", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((response) => response.json())
+      .then((data) => setUser(data));
+  }, []);
+  //calculate the total price of the food
+
+  let total = 1.0;
+  cart.forEach(food => {
+    const price = parseFloat(food.price)
+    const quantity = parseInt(food.quantity)
+    const result = price*quantity;
+    total = total+result;
+  })
+
+  //set the payment method
+  const handlePaymentMethod = e =>{
+    setPaymentMethod(e.target.value)
+  }
+
+  //get delivery data
+  const handleDeliveryDate =e =>{
+    setDeliveryDate(e.target.value)
+  }
+console.log(deliveryDate)
+  // handle confirm button
+  const handleConfirm = () =>{
+    const newOrder={
+      email:user.email,
+      phoneNumber:'0187817582',
+      orders:cart
+    }
+    console.log(newOrder)
+  }
+  
+
   return (
     <div className="mt-5">
       <Helmet>
@@ -114,6 +132,7 @@ console.log(users)
                   style={{ width: "250px" }}
                   className="form-select me-5"
                   aria-label="Default select example"
+                  onChange={handleDeliveryDate}
                 >
                   <option defaultValue={today}>
                     {date.getDate()} {day[date.getDay()]},
@@ -180,7 +199,7 @@ console.log(users)
                       className="form-control"
                       id="exampleFormControlInput1"
                       placeholder="Name"
-                      value={user.displayName}
+                      value={user?.displayName}
                     ></input>
                   </div>
                   <div>
@@ -236,7 +255,7 @@ console.log(users)
           </div>
           
           <div className="d-flex justify-content-center mt-5">
-            <Button variant="danger" disabled={!paymentID}>Confirm</Button>
+            <Button variant="danger" onClick={handleConfirm} disabled={!paymentID}>Confirm</Button>
           </div>
           
         </section>
