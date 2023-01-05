@@ -27,7 +27,7 @@ const AddFood = () => {
     fetch(url, { method: "POST", body: formData })
       .then((res) => res.json())
       .then((result) => { 
-        setLoading(true);
+  
         if (result.success == true) {
           const foodImage = result.data;
           const foodInfo = {
@@ -47,7 +47,6 @@ const AddFood = () => {
             .then((res) => res.json())
             .then((data) => {
               console.log("success", data);
-             setLoading(false);
               alertify.success("Food Item Added Successfully");
               nameRef.current.value = "";
               priceRef.current.value = "";
@@ -62,6 +61,9 @@ const AddFood = () => {
 
   return (
     <div style={{ marginTop: "100px" }}>
+         {
+        loading==true? <div>Loading</div>:<></>
+      }
       <h1 className="text-danger ">Please Add a New Food Item</h1>
       <br />
       <form onSubmit={handleAddFood} className="w-50 mx-auto ">
@@ -105,9 +107,7 @@ const AddFood = () => {
 
         <input className="btn btn-danger" type="submit" name="" id="" />
       </form>
-      {
-        loading==true? <div>Loading</div>:<></>
-      }
+   
     </div>
   );
 };
