@@ -7,6 +7,11 @@ import Button from 'react-bootstrap/Button';
 import { Form } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import CreditCard from "./CreditCard";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51MMoiTGFkQKcRUEsIWmYYZ7z8q87tqyLD4xHmTjn1dm53oHYoSdtjzbtVUwiHZdcFa0XMHCLFY94JNWg0RcVbbds00SPlFNy4f");
 
 const Payment = ({ cart }) => {
   const [users, setUser] = useState({});
@@ -196,18 +201,21 @@ const Payment = ({ cart }) => {
               <p className="fs-1 fw-normal">Payment</p>
               <div onChange={handlePaymentMethod}>
                 <input className="me-3" type="radio" id="Cash on Delivery" name="age" value="Cash"/>
-                <label for="Cash on Delivery"> 
+                <label htmlFor="Cash on Delivery"> 
                   <span className="fw-semibold">Cash on Delivery</span>
                 </label><br/>
                 <input className="me-3" type="radio" id="card" name="age" value="Card"/>
-                <label for="card">
+                <label htmlFor="card">
                   <span className="fw-semibold">Credit or Debit Card</span>
                 </label><br/>  
                   {
-                    paymentMethod==="Card" &&paymentID==="" && <CreditCard setPaymentID={setPaymentID} paymentID={paymentID}></CreditCard>
+                    paymentMethod==="Card" &&paymentID==="" && <Elements stripe={stripePromise}>
+                        <CreditCard setPaymentID={setPaymentID} paymentID={paymentID}></CreditCard>
+                    </Elements>
+                    
                   }
                 <input className="me-3" type="radio" id="code" name="age" value="Qr Code"/>
-                <label for="code">
+                <label htmlFor="code">
                   <span className="fw-semibold">Qr code</span>
                 </label>
               </div>
