@@ -26,6 +26,10 @@ const EditProfilePage = () => {
                                         </select>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td class="profile">Father Name:</td>
+                                    <td class="profile"> <input style={{width: '110%'}} type="text" id="updateFatherName" name="updateFatherName" value=""/></td>
+                                </tr>
                             </table>
                             <div style={{textAlign:'center'}}>
                                 <button type="submit" id="submit-btn" onclick="submit()" name="update">Submit</button>
