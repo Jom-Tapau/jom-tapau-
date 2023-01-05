@@ -15,8 +15,8 @@ const stripePromise = loadStripe(
 
 const Payment = ({ cart }) => {
   const [paymentMethod,setPaymentMethod] = useState('')
-  const [paymentID,setPaymentID] = useState("");
-  
+  const [paymentID,setPaymentID] = useState("pm_1MMsT6GFkQKcRUEsg3eVfYMw");
+  const [error,setError] = useState("")
   //calculate the total price of the food
   console.log(cart)
   let total = 1.0;
@@ -26,13 +26,11 @@ const Payment = ({ cart }) => {
     const result = price*quantity;
     total = total+result;
   })
-  console.log(total)
 
   //set the payment method
   const handlePaymentMethod = e =>{
-    setPaymentMethod(e.target.value)
+      setPaymentMethod(e.target.value)
   }
-  console.log(paymentMethod)
 
   let size;
   const day = [
@@ -193,6 +191,7 @@ const Payment = ({ cart }) => {
             {/* payment method container */}
             <div className="payment-container mt-5">
               <p className="fs-1 fw-normal">Payment</p>
+              {paymentID&&<p className="mb-2 fs-5 text-success">Money Paid</p>}
               <div onChange={handlePaymentMethod}>
                 <input className="me-3" type="radio" id="Cash on Delivery" name="age" value="Cash"/>
                 <label htmlFor="Cash on Delivery"> 
@@ -209,17 +208,17 @@ const Payment = ({ cart }) => {
                     </Elements></div>
                     
                   }
-                  
-                <input className="me-3" type="radio" id="code" name="age" value="Qr Code"/>
-                <label htmlFor="code">
-                  <span className="fw-semibold">Qr code</span>
-                </label>
+                  {
+                    paymentMethod==="Card" &&paymentID!=""&&<p> <span className="text-success">Payment Successful.Transaction id</span> :{paymentID}</p>
+                  }
               </div>
             </div> {/* end of payment method container */}
           </div>
+          
           <div className="d-flex justify-content-center mt-5">
-          <Button variant="danger">Confirm</Button>
+            <Button variant="danger" disabled={!paymentID}>Confirm</Button>
           </div>
+          
         </section>
         <section>
 

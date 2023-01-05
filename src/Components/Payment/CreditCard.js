@@ -51,7 +51,7 @@ const CreditCard = ({ setPaymentID, paymentID,total }) => {
     const card = elements.getElement(CardElement);
     if(card==null)
         return;
-    
+    console.log(card)
     const{error,paymentMethod} = await stripe.createPaymentMethod({
         type:'card',
         card:card
