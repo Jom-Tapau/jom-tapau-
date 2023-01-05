@@ -37,10 +37,11 @@ body:formData
       email: user.email,
       imgURl: user.imgURL,
       category :user.category,
-      quantity:user.quantity
+      quantity:user.quantity,
+      img: foodImage.url
     }
    
-    console.log(foodImage.url)
+    console.log(foodInfo)
   }
 //console.log("imgbb:",result);
 })
