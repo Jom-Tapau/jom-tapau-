@@ -85,7 +85,7 @@ const AddFood = () => {
             required
             onChange={(e) => setImg(e.target.files[0])}
             type="file"
-            placeholder="Paste the Food Image URL"
+            
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
