@@ -39,6 +39,20 @@ body:formData
       quantity:user.quantity,
       imgURL: foodImage.url
     }
+    fetch("http://localhost:5000/food",{
+      method: 'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body:JSON.stringify(foodInfo),
+    }).then(
+      res=>res.json()
+    ).then(data=>{console.log("success",data);
+  
+  alertify.success("Food Item Added Successfully");
+    
+  
+  });
    
     console.log(foodInfo)
   }
@@ -46,20 +60,7 @@ body:formData
 })
 
  
-  fetch("http://localhost:5000/food",{
-    method: 'POST',
-    headers:{
-      'Content-Type':'application/json',
-    },
-    body:JSON.stringify(user),
-  }).then(
-    res=>res.json()
-  ).then(data=>{console.log("success",data);
 
-alertify.success("Food Item Added Successfully");
-  
-
-});
   nameRef.current.value= "";
   priceRef.current.value= "";
   imgRef.current.value= "";
