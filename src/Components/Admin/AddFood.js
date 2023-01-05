@@ -105,6 +105,9 @@ const AddFood = () => {
 
         <input className="btn btn-danger" type="submit" name="" id="" />
       </form>
+      {
+        loading==true? <div>Loading</div>:<></>
+      }
     </div>
   );
 };
