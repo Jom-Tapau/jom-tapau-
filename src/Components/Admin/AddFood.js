@@ -48,6 +48,7 @@ const AddFood = () => {
             .then((res) => res.json())
             .then((data) => {
               console.log("success", data);
+              setLoading(false);
               alertify.success("Food Item Added Successfully");
               nameRef.current.value = "";
               priceRef.current.value = "";
