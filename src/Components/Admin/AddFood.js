@@ -52,7 +52,6 @@ body:formData
   alertify.success("Food Item Added Successfully");
   nameRef.current.value= "";
   priceRef.current.value= "";
-  imgRef.current.value= "";
   catRef.current.value= "";
   setImg('');
   
