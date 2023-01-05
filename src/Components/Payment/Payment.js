@@ -209,8 +209,8 @@ const Payment = ({ cart }) => {
                   <span className="fw-semibold">Credit or Debit Card</span>
                 </label><br/>  
                   {
-                    paymentMethod==="Card" &&paymentID==="" && <Elements stripe={stripePromise}>
-                        <CreditCard setPaymentID={setPaymentID} paymentID={paymentID}></CreditCard>
+                    paymentMethod==="Card" &&paymentID==="" && <Elements  stripe={stripePromise}>
+                        <CreditCard className="mb-3" setPaymentID={setPaymentID} paymentID={paymentID}></CreditCard>
                     </Elements>
                     
                   }
