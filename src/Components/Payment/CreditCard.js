@@ -39,12 +39,10 @@ const CreditCard = ({ setPaymentID, paymentID,total }) => {
     .then(data=>{
         if(data?.ClientSecret){
             setClientSecret(data?.ClientSecret)
-            console.log(data?.ClientSecret)
         }
     })
   },[])
 
-  console.log(users)
   //form button function
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -62,7 +60,24 @@ const CreditCard = ({ setPaymentID, paymentID,total }) => {
         setError(error);
     else{
         setError('')
-        console.log(paymentMethod)
+    }
+
+    const {paymentIntent,error:intentError} = await stripe.confirmCardPayment(
+        clientSecret,
+        {
+            payment_method: {
+              card: card,
+              billing_details: {
+                name: user.displayName,
+                email:user.email
+              },
+            },
+          },
+    )
+    if(intentError)
+        console.log(intentError)
+    else{
+        setPaymentID(paymentIntent.id)
     }
   };
   return (
@@ -84,7 +99,7 @@ const CreditCard = ({ setPaymentID, paymentID,total }) => {
             },
           }}
         />
-        <button style={{width:'70px'}} type="button" className="btn btn-success mt-3" disabled={!stripe || clientSecret}>
+        <button style={{width:'70px'}} type="submit" className="btn btn-success mt-3" disabled={!stripe || !clientSecret}>
           Pay
         </button>
       </form>
