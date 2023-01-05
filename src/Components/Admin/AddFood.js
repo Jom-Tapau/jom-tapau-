@@ -12,6 +12,7 @@ const AddFood = () => {
   console.log(img);
   const handleAddFood = (event) => {
     event.preventDefault();
+    setLoading(true);
     const name = nameRef.current.value;
     const price = priceRef.current.value;
 
