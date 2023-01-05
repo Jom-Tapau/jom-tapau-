@@ -15,10 +15,10 @@ const handleAddFood=(event)=>{
   event.preventDefault();
   const name = nameRef.current.value;
   const price = priceRef.current.value;
-  const imgURL = imgRef.current.value;
+ 
   const category = catRef.current.value;
   let quantity =1;
- const  user={name, price,imgURL,category, quantity,img};
+ const  user={name, price,category, quantity,img};
 
   //console.log(user, user.img[0]);
   const imgStorage_key ='b2be4bbba48e721660728e1b0dec1ba3';
@@ -50,7 +50,11 @@ body:formData
     ).then(data=>{console.log("success",data);
   
   alertify.success("Food Item Added Successfully");
-    
+  nameRef.current.value= "";
+  priceRef.current.value= "";
+  imgRef.current.value= "";
+  catRef.current.value= "";
+  setImg('');
   
   });
    
@@ -61,10 +65,7 @@ body:formData
 
  
 
-  nameRef.current.value= "";
-  priceRef.current.value= "";
-  imgRef.current.value= "";
-  catRef.current.value= "";
+
   
 }
 
