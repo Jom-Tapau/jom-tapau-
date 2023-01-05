@@ -3,28 +3,13 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
-const CreditCard = ({ setPaymentID, paymentID,total }) => {
-  const [users, setUser] = useState({});
-  const [user, loading, userError] = useAuthState(auth);
+const CreditCard = ({ user,setPaymentID, paymentID,total }) => {
+  
   const [clientSecret, setClientSecret] = useState("");
   const [error,setError] = useState("");
 
   const stripe = useStripe();
   const elements = useElements();
-
-  const email = user?.email;
-  //fetch the user from the database
-  useEffect(() => {
-    fetch("http://localhost:5000/findUser", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    })
-      .then((response) => response.json())
-      .then((data) => setUser(data));
-  }, []);
 
   //get the payment-intent
   useEffect(()=>{

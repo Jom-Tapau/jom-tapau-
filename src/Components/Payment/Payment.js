@@ -14,9 +14,26 @@ const stripePromise = loadStripe(
   "pk_test_51MMoiTGFkQKcRUEsIWmYYZ7z8q87tqyLD4xHmTjn1dm53oHYoSdtjzbtVUwiHZdcFa0XMHCLFY94JNWg0RcVbbds00SPlFNy4f");
 
 const Payment = ({ cart }) => {
+  const [users, setUser] = useState({});
+  const [user, loading, userError] = useAuthState(auth);
   const [paymentMethod,setPaymentMethod] = useState('')
   const [paymentID,setPaymentID] = useState("pm_1MMsT6GFkQKcRUEsg3eVfYMw");
-  const [error,setError] = useState("")
+  
+
+  const email = user?.email;
+  //fetch the user from the database
+  useEffect(() => {
+    fetch("http://localhost:5000/findUser", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((response) => response.json())
+      .then((data) => setUser(data));
+  }, []);
+console.log(users)
   //calculate the total price of the food
   console.log(cart)
   let total = 1.0;
@@ -163,6 +180,7 @@ const Payment = ({ cart }) => {
                       className="form-control"
                       id="exampleFormControlInput1"
                       placeholder="Name"
+                      value={user.displayName}
                     ></input>
                   </div>
                   <div>
@@ -173,6 +191,7 @@ const Payment = ({ cart }) => {
                       className="form-control"
                       id="exampleFormControlInput1"
                       placeholder="Email"
+                      value={user?.email}
                     ></input>
                   </div>
                 </div>
@@ -184,6 +203,7 @@ const Payment = ({ cart }) => {
                     className="form-control"
                     id="exampleFormControlInput1"
                     placeholder="Phone Number"
+                    defaultValue={users.phoneNumber}
                   ></input>
                 </div>
               </div>
@@ -204,7 +224,7 @@ const Payment = ({ cart }) => {
                   
                   {
                     paymentMethod==="Card" &&paymentID==="" && <div style={{marginBottom:'15px',marginTop:'10px',marginLeft:'10px',marginRight:'130px',boxShadow:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', padding:'10px',borderRadius:'10px'}}><Elements  stripe={stripePromise}>
-                        <CreditCard setPaymentID={setPaymentID} paymentID={paymentID} total={total}></CreditCard>
+                        <CreditCard user={user} setPaymentID={setPaymentID} paymentID={paymentID} total={total}></CreditCard>
                     </Elements></div>
                     
                   }
