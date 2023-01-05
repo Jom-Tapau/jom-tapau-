@@ -42,6 +42,10 @@ const EditProfilePage = () => {
                                     <td class="profile">Email:</td>
                                     <td class="profile"> <input style={{width: '110%'}} type="text" id="updateEmail" name="updateEmail" value=""/></td>
                                 </tr>
+                                <tr>
+                                    <td class="profile">Role:</td>
+                                    <td class="profile"> <input style={{width: '110%'}} disabled type="text" id="updateRole" name="updateRole" value=""/></td>
+                                </tr>
                             </table>
                             <div style={{textAlign:'center'}}>
                                 <button type="submit" id="submit-btn" onclick="submit()" name="update">Submit</button>
