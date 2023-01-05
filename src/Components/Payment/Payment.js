@@ -64,7 +64,8 @@ const Payment = ({ cart }) => {
 
   const [deliveryDate,setDeliveryDate] = useState(today) //guseState of delivery data
   const [deliveryTime,setDeliveryTime] = useState("ASAP") //useState of delivery time
-  const [deliveryAddress,setDeliveryAddress] = useState("KLG Block A")
+  const [deliveryAddress,setDeliveryAddress] = useState("KLG Block A")//useState of delivery Address
+  const [roomNumber,setRoomNumber] = useState(""); //useState of the room Number
   const [users, setUser] = useState({}); //useState of user data
   const [user, loading, userError] = useAuthState(auth);
   const [paymentMethod,setPaymentMethod] = useState('')
@@ -114,11 +115,22 @@ const Payment = ({ cart }) => {
     setDeliveryAddress(e.target.value)
   }
 
+  //get the room number
+  const handleRoomNumber = e =>{
+    setRoomNumber(e.target.value)
+  }
+
   // handle confirm button
   const handleConfirm = () =>{
     const newOrder={
       email:user.email,
       phoneNumber:'0187817582',
+      deliveryDate:deliveryDate,
+      deliveryTime:deliveryTime,
+      deliveryAddress:deliveryAddress,
+      roomNumber:roomNumber,
+      transactionID: paymentID,
+      paymentMethod:paymentMethod,
       orders:cart
     }
     console.log(newOrder)
@@ -197,6 +209,7 @@ const Payment = ({ cart }) => {
                   className="form-control"
                   id="exampleFormControlInput1"
                   placeholder="Room Number"
+                  onChange={handleRoomNumber}
                 ></input>
               </div>
             </div>
@@ -213,7 +226,7 @@ const Payment = ({ cart }) => {
                       className="form-control"
                       id="exampleFormControlInput1"
                       placeholder="Name"
-                      value={user?.displayName}
+                      defaultValue={user?.displayName}
                     ></input>
                   </div>
                   <div>
@@ -224,7 +237,7 @@ const Payment = ({ cart }) => {
                       className="form-control"
                       id="exampleFormControlInput1"
                       placeholder="Email"
-                      value={user?.email}
+                      defaultValue={user?.email}
                     ></input>
                   </div>
                 </div>
@@ -245,7 +258,8 @@ const Payment = ({ cart }) => {
             <div className="payment-container mt-5">
               <p className="fs-1 fw-normal">Payment</p>
               {paymentID&&<p className="mb-2 fs-5 text-success">Money Paid</p>}
-              <div onChange={handlePaymentMethod}>
+              {
+                paymentID==""&&<div onChange={handlePaymentMethod}>
                 <input className="me-3" type="radio" id="Cash on Delivery" name="age" value="Cash"/>
                 <label htmlFor="Cash on Delivery"> 
                   <span className="fw-semibold">Cash on Delivery</span>
@@ -265,6 +279,7 @@ const Payment = ({ cart }) => {
                     paymentMethod==="Card" &&paymentID!=""&&<p> <span className="text-success">Payment Successful.Transaction id</span> :{paymentID}</p>
                   }
               </div>
+              }
             </div> {/* end of payment method container */}
           </div>
           
