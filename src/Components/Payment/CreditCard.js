@@ -36,7 +36,12 @@ const CreditCard = ({ setPaymentID, paymentID,total }) => {
         body:JSON.stringify({total})
     })
     .then(res=>res.json())
-    .then(data=>console.log(data))
+    .then(data=>{
+        if(data?.ClientSecret){
+            setClientSecret(data?.ClientSecret)
+            console.log(data?.ClientSecret)
+        }
+    })
   },[])
 
   console.log(users)
