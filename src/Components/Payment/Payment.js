@@ -206,14 +206,16 @@ const Payment = ({ cart }) => {
                 </label><br/>
                 <input className="me-3" type="radio" id="card" name="age" value="Card"/>
                 <label htmlFor="card">
-                  <span className="fw-semibold">Credit or Debit Card</span>
+                  <span className="fw-semibold mb-3">Credit or Debit Card</span>
                 </label><br/>  
+                  
                   {
-                    paymentMethod==="Card" &&paymentID==="" && <Elements  stripe={stripePromise}>
-                        <CreditCard className="mb-3" setPaymentID={setPaymentID} paymentID={paymentID}></CreditCard>
-                    </Elements>
+                    paymentMethod==="Card" &&paymentID==="" && <div style={{marginBottom:'15px',marginTop:'10px',marginLeft:'10px',marginRight:'130px',boxShadow:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', padding:'10px',borderRadius:'10px'}}><Elements  stripe={stripePromise}>
+                        <CreditCard setPaymentID={setPaymentID} paymentID={paymentID}></CreditCard>
+                    </Elements></div>
                     
                   }
+                  
                 <input className="me-3" type="radio" id="code" name="age" value="Qr Code"/>
                 <label htmlFor="code">
                   <span className="fw-semibold">Qr code</span>
