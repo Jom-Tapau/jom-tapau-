@@ -14,26 +14,9 @@ const stripePromise = loadStripe(
   "pk_test_51MMoiTGFkQKcRUEsIWmYYZ7z8q87tqyLD4xHmTjn1dm53oHYoSdtjzbtVUwiHZdcFa0XMHCLFY94JNWg0RcVbbds00SPlFNy4f");
 
 const Payment = ({ cart }) => {
-  const [users, setUser] = useState({});
-  const [user, loading, error] = useAuthState(auth);
   const [paymentMethod,setPaymentMethod] = useState('')
   const [paymentID,setPaymentID] = useState("");
-
-  const email = user?.email;
-
-  //fetch the user from the database
-  useEffect(() => {
-    fetch("http://localhost:5000/findUser", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    })
-      .then((response) => response.json())
-      .then((data) => setUser(data));
-  }, []);
-
+  
   //set the payment method
   const handlePaymentMethod = e =>{
     setPaymentMethod(e.target.value)

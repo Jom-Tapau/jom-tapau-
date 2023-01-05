@@ -1,11 +1,32 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const CreditCard = ({ setPaymentID, paymentID }) => {
+  const [users, setUser] = useState({});
+  const [user, loading, userError] = useAuthState(auth);
   const [clientSecret, setClientSecret] = useState("");
   const [error,setError] = useState("");
+
   const stripe = useStripe();
   const elements = useElements();
+
+  const email = user?.email;
+  //fetch the user from the database
+  useEffect(() => {
+    fetch("http://localhost:5000/findUser", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    })
+      .then((response) => response.json())
+      .then((data) => setUser(data));
+  }, []);
+  console.log(users)
+  //form button function
   const handleSubmit = async (event) => {
     event.preventDefault();
     if(!stripe||!elements)
