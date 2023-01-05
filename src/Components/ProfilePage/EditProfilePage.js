@@ -34,6 +34,10 @@ const EditProfilePage = () => {
                                     <td class="profile">Mother Name:</td>
                                     <td class="profile"> <input style={{width: '110%'}} type="text" id="updateMotherName" name="updateMotherName" value=""/></td>
                                 </tr>
+                                <tr>
+                                    <td class="profile">Date of Birth:</td>
+                                    <td class="profile"> <input style={{width: '110%'}} type="date" placeholder="dd-mm-yyyy" id="updateDOB" name="updateDOB" value=""/></td>
+                                </tr>
                             </table>
                             <div style={{textAlign:'center'}}>
                                 <button type="submit" id="submit-btn" onclick="submit()" name="update">Submit</button>
