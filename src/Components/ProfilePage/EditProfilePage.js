@@ -4,11 +4,11 @@ import "./EditProfile.css";
 const EditProfilePage = () => {
     return (
         <div>
-        <div className='editprofile-container'></div>
+        <div className='editprofile-container mb-3'>
             <section id="edit-container" class="edit-container">
-                <div class="box">
+                <div class="">
                     <div>
-                        <h2>Edit profile</h2>
+                        <h2 >Edit profile</h2>
                     </div>
                     <hr />
                         <form action="" method="post">
@@ -58,6 +58,7 @@ const EditProfilePage = () => {
 
                 </div>
             </section>
+        </div>
         </div>
     );
 };
