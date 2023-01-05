@@ -38,6 +38,10 @@ const EditProfilePage = () => {
                                     <td class="profile">Date of Birth:</td>
                                     <td class="profile"> <input style={{width: '110%'}} type="date" placeholder="dd-mm-yyyy" id="updateDOB" name="updateDOB" value=""/></td>
                                 </tr>
+                                <tr>
+                                    <td class="profile">Email:</td>
+                                    <td class="profile"> <input style={{width: '110%'}} type="text" id="updateEmail" name="updateEmail" value=""/></td>
+                                </tr>
                             </table>
                             <div style={{textAlign:'center'}}>
                                 <button type="submit" id="submit-btn" onclick="submit()" name="update">Submit</button>
