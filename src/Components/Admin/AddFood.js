@@ -35,10 +35,9 @@ body:formData
     const foodInfo= {
       name: user.name,
       email: user.email,
-      imgURl: user.imgURL,
       category :user.category,
       quantity:user.quantity,
-      img: foodImage.url
+      imgURL: foodImage.url
     }
    
     console.log(foodInfo)
