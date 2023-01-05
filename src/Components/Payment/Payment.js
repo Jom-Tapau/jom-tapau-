@@ -62,8 +62,10 @@ const Payment = ({ cart }) => {
     monthNames[date.getMonth()];
 
 
-  const [deliveryDate,setDeliveryDate] = useState(today)
-  const [users, setUser] = useState({});
+  const [deliveryDate,setDeliveryDate] = useState(today) //guseState of delivery data
+  const [deliveryTime,setDeliveryTime] = useState("ASAP") //useState of delivery time
+  const [deliveryAddress,setDeliveryAddress] = useState("KLG Block A")
+  const [users, setUser] = useState({}); //useState of user data
   const [user, loading, userError] = useAuthState(auth);
   const [paymentMethod,setPaymentMethod] = useState('')
   const [paymentID,setPaymentID] = useState("pm_1MMsT6GFkQKcRUEsg3eVfYMw");
@@ -101,7 +103,17 @@ const Payment = ({ cart }) => {
   const handleDeliveryDate =e =>{
     setDeliveryDate(e.target.value)
   }
-console.log(deliveryDate)
+
+  //get delivery time
+  const handleDeliveryTime = e =>{
+    setDeliveryTime(e.target.value)
+  }
+
+  //get the address of the delivery
+  const handelDeliveryAddress = e =>{
+    setDeliveryAddress(e.target.value)
+  }
+
   // handle confirm button
   const handleConfirm = () =>{
     const newOrder={
@@ -152,6 +164,7 @@ console.log(deliveryDate)
                   style={{ width: "250px" }}
                   className="form-select"
                   aria-label="Default select example"
+                  onChange={handleDeliveryTime}
                 >
                   <option defaultValue="ASAP">ASAP</option>
                   <option defaultValue="">After 30min</option>
@@ -168,6 +181,7 @@ console.log(deliveryDate)
                   style={{ width: "250px" }}
                   className="form-select me-5"
                   aria-label="Default select example"
+                  onChange={handelDeliveryAddress}
                 >
                   <option defaultValue="KLG Block A">KLG Block A</option>
                   <option defaultValue="KLG Block B">KLG Block B</option>
