@@ -69,7 +69,7 @@ const Payment = ({ cart }) => {
   const [users, setUser] = useState({}); //useState of user data
   const [user, loading, userError] = useAuthState(auth);
   const [paymentMethod,setPaymentMethod] = useState('')
-  const [paymentID,setPaymentID] = useState("pm_1MMsT6GFkQKcRUEsg3eVfYMw");
+  const [paymentID,setPaymentID] = useState("");
   
 
   const email = user?.email;
@@ -131,8 +131,16 @@ const Payment = ({ cart }) => {
       roomNumber:roomNumber,
       transactionID: paymentID,
       paymentMethod:paymentMethod,
+      total:total,
       orders:cart
     }
+    fetch('http://localhost:5000/postOrder',{
+      method:"POST",
+      headers:{
+        "content-type": "application/json",
+      },
+      body:JSON.stringify({newOrder})
+    })
     console.log(newOrder)
   }
   
