@@ -7,6 +7,7 @@ const AddFood = () => {
   const nameRef = useRef();
   const priceRef = useRef();
   const catRef = useRef();
+  const [loading, setLoading] = useState(false);
   const [img, setImg] = useState("");
   console.log(img);
   const handleAddFood = (event) => {
@@ -25,7 +26,8 @@ const AddFood = () => {
     const url = `https://api.imgbb.com/1/upload?key=${imgStorage_key}`;
     fetch(url, { method: "POST", body: formData })
       .then((res) => res.json())
-      .then((result) => {
+      .then((result) => { 
+        setLoading(true);
         if (result.success == true) {
           const foodImage = result.data;
           const foodInfo = {
@@ -45,7 +47,7 @@ const AddFood = () => {
             .then((res) => res.json())
             .then((data) => {
               console.log("success", data);
-
+             setLoading(false);
               alertify.success("Food Item Added Successfully");
               nameRef.current.value = "";
               priceRef.current.value = "";
