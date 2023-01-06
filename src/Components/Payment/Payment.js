@@ -72,7 +72,7 @@ const Payment = ({ cart }) => {
   const [paymentID,setPaymentID] = useState("");
   
   const email = user?.email
-  console.log(email)
+  
   //fetch the user from the database
   useEffect(() => {
     fetch("http://localhost:5000/findUser", {
@@ -89,7 +89,6 @@ const Payment = ({ cart }) => {
       });
   }, [user]);
 
-  console.log(phonenumber)
   //calculate the total price of the food
   let total = 1.0;
   cart.forEach(food => {
@@ -149,7 +148,6 @@ const Payment = ({ cart }) => {
       },
       body:JSON.stringify({newOrder})
     })
-    console.log(newOrder)
   }
   
 
