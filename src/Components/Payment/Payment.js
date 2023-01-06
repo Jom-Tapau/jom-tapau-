@@ -14,7 +14,7 @@ import alertify from "alertifyjs";
 const stripePromise = loadStripe(
   "pk_test_51MMoiTGFkQKcRUEsIWmYYZ7z8q87tqyLD4xHmTjn1dm53oHYoSdtjzbtVUwiHZdcFa0XMHCLFY94JNWg0RcVbbds00SPlFNy4f");
 
-const Payment = ({ cart }) => {
+const Payment = ({ cart,setCount }) => {
 
   let size;
   const day = [
@@ -153,6 +153,8 @@ const Payment = ({ cart }) => {
     })
     .then(res=>res.json())
     .then(data=>{
+      cart.length = 0;
+      setCount(0);
       if(data.acknowledged)
       setAckID(true)
     })
