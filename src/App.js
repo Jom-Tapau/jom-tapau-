@@ -23,12 +23,13 @@ import { useState } from "react";
 import EditFood from "./Components/EditFood/EditFood";
 import UpdateFood from "./Components/EditFood/UpdateFood";
 import Payment from "./Components/Payment/Payment";
+import RiderDash from "./Components/RiderDash/RiderDash";
 
 function App() {
-  let location = useLocation();
-  const [cart, setCart] = useState([]);
-  const [count, setCount] = useState(0);
-  const [incrementCount, setIncrementCount] = useState(1);
+    let location = useLocation();
+    const [cart, setCart] = useState([]);
+    const [count, setCount] = useState(0);
+    const [incrementCount, setIncrementCount] = useState(1);
 
   const handleAddtoCart = (item) => {
     const itemFind = cart.find((cartitem) => cartitem._id == item._id);
@@ -88,10 +89,8 @@ function App() {
       </Routes>
       {location.pathname !== "/registration" &&
         location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" &&<Footer />}
-
-      {/* <Footer></Footer> */}
     </div>
-  );
+  )
 }
 
 export default App;

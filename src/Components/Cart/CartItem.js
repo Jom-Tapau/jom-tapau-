@@ -32,22 +32,25 @@ const CartItem = (props) => {
     console.log(cart)
   };
   const handleDecrement = (foodItem) => {
-    if (foodItem.quantity == 1) {
-      setQuan(1);
-      return;
-    }
+  
     setItemPrice(foodItem.quantity * price);
     foodItem.quantity = parseInt(foodItem.quantity) - 1;
     setQuan(foodItem.quantity);
     setCount(count - 1);
     setItemPrice(foodItem.quantity * price);
     console.log(foodItem.quantity);
-
     setTotal(total - parseFloat(foodItem.price));
+    if (foodItem.quantity == 0) {
+      const allProducts = cart.filter((product) => product._id !== foodItem._id);
+      setCart(allProducts);
+      // setCount(count - 1);
+      // setTotal(total - parseFloat(foodItem.quantity * price));
+     }
+
   };
 
   const handleRemove = (item) => {
-    let productArr = [];
+  
     const allProducts = cart.filter((product) => product._id !== item._id);
     setCart(allProducts);
     setCount(count - item.quantity);
