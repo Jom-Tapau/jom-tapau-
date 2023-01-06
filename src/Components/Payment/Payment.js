@@ -61,6 +61,8 @@ const Payment = ({ cart }) => {
     " " +
     monthNames[date.getMonth()];
 
+  const [ackID,setAckID] = useState(false)
+
   const [deliveryDate,setDeliveryDate] = useState(today) //guseState of delivery data
   const [deliveryTime,setDeliveryTime] = useState("ASAP") //useState of delivery time
   const [deliveryAddress,setDeliveryAddress] = useState("KLG Block A")//useState of delivery Address
@@ -147,6 +149,11 @@ const Payment = ({ cart }) => {
         "content-type": "application/json",
       },
       body:JSON.stringify({newOrder})
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      if(data.acknowledged)
+      setAckID(true)
     })
   }
   
