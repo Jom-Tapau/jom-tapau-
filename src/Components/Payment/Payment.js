@@ -65,6 +65,7 @@ const Payment = ({ cart }) => {
   const [deliveryTime,setDeliveryTime] = useState("ASAP") //useState of delivery time
   const [deliveryAddress,setDeliveryAddress] = useState("KLG Block A")//useState of delivery Address
   const [roomNumber,setRoomNumber] = useState(""); //useState of the room Number
+  const[phonenumber,setPhonenumber] = useState('')//useState of the phone number
   const [users, setUser] = useState({}); //useState of user data
   const [user, loading, userError] = useAuthState(auth);
   const [paymentMethod,setPaymentMethod] = useState('')
@@ -82,11 +83,13 @@ const Payment = ({ cart }) => {
       body: JSON.stringify( {email} ),
     })
       .then((response) => response.json())
-      .then((data) => setUser(data));
+      .then((data) => {
+        setUser(data)
+        setPhonenumber(data.phoneNumber)
+      });
   }, [user]);
 
-  // const[phonenumber,setPhonenumber] = useState(users?.phoneNumber)
-
+  console.log(phonenumber)
   //calculate the total price of the food
   let total = 1.0;
   cart.forEach(food => {
@@ -123,13 +126,13 @@ const Payment = ({ cart }) => {
 
   //get phone number
   const handlePhoneNUmber = e =>{
-    // setPhonenumber(e.target.value)
+    setPhonenumber(e.target.value)
   }
   // handle confirm button
   const handleConfirm = () =>{
     const newOrder={
       email:user.email,
-      phoneNumber:users?.phoneNumber,
+      phoneNumber:phonenumber,
       deliveryDate:deliveryDate,
       deliveryTime:deliveryTime,
       deliveryAddress:deliveryAddress,
@@ -265,7 +268,7 @@ const Payment = ({ cart }) => {
                     id="exampleFormControlInput1"
                     placeholder="Phone Number"
                     onChange={handlePhoneNUmber}
-                    defaultValue={users?.phoneNumber}
+                    defaultValue={phonenumber}
                   ></input>
                 </div>
               </div>
@@ -275,7 +278,7 @@ const Payment = ({ cart }) => {
               <p className="fs-1 fw-normal">Payment</p>
               {paymentID&&<p className="mb-2 fs-5 text-success">Money Paid</p>}
               {
-                paymentID==""&&<div onChange={handlePaymentMethod}>
+                paymentID==""||cart.length!=0&&<div onChange={handlePaymentMethod}>
                 <input className="me-3" type="radio" id="Cash on Delivery" name="age" value="Cash"/>
                 <label htmlFor="Cash on Delivery"> 
                   <span className="fw-semibold">Cash on Delivery</span>
