@@ -304,7 +304,7 @@ const Payment = ({ cart }) => {
           </div>
           
           <div className="d-flex justify-content-center mt-5">
-            <Button variant="danger" onClick={handleConfirm} disabled={!paymentID}>Confirm</Button>
+            <Button variant="danger" onClick={handleConfirm} disabled={paymentID || cart.length===0}>Confirm</Button>
           </div>
           
         </section>

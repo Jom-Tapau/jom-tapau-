@@ -43,7 +43,7 @@ function App() {
     console.log(cart);
   };
   return (
-    <div className="App">
+    <div className="">
       <Head count={count}></Head>
       <Routes>
         <Route
