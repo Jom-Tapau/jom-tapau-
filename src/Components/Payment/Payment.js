@@ -283,9 +283,6 @@ const Payment = ({ cart }) => {
               <p className="fs-1 fw-normal">Payment</p>
               {paymentID&&<p className="mb-2 fs-5 text-success">Money Paid</p>}
               {
-                ackID&&alertify.notify('sample', 'success', 5, function(){  console.log('dismissed') })
-              }
-              {
                 cart.length===0&& <p className="mb-2 text-danger">NO Food Added</p>
               }
               {
@@ -314,9 +311,8 @@ const Payment = ({ cart }) => {
           </div>
           
           <div className="d-flex justify-content-center mt-5">
-            <Button variant="danger" onClick={handleConfirm} disabled={!paymentID}>Confirm</Button>
+            <Button variant="danger" onClick={handleConfirm} disabled={cart.length===0}>Confirm</Button>
           </div>
-          
         </section>
         <section>
 
