@@ -52,7 +52,10 @@ const  clickBreakFast= ()=>{
 
     const  clickAll= ()=>{
       setFood(foodBackup);
-      const All = foodBackup.map(food=>food);
+      const All = foodBackup.map(food=>{
+        <p key={food._id}></p>
+        return food
+      });
       setFood(All);
      
   

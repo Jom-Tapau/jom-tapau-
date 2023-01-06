@@ -9,6 +9,7 @@ import { Helmet } from "react-helmet";
 import CreditCard from "./CreditCard";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import alertify from "alertifyjs";
 
 const stripePromise = loadStripe(
   "pk_test_51MMoiTGFkQKcRUEsIWmYYZ7z8q87tqyLD4xHmTjn1dm53oHYoSdtjzbtVUwiHZdcFa0XMHCLFY94JNWg0RcVbbds00SPlFNy4f");
@@ -157,7 +158,6 @@ const Payment = ({ cart }) => {
     })
   }
   
-
   return (
     <div className="mt-5">
       <Helmet>
@@ -283,10 +283,13 @@ const Payment = ({ cart }) => {
               <p className="fs-1 fw-normal">Payment</p>
               {paymentID&&<p className="mb-2 fs-5 text-success">Money Paid</p>}
               {
-                cart.length==0&& <p className="mb-2 text-danger">NO Food Added</p>
+                ackID&&alertify.notify('sample', 'success', 5, function(){  console.log('dismissed') })
               }
               {
-                paymentID==""&&cart.length!=0&&<div onChange={handlePaymentMethod}>
+                cart.length===0&& <p className="mb-2 text-danger">NO Food Added</p>
+              }
+              {
+                paymentID===""&&cart.length!==0&&!ackID&&<div onChange={handlePaymentMethod}>
                 <input className="me-3" type="radio" id="Cash on Delivery" name="age" value="Cash"/>
                 <label htmlFor="Cash on Delivery"> 
                   <span className="fw-semibold">Cash on Delivery</span>
