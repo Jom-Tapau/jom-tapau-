@@ -9,11 +9,12 @@ import { Helmet } from "react-helmet";
 import CreditCard from "./CreditCard";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import alertify from "alertifyjs";
 
 const stripePromise = loadStripe(
   "pk_test_51MMoiTGFkQKcRUEsIWmYYZ7z8q87tqyLD4xHmTjn1dm53oHYoSdtjzbtVUwiHZdcFa0XMHCLFY94JNWg0RcVbbds00SPlFNy4f");
 
-const Payment = ({ cart }) => {
+const Payment = ({ cart,setCount }) => {
 
   let size;
   const day = [
@@ -60,6 +61,8 @@ const Payment = ({ cart }) => {
     day[date.getDay() + 2] +
     " " +
     monthNames[date.getMonth()];
+
+  const [ackID,setAckID] = useState(false)
 
   const [deliveryDate,setDeliveryDate] = useState(today) //guseState of delivery data
   const [deliveryTime,setDeliveryTime] = useState("ASAP") //useState of delivery time
@@ -148,9 +151,15 @@ const Payment = ({ cart }) => {
       },
       body:JSON.stringify({newOrder})
     })
+    .then(res=>res.json())
+    .then(data=>{
+      cart.length = 0;
+      setCount(0);
+      if(data.acknowledged)
+      var notification = alertify.notify('Order Placed Successfully', 'success', 5, function(){  console.log('dismissed'); });
+    })
   }
   
-
   return (
     <div className="mt-5">
       <Helmet>
@@ -276,10 +285,10 @@ const Payment = ({ cart }) => {
               <p className="fs-1 fw-normal">Payment</p>
               {paymentID&&<p className="mb-2 fs-5 text-success">Money Paid</p>}
               {
-                cart.length==0&& <p className="mb-2 text-danger">NO Food Added</p>
+                cart.length===0&& <p className="mb-2 text-danger">NO Food Added</p>
               }
               {
-                paymentID==""&&cart.length!=0&&<div onChange={handlePaymentMethod}>
+                paymentID===""&&cart.length!==0&&!ackID&&<div onChange={handlePaymentMethod}>
                 <input className="me-3" type="radio" id="Cash on Delivery" name="age" value="Cash"/>
                 <label htmlFor="Cash on Delivery"> 
                   <span className="fw-semibold">Cash on Delivery</span>
@@ -304,9 +313,8 @@ const Payment = ({ cart }) => {
           </div>
           
           <div className="d-flex justify-content-center mt-5">
-            <Button variant="danger" onClick={handleConfirm} disabled={paymentID || cart.length===0}>Confirm</Button>
+            <Button variant="danger" onClick={handleConfirm} disabled={cart.length===0}>Confirm</Button>
           </div>
-          
         </section>
         <section>
 

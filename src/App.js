@@ -73,7 +73,9 @@ function App() {
         ></Route>
         <Route path="/editRider" element={<EditRIder></EditRIder>}></Route>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path="/payment" element={<Payment cart={cart}></Payment>}></Route>
+        <Route path="/payment" element={<Payment cart={cart}
+          setCount={setCount}
+        ></Payment>}></Route>
         <Route
           path="/cart"
           element={
