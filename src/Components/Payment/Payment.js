@@ -156,7 +156,7 @@ const Payment = ({ cart,setCount }) => {
       cart.length = 0;
       setCount(0);
       if(data.acknowledged)
-      setAckID(true)
+      var notification = alertify.notify('Order Placed Successfully', 'success', 5, function(){  console.log('dismissed'); });
     })
   }
   
