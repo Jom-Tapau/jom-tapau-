@@ -69,7 +69,7 @@ const Payment = ({ cart }) => {
   const [users, setUser] = useState({}); //useState of user data
   const [user, loading, userError] = useAuthState(auth);
   const [paymentMethod,setPaymentMethod] = useState('')
-  const [paymentID,setPaymentID] = useState("pi_3MMtfeGFkQKcRUEs0u4BQ4SI");
+  const [paymentID,setPaymentID] = useState("");
   
   const email = user?.email
   console.log(email)
@@ -278,7 +278,10 @@ const Payment = ({ cart }) => {
               <p className="fs-1 fw-normal">Payment</p>
               {paymentID&&<p className="mb-2 fs-5 text-success">Money Paid</p>}
               {
-                paymentID==""||cart.length!=0&&<div onChange={handlePaymentMethod}>
+                cart.length==0&& <p className="mb-2 text-danger">NO Food Added</p>
+              }
+              {
+                paymentID==""&&cart.length!=0&&<div onChange={handlePaymentMethod}>
                 <input className="me-3" type="radio" id="Cash on Delivery" name="age" value="Cash"/>
                 <label htmlFor="Cash on Delivery"> 
                   <span className="fw-semibold">Cash on Delivery</span>
