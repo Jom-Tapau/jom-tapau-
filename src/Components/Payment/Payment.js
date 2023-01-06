@@ -61,7 +61,6 @@ const Payment = ({ cart }) => {
     " " +
     monthNames[date.getMonth()];
 
-
   const [deliveryDate,setDeliveryDate] = useState(today) //guseState of delivery data
   const [deliveryTime,setDeliveryTime] = useState("ASAP") //useState of delivery time
   const [deliveryAddress,setDeliveryAddress] = useState("KLG Block A")//useState of delivery Address
@@ -69,10 +68,10 @@ const Payment = ({ cart }) => {
   const [users, setUser] = useState({}); //useState of user data
   const [user, loading, userError] = useAuthState(auth);
   const [paymentMethod,setPaymentMethod] = useState('')
-  const [paymentID,setPaymentID] = useState("");
+  const [paymentID,setPaymentID] = useState("pi_3MMtfeGFkQKcRUEs0u4BQ4SI");
   
-
-  const email = user?.email;
+  const email = user?.email
+  console.log(email)
   //fetch the user from the database
   useEffect(() => {
     fetch("http://localhost:5000/findUser", {
@@ -80,13 +79,15 @@ const Payment = ({ cart }) => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify( {email} ),
     })
       .then((response) => response.json())
       .then((data) => setUser(data));
-  }, []);
-  //calculate the total price of the food
+  }, [user]);
 
+  // const[phonenumber,setPhonenumber] = useState(users?.phoneNumber)
+
+  //calculate the total price of the food
   let total = 1.0;
   cart.forEach(food => {
     const price = parseFloat(food.price)
@@ -120,11 +121,15 @@ const Payment = ({ cart }) => {
     setRoomNumber(e.target.value)
   }
 
+  //get phone number
+  const handlePhoneNUmber = e =>{
+    // setPhonenumber(e.target.value)
+  }
   // handle confirm button
   const handleConfirm = () =>{
     const newOrder={
       email:user.email,
-      phoneNumber:'0187817582',
+      phoneNumber:users?.phoneNumber,
       deliveryDate:deliveryDate,
       deliveryTime:deliveryTime,
       deliveryAddress:deliveryAddress,
@@ -235,6 +240,7 @@ const Payment = ({ cart }) => {
                       id="exampleFormControlInput1"
                       placeholder="Name"
                       defaultValue={user?.displayName}
+                      readOnly
                     ></input>
                   </div>
                   <div>
@@ -246,6 +252,7 @@ const Payment = ({ cart }) => {
                       id="exampleFormControlInput1"
                       placeholder="Email"
                       defaultValue={user?.email}
+                      readOnly
                     ></input>
                   </div>
                 </div>
@@ -257,7 +264,8 @@ const Payment = ({ cart }) => {
                     className="form-control"
                     id="exampleFormControlInput1"
                     placeholder="Phone Number"
-                    defaultValue={users.phoneNumber}
+                    onChange={handlePhoneNUmber}
+                    defaultValue={users?.phoneNumber}
                   ></input>
                 </div>
               </div>
