@@ -25,12 +25,14 @@ const Order = () => {
                 <button className="accept">Accept</button>
             </div>
 
-            <div className="items" {...getCollapseProps()}>
-                <ul className="item-list">
-                    <h6>Items:</h6>
-                    <li>Nasi goreng ayam x<span>1</span></li>
-                    <li>Ice Lemon Tea x<span>1</span></li>
-                </ul>
+            <div {...getCollapseProps()}>
+                <div className="items">
+                    <ul className="item-list">
+                        <h6>Items:</h6>
+                        <li>Nasi goreng ayam x<span>1</span></li>
+                        <li>Ice Lemon Tea x<span>1</span></li>
+                    </ul>
+                </div>
             </div>
 
             <div className="toggle-container">
