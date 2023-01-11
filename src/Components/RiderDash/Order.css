@@ -59,6 +59,10 @@
     filter: brightness(85%);
 }
 
+.items hr {
+    width: 50%;
+}
+
 .item-list {
     list-style-type: none;
     margin: 0;
