@@ -59,6 +59,12 @@
     filter: brightness(85%);
 }
 
+.items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .items hr {
     width: 50%;
 }
