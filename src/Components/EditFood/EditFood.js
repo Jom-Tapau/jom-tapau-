@@ -37,13 +37,13 @@ const EditFood = () => {
 
   }
   return (
-    <section className="bg-light">
+    <section className="bg-light pb-3">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Edit Food</title>
       </Helmet>
       <div style={{ paddingTop: "80px" }}>
-        <h2 className="mb-5">Search Food Item</h2>
+        <h2 className="mb-5 text-center">Search Food Item</h2>
         <div className="wrap ">
           <div className="search mb-4">
             <input
