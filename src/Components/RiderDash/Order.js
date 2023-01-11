@@ -26,7 +26,6 @@ const Order = () => {
             </div>
 
             <div className="items" {...getCollapseProps()}>
-                <hr />
                 <ul className="item-list">
                     <li>Nasi goreng ayam x<span>1</span></li>
                     <li>Ice Lemon Tea x<span>1</span></li>
