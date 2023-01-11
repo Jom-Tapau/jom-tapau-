@@ -41,7 +41,7 @@ const Order = () => {
                     {isExpanded ? <div>See less <FontAwesomeIcon icon={faChevronUp} /></div> : <div>See more <FontAwesomeIcon icon={faChevronDown} /></div>}
                 </button>
             </div>
-            <hr />
+            <hr className="order-end-line"/>
         </div>
     );
 };
