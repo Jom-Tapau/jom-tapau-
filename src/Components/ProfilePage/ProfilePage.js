@@ -1,15 +1,20 @@
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./ProfilePage.css";
 
 const ProfilePage = () => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate("/editprofile");
+    }
     return (
         <div className='profile-container'>
             <section id="information-container" class="information-container">
                 <div class="information-header">
                     <h2 style={{ marginLeft: '100px' }}>My Information</h2>
-                    <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
+                    <button onClick={handleClick}><FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon></button>
                 </div>
                 <hr></hr>
                 <div class="information">
