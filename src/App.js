@@ -24,6 +24,8 @@ import EditFood from "./Components/EditFood/EditFood";
 import UpdateFood from "./Components/EditFood/UpdateFood";
 import Payment from "./Components/Payment/Payment";
 import RiderDash from "./Components/RiderDash/RiderDash";
+import ProfilePage from "./Components/ProfilePage/ProfilePage";
+import EditProfilePage from "./Components/ProfilePage/EditProfilePage";
 
 function App() {
     let location = useLocation();
@@ -76,6 +78,8 @@ function App() {
         <Route path="/payment" element={<Payment cart={cart}
           setCount={setCount}
         ></Payment>}></Route>
+        <Route path="/profile" element={<ProfilePage></ProfilePage>}></Route>
+        <Route path="/editprofile" element={<EditProfilePage></EditProfilePage>}></Route>
         <Route
           path="/cart"
           element={

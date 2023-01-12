@@ -1,0 +1,23 @@
+.editprofile-container{
+
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.edit-container{
+
+    width: 50em;
+    padding: 3em;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin-top:10px;
+    margin-left:20px;
+    border-radius:10px;
+}
+
+body{
+
+    margin:0;
+}
