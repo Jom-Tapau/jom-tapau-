@@ -35,22 +35,6 @@ const ProfilePage = () => {
                         </tr>
                         <tr>
                             <td class="profile">
-                                Gender:
-                            </td>
-                            <td class="profile">
-                                <span id="gender" class="data"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="profile">
-                                Date of Birth:
-                            </td>
-                            <td class="profile">
-                                <span id="dob" class="data"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="profile">
                                 Email:
                             </td>
                             <td class="profile">
@@ -72,6 +56,22 @@ const ProfilePage = () => {
                             </td>
                             <td class="profile">
                                 <span id="phone" class="data"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="profile">
+                                Matric:
+                            </td>
+                            <td class="profile">
+                                <span id="matric" class="data"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="profile">
+                                Address:
+                            </td>
+                            <td class="profile">
+                                <span id="address" class="data"></span>
                             </td>
                         </tr>
                     </table>
