@@ -43,22 +43,6 @@ const ProfilePage = () => {
                         </tr>
                         <tr>
                             <td class="profile">
-                                Father Name:
-                            </td>
-                            <td class="profile">
-                                <span id="fatherName" class="data"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="profile">
-                                Mother Name:
-                            </td>
-                            <td class="profile">
-                                <span id="motherName" class="data"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="profile">
                                 Date of Birth:
                             </td>
                             <td class="profile">
