@@ -91,7 +91,7 @@ function App() {
         <Route path="/riderDash" element={<RiderDash></RiderDash>}></Route>
       </Routes>
       {location.pathname !== "/registration" &&
-        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" &&<Footer />}
+        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&<Footer />}
     </div>
   )
 }

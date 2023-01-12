@@ -9,9 +9,12 @@ const RiderDash = () => {
     useEffect(()=>{
         fetch('http://localhost:5000/allOrders')
         .then(res=>res.json())
-        .then(data=>setOrders(data))
+        .then(data=>{
+            data.forEach(element => {
+                setOrders(element.status)
+            });
+        })
     },[])
-
     console.log(orders)
 
     return (
