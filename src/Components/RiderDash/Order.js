@@ -12,9 +12,9 @@ const Order = () => {
             <div className="info-container">
                 <div className="name-user">
                     <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
-                    <h4>GM Shaheen Shah</h4>
+                    <h4 className="text-danger">GM Shaheen Shah</h4> 
                 </div>
-                <div className="details">
+                <div className="details text-danger">
                     <div className="total">
                         RM 29.50
                     </div>

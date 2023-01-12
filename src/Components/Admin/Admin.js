@@ -55,7 +55,7 @@ const Admin = () => {
           <br />
           <i className="fw-bold">
             {" "}
-            Hello! Mr James ,What would you like to do today?
+            Hello! Mr James , What would you like to do today?
           </i>
           <br />
           <small>System Admin</small>
