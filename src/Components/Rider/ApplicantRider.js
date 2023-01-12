@@ -29,12 +29,12 @@ const ApplicantRider = (props) => {
   };
   return (
     <div >
-        <h3 className="title text-center">Applicants</h3>
+        <h3 className="title text-center text-danger">Applicants</h3>
   <div className="d-flex justify-content-center " >
 
       {applicants.length === 0 ? (
         <div className="not-found">
-          <p className="">No applicants found!</p>
+          <p className="text-danger">No applicants found!</p>
         </div>
       ) : (
         <section className="cart-container">
