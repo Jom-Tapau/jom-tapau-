@@ -24,19 +24,6 @@ const EditProfilePage = () => {
                                     <td class="profile"> <input disabled style={{width:'110%'}} type="text" id="updateName" name="updateName" value="" /></td>
                                 </tr>
                                 <tr>
-                                    <td class="profile">Gender:</td>
-                                    <td class="profile">
-                                        <select id="updateGender" style={{width: '114%'}} name="updateGender">
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="profile">Date of Birth:</td>
-                                    <td class="profile"> <input style={{width: '110%'}} type="date" placeholder="dd-mm-yyyy" id="updateDOB" name="updateDOB" value=""/></td>
-                                </tr>
-                                <tr>
                                     <td class="profile">Email:</td>
                                     <td class="profile"> <input style={{width: '110%'}} type="text" id="updateEmail" name="updateEmail" value=""/></td>
                                 </tr>
@@ -47,6 +34,14 @@ const EditProfilePage = () => {
                                 <tr>
                                     <td class="profile">Phone Number:</td>
                                     <td class="profile"> <input style={{width: '110%'}} type="text" id="updatePhone" name="updatePhone" value=""/></td>
+                                </tr>
+                                <tr>
+                                    <td class="profile">Matric:</td>
+                                    <td class="profile"> <input style={{width: '110%'}} type="text" id="updateMatric" name="updateMatric" value=""/></td>
+                                </tr>
+                                <tr>
+                                    <td class="profile">Address:</td>
+                                    <td class="profile"> <input style={{width: '110%'}} type="text" id="updateAddress" name="updateAddress" value=""/></td>
                                 </tr>
                             </table>
                             <div style={{textAlign:'center'}}>
