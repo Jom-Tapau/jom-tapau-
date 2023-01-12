@@ -45,7 +45,7 @@ const Admin = () => {
         style={{ marginTop: "55px" }}
       >
         <div className=" bg-danger p-2  text-white   ">
-          <div className="p-2">
+          <div className="p-2 text-center">
             <img
               className="w-25 h-25  border border-light rounded-circle "
               src="https://w7.pngwing.com/pngs/358/473/png-transparent-computer-icons-user-profile-person-child-heroes-public-relations.png"
