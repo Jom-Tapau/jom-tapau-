@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./EditProfile.css";
 
 const EditProfilePage = () => {
+    const navigate = useNavigate();
+    const submit = () => {
+        navigate("/profile");
+    }
+
     return (
         <div>
         <div className='editprofile-container mb-3'>
@@ -52,7 +58,7 @@ const EditProfilePage = () => {
                                 </tr>
                             </table>
                             <div style={{textAlign:'center'}}>
-                                <button type="submit" id="submit-btn" onclick="submit()" name="update">Submit</button>
+                                <button type="submit" id="submit-btn" onclick={submit} name="update">Submit</button>
                             </div>
                         </form>
 
