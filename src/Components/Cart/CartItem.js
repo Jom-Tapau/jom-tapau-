@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./CartItem.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const CartItem = (props) => {
   const { cart, setCart, setCount, count, total, setTotal } = props;
@@ -87,7 +87,7 @@ const CartItem = (props) => {
             handleRemove(props.item);
           }}
         >
-          remove
+          <FontAwesomeIcon icon={faTrash} />
         </button>
       </div>
 
