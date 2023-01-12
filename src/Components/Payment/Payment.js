@@ -142,6 +142,7 @@ const Payment = ({ cart,setCount }) => {
       transactionID: paymentID,
       paymentMethod:paymentMethod,
       total:total,
+      status:"",
       orders:cart
     }
     fetch('http://localhost:5000/postOrder',{
