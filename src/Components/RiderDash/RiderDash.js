@@ -16,9 +16,13 @@ const RiderDash = () => {
 
     return (
         <div className="rider-dash">
-            <Order />
-            <Order />
-            <Order />
+
+            {
+                orders.map(order=><Order
+                key={order._id}
+                order={order}
+                ></Order>)
+            }
         </div>
     );
 };
