@@ -25,11 +25,15 @@ const Order = () => {
                 <button className="accept">Accept</button>
             </div>
 
-            <div className="items" {...getCollapseProps()}>
-                <ul className="item-list">
-                    <li>Nasi goreng ayam x<span>1</span></li>
-                    <li>Ice Lemon Tea x<span>1</span></li>
-                </ul>
+            <div {...getCollapseProps()}>
+                <div className="items">
+                    <hr />
+                    <ul className="item-list">
+                        <h6>Items:</h6>
+                        <li>Nasi goreng ayam x<span>1</span></li>
+                        <li>Ice Lemon Tea x<span>1</span></li>
+                    </ul>
+                </div>
             </div>
 
             <div className="toggle-container">
@@ -37,7 +41,7 @@ const Order = () => {
                     {isExpanded ? <div>See less <FontAwesomeIcon icon={faChevronUp} /></div> : <div>See more <FontAwesomeIcon icon={faChevronDown} /></div>}
                 </button>
             </div>
-            <hr />
+            <hr className="order-end-line"/>
         </div>
     );
 };
