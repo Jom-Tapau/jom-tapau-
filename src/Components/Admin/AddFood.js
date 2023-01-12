@@ -89,7 +89,6 @@ const AddFood = () => {
             required
             onChange={(e) => setImg(e.target.files[0])}
             type="file"
-            
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
