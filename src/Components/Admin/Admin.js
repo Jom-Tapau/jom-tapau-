@@ -41,7 +41,7 @@ const Admin = () => {
       </Helmet>
 
       <div
-        className="d-flex flex-column bg-danger w-25 "
+        className="d-flex  flex-column bg-danger w-25 "
         style={{ marginTop: "55px" }}
       >
         <div className=" bg-danger p-2  text-white   ">
@@ -91,10 +91,13 @@ const Admin = () => {
         </div>
       </div>
 
-      <div className="w-75 " style={{ marginTop: "100px", marginLeft: "50px" }}>
-        <h2 style={{ textAlign: "start" }} className=" text-danger">
+      <div className="w-75 d-flex justify-content-center " style={{ marginTop: "100px", marginLeft: "50px" }}>
+ <div>
+ <div>
+     <h2 style={{ textAlign: "start" }} className=" text-danger">
           Jom-Tapau Analytics
         </h2>
+     </div>
         <div className="">
           <div className="mt-3 ">
             <h5 className="text-danger text-start">Weekly Sales</h5>
@@ -125,6 +128,7 @@ const Admin = () => {
             </PieChart>
           </div>
         </div>
+ </div>
       </div>
     </div>
   );
