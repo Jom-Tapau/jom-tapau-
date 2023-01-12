@@ -1,3 +1,5 @@
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import "./ProfilePage.css";
 
@@ -7,7 +9,7 @@ const ProfilePage = () => {
             <section id="information-container" class="information-container">
                 <div class="information-header">
                     <h2 style={{ marginLeft: '100px' }}>My Information</h2>
-                    <i title="Edit Profile" style={{ marginRight: '100px', cursor: 'pointer' }} class="fa-solid fa-pen-to-square"></i>
+                    <FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon>
                 </div>
                 <hr></hr>
                 <div class="information">
