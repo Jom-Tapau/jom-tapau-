@@ -57,7 +57,7 @@ const Rider = () => {
         <title>Rider</title>
       </Helmet>
 
-      <div className="btn-container">
+      <div className="btn-container d-flex justify-content-center">
         <Button
           onClick={handleAddRider}
           className="me-4"
