@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Order from "./Order";
 import './RiderDash.css';
+import useOrders from "../../hooks/useOrders";
 
 const RiderDash = () => {
 
-    const [orders,setOrders] = useState([]);
-
-    useEffect(()=>{
-        fetch('http://localhost:5000/allOrders')
-        .then(res=>res.json())
-        .then(data=>{
-            data.forEach(element => {
-                setOrders(element.status)
-            });
-        })
-    },[])
+    const {orders} = useOrders();
     console.log(orders)
 
     return (
