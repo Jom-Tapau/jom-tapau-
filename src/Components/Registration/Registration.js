@@ -42,7 +42,8 @@ const Registration = () => {
   const phoneNumber = useRef('')
   const address = useRef('')
   
-  useAddUserDb(newUser||fbUser?.user); //send registred user data to database
+   useAddUserDb(newUser||fbUser?.user); //send registred user data to database
+
   // function of signup button to register an user
   const handleSignUp = async e => {
     e.preventDefault();
@@ -98,6 +99,7 @@ const Registration = () => {
       </Helmet>
 
       <div className='d-lg-flex body-reg   login-div'>
+  
         <div className=' w-lg-50'>
           <img
             className=' w-100 vh-100'
@@ -147,6 +149,7 @@ const Registration = () => {
             <div>
               <small className='text-center text-danger  fs-3'>
                 Please Register
+                
               </small>
           
             </div>

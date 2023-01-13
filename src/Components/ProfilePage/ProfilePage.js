@@ -1,6 +1,7 @@
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -9,6 +10,23 @@ import "./ProfilePage.css";
 const ProfilePage = () => {
     const navigate = useNavigate();
     const [user, loading, error] = useAuthState(auth)
+    
+    const email = user?.email;
+    
+    //fetch the user from the database
+    useEffect(() => {
+      fetch("http://localhost:5000/findUser", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify( {email} ),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+      console.log(data)
+        });
+    }, [user]);
     const handleClick = () => {
         navigate("/editprofile");
     }
