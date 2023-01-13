@@ -20,7 +20,7 @@ const EditProfilePage = () => {
                         <form action="" method="post">
                             <table>
                                 <tr>
-                                    <td class="profile">Name:</td>
+                                    <td class="profile">Name: </td>
                                     <td class="profile"> <input disabled style={{width:'110%'}} type="text" id="updateName" name="updateName" value="" /></td>
                                 </tr>
                                 <tr>

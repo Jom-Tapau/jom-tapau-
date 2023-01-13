@@ -1,11 +1,14 @@
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import "./ProfilePage.css";
 
 const ProfilePage = () => {
     const navigate = useNavigate();
+    const [user, loading, error] = useAuthState(auth)
     const handleClick = () => {
         navigate("/editprofile");
     }
@@ -35,7 +38,7 @@ const ProfilePage = () => {
                         </tr>
                         <tr>
                             <td class="profile">
-                                Email:
+                                Email:{user?.email}
                             </td>
                             <td class="profile">
                                 <span id="email" class="data"></span>
@@ -68,7 +71,7 @@ const ProfilePage = () => {
                         </tr>
                         <tr>
                             <td class="profile">
-                                Address:
+                                Address: 
                             </td>
                             <td class="profile">
                                 <span id="address" class="data"></span>
