@@ -1,6 +1,7 @@
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +10,8 @@ import "./ProfilePage.css";
 
 const ProfilePage = () => {
     const navigate = useNavigate();
-    const [user, loading, error] = useAuthState(auth)
+    const [user, loading, error] = useAuthState(auth);
+    const [userDetails, setUserDetails]= useState('');
     
     const email = user?.email;
     
@@ -25,6 +27,7 @@ const ProfilePage = () => {
         .then((response) => response.json())
         .then((data) => {
       console.log(data)
+      setUserDetails(data);
         });
     }, [user]);
     const handleClick = () => {
@@ -48,7 +51,7 @@ const ProfilePage = () => {
                     <table id="profile-table">
                         <tr>
                             <td class="profile">
-                                Name:
+                                Name:{userDetails.name}
                             </td>
                             <td class="profile">
                                 <span id="name" class="data"></span>
@@ -64,7 +67,7 @@ const ProfilePage = () => {
                         </tr>
                         <tr>
                             <td class="profile">
-                                Role:
+                                Role:{userDetails.rider!=true?<span>Customer</span>:<>{userDetails.role}</>}
                             </td>
                             <td class="profile">
                                 <span id="role" class="data"></span>
