@@ -4,9 +4,14 @@ import './RiderDash.css';
 import useOrders from "../../hooks/useOrders";
 
 const RiderDash = () => {
-
+    const [acpOrders,setAcpOrders] = useState([]);
     const {orders} = useOrders();
-    console.log(orders)
+    let accOrderArray = [];
+    orders.map(Element=>{
+        if(Element?.status==="")
+            accOrderArray.push(Element)
+    })
+    console.log(accOrderArray)
 
     return (
         <div className="rider-dash">

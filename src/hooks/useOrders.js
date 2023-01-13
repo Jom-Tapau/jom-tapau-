@@ -10,7 +10,6 @@ const useOrders = () =>{
         .then(res=>res.json())
         .then(data=>setOrders(data))
     },[])
-
     return {
         orders
     }
