@@ -31,7 +31,7 @@ const ProfilePage = () => {
         });
     }, [user]);
     const handleClick = () => {
-        navigate("/editprofile");
+        navigate(`/editprofile/${userDetails._id}`);
     }
     return (
         <div className='profile-container'>
@@ -67,7 +67,7 @@ const ProfilePage = () => {
                         </tr>
                         <tr>
                             <td class="profile">
-                                Role:{userDetails.rider!=true?<span>Customer</span>:<>{userDetails.role}</>}
+                                Role:{userDetails.rider!="true"?<span>Customer</span>:<>{userDetails.role}</>}
                             </td>
                             <td class="profile">
                                 <span id="role" class="data"></span>

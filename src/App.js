@@ -79,7 +79,7 @@ function App() {
           setCount={setCount}
         ></Payment>}></Route>
         <Route path="/profile" element={<ProfilePage></ProfilePage>}></Route>
-        <Route path="/editprofile" element={<EditProfilePage></EditProfilePage>}></Route>
+        <Route path="/editprofile/:id" element={<EditProfilePage></EditProfilePage>}></Route>
         <Route
           path="/cart"
           element={
