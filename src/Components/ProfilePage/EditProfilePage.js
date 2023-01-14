@@ -12,23 +12,24 @@ const EditProfilePage = () => {
    const  phoneRef= useRef();
    const matricRef= useRef();
    const addressRef= useRef();
+      const [user] = useAuthState(auth);
+    const [userDetails, setUserDetails]= useState('');
+    
+    const email = user?.email;
+    
     const navigate = useNavigate();
-    const [userU, setUserU]= useState({});
+    const [userU, setUserU]= useState(userDetails);
     const submit = (e) => {
 e.preventDefault();
       const name = nameRef.current.value;
       const phone = phoneRef.current.value;
       const matric = matricRef.current.value;
       const address = addressRef.current.value;
-
+console.log(userDetails);
 
         navigate("/profile");
     }
-    const [user] = useAuthState(auth);
-    const [userDetails, setUserDetails]= useState('');
-    
-    const email = user?.email;
-    
+ 
     //fetch the user from the database
     useEffect(() => {
       fetch("http://localhost:5000/findUser", {
