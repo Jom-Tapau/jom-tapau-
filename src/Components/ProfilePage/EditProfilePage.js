@@ -1,5 +1,9 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import "./EditProfile.css";
 
 const EditProfilePage = () => {
@@ -7,7 +11,26 @@ const EditProfilePage = () => {
     const submit = () => {
         navigate("/profile");
     }
-
+    const [user, loading, error] = useAuthState(auth);
+    const [userDetails, setUserDetails]= useState('');
+    
+    const email = user?.email;
+    
+    //fetch the user from the database
+    useEffect(() => {
+      fetch("http://localhost:5000/findUser", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify( {email} ),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+      console.log(data)
+      setUserDetails(data);
+        });
+    }, [user]);
     return (
         <div>
         <div className='editprofile-container mb-3'>
@@ -21,7 +44,7 @@ const EditProfilePage = () => {
                             <table>
                                 <tr>
                                     <td class="profile">Name: </td>
-                                    <td class="profile"> <input disabled style={{width:'110%'}} type="text" id="updateName" name="updateName" value="" /></td>
+                                    <td class="profile"> <input  style={{width:'110%'}} type="text" id="updateName" name="updateName" value="" /></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Email:</td>
