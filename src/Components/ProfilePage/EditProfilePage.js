@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -7,9 +8,16 @@ import auth from '../../firebase.init';
 import "./EditProfile.css";
 
 const EditProfilePage = () => {
+   const  nameRef= useRef();
+   const  phoneRef= useRef();
+   const matricRef= useRef();
+   const addressRef= useRef();
     const navigate = useNavigate();
     const submit = () => {
-
+      const name = nameRef.current.value;
+      const phone = phoneRef.current.value;
+      const matric = matricRef.current.value;
+      const address = addressRef.current.value;
 
         navigate("/profile");
     }
@@ -46,11 +54,11 @@ const EditProfilePage = () => {
                             <table>
                                 <tr>
                                     <td class="profile">Name: </td>
-                                    <td class="profile"> <input  style={{width:'110%'}} type="text" id="updateName" name="updateName" value="" /></td>
+                                    <td class="profile"> <input ref={nameRef} style={{width:'110%'}} type="text" id="updateName" name="updateName" value="" /></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Email:</td>
-                                    <td class="profile"> <input style={{width: '110%'}} type="text" id="updateEmail" name="updateEmail" value=""/></td>
+                                    <td class="profile"> <input disabled style={{width: '110%'}} type="text" id="updateEmail" name="updateEmail" value=""/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Role:</td>
@@ -58,15 +66,15 @@ const EditProfilePage = () => {
                                 </tr>
                                 <tr>
                                     <td class="profile">Phone Number:</td>
-                                    <td class="profile"> <input style={{width: '110%'}} type="text" id="updatePhone" name="updatePhone" value=""/></td>
+                                    <td class="profile"> <input ref={phoneRef} style={{width: '110%'}} type="text" id="updatePhone" name="updatePhone" value=""/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Matric:</td>
-                                    <td class="profile"> <input style={{width: '110%'}} type="text" id="updateMatric" name="updateMatric" value=""/></td>
+                                    <td class="profile"> <input ref={matricRef} style={{width: '110%'}} type="text" id="updateMatric" name="updateMatric" value=""/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Address:</td>
-                                    <td class="profile"> <input style={{width: '110%'}} type="text" id="updateAddress" name="updateAddress" value=""/></td>
+                                    <td class="profile"> <input ref={addressRef} style={{width: '110%'}} type="text" id="updateAddress" name="updateAddress" value=""/></td>
                                 </tr>
                             </table>
                             <div style={{textAlign:'center'}}>
