@@ -9,9 +9,11 @@ import "./EditProfile.css";
 const EditProfilePage = () => {
     const navigate = useNavigate();
     const submit = () => {
+
+
         navigate("/profile");
     }
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const [userDetails, setUserDetails]= useState('');
     
     const email = user?.email;
@@ -68,7 +70,7 @@ const EditProfilePage = () => {
                                 </tr>
                             </table>
                             <div style={{textAlign:'center'}}>
-                                <button type="submit" id="submit-btn" name="update">Submit</button>
+                                <button onClick={submit} type="submit" id="submit-btn" name="update">Submit</button>
                             </div>
                         </form>
 
