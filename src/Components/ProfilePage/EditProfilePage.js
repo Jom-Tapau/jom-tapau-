@@ -13,12 +13,14 @@ const EditProfilePage = () => {
    const matricRef= useRef();
    const addressRef= useRef();
     const navigate = useNavigate();
+    const [userU, setUserU]= useState({});
     const submit = (e) => {
 e.preventDefault();
       const name = nameRef.current.value;
       const phone = phoneRef.current.value;
       const matric = matricRef.current.value;
       const address = addressRef.current.value;
+
 
         navigate("/profile");
     }
