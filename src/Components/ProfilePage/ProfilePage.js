@@ -76,7 +76,7 @@ const ProfilePage = () => {
 
                         <tr>
                             <td class="profile">
-                                Phone:
+                                Phone:{userDetails.phoneNumber}
                             </td>
                             <td class="profile">
                                 <span id="phone" class="data"></span>
@@ -84,7 +84,7 @@ const ProfilePage = () => {
                         </tr>
                         <tr>
                             <td class="profile">
-                                Matric:
+                                Matric:{userDetails.matricValue}
                             </td>
                             <td class="profile">
                                 <span id="matric" class="data"></span>
@@ -92,7 +92,7 @@ const ProfilePage = () => {
                         </tr>
                         <tr>
                             <td class="profile">
-                                Address: 
+                                Address: {userDetails.address}
                             </td>
                             <td class="profile">
                                 <span id="address" class="data"></span>
