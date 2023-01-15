@@ -8,10 +8,7 @@ import auth from '../../firebase.init';
 import "./EditProfile.css";
 
 const EditProfilePage = () => {
-   const  nameRef= useRef();
-   const  phoneRef= useRef();
-   const matricRef= useRef();
-   const addressRef= useRef();
+ 
       const [user] = useAuthState(auth);
     const [userDetails, setUserDetails]= useState('');
     
@@ -21,13 +18,17 @@ const EditProfilePage = () => {
     const [userU, setUserU]= useState(userDetails);
     const submit = (e) => {
 e.preventDefault();
-      const name = nameRef.current.value;
-      const phone = phoneRef.current.value;
-      const matric = matricRef.current.value;
-      const address = addressRef.current.value;
-console.log(userDetails);
+
+console.log(userU);
 fetch(`http://localhost:5000/user/${userDetails._id}`,{
-    
+method:'PUT',
+headers:{
+    'content-type':'application/json'
+},
+body: JSON.stringify(userU)
+
+}).then(res=>res.json).then(data=>{
+    console.log(data)
 })
         navigate("/profile");
     }
@@ -60,27 +61,27 @@ fetch(`http://localhost:5000/user/${userDetails._id}`,{
                             <table>
                                 <tr>
                                     <td class="profile">Name: </td>
-                                    <td class="profile"> <input ref={nameRef} style={{width:'110%'}} type="text" id="updateName" name="updateName" defaultValue={userDetails.name} /></td>
+                                    <td class="profile"> <input style={{width:'110%'}} type="text" id="updateName" name="updateName" defaultValue={userDetails.name} /></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Email:</td>
-                                    <td class="profile"> <input disabled style={{width: '110%'}} type="text" id="updateEmail" name="updateEmail" defaultValue={userDetails.email}/></td>
+                                    <td class="profile"> <input  disabled style={{width: '110%'}} type="text" id="updateEmail" name="updateEmail" defaultValue={userDetails.email}/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Role:</td>
-                                    <td class="profile"> <input style={{width: '110%'}} disabled type="text" id="updateRole" name="updateRole" defaultValue="role"/></td>
+                                    <td class="profile"> <input  style={{width: '110%'}} disabled type="text" id="updateRole" name="updateRole" defaultValue="role"/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Phone Number:</td>
-                                    <td class="profile"> <input ref={phoneRef} style={{width: '110%'}} type="text" id="updatePhone" name="updatePhone" defaultValue={userDetails.phoneNumber}/></td>
+                                    <td class="profile"> <input  style={{width: '110%'}} type="text" id="updatePhone" name="updatePhone" defaultValue={userDetails.phoneNumber}/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Matric:</td>
-                                    <td class="profile"> <input ref={matricRef} style={{width: '110%'}} type="text" id="updateMatric" name="updateMatric" defaultValue={userDetails.matricValue}/></td>
+                                    <td class="profile"> <input  style={{width: '110%'}} type="text" id="updateMatric" name="updateMatric" defaultValue={userDetails.matricValue}/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Address:</td>
-                                    <td class="profile"> <input ref={addressRef} defaultValue={userDetails.address} style={{width: '110%'}} type="text" id="updateAddress" name="updateAddress" /></td>
+                                    <td class="profile"> <input  defaultValue={userDetails.address} style={{width: '110%'}} type="text" id="updateAddress" name="updateAddress" /></td>
                                 </tr>
                             </table>
                             <div style={{textAlign:'center'}}>
