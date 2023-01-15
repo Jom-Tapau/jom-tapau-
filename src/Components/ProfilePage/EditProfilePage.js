@@ -16,20 +16,30 @@ const EditProfilePage = () => {
     
     const navigate = useNavigate();
     const [userU, setUserU]= useState(userDetails);
+    const handleChangeInput=(event)=>{
+
+const field = event.target.name;
+const value = event.target.value;
+const updatedUser ={...userU};
+updatedUser[field]=value;
+setUserU(updatedUser);
+
+
+    }
     const submit = (e) => {
 e.preventDefault();
 
 console.log(userU);
-fetch(`http://localhost:5000/user/${userDetails._id}`,{
-method:'PUT',
-headers:{
-    'content-type':'application/json'
-},
-body: JSON.stringify(userU)
+// fetch(`http://localhost:5000/user/${userDetails._id}`,{
+// method:'PUT',
+// headers:{
+//     'content-type':'application/json'
+// },
+// body: JSON.stringify(userU)
 
-}).then(res=>res.json).then(data=>{
-    console.log(data)
-})
+// }).then(res=>res.json).then(data=>{
+//     console.log(data)
+// })
         navigate("/profile");
     }
  
@@ -61,27 +71,27 @@ body: JSON.stringify(userU)
                             <table>
                                 <tr>
                                     <td class="profile">Name: </td>
-                                    <td class="profile"> <input style={{width:'110%'}} type="text" id="updateName" name="updateName" defaultValue={userDetails.name} /></td>
+                                    <td class="profile"> <input onChange={handleChangeInput} style={{width:'110%'}} type="text" id="updateName" name="name" defaultValue={userDetails.name} /></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Email:</td>
-                                    <td class="profile"> <input  disabled style={{width: '110%'}} type="text" id="updateEmail" name="updateEmail" defaultValue={userDetails.email}/></td>
+                                    <td class="profile"> <input onChange={handleChangeInput}  disabled style={{width: '110%'}} type="text" id="updateEmail" name="email" defaultValue={userDetails.email}/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Role:</td>
-                                    <td class="profile"> <input  style={{width: '110%'}} disabled type="text" id="updateRole" name="updateRole" defaultValue="role"/></td>
+                                    <td class="profile"> <input onChange={handleChangeInput}  style={{width: '110%'}} disabled type="text" id="updateRole" name="role" defaultValue="role"/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Phone Number:</td>
-                                    <td class="profile"> <input  style={{width: '110%'}} type="text" id="updatePhone" name="updatePhone" defaultValue={userDetails.phoneNumber}/></td>
+                                    <td class="profile"> <input onChange={handleChangeInput}  style={{width: '110%'}} type="text" id="updatePhone" name="phoneNumber" defaultValue={userDetails.phoneNumber}/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Matric:</td>
-                                    <td class="profile"> <input  style={{width: '110%'}} type="text" id="updateMatric" name="updateMatric" defaultValue={userDetails.matricValue}/></td>
+                                    <td class="profile"> <input onChange={handleChangeInput}  style={{width: '110%'}} type="text" id="updateMatric" name="matricValue" defaultValue={userDetails.matricValue}/></td>
                                 </tr>
                                 <tr>
                                     <td class="profile">Address:</td>
-                                    <td class="profile"> <input  defaultValue={userDetails.address} style={{width: '110%'}} type="text" id="updateAddress" name="updateAddress" /></td>
+                                    <td class="profile"> <input onChange={handleChangeInput}  defaultValue={userDetails.address} style={{width: '110%'}} type="text" id="updateAddress" name="address" /></td>
                                 </tr>
                             </table>
                             <div style={{textAlign:'center'}}>
