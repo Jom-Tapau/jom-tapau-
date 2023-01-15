@@ -26,7 +26,9 @@ e.preventDefault();
       const matric = matricRef.current.value;
       const address = addressRef.current.value;
 console.log(userDetails);
-
+fetch(`http://localhost:5000/user/${userDetails._id}`,{
+    
+})
         navigate("/profile");
     }
  
