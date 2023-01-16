@@ -133,6 +133,7 @@ const Payment = ({ cart,setCount }) => {
   // handle confirm button
   const handleConfirm = () =>{
     const newOrder={
+      name:user.displayName,
       email:user.email,
       phoneNumber:phonenumber,
       deliveryDate:deliveryDate,
