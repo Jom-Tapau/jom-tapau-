@@ -8,7 +8,7 @@ const RiderDash = () => {
     const {orders} = useOrders();
     let accOrderArray = [];
     orders.map(Element=>{
-        if(Element?.status==="")
+        if(Element?.status!=="rejected")
             accOrderArray.push(Element)
     })
     console.log(accOrderArray)
