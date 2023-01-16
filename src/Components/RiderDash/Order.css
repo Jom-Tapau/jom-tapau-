@@ -1,7 +1,7 @@
 .order {
     margin: 1em 4em;
     width: 70em;
-    padding: 10px 20px;
+    padding: 10px 10px;
     /* border: 1px solid crimson; */
     border: none;
     border-radius: 10px;
@@ -15,7 +15,7 @@
 }
 
 .name-user {
-    width: 16em;
+    width: 20em;
     display: flex;
     gap: 1em;
     align-items: center;

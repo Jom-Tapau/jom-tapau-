@@ -5,6 +5,7 @@ import useCollapse from "react-collapsed";
 import "./Order.css";
 
 const Order = ({order}) => {
+    const {name} = order
     console.log(order)
     const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
@@ -12,8 +13,7 @@ const Order = ({order}) => {
         <div className="order">
             <div className="info-container">
                 <div className="name-user">
-                   
-                    <h4>GM Shaheen Shah</h4>
+                    <h4>{name}</h4>
                 </div>
                 <div className="details">
                     <div className="total">
