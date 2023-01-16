@@ -10,17 +10,32 @@ import "./EditProfile.css";
 const EditProfilePage = () => {
  
       const [user] = useAuthState(auth);
-    const [userDetails, setUserDetails]= useState('');
+    const [userDetails, setUserDetails]= useState({});
     
     const email = user?.email;
+      //fetch the user from the database
+      useEffect(() => {
+        fetch("http://localhost:5000/findUser", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify( {email} ),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+        //console.log(data)
+        setUserDetails(data);
+          });
+      }, [user]);
     
     const navigate = useNavigate();
-    const [userU, setUserU]= useState(userDetails);
+    const [userU, setUserU]= useState({});
     const handleChangeInput=(event)=>{
 
 const field = event.target.name;
 const value = event.target.value;
-const updatedUser ={...userU};
+const updatedUser ={...userDetails};
 updatedUser[field]=value;
 setUserU(updatedUser);
 
@@ -28,36 +43,20 @@ setUserU(updatedUser);
     }
     const submit = (e) => {
 e.preventDefault();
+fetch(`http://localhost:5000/user/${userDetails._id}`,{
+method:'PUT',
+headers:{
+    'content-type':'application/json'
+},
+body: JSON.stringify(userU)
 
-console.log(userU);
-// fetch(`http://localhost:5000/user/${userDetails._id}`,{
-// method:'PUT',
-// headers:{
-//     'content-type':'application/json'
-// },
-// body: JSON.stringify(userU)
-
-// }).then(res=>res.json).then(data=>{
-//     console.log(data)
-// })
+}).then(res=>res.json()).then(data=>{
+    console.log(data)
+})
         navigate("/profile");
     }
  
-    //fetch the user from the database
-    useEffect(() => {
-      fetch("http://localhost:5000/findUser", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify( {email} ),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-      console.log(data)
-      setUserDetails(data);
-        });
-    }, [user]);
+  
     return (
         <div>
         <div className='editprofile-container mb-3'>
