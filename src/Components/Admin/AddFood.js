@@ -34,6 +34,7 @@ const AddFood = () => {
           const foodInfo = {
             name: user.name,
             email: user.email,
+            price:user.price,
             category: user.category,
             quantity: user.quantity,
             imgURL: foodImage.url,
