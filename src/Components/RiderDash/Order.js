@@ -6,11 +6,19 @@ import "./Order.css";
 
 const Order = ({order}) => {
     const {_id,name,phoneNumber,email,total,deliveryAddress,orders} = order
-    console.log(_id)
     const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
     const handleAcceptOrder = id =>{
         console.log(id)
+        fetch('http://localhost:5000/updateRiderOrder',{
+            method:'PUT',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify({id})
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
     }
 
     return (
