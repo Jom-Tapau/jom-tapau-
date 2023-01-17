@@ -5,9 +5,13 @@ import useCollapse from "react-collapsed";
 import "./Order.css";
 
 const Order = ({order}) => {
-    const {name,phoneNumber,email,total,deliveryAddress,orders} = order
-    console.log(order)
+    const {_id,name,phoneNumber,email,total,deliveryAddress,orders} = order
+    console.log(_id)
     const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+
+    const handleAcceptOrder = id =>{
+        console.log(id)
+    }
 
     return (
         <div className="order">
@@ -24,13 +28,13 @@ const Order = ({order}) => {
                         {deliveryAddress}
                     </div>
                 </div>
-                <button className="accept">Accept</button>
+                <button onClick={()=>handleAcceptOrder(_id)} className="accept">Accept</button>
             </div>
 
             <div className="items" {...getCollapseProps()}>
                 <ul className="item-list" style={{marginLeft:'200px'}}>
                     {
-                        orders.map(or=><li>{or.name} x<span>{or.quantity}</span></li>)
+                        orders.map(or=><li key={or._id}>{or.name} x<span>{or.quantity}</span></li>)
                     }
                 </ul>
             </div>
