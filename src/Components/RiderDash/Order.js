@@ -5,7 +5,7 @@ import useCollapse from "react-collapsed";
 import "./Order.css";
 
 const Order = ({order}) => {
-    const {name} = order
+    const {name,phoneNumber,email,total,deliveryAddress,orders} = order
     console.log(order)
     const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
@@ -14,22 +14,24 @@ const Order = ({order}) => {
             <div className="info-container">
                 <div className="name-user">
                     <h4>{name}</h4>
+                    <h4>{phoneNumber}</h4>
                 </div>
                 <div className="details">
                     <div className="total">
-                        RM 29.50
+                        RM {total}
                     </div>
                     <div className="address">
-                        KLG Campus Resicence, Taman Sri Pulai.
+                        {deliveryAddress}
                     </div>
                 </div>
                 <button className="accept">Accept</button>
             </div>
 
             <div className="items" {...getCollapseProps()}>
-                <ul className="item-list">
-                    <li>Nasi goreng ayam x<span>1</span></li>
-                    <li>Ice Lemon Tea x<span>1</span></li>
+                <ul className="item-list" style={{marginLeft:'200px'}}>
+                    {
+                        orders.map(or=><li>{or.name} x<span>{or.quantity}</span></li>)
+                    }
                 </ul>
             </div>
 
