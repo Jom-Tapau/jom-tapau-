@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet";
 
 const RiderDash = () => {
     const {orders,otherOrder} = useOrders();
-    console.log(otherOrder)
 
     return (
         <div className="rider-dash">

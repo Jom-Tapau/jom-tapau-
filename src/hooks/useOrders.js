@@ -5,19 +5,19 @@ const useOrders = () =>{
 
     const [orders,setOrders] = useState([]);
     const [otherOrder,setOtherOrder] = useState([])
-    const accOrderArray = []
     useEffect(()=>{
         fetch('http://localhost:5000/allOrders')
         .then(res=>res.json())
         .then(data=>{
             setOrders(data)
+            const accOrderArray = []
             data?.forEach(element => {
-                if(element?.status!=="rejected")
+                if(element?.status!=="accepted")
                 accOrderArray.push(element)
             });
             setOtherOrder(accOrderArray)
         })
-    },[])
+    },[orders])
     return {
         orders,
         otherOrder

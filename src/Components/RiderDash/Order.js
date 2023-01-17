@@ -2,11 +2,16 @@ import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import useCollapse from "react-collapsed";
+import { useAuthState } from 'react-firebase-hooks/auth';
 import "./Order.css";
+import auth from "../../firebase.init";
 
 const Order = ({order}) => {
     const {_id,name,phoneNumber,email,total,deliveryAddress,orders} = order
     const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
+
+    const [user, loading, error] = useAuthState(auth);
+    // console.log(user?.email,user?.displayName)
 
     const handleAcceptOrder = id =>{
         console.log(id)
@@ -15,7 +20,11 @@ const Order = ({order}) => {
             headers:{
                 'content-type':'application/json'
             },
-            body:JSON.stringify({id})
+            body:JSON.stringify({
+                id,
+                riderEmail:user?.email,
+                riderName:user?.displayName
+            })
         })
         .then(res=>res.json())
         .then(data=>console.log(data))
