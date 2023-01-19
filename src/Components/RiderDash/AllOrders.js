@@ -50,7 +50,7 @@ const AllOrders = () => {
                     or.status!=="Delivered"?<div>
                         <button
                         className="deliver me-3">Deliver</button>
-                        <button className="accept">Reject</button>
+                        <button className="accept">Cancel</button>
                     </div>:"Food Delivered"
                 }
               </div>
