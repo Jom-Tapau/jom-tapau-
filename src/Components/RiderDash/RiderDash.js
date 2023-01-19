@@ -14,24 +14,25 @@ const RiderDash = () => {
       </Helmet>
       <div className="mb-4 d-flex">
         <NavLink 
-          className="me-3" 
+          className="me-3 hello" 
           to='/riderDash/Orders'
           style={({ isActive }) => {
             return {
-              display: "block",
               margin: "1rem 0",
-              color: isActive ? "red" : ""
+              color: isActive ? "red" : "",
+              borderBottom:isActive?"1px solid red":""
             };
           }}
         >
           Orders
         </NavLink>
         <NavLink 
+        className="hello"
           style={({ isActive }) => {
             return {
-              display: "block",
               margin: "1rem 0",
-              color: isActive ? "red" : ""
+              color: isActive ? "red" : "",
+              borderBottom:isActive?"1px solid red":""
             };
           }}
         to='/riderDash/acceptedOrder'>
