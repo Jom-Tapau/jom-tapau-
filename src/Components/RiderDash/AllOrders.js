@@ -1,15 +1,13 @@
 import React from 'react';
-import useOrders from '../../hooks/useOrders';
-import Order from './Order';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useEffect } from 'react';
+import { useState } from 'react';
 
 const AllOrders = () => {
-    const { orders, otherOrder } = useOrders();
-
+    const [riderOrders,setRiderOrders] = useState([]);
+    const [riderErr,setRiderErr] = useState("")
     const [user, loading, error] = useAuthState(auth);
-    // console.log(user.email)
 
     useEffect(()=>{
         fetch('http://localhost:5000/riderOrders',{
@@ -19,11 +17,21 @@ const AllOrders = () => {
             },
             body:JSON.stringify({riderEmail:user?.email})
         })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.length>0)
+                setRiderOrders(data)
+            else  
+                setRiderErr("You have performed O order");
+        })
     },[user])
     return (
         <div className='pt-5'>
             <h1>
                 {user?.email}
+                {
+                    riderErr&&<p>{riderErr}</p>
+                }
             </h1>
         </div>
     );
