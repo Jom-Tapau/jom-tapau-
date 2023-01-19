@@ -29,11 +29,34 @@ const AllOrders = () => {
           setRiderErr("");
         } else setRiderErr("You have performed O order");
       });
-  }, [user]);
+  }, [user,riderOrders]);
+
+
+  const handleDeliverOrder = id =>{
+    console.log("delivered ",id)
+    fetch('http://localhost:5000/updateRiderOrder',{
+            method:'PUT',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify({
+                id,
+                riderEmail:user?.email,
+                riderName:user?.displayName,
+                status:"Delivered"
+            })
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
+  }
+
+  const handleClickCancel = id =>{
+    console.log("Cancel ",id)
+  }
   return (
     <div className="">
         <h2 className="text-center" style={{marginBottom:'30px'}}>Your Accepted Order</h2>
-      {riderOrders?.length > 0 &&
+      {riderOrders?.length > 0 ?
         riderOrders.map((or) => (
           <div key={or._id} className="order">
             <div className="info-container">
@@ -49,8 +72,8 @@ const AllOrders = () => {
                 {
                     or.status!=="Delivered"?<div>
                         <button
-                        className="deliver me-3">Deliver</button>
-                        <button className="accept">Cancel</button>
+                        className="deliver me-3" onClick={()=>handleDeliverOrder(or._id)}>Deliver</button>
+                        <button onClick={()=>handleClickCancel(or._id)} className="accept">Cancel</button>
                     </div>:"Food Delivered"
                 }
               </div>
@@ -81,7 +104,9 @@ const AllOrders = () => {
             </div>
             <hr />
           </div>
-        ))}
+        )):<div>
+            <h5 className="text-center">You Accepted order: 0</h5>
+        </div>}
     </div>
   );
 };
