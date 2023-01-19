@@ -14,9 +14,8 @@
 }
 
 .name-user {
-    width: 16em;
-    display: flex;
-    gap: 1em;
+    width: 20em;
+    gap: 0.5em;
     align-items: center;
 }
 
@@ -59,14 +58,21 @@
     filter: brightness(85%);
 }
 
-.items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.deliver{
+    padding: .5em 1.5em;
+    border: none;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    font-size: large;
+    transition: 0.2s;
 }
 
-.items hr {
-    width: 50%;
+.deliver:hover{
+    transform: scale(1.1);
+}
+.deliver:active{
+    filter: brightness(85%);
 }
 
 .item-list {

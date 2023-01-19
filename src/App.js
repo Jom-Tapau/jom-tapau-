@@ -24,8 +24,10 @@ import EditFood from "./Components/EditFood/EditFood";
 import UpdateFood from "./Components/EditFood/UpdateFood";
 import Payment from "./Components/Payment/Payment";
 import RiderDash from "./Components/RiderDash/RiderDash";
-import ProfilePage from "./Components/ProfilePage/ProfilePage";
+import AllOrders from "./Components/RiderDash/AllOrders";
+import Orders from "./Components/RiderDash/Orders";
 import EditProfilePage from "./Components/ProfilePage/EditProfilePage";
+import ProfilePage from "./Components/ProfilePage/ProfilePage";
 
 function App() {
     let location = useLocation();
@@ -92,10 +94,13 @@ function App() {
             ></Cart>
           }
         ></Route>
-        <Route path="/riderDash" element={<RiderDash></RiderDash>}></Route>
+        <Route path="/riderDash" element={<RiderDash></RiderDash>}>
+          <Route path="Orders" element={<Orders></Orders>}></Route>
+          <Route path="acceptedOrder" element={<AllOrders></AllOrders>}></Route>
+        </Route>
       </Routes>
       {location.pathname !== "/registration" &&
-        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" &&<Footer />}
+        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder" &&<Footer />}
     </div>
   )
 }
