@@ -12,7 +12,7 @@ const useOrders = () =>{
             setOrders(data)
             const accOrderArray = []
             data?.forEach(element => {
-                if(element?.status!=="accepted")
+                if(element?.status!=="Accepted")
                 accOrderArray.push(element)
             });
             setOtherOrder(accOrderArray)

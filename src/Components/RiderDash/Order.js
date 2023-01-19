@@ -23,7 +23,8 @@ const Order = ({order}) => {
             body:JSON.stringify({
                 id,
                 riderEmail:user?.email,
-                riderName:user?.displayName
+                riderName:user?.displayName,
+                status:"Accepted"
             })
         })
         .then(res=>res.json())

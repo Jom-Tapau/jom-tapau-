@@ -12,7 +12,7 @@ const RiderDash = () => {
       <Helmet>
         <title>RiderDashboard</title>
       </Helmet>
-      <div className="mb-4 d-flex">
+      <div className="mb-3 d-flex">
         <NavLink 
           className="me-3 hello" 
           to='/riderDash/Orders'

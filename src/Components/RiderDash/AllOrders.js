@@ -19,6 +19,7 @@ const AllOrders = () => {
         })
         .then(res=>res.json())
         .then(data=>{
+            data.map(or=>console.log(or.status))
             if(data.length>0)
                 setRiderOrders(data)
             else  
@@ -26,13 +27,16 @@ const AllOrders = () => {
         })
     },[user])
     return (
-        <div className='pt-5'>
+        <div className=''>
             <h1>
+
+            </h1>
+            {riderOrders.length}
+            <br/>
                 {user?.email}
                 {
                     riderErr&&<p>{riderErr}</p>
                 }
-            </h1>
         </div>
     );
 };
