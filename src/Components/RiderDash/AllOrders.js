@@ -52,6 +52,20 @@ const AllOrders = () => {
 
   const handleClickCancel = id =>{
     console.log("Cancel ",id)
+    fetch('http://localhost:5000/updateRiderOrder',{
+            method:'PUT',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify({
+                id,
+                riderEmail:user?.email,
+                riderName:user?.displayName,
+                status:"Cancel"
+            })
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
   }
   return (
     <div className="">
@@ -70,11 +84,17 @@ const AllOrders = () => {
               </div>
               <div>
                 {
-                    or.status!=="Delivered"?<div>
+                   ( or.status!=="Delivered"&&or.status!=="Cancel")&&<div>
                         <button
                         className="deliver me-3" onClick={()=>handleDeliverOrder(or._id)}>Deliver</button>
                         <button onClick={()=>handleClickCancel(or._id)} className="accept">Cancel</button>
-                    </div>:"Food Delivered"
+                    </div>
+                }
+                {
+                    or.status==="Delivered"&&"Food Delivered"
+                }
+                {
+                    or.status==="Cancel"&&"You Cancelled Delivery"
                 }
               </div>
             </div>
