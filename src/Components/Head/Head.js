@@ -38,7 +38,7 @@ const Head = ({count}) => {
             <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/menu">Menu</NavLink>
             <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/about">About</NavLink>
             <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/admin">Admin</NavLink>
-            <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/riderDash">Rider</NavLink>
+            <NavLink style={hehe} className='text-white nav-link fs-5' as={Link} to="/riderDash/Orders">Rider</NavLink>
           </Nav>
           <Nav className='nav-container'>
            
