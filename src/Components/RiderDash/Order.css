@@ -59,6 +59,23 @@
     filter: brightness(85%);
 }
 
+.deliver{
+    padding: .5em 1.5em;
+    border: none;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+    font-size: large;
+    transition: 0.2s;
+}
+
+.deliver:hover{
+    transform: scale(1.1);
+}
+.deliver:active{
+    filter: brightness(85%);
+}
+
 .item-list {
     list-style-type: none;
     margin: 0;

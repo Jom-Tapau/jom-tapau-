@@ -24,19 +24,18 @@ const AllOrders = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        data.map((or) => console.log(or.status));
         if (data?.length > 0) {
           setRiderOrders(data);
           setRiderErr("");
         } else setRiderErr("You have performed O order");
       });
   }, [user]);
-  console.log(riderOrders);
   return (
     <div className="">
+        <h2 className="text-center" style={{marginBottom:'30px'}}>Your Accepted Order</h2>
       {riderOrders?.length > 0 &&
         riderOrders.map((or) => (
-          <div className="order">
+          <div key={or._id} className="order">
             <div className="info-container">
               <div className="name-user">
                 <h4>{or.name}</h4>
@@ -46,7 +45,15 @@ const AllOrders = () => {
                 <div className="total">RM {or.total}</div>
                 <div className="address">{or.deliveryAddress}</div>
               </div>
-              <button className="accept">Accept</button>
+              <div>
+                {
+                    or.status!=="Delivered"?<div>
+                        <button
+                        className="deliver me-3">Deliver</button>
+                        <button className="accept">Reject</button>
+                    </div>:"Food Delivered"
+                }
+              </div>
             </div>
 
             <div className="items" {...getCollapseProps()}>
