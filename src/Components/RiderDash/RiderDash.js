@@ -36,7 +36,7 @@ const RiderDash = () => {
             };
           }}
         to='/riderDash/acceptedOrder'>
-          Order
+          Order History
         </NavLink>
       </div>
     <Outlet />
