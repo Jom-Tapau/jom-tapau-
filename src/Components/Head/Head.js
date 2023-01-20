@@ -99,10 +99,9 @@ const Head = ({ count }) => {
                   </NavLink>
                   <NavLink
                     style={hehe}
-                    onClick={handleSignOut}
                     className="text-white nav-link fs-5"
                     as={Link}
-                    to="/login"
+                    to="/profile"
                   >
                      <span className="material-symbols-outlined mt-1">account_circle</span>
                   </NavLink>
