@@ -6,6 +6,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import "./EditProfile.css";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const EditProfilePage = () => {
   const [user] = useAuthState(auth);
@@ -59,7 +61,8 @@ const EditProfilePage = () => {
         <section id="edit-container" class="edit-container">
           <div class="">
             <div>
-              <h2>Edit profile</h2>
+                <button className="d-inline"><FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon></button>
+              <h2 className="text-center">Edit profile</h2>
             </div>
             <hr />
             <form onSubmit={submit}>
