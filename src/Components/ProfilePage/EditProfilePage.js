@@ -6,7 +6,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import "./EditProfile.css";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faArrowAltCircleLeft, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const EditProfilePage = () => {
@@ -60,7 +60,7 @@ const EditProfilePage = () => {
         <section id="edit-container" className="edit-container">
           <div className="">
             <div>
-                <button className="d-inline"><FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon></button>
+                <button onClick={()=>navigate("/profile")} className="d-inline"><FontAwesomeIcon icon={faArrowAltCircleLeft}></FontAwesomeIcon></button>
               <h2 className="text-center">Edit profile</h2>
             </div>
             <hr />
