@@ -58,8 +58,8 @@ const EditProfilePage = () => {
   if(!user?.email){
     return (<Loading className="text-center"></Loading>)}
   return (
-    <div>
-      <div className="editprofile-container mb-3">
+    <div style={{height:"75vh"}}>
+      <div className="editprofile-container mb-3" style={{paddingTop:"50px"}}>
         <section id="edit-container" className="edit-container">
           <div className="">
             <div>
