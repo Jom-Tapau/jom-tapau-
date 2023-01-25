@@ -34,7 +34,7 @@ const useRiders = () =>{
             setApplicants(applicantRider)
             
         })
-    },[])
+    },[users])
 
     return{
         users,
