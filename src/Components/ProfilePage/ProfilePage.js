@@ -35,13 +35,13 @@ const ProfilePage = () => {
     }
     return (
         <div className='profile-container'>
-            <section id="information-container" class="information-container">
-                <div class="information-header">
+            <section id="information-container" className="information-container">
+                <div className="information-header">
                     <h2 style={{ marginLeft: '100px' }}>My Information</h2>
                     <button onClick={handleClick}><FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon></button>
                 </div>
                 <hr></hr>
-                <div class="information">
+                <div className="information">
                     <div>
                         <img src="https://i.ibb.co/QQyzW1L/ezgif-com-gif-maker.jpg" alt="" style={{ width: '200px' }}  />
                     </div>
@@ -50,52 +50,52 @@ const ProfilePage = () => {
                 <div>
                     <table id="profile-table">
                         <tr>
-                            <td class="profile">
-                                Name:{userDetails.name}
+                            <td className="profile">
+                                Name:{userDetails?.name}
                             </td>
-                            <td class="profile">
-                                <span id="name" class="data"></span>
+                            <td className="profile">
+                                <span id="name" className="data"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td class="profile">
+                            <td className="profile">
                                 Email:{user?.email}
                             </td>
-                            <td class="profile">
-                                <span id="email" class="data"></span>
+                            <td className="profile">
+                                <span id="email" className="data"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td class="profile">
-                                Role:{userDetails.rider!="true"?<span>Customer</span>:<>{userDetails.role}</>}
+                            <td className="profile">
+                                Role:{userDetails.rider!="true"?<span>Customer</span>:<>{userDetails?.role}</>}
                             </td>
-                            <td class="profile">
-                                <span id="role" class="data"></span>
+                            <td className="profile">
+                                <span id="role" className="data"></span>
                             </td>
                         </tr>
 
                         <tr>
-                            <td class="profile">
-                                Phone:{userDetails.phoneNumber}
+                            <td className="profile">
+                                Phone:{userDetails?.phoneNumber}
                             </td>
-                            <td class="profile">
-                                <span id="phone" class="data"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="profile">
-                                Matric:{userDetails.matricValue}
-                            </td>
-                            <td class="profile">
-                                <span id="matric" class="data"></span>
+                            <td className="profile">
+                                <span id="phone" className="data"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td class="profile">
+                            <td className="profile">
+                                Matric:{userDetails?.matricValue}
+                            </td>
+                            <td className="profile">
+                                <span id="matric" className="data"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="profile">
                                 Address: {userDetails.address}
                             </td>
-                            <td class="profile">
-                                <span id="address" class="data"></span>
+                            <td className="profile">
+                                <span id="address" className="data"></span>
                             </td>
                         </tr>
                     </table>

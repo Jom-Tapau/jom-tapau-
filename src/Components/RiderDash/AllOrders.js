@@ -110,17 +110,9 @@ const AllOrders = () => {
             </div>
 
             <div className="toggle-container">
-              <button className="toggle toggle-button" {...getToggleProps()}>
-                {isExpanded ? (
-                  <div>
-                    See less <FontAwesomeIcon icon={faChevronUp} />
-                  </div>
-                ) : (
-                  <div>
-                    See more <FontAwesomeIcon icon={faChevronDown} />
-                  </div>
-                )}
-              </button>
+                <button className="toggle toggle-button" {...getToggleProps()}>
+                    {isExpanded ? <div>See less <FontAwesomeIcon icon={faChevronUp} /></div> : <div>See more <FontAwesomeIcon icon={faChevronDown} /></div>}
+                </button>
             </div>
             <hr />
           </div>
