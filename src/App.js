@@ -100,7 +100,7 @@ function App() {
         </Route>
       </Routes>
       {location.pathname !== "/registration" &&
-        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder" &&<Footer />}
+        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder" && location.pathname!=="/rider" && <Footer />}
     </div>
   )
 }
