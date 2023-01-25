@@ -7,6 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import "./ProfilePage.css";
+import { Helmet } from 'react-helmet';
 
 const ProfilePage = () => {
     const navigate = useNavigate();
@@ -35,6 +36,10 @@ const ProfilePage = () => {
     }
     return (
         <div className='profile-container'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>profile</title>
+            </Helmet>
             <section id="information-container" className="information-container">
                 <div className="information-header">
                     <h2 style={{ marginLeft: '100px' }}>My Information</h2>
