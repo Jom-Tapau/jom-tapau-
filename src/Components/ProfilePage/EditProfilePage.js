@@ -54,12 +54,11 @@ const EditProfilePage = () => {
       });
     navigate("/profile");
   };
-
   return (
     <div>
       <div className="editprofile-container mb-3">
-        <section id="edit-container" class="edit-container">
-          <div class="">
+        <section id="edit-container" className="edit-container">
+          <div className="">
             <div>
                 <button className="d-inline"><FontAwesomeIcon icon={faPenToSquare}></FontAwesomeIcon></button>
               <h2 className="text-center">Edit profile</h2>
@@ -68,8 +67,8 @@ const EditProfilePage = () => {
             <form onSubmit={submit}>
               <table>
                 <tr>
-                  <td class="profile">Name: </td>
-                  <td class="profile">
+                  <td className="profile">Name: </td>
+                  <td className="profile">
                     {" "}
                     <input
                       onChange={handleChangeInput}
@@ -82,8 +81,8 @@ const EditProfilePage = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td class="profile">Email:</td>
-                  <td class="profile">
+                  <td className="profile">Email:</td>
+                  <td className="profile">
                     {" "}
                     <input
                       onChange={handleChangeInput}
@@ -97,23 +96,8 @@ const EditProfilePage = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td class="profile">Role:</td>
-                  <td class="profile">
-                    {" "}
-                    <input
-                      onChange={handleChangeInput}
-                      style={{ width: "110%" }}
-                      disabled
-                      type="text"
-                      id="updateRole"
-                      name="role"
-                      defaultValue="role"
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td class="profile">Phone Number:</td>
-                  <td class="profile">
+                  <td className="profile">Phone Number:</td>
+                  <td className="profile">
                     {" "}
                     <input
                       onChange={handleChangeInput}
@@ -121,13 +105,13 @@ const EditProfilePage = () => {
                       type="text"
                       id="updatePhone"
                       name="phoneNumber"
-                      defaultValue={userDetails.phoneNumber}
+                      defaultValue={userDetails?.phoneNumber}
                     />
                   </td>
                 </tr>
                 <tr>
-                  <td class="profile">Matric:</td>
-                  <td class="profile">
+                  <td className="profile">Matric:</td>
+                  <td className="profile">
                     {" "}
                     <input
                       onChange={handleChangeInput}
@@ -140,8 +124,8 @@ const EditProfilePage = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td class="profile">Address:</td>
-                  <td class="profile">
+                  <td className="profile">Address:</td>
+                  <td className="profile">
                     {" "}
                     <input
                       onChange={handleChangeInput}
