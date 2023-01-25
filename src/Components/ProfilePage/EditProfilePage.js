@@ -8,6 +8,7 @@ import auth from "../../firebase.init";
 import "./EditProfile.css";
 import { faArrowAltCircleLeft, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Loading from "../Loading/Loading";
 
 const EditProfilePage = () => {
   const [user] = useAuthState(auth);
@@ -29,7 +30,7 @@ const EditProfilePage = () => {
         setUserDetails(data);
       });
   }, [user]);
-
+ 
   const navigate = useNavigate();
   const [userU, setUserU] = useState({});
   const handleChangeInput = (event) => {
@@ -54,6 +55,8 @@ const EditProfilePage = () => {
       });
     navigate("/profile");
   };
+  if(!user?.email){
+    return (<Loading className="text-center"></Loading>)}
   return (
     <div>
       <div className="editprofile-container mb-3">
