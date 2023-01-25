@@ -17,7 +17,7 @@ const AddRider = (props) => {
   return (
     <div>
       {/* TODO: add some good text here and some fancy design */}
-      <h3 className="title">Add Rider</h3>
+      <h2 className="title text-center">Add Rider</h2>
       {notRider.length === 0 ? (
         <div className="not-found">
           <span className="">No available users to add!</span>

@@ -29,10 +29,10 @@ const ApplicantRider = (props) => {
   };
   return (
     <div>
-      <h3 className="title">Applicants</h3>
+      <h2 className="title text-center">Applicants</h2>
       {applicants.length === 0 ? (
         <div className="not-found">
-          <span className="">No applicants found!</span>
+          <span>No applicants found!</span>
         </div>
       ) : (
         <section className="cart-container">
