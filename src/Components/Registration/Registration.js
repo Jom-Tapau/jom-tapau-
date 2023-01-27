@@ -38,7 +38,6 @@ const Registration = () => {
   const password = useRef("");
   const matric = useRef("");
   const phoneNumber = useRef("");
-  const address = useRef("");
 
   useAddUserDb(newUser || fbUser?.user); //send registred user data to database
 
@@ -50,14 +49,12 @@ const Registration = () => {
     const passwordValue = password.current.value;
     const phoneNumberValue = phoneNumber.current.value;
     const matricValue = matric.current.value;
-    const addressValue = address.current.value;
 
     const createUser = {
       name: nameValue,
       email: emailValue,
       phoneNumber: phoneNumberValue,
       matricValue: matricValue,
-      address: addressValue,
     };
     setUser(createUser);
     await createUserWithEmailAndPassword(emailValue, passwordValue);
@@ -74,7 +71,6 @@ const Registration = () => {
         email: fbUser.user.email,
         phoneNumber: "",
         matricValue: "",
-        address: "",
       };
     }
   };
@@ -89,8 +85,7 @@ const Registration = () => {
   return (
     <div className="App">
       <div
-        className="vh-100"
-        style={{ backgroundColor: "rgba(117, 131, 136, 0.2" }}
+        style={{ backgroundColor: "rgba(117, 131, 136, 0.2" ,height:"calc(100vh + 20px)"}}
       >
         <Helmet>
           <meta charSet="utf-8" />
@@ -100,7 +95,8 @@ const Registration = () => {
         <div className="d-lg-flex body-reg   login-div">
           <div className=" w-lg-50">
             <img
-              className=" w-100 vh-100"
+              className=" w-100"
+              style={{height:"calc(100vh + 20px)"}}
               src="https://i.ibb.co/Dg3F3FV/IMG-9325.jpg"
               alt=""
             />
@@ -150,8 +146,8 @@ const Registration = () => {
                 </small>
               </div>
             </div>
-            <form className="w-100 " onSubmit={handleSignUp}>
-              <div className="login-container ">
+            <form className="w-100 pb-4" onSubmit={handleSignUp}>
+              <div className="login-container">
                 <div className="did-floating-label-content">
                   <input
                     ref={name}
@@ -196,7 +192,7 @@ const Registration = () => {
                   />
                   <label className="did-floating-label">Matric</label>
                 </div>
-                <div className="did-floating-label-content did-error-input">
+                {/* <div className="did-floating-label-content did-error-input">
                   <input
                     width={50}
                     ref={address}
@@ -206,7 +202,7 @@ const Registration = () => {
                     // size={15}
                   />
                   <label className="did-floating-label">Address</label>
-                </div>
+                </div> */}
                 <div className="did-floating-label-content did-error-input">
                   <input
                     width={50}
@@ -221,18 +217,17 @@ const Registration = () => {
                 {/* </div> */}
               </div>
               <div >
-                <div>
+                <div style={{marginTop:'-15px'}}>
                   <Button
                     onClick={handleSignUp}
-                    className="mb-1"
                     variant="danger"
                     type="submit"
                   >
                     Sign up
                   </Button>
                 </div>
-                ---or---
-                <div className="d-flex justify-content-center ">
+                --------------------- or ---------------------
+                <div className="d-flex justify-content-center">
                   <Button onClick={handleFacebookSignUp} variant="primary">
                     FaceBook
                   </Button>
@@ -246,7 +241,7 @@ const Registration = () => {
               </p>
             </form>
 
-            <small>
+            <small className="fs-5">
               Already have an Account? <Link to="/login">Login</Link>
             </small>
           </div>
