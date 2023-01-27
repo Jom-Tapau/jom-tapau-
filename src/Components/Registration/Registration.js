@@ -85,7 +85,7 @@ const Registration = () => {
   return (
     <div className="App">
       <div
-        style={{ backgroundColor: "rgba(117, 131, 136, 0.2" ,height:"calc(100vh + 20px)"}}
+        style={{ backgroundColor: "rgba(117, 131, 136, 0.2" ,height:"calc(100vh + 0px)"}}
       >
         <Helmet>
           <meta charSet="utf-8" />
@@ -96,7 +96,7 @@ const Registration = () => {
           <div className=" w-lg-50">
             <img
               className=" w-100"
-              style={{height:"calc(100vh + 20px)"}}
+              style={{height:"calc(100vh + 0px)"}}
               src="https://i.ibb.co/Dg3F3FV/IMG-9325.jpg"
               alt=""
             />
@@ -226,7 +226,7 @@ const Registration = () => {
                     Sign up
                   </Button>
                 </div>
-                --------------------- or ---------------------
+                ------------------- or -------------------
                 <div className="d-flex justify-content-center">
                   <Button onClick={handleFacebookSignUp} variant="primary">
                     FaceBook
@@ -234,16 +234,18 @@ const Registration = () => {
                 </div>
               </div>
 
-              <p className="text-danger">
+            </form>
+              <div>
+              <p className="text-danger fs-5" style={{marginTop:'-16px'}}>
                 {(error && error.message.split("/")[1].split(")")[0]) ||
                   (fbError && fbError.message.split("/")[1].split(")")[0]) ||
                   (errorMsg && errorMsg)}
+                  s
               </p>
-            </form>
-
-            <small className="fs-5">
-              Already have an Account? <Link to="/login">Login</Link>
-            </small>
+              <p style={{marginTop:'-16px'}} className="fs-6">
+                Already have an Account? <Link to="/login">Login</Link>
+              </p>
+              </div>
           </div>
         </div>
       </div>
