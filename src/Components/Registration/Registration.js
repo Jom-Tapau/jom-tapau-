@@ -219,6 +219,7 @@ const Registration = () => {
               <div >
                 <div style={{marginTop:'-15px'}}>
                   <Button
+                   style={{width:'150px'}}
                     onClick={handleSignUp}
                     variant="danger"
                     type="submit"
@@ -228,7 +229,7 @@ const Registration = () => {
                 </div>
                 ------------------- or -------------------
                 <div className="d-flex justify-content-center">
-                  <Button onClick={handleFacebookSignUp} variant="primary">
+                  <Button style={{width:'150px'}} onClick={handleFacebookSignUp} variant="primary">
                     FaceBook
                   </Button>
                 </div>
@@ -240,7 +241,6 @@ const Registration = () => {
                 {(error && error.message.split("/")[1].split(")")[0]) ||
                   (fbError && fbError.message.split("/")[1].split(")")[0]) ||
                   (errorMsg && errorMsg)}
-                  s
               </p>
               <p style={{marginTop:'-16px'}} className="fs-6">
                 Already have an Account? <Link to="/login">Login</Link>
