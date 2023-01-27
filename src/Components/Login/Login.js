@@ -76,8 +76,9 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="box vh-100"
+    <div className="App">
+      <div
+      className="vh-100"
       style={{ backgroundColor: "rgba(117, 131, 136, 0.2)" }}
     >
       <Helmet>
@@ -186,6 +187,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
