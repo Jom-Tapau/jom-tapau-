@@ -8,10 +8,12 @@ import "./Head.css";
 import Loading from "../Loading/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import useGetUser from "../../hooks/useGetUser";
 
 const Head = ({ count }) => {
   const [user, loading, error] = useAuthState(auth);
-
+  const {userDetails} = useGetUser();
+  console.log(userDetails)
   if (loading) {
     return <Loading></Loading>;
   }
