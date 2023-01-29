@@ -3,6 +3,7 @@ import { React, PureComponent } from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import {
+  faBasketShopping,
   faBowlFood,
   faCoffee,
   faMotorcycle,
@@ -14,6 +15,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from "recharts";
 import { Helmet } from "react-helmet";
 import useGetUser from "../../hooks/useGetUser";
+import { faJediOrder } from "@fortawesome/free-brands-svg-icons";
 
 const Admin = () => {
   const { userDetails } = useGetUser();
@@ -59,7 +61,7 @@ const Admin = () => {
             <br />
             <i className="fw-bold">
               {" "}
-              Hello! Mr James ,What would you like to do today?
+              Hello! {userDetails?.name} ,What would you like to do today?
             </i>
             <br />
             <small>System Admin</small>
@@ -94,6 +96,17 @@ const Admin = () => {
                   <FontAwesomeIcon
                     style={{ color: "white" }}
                     icon={faUserPen}
+                  />
+                </div>
+              </Link>
+            </div>
+            <div>
+              <Link to="/EditFood" href="" className="text-decoration-none">
+                <div className="d-flex mt-1 justify-content-between">
+                  <p className="   text-white">All Order</p>
+                  <FontAwesomeIcon
+                    style={{ color: "white" }}
+                    icon={faBasketShopping}
                   />
                 </div>
               </Link>
