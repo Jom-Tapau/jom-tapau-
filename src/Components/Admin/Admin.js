@@ -42,7 +42,8 @@ const Admin = () => {
         <meta charSet="utf-8" />
         <title>Admin</title>
       </Helmet>
-      <section className=" d-flex ">
+      {
+        userDetails?.Admin===true && userDetails ? <section className=" d-flex ">
         <div
           className="d-flex  flex-column bg-danger w-25 "
           style={{ marginTop: "55px" }}
@@ -147,7 +148,11 @@ const Admin = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section>:<div style={{height:"calc(100vh - 278px)"}}>
+        <p className="text-center fst-italic fs-3 text-danger" style={{marginTop:"70px"}}>You are not admin</p>
+      </div>
+
+      }
     </div>
   );
 };

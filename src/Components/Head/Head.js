@@ -63,7 +63,7 @@ const Head = ({ count }) => {
                 About
               </NavLink>
               {
-                userDetails?.Admin && userDetails && <NavLink
+                userDetails?.Admin===true && userDetails && <NavLink
                 style={hehe}
                 className="text-white nav-link fs-5"
                 as={Link}

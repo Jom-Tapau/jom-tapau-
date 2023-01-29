@@ -62,7 +62,7 @@ function App() {
           path="/registration"
           element={<Registration></Registration>}
         ></Route>
-        <Route path="/admin" element={<RequireAuth><Admin></Admin></RequireAuth>}></Route>
+        <Route path="/admin" element={<Admin></Admin>}></Route>
         <Route path="/rider" element={<Rider></Rider>}></Route>
         <Route path="/addfood" element={<AddFood></AddFood>}></Route>
         <Route path="/EditFood" element={<EditFood></EditFood>}></Route>
