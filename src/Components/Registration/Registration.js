@@ -49,10 +49,9 @@ const Registration = () => {
     const passwordValue = password.current.value;
     const phoneNumberValue = phoneNumber.current.value;
     const matricValue = matric.current.value;
-
     const createUser = {
       name: nameValue,
-      email: emailValue,
+      email: emailValue.toLocaleLowerCase(),
       phoneNumber: phoneNumberValue,
       matricValue: matricValue,
     };
