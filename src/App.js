@@ -62,8 +62,8 @@ function App() {
           path="/registration"
           element={<Registration></Registration>}
         ></Route>
-        <Route path="/admin" element={<Admin></Admin>}></Route>
-        <Route path="/rider" element={<Rider></Rider>}></Route>
+        <Route path="/admin" element={ <RequireAuth><Admin></Admin></RequireAuth>}></Route>
+        <Route path="/rider" element={ <RequireAuth><Rider></Rider></RequireAuth>}></Route>
         <Route path="/addfood" element={<AddFood></AddFood>}></Route>
         <Route path="/EditFood" element={<EditFood></EditFood>}></Route>
         <Route path="/EditFood/:foodID" element={<UpdateFood></UpdateFood>} />
@@ -100,7 +100,7 @@ function App() {
         </Route>
       </Routes>
       {location.pathname !== "/registration" &&
-        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder" && location.pathname!=="/rider" && <Footer />}
+        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder"  && <Footer />}
     </div>
   )
 }
