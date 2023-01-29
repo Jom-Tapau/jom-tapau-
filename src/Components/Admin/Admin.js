@@ -13,8 +13,11 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 
 import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from "recharts";
 import { Helmet } from "react-helmet";
+import useGetUser from "../../hooks/useGetUser";
 
 const Admin = () => {
+  const { userDetails } = useGetUser();
+  console.log(userDetails);
   const data = [
     { name: "Sunday", uv: 23, pv: 100, amt: 2400 },
     { name: "Monday", uv: 40, pv: 100, amt: 2400 },
@@ -91,44 +94,47 @@ const Admin = () => {
         </div>
       </div>
 
-      <div className="w-75 d-flex justify-content-center " style={{ marginTop: "100px", marginLeft: "50px" }}>
- <div>
- <div>
-     <h2 style={{ textAlign: "start" }} className=" text-danger">
-          Jom-Tapau Analytics
-        </h2>
-     </div>
-        <div className="">
-          <div className="mt-3 ">
-            <h5 className="text-danger text-start">Weekly Sales</h5>
-            <LineChart className="w-100" width={600} height={300} data={data}>
-              <Line type="monotone" dataKey="uv" stroke="crimson" />
-              <CartesianGrid stroke="#ccc" />
-              <XAxis dataKey="name" />
-              <YAxis />
-            </LineChart>
-          </div>
+      <div
+        className="w-75 d-flex justify-content-center "
+        style={{ marginTop: "100px", marginLeft: "50px" }}
+      >
+        <div>
           <div>
-            <h5 style={{ textAlign: "start" }} className="text-danger">
-              Orders by College
-            </h5>
-            <PieChart className="w-100 mt-5" width={600} height={400}>
-              <Pie
-                dataKey="value"
-                isAnimationActive={false}
-                data={data01}
-                cx="50%"
-                cy="50%"
-                outerRadius={150}
-                fill="crimson"
-                label
-              />
-              <Pie />
-              <Tooltip />
-            </PieChart>
+            <h2 style={{ textAlign: "start" }} className=" text-danger">
+              Jom-Tapau Analytics
+            </h2>
+          </div>
+          <div className="">
+            <div className="mt-3 ">
+              <h5 className="text-danger text-start">Weekly Sales</h5>
+              <LineChart className="w-100" width={600} height={300} data={data}>
+                <Line type="monotone" dataKey="uv" stroke="crimson" />
+                <CartesianGrid stroke="#ccc" />
+                <XAxis dataKey="name" />
+                <YAxis />
+              </LineChart>
+            </div>
+            <div>
+              <h5 style={{ textAlign: "start" }} className="text-danger">
+                Orders by College
+              </h5>
+              <PieChart className="w-100 mt-5" width={600} height={400}>
+                <Pie
+                  dataKey="value"
+                  isAnimationActive={false}
+                  data={data01}
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={150}
+                  fill="crimson"
+                  label
+                />
+                <Pie />
+                <Tooltip />
+              </PieChart>
+            </div>
           </div>
         </div>
- </div>
       </div>
     </div>
   );
