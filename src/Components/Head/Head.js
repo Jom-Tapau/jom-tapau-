@@ -13,7 +13,6 @@ import useGetUser from "../../hooks/useGetUser";
 const Head = ({ count }) => {
   const [user, loading, error] = useAuthState(auth);
   const {userDetails} = useGetUser();
-  console.log(userDetails?.Admin)
   if (loading) {
     return <Loading></Loading>;
   }
@@ -72,7 +71,8 @@ const Head = ({ count }) => {
                 Admin
               </NavLink>
               }
-              <NavLink
+              {
+                userDetails?.rider===true && userDetails && <NavLink
                 style={hehe}
                 className="text-white nav-link fs-5"
                 as={Link}
@@ -80,6 +80,7 @@ const Head = ({ count }) => {
               >
                 Rider
               </NavLink>
+              }
             </Nav>
             <Nav className="nav-container">
               <NavLink
