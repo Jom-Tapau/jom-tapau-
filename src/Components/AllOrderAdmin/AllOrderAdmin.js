@@ -1,10 +1,15 @@
 import React from "react";
 import useGetUser from "../../hooks/useGetUser";
+import { Helmet } from "react-helmet";
 
 const AllOrderAdmin = () => {
   const { userDetails } = useGetUser();
   return (
     <div style={{ marginTop: "55px" }}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>All Order</title>
+      </Helmet>
       {userDetails?.Admin === true && userDetails ? (
         <section>
           <h1>Hello</h1>
