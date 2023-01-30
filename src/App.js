@@ -67,7 +67,7 @@ function App() {
         <Route path="/rider" element={ <RequireAuth><Rider></Rider></RequireAuth>}></Route>
         <Route path="/addfood" element={<AddFood></AddFood>}></Route>
         <Route path="/EditFood" element={<EditFood></EditFood>}></Route>
-        <Route path="/allOrderAdmin" element={<AllOrderAdmin></AllOrderAdmin>}></Route>
+        <Route path="/allOrderAdmin" element={<RequireAuth> <AllOrderAdmin></AllOrderAdmin></RequireAuth>}></Route>
         <Route path="/EditFood/:foodID" element={<UpdateFood></UpdateFood>} />
         <Route
           path="/forgotPassword"
