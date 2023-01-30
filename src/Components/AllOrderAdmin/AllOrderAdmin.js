@@ -1,9 +1,15 @@
 import React from "react";
 import useGetUser from "../../hooks/useGetUser";
 import { Helmet } from "react-helmet";
+import useOrders from "../../hooks/useOrders";
+import { useEffect } from "react";
+import useRiders from "../../hooks/useRiders";
 
 const AllOrderAdmin = () => {
   const { userDetails } = useGetUser();
+  const {orders} = useOrders();
+  const {allRiders} = useRiders();
+
   return (
     <div style={{ marginTop: "55px" }}>
       <Helmet>
@@ -12,7 +18,7 @@ const AllOrderAdmin = () => {
       </Helmet>
       {userDetails?.Admin === true && userDetails ? (
         <section>
-          <h1>Hello</h1>
+          <h1 className="text-center py-5">All Order</h1>
         </section>
       ) : (
         <div style={{ height: "calc(100vh - 278px)" }}>
