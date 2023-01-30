@@ -28,6 +28,7 @@ import AllOrders from "./Components/RiderDash/AllOrders";
 import Orders from "./Components/RiderDash/Orders";
 import EditProfilePage from "./Components/ProfilePage/EditProfilePage";
 import ProfilePage from "./Components/ProfilePage/ProfilePage";
+import AllOrderAdmin from "./Components/AllOrderAdmin/AllOrderAdmin";
 
 function App() {
     let location = useLocation();
@@ -66,6 +67,7 @@ function App() {
         <Route path="/rider" element={ <RequireAuth><Rider></Rider></RequireAuth>}></Route>
         <Route path="/addfood" element={<AddFood></AddFood>}></Route>
         <Route path="/EditFood" element={<EditFood></EditFood>}></Route>
+        <Route path="/allOrderAdmin" element={<AllOrderAdmin></AllOrderAdmin>}></Route>
         <Route path="/EditFood/:foodID" element={<UpdateFood></UpdateFood>} />
         <Route
           path="/forgotPassword"
@@ -100,7 +102,7 @@ function App() {
         </Route>
       </Routes>
       {location.pathname !== "/registration" &&
-        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder"  && <Footer />}
+        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder"  && location.pathname!=="/allOrderAdmin"&& <Footer />}
     </div>
   )
 }

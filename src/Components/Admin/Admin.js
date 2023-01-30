@@ -101,7 +101,7 @@ const Admin = () => {
               </Link>
             </div>
             <div>
-              <Link to="/EditFood" href="" className="text-decoration-none">
+              <Link to="/allOrderAdmin" href="" className="text-decoration-none">
                 <div className="d-flex mt-1 justify-content-between">
                   <p className="   text-white">All Order</p>
                   <FontAwesomeIcon
