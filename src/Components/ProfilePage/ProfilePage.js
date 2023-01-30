@@ -33,7 +33,7 @@ const ProfilePage = () => {
         navigate(`/editprofile/${userDetails._id}`);
     }
     return (
-        <div className='profile-container'>
+        <div className='profile-container mb-5'>
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>profile</title>
