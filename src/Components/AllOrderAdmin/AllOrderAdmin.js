@@ -13,15 +13,14 @@ const AllOrderAdmin = () => {
     let remainingOrder = [];
     let totalPrice=0.0;
     orders.map(order=>{
-        let result = order.hasOwnProperty("status")
-        if(!result)
+        if(order.status==="")
             remainingOrder.push(order)
         else{
             totalPrice+=order.total;
         }
     })
-    console.log(totalPrice)
     console.log(remainingOrder)
+    let index=0
   return (
     <div style={{ marginTop: "55px" }}>
       <Helmet>
@@ -31,7 +30,46 @@ const AllOrderAdmin = () => {
       {userDetails?.Admin === true && userDetails ? (
         <section>
           <h1 className="text-center py-5">All Order</h1>
-
+          <p className="fs-3 fs-light text-center fst-italic">Not Accepted Order</p>
+          <table className="table caption-top ml-3" >
+            <thead className="table-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Details</th>
+                <th scope="col">Address</th>
+                <th scope="col">Food</th>
+                <th scope="col">Payment</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+             
+          {
+            
+            remainingOrder.map(order=>{
+                return(
+                    <tbody key={order._id}>
+                      <tr>
+                        <th scope="row">{++index}</th>
+                        <td>{order.name} <br/>{order.email} <br/> {order.phoneNumber} </td>
+                        <td>{order.deliveryAddress}</td>
+                        <td>
+                            {
+                                order.orders.map(or=><div key={or._id}>
+                                    {or.quantity} x {or.name}
+                                </div>)
+                            }
+                        </td>
+                        <td>{order.total} RM <br/> {order.paymentMethod}
+                            <br/> {order.paymentMethod==='Card' && order.transactionID}    
+                        </td>
+                        <td><span className="bg-warning text-white rounded p-1">Pending</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                )
+            })
+          }
+          </table>
           <div>
             {
                 allRiders.map(rider=><RiderOrderDetails

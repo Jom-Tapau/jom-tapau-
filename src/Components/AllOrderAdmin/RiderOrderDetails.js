@@ -14,7 +14,7 @@ const RiderOrderDetails = ({ rider }) => {
   return (
     <section>
       <div className="details-container">
-        <p className="fs-3 fs-light text-center">Rider Order Details</p>
+        <p className="fs-3 fs-light text-center fst-italic">Rider Order Details</p>
         <table>
           <tbody>
             <tr>
