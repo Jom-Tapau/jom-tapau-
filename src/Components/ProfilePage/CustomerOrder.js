@@ -1,4 +1,4 @@
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpenReader, faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import useCollapse from "react-collapsed";
@@ -28,9 +28,9 @@ const CustomerOrder = ({ order }) => {
         </div>
         <div>
           <div>
-            <Badge bg="success">Delivered</Badge>{" "}
-            <Badge bg="danger">Cancelled</Badge>{" "}
-            <Badge bg="secondary">Accepted</Badge>{" "}
+            {
+                order.status==="Delivered"&&<Badge bg="success">Delivered</Badge> || order.status==="Cancel"&&<Badge bg="danger">Cancelled</Badge> || order.status==="Accepted"&&<Badge bg="secondary">Accepted</Badge> || order.status===""&&<Badge bg="warning">Pending</Badge>
+            }
           </div>
         </div>
       </div>
