@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from "../../firebase.init";
 import { useEffect } from "react";
-import { useState } from "react";
 import useCollapse from "react-collapsed";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
