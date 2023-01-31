@@ -38,7 +38,7 @@ const CustomerOrderHistory = () => {
                 <h2 className="text-center" style={{ marginBottom: '30px' }}>Your Accepted Order</h2>
                 {riderOrders?.length > 0 ?
                     riderOrders.map((or) => (
-                       <CustomerOrder key={or.map} order={or}></CustomerOrder>
+                       <CustomerOrder key={or._id} order={or}></CustomerOrder>
                     )) : <div>
                         <h5 className="text-center">You Accepted order: 0</h5>
                     </div>}
