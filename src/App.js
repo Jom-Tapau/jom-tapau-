@@ -28,6 +28,7 @@ import AllOrders from "./Components/RiderDash/AllOrders";
 import Orders from "./Components/RiderDash/Orders";
 import EditProfilePage from "./Components/ProfilePage/EditProfilePage";
 import ProfilePage from "./Components/ProfilePage/ProfilePage";
+import CustomerOrderHistory from "./Components/ProfilePage/CustomerOrderHistory";
 
 function App() {
     let location = useLocation();
@@ -71,6 +72,7 @@ function App() {
           path="/forgotPassword"
           element={<ForgotPassword></ForgotPassword>}
         ></Route>
+        <Route path="/CustomerOrderHistory" element={<CustomerOrderHistory></CustomerOrderHistory>}></Route>
         <Route
           path="/editCustomer"
           element={<EditCustomer></EditCustomer>}
@@ -100,7 +102,7 @@ function App() {
         </Route>
       </Routes>
       {location.pathname !== "/registration" &&
-        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder" && location.pathname!=="/rider" && <Footer />}
+        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder" && location.pathname!=="/rider" && location.pathname!=="/CustomerOrderHistory" && <Footer />}
     </div>
   )
 }

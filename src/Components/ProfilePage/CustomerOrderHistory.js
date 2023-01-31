@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import useCollapse from "react-collapsed";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { Badge } from 'react-bootstrap';
 
 const CustomerOrderHistory = () => {
 
@@ -85,20 +86,20 @@ const CustomerOrderHistory = () => {
                                     <div className="address">{or.deliveryAddress}</div>
                                 </div>
                                 <div>
-                                    {
-                                        (or.status !== "Delivered" && or.status !== "Cancel") && <div>
-                                            <button
-                                                className="deliver me-3" onClick={() => handleDeliverOrder(or._id)}>Deliver</button>
-                                            <button onClick={() => handleClickCancel(or._id)} className="accept">Cancel</button>
-                                        </div>
-                                    }
-                                    {
-                                        or.status === "Delivered" && "Food Delivered"
-                                    }
-                                    {
-                                        or.status === "Cancel" && "You Cancelled Delivery"
-                                    }
+
+                                    <div>
+                                        <Badge bg="success">
+                                            Delivered
+                                        </Badge>{' '}
+                                        <Badge bg="danger">
+                                            Cancelled
+                                        </Badge>{' '}
+                                        <Badge bg="secondary">
+                                            Accepted
+                                        </Badge>{' '}
+                                    </div>
                                 </div>
+
                             </div>
 
                             <div className="items" {...getCollapseProps()}>

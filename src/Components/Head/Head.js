@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
@@ -97,16 +97,23 @@ const Head = ({ count }) => {
                   >
                     Sign out
                   </NavLink>
-                  <NavLink
-                    style={hehe}
-                    className="text-white nav-link fs-5"
-                    as={Link}
-                    to="/profile"
-                  >
-                     <span className="material-symbols-outlined mt-1">account_circle</span>
-                  </NavLink>
-                 
+              
+                  <div>
+                    <Dropdown className="text-white nav-link">
+                      <Dropdown.Toggle variant="danger" id="dropdown-basic">
+                      <span className="material-symbols-outlined mt-1">account_circle</span>
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+                        <Dropdown.Item href="/CustomerOrderHistory">Order History</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+
+                  </div>
                 </div>
+
+
               ) : (
                 <NavLink
                   style={hehe}
