@@ -19,7 +19,6 @@ import { faJediOrder } from "@fortawesome/free-brands-svg-icons";
 
 const Admin = () => {
   const { userDetails } = useGetUser();
-  console.log(userDetails);
   const data = [
     { name: "Sunday", uv: 23, pv: 100, amt: 2400 },
     { name: "Monday", uv: 40, pv: 100, amt: 2400 },
