@@ -1,6 +1,5 @@
 import React from "react";
 import useOrders from "../../hooks/useOrders";
-import { RouterProvider } from "react-router-dom";
 
 const RiderOrderDetails = ({ rider }) => {
   const { name, email, phoneNumber } = rider;
@@ -36,6 +35,14 @@ const RiderOrderDetails = ({ rider }) => {
             </tr>
             <tr>
               <td>
+                <span className="fw-semibold">Phone:</span>
+              </td>
+              <td>
+                <span className="fw-semibold">{phoneNumber}</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <span className="fw-semibold">Orders:</span>
               </td>
               <td>
@@ -46,7 +53,7 @@ const RiderOrderDetails = ({ rider }) => {
         </table>
         <h3>Order List</h3>
 
-        <table className="table caption-top w-75">
+        <table className="table caption-top px-5" >
           <thead className="table-dark">
             <tr>
               <th scope="col">#</th>
@@ -54,6 +61,7 @@ const RiderOrderDetails = ({ rider }) => {
               <th scope="col">Address</th>
               <th scope="col">Food</th>
               <th scope="col">Payment</th>
+              <th scope="col">Status</th>
             </tr>
           </thead>
 
@@ -75,6 +83,7 @@ const RiderOrderDetails = ({ rider }) => {
                         <td>{order.total} RM <br/> {order.paymentMethod}
                             <br/> {order.paymentMethod==='Card' && order.transactionID}    
                         </td>
+                        <td>{order.status==="Delivered"&& <span className="bg-success text-white rounded p-1">Delivered</span> || order.status==="Cancel" && <span style={{paddingLeft:"12px",paddingRight:"12px"}} className="bg-danger text-white rounded py-1" >Cancel</span>}</td>
                       </tr>
                     </tbody>
                   );
