@@ -29,6 +29,7 @@ const AllOrderAdmin = () => {
       {userDetails?.Admin === true && userDetails ? (
         <section>
           <h1 className="text-center py-5">All Order</h1>
+          <p className="text-center fw-semibold fs-4">Total income: {totalPrice} RM</p>
           <p className="fs-3 fs-light text-center fst-italic">Not Accepted Order</p>
           <table className="table caption-top ml-3" >
             <thead className="table-dark">
