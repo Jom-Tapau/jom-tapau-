@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useEffect } from "react";
-import useCollapse from "react-collapsed";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
-import { Badge } from "react-bootstrap";
 import CustomerOrder from "./CustomerOrder";
 import { Helmet } from "react-helmet";
 
@@ -14,24 +10,25 @@ const CustomerOrderHistory = () => {
   const [riderErr, setRiderErr] = useState("");
   const [user, loading, error] = useAuthState(auth);
 
-  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
   useEffect(() => {
-    fetch("http://localhost:5000/riderOrders", {
+    fetch("http://localhost:5000/findUserOrder", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ riderEmail: user?.email }),
+      body: JSON.stringify({ email: user?.email }),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data?.length > 0) {
+            const newData = data.reverse();
+            console.log(newData)
           setRiderOrders(data);
           setRiderErr("");
         } else setRiderErr("You have performed O order");
       });
-  }, [user, riderOrders]);
+  }, [user]);
   return (
     <div>
       <Helmet>

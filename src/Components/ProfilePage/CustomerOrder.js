@@ -24,6 +24,9 @@ const CustomerOrder = ({ order }) => {
           <div className="address">{deliveryAddress}</div>
         </div>
         <div>
+            {order.deliveryDate}
+        </div>
+        <div>
           <div>
             <Badge bg="success">Delivered</Badge>{" "}
             <Badge bg="danger">Cancelled</Badge>{" "}
