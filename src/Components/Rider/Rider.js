@@ -6,6 +6,7 @@ import AddRider from "./AddRider";
 import AllRider from "./AllRider";
 import ApplicantRider from "./ApplicantRider";
 import "./Rider.css";
+import useGetUser from "../../hooks/useGetUser";
 
 const Rider = () => {
   const [users, setUser] = useState([]);
@@ -14,6 +15,8 @@ const Rider = () => {
   const [allRiders, setRiders] = useState([]);
   const [addRider, setAddRider] = useState(false);
   const [appBtn, setAppBtn] = useState(false);
+
+  const {userDetails} = useGetUser();
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -57,28 +60,41 @@ const Rider = () => {
         <title>Rider</title>
       </Helmet>
 
-      <div className="btn-container">
-        <Button
-          onClick={handleAddRider}
-          className="me-4"
-          variant={addRider ? "danger" : "outline-danger"}
-          size={"sm"}
-        >
-          Add Rider
-        </Button>
+      {userDetails?.Admin === true && userDetails ? (
+        <section>
+          <div className="btn-container">
+            <Button
+              onClick={handleAddRider}
+              className="me-4"
+              variant={addRider ? "danger" : "outline-danger"}
+              size={"sm"}
+            >
+              Add Rider
+            </Button>
 
-        <Button
-          onClick={handleApplicants}
-          variant={appBtn ? "danger" : "outline-danger"}
-          size={"sm"}
-        >
-          Applicants
-        </Button>
-      </div>
+            <Button
+              onClick={handleApplicants}
+              variant={appBtn ? "danger" : "outline-danger"}
+              size={"sm"}
+            >
+              Applicants
+            </Button>
+          </div>
 
-      {!addRider && !appBtn ? <AllRider rider={allRiders}></AllRider> : ""}
-      {addRider && <AddRider notRider={notRider}></AddRider>}
-      {appBtn && <ApplicantRider applicants={applicants}></ApplicantRider>}
+          {!addRider && !appBtn ? <AllRider rider={allRiders}></AllRider> : ""}
+          {addRider && <AddRider notRider={notRider}></AddRider>}
+          {appBtn && <ApplicantRider applicants={applicants}></ApplicantRider>}
+        </section>
+      ) : (
+        <div style={{ height: "calc(100vh - 278px)" }}>
+          <p
+            className="text-center fst-italic fs-3 text-danger"
+            style={{ marginTop: "70px" }}
+          >
+            You are not Rider
+          </p>
+        </div>
+      )}
     </div>
   );
 };

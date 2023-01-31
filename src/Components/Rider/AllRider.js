@@ -24,7 +24,7 @@ const AllRider = () => {
     };
   return (
     <div>
-      <h3 className="title">All Riders</h3>
+      <h2 className="title text-center">All Riders</h2>
       {allRiders.length ? (
         <section className="cart-container">
           <div>

@@ -29,6 +29,7 @@ import Orders from "./Components/RiderDash/Orders";
 import EditProfilePage from "./Components/ProfilePage/EditProfilePage";
 import ProfilePage from "./Components/ProfilePage/ProfilePage";
 import CustomerOrderHistory from "./Components/ProfilePage/CustomerOrderHistory";
+import AllOrderAdmin from "./Components/AllOrderAdmin/AllOrderAdmin";
 
 function App() {
     let location = useLocation();
@@ -63,10 +64,11 @@ function App() {
           path="/registration"
           element={<Registration></Registration>}
         ></Route>
-        <Route path="/admin" element={<Admin></Admin>}></Route>
-        <Route path="/rider" element={<Rider></Rider>}></Route>
+        <Route path="/admin" element={ <RequireAuth><Admin></Admin></RequireAuth>}></Route>
+        <Route path="/rider" element={<RequireAuth><Rider></Rider></RequireAuth>}></Route>
         <Route path="/addfood" element={<AddFood></AddFood>}></Route>
         <Route path="/EditFood" element={<EditFood></EditFood>}></Route>
+        <Route path="/allOrderAdmin" element={<RequireAuth><AllOrderAdmin></AllOrderAdmin></RequireAuth>}></Route>
         <Route path="/EditFood/:foodID" element={<UpdateFood></UpdateFood>} />
         <Route
           path="/forgotPassword"
@@ -102,7 +104,8 @@ function App() {
         </Route>
       </Routes>
       {location.pathname !== "/registration" &&
-        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder" && location.pathname!=="/rider" && location.pathname!=="/CustomerOrderHistory" && <Footer />}
+        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder" && location.pathname!=="/rider" && location.pathname!=="/CustomerOrderHistory" && 
+        location.pathname !== "/login" && <Footer /> && location.pathname !== "/payment" && location.pathname!=="/riderDash" &&location.pathname!=="/riderDash/Orders"&&location.pathname!=="/riderDash/acceptedOrder"  && location.pathname!=="/rider"&& location.pathname!=="/allOrderAdmin" && <Footer />}
     </div>
   )
 }

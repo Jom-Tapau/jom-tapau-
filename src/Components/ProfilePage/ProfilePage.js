@@ -13,9 +13,7 @@ const ProfilePage = () => {
     const navigate = useNavigate();
     const [user, loading, error] = useAuthState(auth);
     const [userDetails, setUserDetails]= useState('');
-    
     const email = user?.email;
-    
     //fetch the user from the database
     useEffect(() => {
       fetch("http://localhost:5000/findUser", {
@@ -23,19 +21,19 @@ const ProfilePage = () => {
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify( {email} ),
+        body: JSON.stringify( {email:user?.email} ),
       })
         .then((response) => response.json())
         .then((data) => {
       
       setUserDetails(data);
         });
-    }, [user]);
+    }, [user?.email]);
     const handleClick = () => {
         navigate(`/editprofile/${userDetails._id}`);
     }
     return (
-        <div className='profile-container'>
+        <div className='profile-container mb-5'>
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>profile</title>
@@ -54,6 +52,7 @@ const ProfilePage = () => {
 
                 <div>
                     <table id="profile-table">
+                        <tbody>
                         <tr>
                             <td className="profile">
                                 Name:{userDetails?.name}
@@ -103,6 +102,7 @@ const ProfilePage = () => {
                                 <span id="address" className="data"></span>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
             </section >

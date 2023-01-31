@@ -14,7 +14,7 @@ const useFood = () =>{
             else
                 setError(true)
         })
-    },[])
+    },[foods])
 
     return {foods,error,setFood};
 }

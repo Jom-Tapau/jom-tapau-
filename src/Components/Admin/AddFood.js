@@ -63,9 +63,9 @@ const AddFood = () => {
   };
 
   return (
-    <div style={{ marginTop: "100px" }}>
+    <div style={{ marginTop: "100px",height: "calc(100vh - 310px)" }}>
       
-      <h1 className="text-danger ">Please Add a New Food Item</h1>
+      <h1 className="text-danger text-center">Please Add a New Food Item</h1>
       <br />
       <form onSubmit={handleAddFood} className="w-50 mx-auto ">
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
