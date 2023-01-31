@@ -46,13 +46,14 @@ const RiderOrderDetails = ({ rider }) => {
         </table>
         <h3>Order List</h3>
 
-        <table className="table caption-top">
+        <table className="table caption-top w-75">
           <thead className="table-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col">Details</th>
               <th scope="col">Address</th>
               <th scope="col">Food</th>
+              <th scope="col">Payment</th>
             </tr>
           </thead>
 
@@ -70,6 +71,9 @@ const RiderOrderDetails = ({ rider }) => {
                                     {or.quantity} x {or.name}
                                 </div>)
                             }
+                        </td>
+                        <td>{order.total} RM <br/> {order.paymentMethod}
+                            <br/> {order.paymentMethod==='Card' && order.transactionID}    
                         </td>
                       </tr>
                     </tbody>
