@@ -15,11 +15,10 @@ const AllOrderAdmin = () => {
     orders.map(order=>{
         if(order.status==="")
             remainingOrder.push(order)
-        else{
+        if(order.status==="Delivered")
             totalPrice+=order.total;
-        }
     })
-    console.log(remainingOrder)
+    console.log(totalPrice)
     let index=0
   return (
     <div style={{ marginTop: "55px" }}>
