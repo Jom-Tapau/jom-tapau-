@@ -3,10 +3,20 @@ import useGetUser from "../../hooks/useGetUser";
 import { Helmet } from "react-helmet";
 import useRiders from "../../hooks/useRiders";
 import RiderOrderDetails from "./RiderOrderDetails";
+import useOrders from "../../hooks/useOrders";
 
 const AllOrderAdmin = () => {
   const { userDetails } = useGetUser();
   const {allRiders} = useRiders();
+  const { orders } = useOrders();
+
+    let remainingOrder = [];
+    orders.map(order=>{
+        let result = order.hasOwnProperty("status")
+        if(!result)
+            remainingOrder.push(order)
+    })
+    console.log(remainingOrder)
   return (
     <div style={{ marginTop: "55px" }}>
       <Helmet>

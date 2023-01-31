@@ -53,7 +53,7 @@ const RiderOrderDetails = ({ rider }) => {
         </table>
         <h3>Order List</h3>
 
-        <table className="table caption-top px-5" >
+        <table className="table caption-top ml-3" >
           <thead className="table-dark">
             <tr>
               <th scope="col">#</th>
@@ -75,7 +75,7 @@ const RiderOrderDetails = ({ rider }) => {
                         <td>{order.deliveryAddress}</td>
                         <td>
                             {
-                                order.orders.map(or=><div>
+                                order.orders.map(or=><div key={or._id}>
                                     {or.quantity} x {or.name}
                                 </div>)
                             }

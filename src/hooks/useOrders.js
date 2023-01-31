@@ -17,7 +17,7 @@ const useOrders = () =>{
             });
             setOtherOrder(accOrderArray)
         })
-    },[orders])
+    },[])
     return {
         orders,
         otherOrder
