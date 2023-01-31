@@ -13,7 +13,7 @@ const RiderOrderDetails = ({ rider }) => {
 
   return (
     <section>
-      <div>
+      <div className="details-container">
         <p className="fs-3 fs-light text-center">Rider Order Details</p>
         <table>
           <tbody>
@@ -83,7 +83,8 @@ const RiderOrderDetails = ({ rider }) => {
                         <td>{order.total} RM <br/> {order.paymentMethod}
                             <br/> {order.paymentMethod==='Card' && order.transactionID}    
                         </td>
-                        <td>{order.status==="Delivered"&& <span className="bg-success text-white rounded p-1">Delivered</span> || order.status==="Cancel" && <span style={{paddingLeft:"12px",paddingRight:"12px"}} className="bg-danger text-white rounded py-1" >Cancel</span>}</td>
+                        <td>{order.status==="Delivered"&& <span className="bg-success text-white rounded p-1">Delivered</span> || order.status==="Cancel" && <span style={{paddingLeft:"12px",paddingRight:"12px"}} className="bg-danger text-white rounded py-1" >Cancel</span>|| order.status==="Accepted"&& <span className="bg-secondary p-1 rounded text-white">Accepted</span> 
+                        }</td>
                       </tr>
                     </tbody>
                   );
