@@ -11,11 +11,16 @@ const AllOrderAdmin = () => {
   const { orders } = useOrders();
 
     let remainingOrder = [];
+    let totalPrice=0.0;
     orders.map(order=>{
         let result = order.hasOwnProperty("status")
         if(!result)
             remainingOrder.push(order)
+        else{
+            totalPrice+=order.total;
+        }
     })
+    console.log(totalPrice)
     console.log(remainingOrder)
   return (
     <div style={{ marginTop: "55px" }}>
