@@ -78,7 +78,7 @@ const Registration = () => {
     return <Loading></Loading>;
   }
   if (newUser || fbUser) {
-    // navigate('/home');
+    navigate('/home');
   }
   //add user data to the database
   return (
