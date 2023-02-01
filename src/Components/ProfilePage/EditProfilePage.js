@@ -9,11 +9,12 @@ import "./EditProfile.css";
 import { faArrowAltCircleLeft, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loading from "../Loading/Loading";
+import { Helmet } from "react-helmet";
 
 const EditProfilePage = () => {
   const [user] = useAuthState(auth);
   const [userDetails, setUserDetails] = useState({});
-
+  
   const email = user?.email;
   //fetch the user from the database
   useEffect(() => {
@@ -30,7 +31,8 @@ const EditProfilePage = () => {
         setUserDetails(data);
       });
   }, [user]);
- 
+  
+  console.log(userDetails)
   const navigate = useNavigate();
   const [userU, setUserU] = useState({});
   const handleChangeInput = (event) => {
@@ -58,7 +60,11 @@ const EditProfilePage = () => {
   if(!user?.email){
     return (<Loading className="text-center"></Loading>)}
   return (
-    <div style={{height:"75vh"}}>
+    <div style={{height:"90vh"}}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Edit Profile</title>
+      </Helmet>
       <div className="editprofile-container mb-3" style={{paddingTop:"50px"}}>
         <section id="edit-container" className="edit-container">
           <div className="">
