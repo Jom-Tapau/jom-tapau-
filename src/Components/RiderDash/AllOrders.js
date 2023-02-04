@@ -15,7 +15,7 @@ const AllOrders = () => {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
   useEffect(() => {
-    fetch("http://localhost:5000/riderOrders", {
+    fetch("https://jom-tapau-backend.onrender.com/riderOrders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -34,7 +34,7 @@ const AllOrders = () => {
 
   const handleDeliverOrder = id =>{
     console.log("delivered ",id)
-    fetch('http://localhost:5000/updateRiderOrder',{
+    fetch('https://jom-tapau-backend.onrender.com/updateRiderOrder',{
             method:'PUT',
             headers:{
                 'content-type':'application/json'
@@ -52,7 +52,7 @@ const AllOrders = () => {
 
   const handleClickCancel = id =>{
     console.log("Cancel ",id)
-    fetch('http://localhost:5000/updateRiderOrder',{
+    fetch('https://jom-tapau-backend.onrender.com/updateRiderOrder',{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

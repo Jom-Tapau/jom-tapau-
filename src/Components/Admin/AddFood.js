@@ -39,7 +39,7 @@ const AddFood = () => {
             quantity: user.quantity,
             imgURL: foodImage.url,
           };
-          fetch("http://localhost:5000/food", {
+          fetch("https://jom-tapau-backend.onrender.com/food", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

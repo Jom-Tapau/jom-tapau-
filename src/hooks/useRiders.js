@@ -7,7 +7,7 @@ const useRiders = () =>{
     const [notRider,setNotRider] = useState([]);
     const [allRiders,setRiders] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/user')
+        fetch('https://jom-tapau-backend.onrender.com/user')
         .then(res=>res.json())
         .then(data=>{
             setUser(data);

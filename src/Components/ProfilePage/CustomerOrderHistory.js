@@ -12,7 +12,7 @@ const CustomerOrderHistory = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:5000/findUserOrder", {
+    fetch("https://jom-tapau-backend.onrender.com/findUserOrder", {
       method: "POST",
       headers: {
         "content-type": "application/json",

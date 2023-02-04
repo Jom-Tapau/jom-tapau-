@@ -13,7 +13,7 @@ const CreditCard = ({ user,setPaymentID, paymentID,total }) => {
 
   //get the payment-intent
   useEffect(()=>{
-    fetch('http://localhost:5000/create-payment-intent',{
+    fetch('https://jom-tapau-backend.onrender.com/create-payment-intent',{
         method:'POST',
         headers:{
             'content-type':'application/json'

@@ -6,7 +6,7 @@ const useFood = () =>{
     const [foods,setFood] = useState([]);
     const [error,setError] = useState(false)
     useEffect(()=>{
-        fetch('http://localhost:5000/food')
+        fetch('https://jom-tapau-backend.onrender.com/food')
         .then(res=>res.json())
         .then(data=>{
             if(data.length>0)

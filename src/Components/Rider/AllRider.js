@@ -11,7 +11,7 @@ const AllRider = () => {
     
     var notification = alertify.notify('Deleted successful', 'success', 2, function(){  console.log('Deleted')});
     //reject the rider
-     fetch("http://localhost:5000/rejectRider", {
+     fetch("https://jom-tapau-backend.onrender.com/rejectRider", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: id }),

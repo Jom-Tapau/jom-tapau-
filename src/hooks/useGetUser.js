@@ -8,7 +8,7 @@ const useGetUser = () =>{
     const [user, loading, error] = useAuthState(auth);
     const [userDetails, setUserDetails]= useState('');
     useEffect(() => {
-        fetch("http://localhost:5000/findUser", {
+        fetch("https://jom-tapau-backend.onrender.com/findUser", {
           method: "POST",
           headers: {
             "content-type": "application/json",

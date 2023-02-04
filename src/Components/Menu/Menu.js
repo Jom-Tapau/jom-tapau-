@@ -16,7 +16,7 @@ const Menu = ({handleAddtoCart}) => {
 
 useEffect(()=>{
  setIsLoading(true);
-  fetch('http://localhost:5000/food').then(res=>res.json()).then(data=>{
+  fetch('https://jom-tapau-backend.onrender.com/food').then(res=>res.json()).then(data=>{
     setFood(data);
     setFoodBackup(data);
     setIsLoading(false);

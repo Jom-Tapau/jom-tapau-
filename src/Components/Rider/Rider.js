@@ -20,7 +20,7 @@ const Rider = () => {
 
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://jom-tapau-backend.onrender.com/user")
       .then((res) => res.json())
       .then((data) => {
         setUser(data);

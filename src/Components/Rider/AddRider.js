@@ -6,7 +6,7 @@ const AddRider = (props) => {
   const { notRider } = useRiders();
   const handleAddRider = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/addRider`, {
+    fetch(`https://jom-tapau-backend.onrender.com/addRider`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: id }),

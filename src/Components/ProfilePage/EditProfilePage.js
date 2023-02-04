@@ -18,7 +18,7 @@ const EditProfilePage = () => {
   const email = user?.email;
   //fetch the user from the database
   useEffect(() => {
-    fetch("http://localhost:5000/findUser", {
+    fetch("https://jom-tapau-backend.onrender.com/findUser", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,7 +44,7 @@ const EditProfilePage = () => {
   };
   const submit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:5000/user/${userDetails._id}`, {
+    fetch(`https://jom-tapau-backend.onrender.com/user/${userDetails._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

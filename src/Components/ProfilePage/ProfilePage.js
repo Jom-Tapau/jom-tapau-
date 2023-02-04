@@ -16,7 +16,7 @@ const ProfilePage = () => {
     const email = user?.email;
     //fetch the user from the database
     useEffect(() => {
-      fetch("http://localhost:5000/findUser", {
+      fetch("https://jom-tapau-backend.onrender.com/findUser", {
         method: "POST",
         headers: {
           "content-type": "application/json",

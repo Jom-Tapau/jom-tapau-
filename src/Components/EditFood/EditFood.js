@@ -11,7 +11,7 @@ const EditFood = () => {
   // console.log(foods);
   const handleSearchFood = () => {
     const text = inputField.current.value.toLowerCase();
-    fetch("http://localhost:5000/searchFood", {
+    fetch("https://jom-tapau-backend.onrender.com/searchFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -25,7 +25,7 @@ const EditFood = () => {
   //delete food
   const handleFoodDelete = id =>{
     console.log(id)
-     fetch(`http://localhost:5000/foodDelete/${id}`)
+     fetch(`https://jom-tapau-backend.onrender.com/foodDelete/${id}`)
     .then(res=>res.json())
     .then(data=>{
       console.log(data.acknowledged)

@@ -8,7 +8,7 @@ const ApplicantRider = (props) => {
   const handleRejectRider = (id) => {
     console.log(id);
     //reject the rider
-    fetch("http://localhost:5000/rejectRider", {
+    fetch("https://jom-tapau-backend.onrender.com/rejectRider", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: id }),
@@ -19,7 +19,7 @@ const ApplicantRider = (props) => {
   const handleApproveRider = (id) => {
     console.log(id);
     //update the rider
-    fetch(`http://localhost:5000/addRider`, {
+    fetch(`https://jom-tapau-backend.onrender.com/addRider`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: id }),

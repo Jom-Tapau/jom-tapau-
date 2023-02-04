@@ -16,7 +16,7 @@ const UpdateFood = () => {
   const navigate = useNavigate();
   //load the food
   useEffect(() => {
-    fetch(`http://localhost:5000/food/${foodID}`)
+    fetch(`https://jom-tapau-backend.onrender.com/food/${foodID}`)
       .then((res) => res.json())
       .then((data) => {
         singleFood(data);
@@ -45,7 +45,7 @@ const UpdateFood = () => {
     };
     console.log(foodDetails);
     //update foodDetails
-    fetch(`http://localhost:5000/food/${foodID}`, {
+    fetch(`https://jom-tapau-backend.onrender.com/food/${foodID}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
