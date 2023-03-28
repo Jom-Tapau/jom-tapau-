@@ -16,6 +16,7 @@ import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from "recharts";
 import { Helmet } from "react-helmet";
 import useGetUser from "../../hooks/useGetUser";
 import { faJediOrder } from "@fortawesome/free-brands-svg-icons";
+import ExcelGenerator from "../ExcelGenerator/ExcelGenerator";
 
 const Admin = () => {
   const { userDetails } = useGetUser();
@@ -138,7 +139,8 @@ const Admin = () => {
                   <YAxis />
                 </LineChart>
               </div>
-              <div>
+              <ExcelGenerator></ExcelGenerator>
+              {/* <div>
                 <h5 style={{ textAlign: "start" }} className="text-danger">
                   Orders by College
                 </h5>
@@ -156,7 +158,10 @@ const Admin = () => {
                   <Pie />
                   <Tooltip />
                 </PieChart>
-              </div>
+              </div> */}
+
+
+
             </div>
           </div>
         </div>
