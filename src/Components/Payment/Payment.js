@@ -157,7 +157,7 @@ const Payment = ({ cart,setCount }) => {
       orders:cart
     }
     console.log(newOrder)
-    /* fetch('http://localhost:5000/postOrder',{
+    fetch('http://localhost:5000/postOrder',{
       method:"POST",
       headers:{
         "content-type": "application/json",
@@ -170,7 +170,7 @@ const Payment = ({ cart,setCount }) => {
       setCount(0);
       if(data.acknowledged)
       var notification = alertify.notify('Order Placed Successfully', 'success', 5, function(){  console.log('dismissed'); });
-    }) */
+    })
   }
   
   return (
