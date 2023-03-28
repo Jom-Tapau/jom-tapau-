@@ -47,7 +47,7 @@ const Payment = ({ cart,setCount }) => {
     day[date.getDay()] +
     " " +
     monthNames[date.getMonth()];
-  const tomorrow =
+  /* const tomorrow =
     date.getDate() +
     1 +
     " " +
@@ -60,7 +60,7 @@ const Payment = ({ cart,setCount }) => {
     " " +
     day[date.getDay() + 2] +
     " " +
-    monthNames[date.getMonth()];
+    monthNames[date.getMonth()]; */
 
   const time = date.getHours();
   console.log(time)
