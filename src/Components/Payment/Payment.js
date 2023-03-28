@@ -157,7 +157,7 @@ const Payment = ({ cart,setCount }) => {
       orders:cart
     }
     console.log(newOrder)
-    fetch('http://localhost:5000/postOrder',{
+    fetch('https://jom-tapau-backend.onrender.com/postOrder',{
       method:"POST",
       headers:{
         "content-type": "application/json",
