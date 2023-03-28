@@ -28,7 +28,7 @@ const ProfilePage = () => {
       
       setUserDetails(data);
         });
-    }, [user?.email]);
+    }, [userDetails]);
     const handleClick = () => {
         navigate(`/editprofile/${userDetails._id}`);
     }
