@@ -62,10 +62,13 @@ const Payment = ({ cart,setCount }) => {
     " " +
     monthNames[date.getMonth()];
 
+  const time = date.getHours();
+  console.log(time)
+
   const [ackID,setAckID] = useState(false)
 
-  const [deliveryDate,setDeliveryDate] = useState(today) //guseState of delivery data
-  const [deliveryTime,setDeliveryTime] = useState("ASAP") //useState of delivery time
+  const [deliveryDate,setDeliveryDate] = useState(today) //useState of delivery data
+  const [deliveryTime,setDeliveryTime] = useState("") //useState of delivery time
   const [deliveryAddress,setDeliveryAddress] = useState("KLG Block A")//useState of delivery Address
   const [roomNumber,setRoomNumber] = useState(""); //useState of the room Number
   const[phonenumber,setPhonenumber] = useState('')//useState of the phone number
@@ -78,6 +81,12 @@ const Payment = ({ cart,setCount }) => {
   
   //fetch the user from the database
   useEffect(() => {
+    if(time<10){
+      setDeliveryTime("Lunch")
+    }else{
+      setDeliveryTime("Dinner")
+    }
+
     fetch("https://jom-tapau-backend.onrender.com/findUser", {
       method: "POST",
       headers: {
@@ -114,6 +123,7 @@ const Payment = ({ cart,setCount }) => {
   //get delivery time
   const handleDeliveryTime = e =>{
     setDeliveryTime(e.target.value)
+    console.log(e.target.value)
   }
 
   //get the address of the delivery
@@ -146,7 +156,8 @@ const Payment = ({ cart,setCount }) => {
       status:"",
       orders:cart
     }
-    fetch('http://localhost:5000/postOrder',{
+    console.log(newOrder)
+    /* fetch('http://localhost:5000/postOrder',{
       method:"POST",
       headers:{
         "content-type": "application/json",
@@ -159,7 +170,7 @@ const Payment = ({ cart,setCount }) => {
       setCount(0);
       if(data.acknowledged)
       var notification = alertify.notify('Order Placed Successfully', 'success', 5, function(){  console.log('dismissed'); });
-    })
+    }) */
   }
   
   return (
@@ -184,7 +195,7 @@ const Payment = ({ cart,setCount }) => {
                   className="form-control me-5"
                   id="exampleFormControlInput1"
                   defaultValue={today}
-                  disabled='true'
+                  readOnly
                   onChange={handleRoomNumber}
                 ></input>
 
@@ -217,9 +228,12 @@ const Payment = ({ cart,setCount }) => {
                   aria-label="Default select example"
                   onChange={handleDeliveryTime}
                 >
-                  <option defaultValue="ASAP">ASAP</option>
-                  <option defaultValue="">After 30min</option>
-                  <option defaultValue=" ">After 1hour</option>
+                  {
+                    time<10?<option value="Lunch">lunch (before 10am)</option>:<option disabled={true} value="Lunch">lunch (before 10am)</option>
+                  }
+                  {
+                    time<21?<option value="Dinner">Dinner (before 9pm)</option>:<option disabled={true} value="Dinner">Dinner (before 9pm)</option>
+                  }
                 </select>
               </div>
               <br />
@@ -247,7 +261,7 @@ const Payment = ({ cart,setCount }) => {
                   style={{ width: "250px" }}
                   className="form-control"
                   id="exampleFormControlInput1"
-                  placeholder="Room Number"
+                  placeholder="Room Number (e.g. B505)"
                   onChange={handleRoomNumber}
                 ></input>
               </div>
@@ -309,10 +323,11 @@ const Payment = ({ cart,setCount }) => {
                 <label htmlFor="Cash on Delivery"> 
                   <span className="fw-semibold">Cash on Delivery</span>
                 </label><br/>
-                <input className="me-3" type="radio" id="card" name="age" value="Card"/>
+                {/* <input className="me-3" type="radio" id="card" name="age" value="Card"/>
                 <label htmlFor="card">
                   <span className="fw-semibold mb-3">Credit or Debit Card</span>
-                </label><br/>  
+                </label> */}
+                <br/>  
                   
                   {
                     paymentMethod==="Card" &&paymentID==="" && <div style={{marginBottom:'15px',marginTop:'10px',marginLeft:'10px',marginRight:'130px',boxShadow:'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px', padding:'10px',borderRadius:'10px'}}><Elements  stripe={stripePromise}>
@@ -330,6 +345,9 @@ const Payment = ({ cart,setCount }) => {
           
           <div className="d-flex justify-content-center mt-5">
             <Button variant="danger" onClick={handleConfirm} disabled={cart.length===0}>Confirm</Button>
+          </div>
+          <div className="d-flex justify-content-center mt-5">
+            <Button variant="danger" onClick={handleConfirm} >Confirm</Button>
           </div>
         </section>
         <section>
