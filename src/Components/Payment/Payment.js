@@ -146,7 +146,7 @@ const Payment = ({ cart,setCount }) => {
       status:"",
       orders:cart
     }
-    fetch('https://jom-tapau-backend.onrender.com/postOrder',{
+    fetch('http://localhost:5000/postOrder',{
       method:"POST",
       headers:{
         "content-type": "application/json",
@@ -177,7 +177,19 @@ const Payment = ({ cart,setCount }) => {
 
               <div className="d-flex">
                 {/* date section */}
-                <select
+
+                <input
+                  type="text"
+                  style={{ width: "250px" }}
+                  className="form-control me-5"
+                  id="exampleFormControlInput1"
+                  defaultValue={today}
+                  disabled='true'
+                  onChange={handleRoomNumber}
+                ></input>
+
+
+                {/* <select
                   style={{ width: "250px" }}
                   className="form-select me-5"
                   aria-label="Default select example"
@@ -195,7 +207,9 @@ const Payment = ({ cart,setCount }) => {
                     {date.getDate() + 2} {day[date.getDay() + 2]},
                     {monthNames[date.getMonth()]}
                   </option>
-                </select>
+                </select> */}
+
+
                 {/* time section */}
                 <select
                   style={{ width: "250px" }}
