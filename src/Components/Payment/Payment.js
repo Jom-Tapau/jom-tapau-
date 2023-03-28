@@ -150,7 +150,7 @@ const Payment = ({ cart,setCount }) => {
       deliveryTime:deliveryTime,
       deliveryAddress:deliveryAddress,
       roomNumber:roomNumber,
-      transactionID: paymentID,
+      // transactionID: paymentID,
       paymentMethod:paymentMethod,
       total:total,
       status:"",
@@ -345,9 +345,6 @@ const Payment = ({ cart,setCount }) => {
           
           <div className="d-flex justify-content-center mt-5">
             <Button variant="danger" onClick={handleConfirm} disabled={cart.length===0}>Confirm</Button>
-          </div>
-          <div className="d-flex justify-content-center mt-5">
-            <Button variant="danger" onClick={handleConfirm} >Confirm</Button>
           </div>
         </section>
         <section>
