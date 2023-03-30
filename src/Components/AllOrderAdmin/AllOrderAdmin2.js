@@ -6,15 +6,15 @@ import useGetDate from "../../hooks/useGetDate";
 import OrderTable from "./OrderTable";
 
 const AllOrderAdmin2 = () => {
-const {today} = useGetDate();
+  const { today } = useGetDate();
 
   const { userDetails } = useGetUser();
   const { orders } = useOrders();
-    console.log(orders)
-  let todayOrder = [];//array of today's order
-  let lunchOrder = [];//array of today's lunch order
-  let dinnerOrder = [];//array of today's dinner order
-  
+  console.log(orders);
+  let todayOrder = []; //array of today's order
+  let lunchOrder = []; //array of today's lunch order
+  let dinnerOrder = []; //array of today's dinner order
+
   let todayLunchOrder = 0.0;
   let todayDinnerOrder = 0.0;
   let todayTotalOrder = 0.0;
@@ -23,21 +23,22 @@ const {today} = useGetDate();
 
   orders.map((order) => {
     //filter the lunch and dinner order
-    if (order.deliveryDate ===today) {
-        todayOrder.push(order);
-        todayTotalOrder++;
-        todayTotalPrice += order.total
-        //get the lunch order
-        if(order.deliveryTime === "Lunch"){
-            lunchOrder.push(order);
-            todayLunchOrder++;
-        }else{
-            dinnerOrder.push(order);
-            todayDinnerOrder++;
-        }
-    };
+    if (order.deliveryDate === today) {
+      todayOrder.push(order);
+      todayTotalOrder++;
+      todayTotalPrice += order.total;
+      //get the lunch order
+      if (order.deliveryTime === "Lunch") {
+        lunchOrder.push(order);
+        todayLunchOrder++;
+      } else {
+        dinnerOrder.push(order);
+        todayDinnerOrder++;
+      }
+    }
     //calculate the total income
-    if (order.status === "Delivered"||order.status === "") totalPrice += order.total;
+    if (order.status === "Delivered" || order.status === "")
+      totalPrice += order.total;
   });
   console.log(totalPrice);
   let index = 0;
@@ -59,41 +60,80 @@ const {today} = useGetDate();
             Today's Order ({today})
           </p>
           {/* display today sales  */}
-            {
-                todayOrder.length>0&&<div className="fs-5">
-                    <span className="me-4">Total order: {todayTotalOrder}</span>
-                    <span className="me-4">Total Income: {todayTotalPrice}RM</span>
-                    <span className="me-4">Total Lunch order: {todayLunchOrder}</span>
-                    <span className="me-4">Total Dinner order: {todayDinnerOrder}</span>
-                </div>
-            }
-          <table className="table caption-top ml-3" >
-            {
-                todayOrder.length>0&&<thead className="table-dark">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Details</th>
-                  <th scope="col">Address</th>
-                  <th scope="col">Food</th>
-                  <th scope="col">time</th>
-                  <th scope="col">Payment</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </thead>
-            }
-             
-          {
-            lunchOrder.map(order=>{
-                return(
+          {todayOrder.length > 0 && (
+            <div className="fs-5">
+              <span className="me-4">Total order: {todayTotalOrder}</span>
+              <span className="me-4">Total Income: {todayTotalPrice}RM</span>
+              <span className="me-4">Total Lunch order: {todayLunchOrder}</span>
+              <span className="me-4">
+                Total Dinner order: {todayDinnerOrder}
+              </span>
+            </div>
+          )}
+          
+          {/* display lunch Order of today */}
+          {todayOrder.length > 0 && lunchOrder.length>0&& (
+            <div>
+              <h3>Lunch Order</h3>
+              <table className="table caption-top ml-3">
+                <thead className="table-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">time</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+
+                {lunchOrder.map((order) => {
+                  return (
                     <OrderTable
-                        key={order._id}
-                        order={order}
-                        index={++index}
+                      key={order._id}
+                      order={order}
+                      index={++index}
                     ></OrderTable>
-                )
-            })
-          }
-          </table>
+                  );
+                })}
+              </table>
+            </div>
+          )}
+
+
+          {/* display today's dinner order */}
+           
+          {todayOrder.length > 0 && dinnerOrder.length>0&& (
+            <div>
+              <h3>Dinner Order</h3>
+              <table className="table caption-top ml-3">
+                <thead className="table-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">time</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+
+                {dinnerOrder.map((order) => {
+                  return (
+                    <OrderTable
+                      key={order._id}
+                      order={order}
+                      index={++index}
+                    ></OrderTable>
+                  );
+                })}
+              </table>
+            </div>
+          )}
+
+
 
         </div>
       ) : (
