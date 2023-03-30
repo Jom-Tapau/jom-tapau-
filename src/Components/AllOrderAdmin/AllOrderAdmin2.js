@@ -13,7 +13,7 @@ const {today} = useGetDate();
   let todayOrder = [];
   let totalPrice = 0.0;
   orders.map((order) => {
-    if (order.status === "") todayOrder.push(order);
+    if (order.deliveryDate ===today) todayOrder.push(order);
     if (order.status === "Delivered") totalPrice += order.total;
   });
   console.log(totalPrice);
@@ -37,16 +37,18 @@ const {today} = useGetDate();
           </p>
 
           <table className="table caption-top ml-3" >
-            <thead className="table-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Details</th>
-                <th scope="col">Address</th>
-                <th scope="col">Food</th>
-                <th scope="col">Payment</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
+            {
+                todayOrder.length>0?<thead className="table-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Details</th>
+                  <th scope="col">Address</th>
+                  <th scope="col">Food</th>
+                  <th scope="col">Payment</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>:<div className="text-center fs-3 text-danger">Today's order: {todayOrder.length}</div>
+            }
              
           {
             
