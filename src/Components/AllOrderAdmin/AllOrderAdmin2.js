@@ -11,11 +11,33 @@ const {today} = useGetDate();
   const { userDetails } = useGetUser();
   const { orders } = useOrders();
     console.log(orders)
-  let todayOrder = [];
+  let todayOrder = [];//array of today's order
+  let lunchOrder = [];//array of today's lunch order
+  let dinnerOrder = [];//array of today's dinner order
+  
+  let todayLunchOrder = 0.0;
+  let todayDinnerOrder = 0.0;
+  let todayTotalOrder = 0.0;
+  let todayTotalPrice = 0.0;
   let totalPrice = 0.0;
+
   orders.map((order) => {
-    if (order.deliveryDate ===today) todayOrder.push(order);
-    if (order.status === "Delivered") totalPrice += order.total;
+    //filter the lunch and dinner order
+    if (order.deliveryDate ===today) {
+        todayOrder.push(order);
+        todayTotalOrder++;
+        todayTotalPrice += order.total
+        //get the lunch order
+        if(order.deliveryTime === "Lunch"){
+            lunchOrder.push(order);
+            todayLunchOrder++;
+        }else{
+            dinnerOrder.push(order);
+            todayDinnerOrder++;
+        }
+    };
+    //calculate the total income
+    if (order.status === "Delivered"||order.status === "") totalPrice += order.total;
   });
   console.log(totalPrice);
   let index = 0;
@@ -34,12 +56,20 @@ const {today} = useGetDate();
             Total income: {totalPrice} RM
           </p>
           <p className="fs-3 fs-light text-center fst-italic">
-            Today's Order
+            Today's Order ({today})
           </p>
-
+          {/* display today sales  */}
+            {
+                todayOrder.length>0&&<div className="fs-5">
+                    <span className="me-4">Total order: {todayTotalOrder}</span>
+                    <span className="me-4">Total Income: {todayTotalPrice}RM</span>
+                    <span className="me-4">Total Lunch order: {todayLunchOrder}</span>
+                    <span className="me-4">Total Dinner order: {todayDinnerOrder}</span>
+                </div>
+            }
           <table className="table caption-top ml-3" >
             {
-                todayOrder.length>0?<thead className="table-dark">
+                todayOrder.length>0&&<thead className="table-dark">
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Details</th>
@@ -49,12 +79,11 @@ const {today} = useGetDate();
                   <th scope="col">Payment</th>
                   <th scope="col">Status</th>
                 </tr>
-              </thead>:<div className="text-center fs-3 text-danger">Today's order: {todayOrder.length}</div>
+              </thead>
             }
              
           {
-            
-            todayOrder.map(order=>{
+            lunchOrder.map(order=>{
                 return(
                     <OrderTable
                         key={order._id}
