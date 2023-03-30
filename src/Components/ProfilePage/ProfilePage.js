@@ -16,19 +16,19 @@ const ProfilePage = () => {
     const email = user?.email;
     //fetch the user from the database
     useEffect(() => {
-      fetch("https://jom-tapau-backend.onrender.com/findUser", {
+      fetch("http://localhost:5000/findUser", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify( {email:user?.email} ),
+        body: JSON.stringify( {email} ),
       })
         .then((response) => response.json())
         .then((data) => {
       
       setUserDetails(data);
         });
-    }, [userDetails]);
+    }, [email]);
     const handleClick = () => {
         navigate(`/editprofile/${userDetails._id}`);
     }

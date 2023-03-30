@@ -30,6 +30,7 @@ import EditProfilePage from "./Components/ProfilePage/EditProfilePage";
 import ProfilePage from "./Components/ProfilePage/ProfilePage";
 import CustomerOrderHistory from "./Components/ProfilePage/CustomerOrderHistory";
 import AllOrderAdmin from "./Components/AllOrderAdmin/AllOrderAdmin";
+import AllOrderAdmin2 from "./Components/AllOrderAdmin/AllOrderAdmin2";
 
 function App() {
     let location = useLocation();
@@ -68,7 +69,7 @@ function App() {
         <Route path="/rider" element={<RequireAuth><Rider></Rider></RequireAuth>}></Route>
         <Route path="/addfood" element={<AddFood></AddFood>}></Route>
         <Route path="/EditFood" element={<EditFood></EditFood>}></Route>
-        <Route path="/allOrderAdmin" element={<RequireAuth><AllOrderAdmin></AllOrderAdmin></RequireAuth>}></Route>
+        <Route path="/allOrderAdmin" element={<RequireAuth><AllOrderAdmin2></AllOrderAdmin2></RequireAuth>}></Route>
         <Route path="/EditFood/:foodID" element={<UpdateFood></UpdateFood>} />
         <Route
           path="/forgotPassword"

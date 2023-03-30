@@ -6,7 +6,7 @@ const useOrders = () =>{
     const [orders,setOrders] = useState([]);
     const [otherOrder,setOtherOrder] = useState([])
     useEffect(()=>{
-        fetch('https://jom-tapau-backend.onrender.com/allOrders')
+        fetch('http://localhost:5000/allOrders')
         .then(res=>res.json())
         .then(data=>{
             setOrders(data)
