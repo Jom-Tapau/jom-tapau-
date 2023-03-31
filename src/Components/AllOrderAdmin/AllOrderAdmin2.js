@@ -40,12 +40,12 @@ const AllOrderAdmin2 = () => {
       remainingOrder.push(order);
     }
     //calculate the total income
-    if (order.status === "Delivered" || order.status === "")
-      totalPrice += order.total;
+    totalPrice += order.total;
   });
   console.log(totalPrice);
-  let index = 0;
-
+  let lunchIndex = 0;
+  let dinnerIndex = 0;
+  let index = 0.0
   return (
     <div style={{ marginTop: "55px" }}>
       <Helmet>
@@ -96,7 +96,7 @@ const AllOrderAdmin2 = () => {
                     <OrderTable
                       key={order._id}
                       order={order}
-                      index={++index}
+                      index={lunchIndex++}
                     ></OrderTable>
                   );
                 })}
@@ -127,7 +127,7 @@ const AllOrderAdmin2 = () => {
                     <OrderTable
                       key={order._id}
                       order={order}
-                      index={++index}
+                      index={dinnerIndex++}
                     ></OrderTable>
                   );
                 })}
@@ -138,7 +138,6 @@ const AllOrderAdmin2 = () => {
           {/* display the remaining order */}
           {remainingOrder.length > 0 && (
               <div>
-                {index=0}
               <h3>Remaining Order</h3>
               <table className="table caption-top ml-3">
                 <thead className="table-dark">
