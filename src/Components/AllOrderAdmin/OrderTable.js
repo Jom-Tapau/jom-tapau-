@@ -21,7 +21,7 @@ const OrderTable = ({order,index}) => {
           <td>{order.deliveryTime}</td>
           <td>
             {order.total} RM <br /> {order.paymentMethod}
-            <br /> {order.paymentMethod === "Card" && order.transactionID}
+            <br /> 
           </td>
           <td>
             <span className="bg-warning text-white rounded p-1">Pending</span>

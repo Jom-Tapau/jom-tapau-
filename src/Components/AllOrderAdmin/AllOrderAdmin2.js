@@ -14,6 +14,7 @@ const AllOrderAdmin2 = () => {
   let todayOrder = []; //array of today's order
   let lunchOrder = []; //array of today's lunch order
   let dinnerOrder = []; //array of today's dinner order
+  let remainingOrder = []; //array of order other than today's order
 
   let todayLunchOrder = 0.0;
   let todayDinnerOrder = 0.0;
@@ -35,6 +36,8 @@ const AllOrderAdmin2 = () => {
         dinnerOrder.push(order);
         todayDinnerOrder++;
       }
+    } else {
+      remainingOrder.push(order);
     }
     //calculate the total income
     if (order.status === "Delivered" || order.status === "")
@@ -70,9 +73,9 @@ const AllOrderAdmin2 = () => {
               </span>
             </div>
           )}
-          
+
           {/* display lunch Order of today */}
-          {todayOrder.length > 0 && lunchOrder.length>0&& (
+          {todayOrder.length > 0 && lunchOrder.length > 0 && (
             <div>
               <h3>Lunch Order</h3>
               <table className="table caption-top ml-3">
@@ -101,10 +104,9 @@ const AllOrderAdmin2 = () => {
             </div>
           )}
 
-
           {/* display today's dinner order */}
-           
-          {todayOrder.length > 0 && dinnerOrder.length>0&& (
+
+          {todayOrder.length > 0 && dinnerOrder.length > 0 && (
             <div>
               <h3>Dinner Order</h3>
               <table className="table caption-top ml-3">
@@ -133,8 +135,36 @@ const AllOrderAdmin2 = () => {
             </div>
           )}
 
+          {/* display the remaining order */}
+          {remainingOrder.length > 0 && (
+              <div>
+                {index=0}
+              <h3>Remaining Order</h3>
+              <table className="table caption-top ml-3">
+                <thead className="table-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Food</th>
+                    <th scope="col">time</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
 
-
+                {remainingOrder.map((order) => {
+                  return (
+                    <OrderTable
+                      key={order._id}
+                      order={order}
+                      index={index++}
+                    ></OrderTable>
+                  );
+                })}
+              </table>
+            </div>
+          )}
         </div>
       ) : (
         <div style={{ height: "calc(100vh - 278px)" }}>
