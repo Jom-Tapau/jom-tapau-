@@ -17,6 +17,8 @@ import { Helmet } from "react-helmet";
 import useGetUser from "../../hooks/useGetUser";
 import { faJediOrder } from "@fortawesome/free-brands-svg-icons";
 import ExcelGenerator from "../ExcelGenerator/ExcelGenerator";
+import PdfGenerator from "../PdfGenerator/PdfGenerator";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 
 const Admin = () => {
   const { userDetails } = useGetUser();
@@ -140,6 +142,9 @@ const Admin = () => {
                 </LineChart>
               </div>
               <ExcelGenerator></ExcelGenerator>
+              <PDFDownloadLink document={<PdfGenerator/>} fileName="FORM">
+                {({loading,error})=>(loading?'Loading Document....':"Download")}
+              </PDFDownloadLink>
               {/* <div>
                 <h5 style={{ textAlign: "start" }} className="text-danger">
                   Orders by College
